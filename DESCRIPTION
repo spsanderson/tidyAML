@@ -11,5 +11,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.2
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    roxygen2
 VignetteBuilder: knitr
+Imports: 
+    magrittr,
+    rlang (>= 0.4.11)
