@@ -18,4 +18,7 @@ Suggests:
 VignetteBuilder: knitr
 Imports: 
     magrittr,
-    rlang (>= 0.4.11)
+    rlang (>= 0.4.11),
+    purrr (>= 0.3.5),
+    dplyr (>= 1.0.10),
+    parsnip

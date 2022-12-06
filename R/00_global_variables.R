@@ -1,0 +1,3 @@
+globalVariables(
+  ".parsnip_engine"
+)
