@@ -29,6 +29,10 @@ fast_regression_parsnip_spec_tbl(.parsnip_fns = "linear_reg")
 fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm"))
 
 }
+\seealso{
+Other Utility: 
+\code{\link{create_splits}()}
+}
 \author{
 Steven P. Sanderson II, MPH
 }
