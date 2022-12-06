@@ -4,6 +4,7 @@
 1. Fix #5 - Add function `fast_regression_to_parsnip_call_tbl()`
 2. Fix #6 - Add function `create_splits()`
 3. Fix #7 - Add function `fast_regression()`
+4. Fix #11 - Add function `create_model_spec()`
 
 ## Breaking Changes
 None
