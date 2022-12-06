@@ -100,8 +100,8 @@ fast_regression_parsnip_spec_tbl <- function(.parsnip_fns = "all",
     dplyr::mutate(
       .model_spec = purrr::pmap(
         dplyr::cur_data(),
-        #~ match.fun(..3)(mode = ..2, engine = ..1)
-        ~ get(..3)(mode = ..2, engine = ..1)
+        ~ match.fun(..3)(mode = ..2, engine = ..1)
+        #~ get(..3)(mode = ..2, engine = ..1)
       )
     )
 

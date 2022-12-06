@@ -2,8 +2,8 @@ Package: tidyaml
 Title: Automatic Machine Learning with `tidymodels`
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre")),
-    person("Steven Sanderson", role = "cph"))
+    person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre","cph"))
+    )
 Description: This package will provide a simple interface for automatic machine learning that fits the `tidymodels` framework. The intention is to work for regression and classification problems with a simple API.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -11,6 +11,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.2
 URL: https://github.com/spsanderson/tidyaml
 BugReports: https://github.com/spsanderson/tidyaml/issues
+Depends:
+    parsnip,
+    R (>= 2.10)
 Suggests: 
     knitr,
     rmarkdown,
@@ -20,5 +23,4 @@ Imports:
     magrittr,
     rlang (>= 0.4.11),
     purrr (>= 0.3.5),
-    dplyr (>= 1.0.10),
-    parsnip
+    dplyr (>= 1.0.10)
