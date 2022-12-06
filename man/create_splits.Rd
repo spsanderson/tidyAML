@@ -20,10 +20,12 @@ and the argument.}
 A list object
 }
 \description{
-Create a splits object
+Create a splits object.
 }
 \details{
-Create a splits object
+Create a splits object that returns a list object of both the
+splits object itself and the splits type. This function supports all splits
+types from the \code{rsample} package.
 }
 \examples{
 create_splits(mtcars, .split_type = "vfold_cv")

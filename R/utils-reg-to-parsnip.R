@@ -4,7 +4,10 @@
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
-#' @details Creates a tibble of parsnip regression model specifications.
+#' @details Creates a tibble of parsnip regression model specifications. This will
+#' create a tibble of 27 different regression model specifications which can be
+#' filtered. The model specs are created first and then filtered out. This will
+#' only create models for __regression__ problems.
 #'
 #' @description Creates a tibble of parsnip regression model specifications.
 #'

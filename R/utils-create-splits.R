@@ -4,9 +4,11 @@
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
-#' @description Create a splits object
+#' @description Create a splits object.
 #'
-#' @details Create a splits object
+#' @details Create a splits object that returns a list object of both the
+#' splits object itself and the splits type. This function supports all splits
+#' types from the `rsample` package.
 #'
 #' @param .data The data being passed to make a split on
 #' @param .split_type The default is "initial_split", you can pass any other split

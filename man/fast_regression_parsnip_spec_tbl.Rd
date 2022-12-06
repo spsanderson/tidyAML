@@ -22,7 +22,10 @@ A tibble with an added class of 'fst_reg_spec_tbl'
 Creates a tibble of parsnip regression model specifications.
 }
 \details{
-Creates a tibble of parsnip regression model specifications.
+Creates a tibble of parsnip regression model specifications. This will
+create a tibble of 27 different regression model specifications which can be
+filtered. The model specs are created first and then filtered out. This will
+only create models for \strong{regression} problems.
 }
 \examples{
 fast_regression_parsnip_spec_tbl(.parsnip_fns = "linear_reg")
