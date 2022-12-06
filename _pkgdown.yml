@@ -16,6 +16,10 @@ navbar:
       href: news/index.html
 
 reference:
+  -  title: Model Generators
+     desc: Functions that will generate models
+     contents:
+     -  has_concept("Model_Generator")
   -  title: Utility Functions
      desc: Utility/Internal Functions and Helpers
      contents:
