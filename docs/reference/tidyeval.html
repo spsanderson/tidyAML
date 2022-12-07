@@ -257,8 +257,8 @@ the left of <code>=</code>, so we use <code>:=</code> as a workaround.</p>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">%&gt;%</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="st">"{{ var }}_mean_{suffix}"</span> <span class="sc">:</span><span class="er">=</span> <span class="fu">mean</span>({{ var }}))</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre><p></p></div></li>
-<li><p>Many tidy eval functions like <code><a href="https://rdrr.io/pkg/dplyr/man/mutate.html" class="external-link">dplyr::mutate()</a></code> or
-<code><a href="https://rdrr.io/pkg/dplyr/man/summarise.html" class="external-link">dplyr::summarise()</a></code> give an automatic name to unnamed inputs. If
+<li><p>Many tidy eval functions like <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code> or
+<code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">dplyr::summarise()</a></code> give an automatic name to unnamed inputs. If
 you need to create the same sort of automatic names by yourself,
 use <code>as_label()</code>. For instance, the glue-tunnelling syntax above
 can be reproduced manually with:</p>
