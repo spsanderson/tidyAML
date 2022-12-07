@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tidyaml
+# tidyaml <img src="man/figures/logo.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
 
@@ -29,6 +29,16 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(tidyaml)
+#> Loading required package: parsnip
+#> 
+#> == Welcome to tidyaml ===========================================================================
+#> If you find this package useful, please leave a star: 
+#>    https://github.com/spsanderson/tidyaml'
+#> 
+#> If you encounter a bug or want to request an enhancement please file an issue at:
+#>    https://github.com/spsanderson/tidyaml/issues
+#> 
+#> Thank you for using tidyaml!
 ## basic example code
 ```
 
