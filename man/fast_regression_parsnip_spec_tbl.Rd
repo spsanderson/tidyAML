@@ -23,9 +23,10 @@ Creates a tibble of parsnip regression model specifications.
 }
 \details{
 Creates a tibble of parsnip regression model specifications. This will
-create a tibble of 27 different regression model specifications which can be
+create a tibble of 61 different regression model specifications which can be
 filtered. The model specs are created first and then filtered out. This will
-only create models for \strong{regression} problems.
+only create models for \strong{regression} problems. To find all of the supported
+models in this package you can visit \url{https://www.tidymodels.org/find/parsnip/}
 }
 \examples{
 fast_regression_parsnip_spec_tbl(.parsnip_fns = "linear_reg")
@@ -33,6 +34,44 @@ fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm"))
 
 }
 \seealso{
+\url{https://parsnip.tidymodels.org/reference/linear_reg.html}
+
+\url{https://parsnip.tidymodels.org/reference/cubist_rules.html}
+
+\url{https://parsnip.tidymodels.org/reference/survival_reg.html}
+
+\url{https://parsnip.tidymodels.org/reference/poisson_reg.html}
+
+\url{https://parsnip.tidymodels.org/reference/bag_mars.html}
+
+\url{https://parsnip.tidymodels.org/reference/bag_tree.html}
+
+\url{https://parsnip.tidymodels.org/reference/bart.html}
+
+\url{https://parsnip.tidymodels.org/reference/boost_tree.html}
+
+\url{https://parsnip.tidymodels.org/reference/decision_tree.html}
+
+\url{https://parsnip.tidymodels.org/reference/gen_additive_mod.html}
+
+\url{https://parsnip.tidymodels.org/reference/mars.html}
+
+\url{https://parsnip.tidymodels.org/reference/mlp.html}
+
+\url{https://parsnip.tidymodels.org/reference/nearest_neighbor.html}
+
+\url{https://parsnip.tidymodels.org/reference/pls.html}
+
+\url{https://parsnip.tidymodels.org/reference/rand_forest.html}
+
+\url{https://parsnip.tidymodels.org/reference/rule_fit.html}
+
+\url{https://parsnip.tidymodels.org/reference/svm_linear.html}
+
+\url{https://parsnip.tidymodels.org/reference/svm_poly.html}
+
+\url{https://parsnip.tidymodels.org/reference/svm_rbf.html}
+
 Other Utility: 
 \code{\link{create_splits}()}
 }
