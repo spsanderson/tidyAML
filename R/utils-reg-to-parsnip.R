@@ -193,7 +193,10 @@ fast_regression_parsnip_spec_tbl <- function(.parsnip_fns = "all",
         ~ match.fun(..3)(mode = ..2, engine = ..1)
         #~ get(..3)(mode = ..2, engine = ..1)
       )
-    )
+    ) %>%
+    # add .model_id column
+    dplyr::mutate(.model_id = dplyr::row_number()) %>%
+    dplyr::select(.model_id, dplyr::everything())
 
   # Return ----
   class(mod_spec_tbl) <- c("fst_reg_spec_tbl", class(mod_spec_tbl))
