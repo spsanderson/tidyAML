@@ -41,8 +41,8 @@ With this function you can generate a tibble output of any regression
 model specification and it's fitted \code{workflow} object.
 }
 \examples{
-library(recipes)
-library(dplyr)
+library(recipes, quietly = TRUE)
+library(dplyr, quietly = TRUE)
 
 rec_obj <- recipe(mpg ~ ., data = mtcars)
 frt_tbl <- fast_regression(mtcars, rec_obj, .parsnip_eng = c("lm","glm"))

@@ -21,8 +21,8 @@
 #' of the split type will be executed for the rsample split type.
 #'
 #' @examples
-#' library(recipes)
-#' library(dplyr)
+#' library(recipes, quietly = TRUE)
+#' library(dplyr, quietly = TRUE)
 #'
 #' rec_obj <- recipe(mpg ~ ., data = mtcars)
 #' frt_tbl <- fast_regression(mtcars, rec_obj, .parsnip_eng = c("lm","glm"))
