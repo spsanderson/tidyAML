@@ -36,6 +36,7 @@ NULL
 
 #' @export
 #' @rdname fast_regression
+#'
 
 fast_regression <- function(.data, .rec_obj, .parsnip_fns = "all",
                             .parsnip_eng = "all", .split_type = "initial_split",
@@ -68,24 +69,24 @@ fast_regression <- function(.data, .rec_obj, .parsnip_fns = "all",
   )
 
   mod_rec_tbl <- mod_spec_tbl %>%
-    dplyr::mutate(.model_recipe = list(rec_obj))
+    dplyr::mutate(model_recipe = list(rec_obj))
 
   mod_tbl <- mod_rec_tbl %>%
     dplyr::mutate(
-      .wflw = list(
+      wflw = list(
         workflows::workflow() %>%
-          workflows::add_recipe(.model_recipe[[1]]) %>%
-          workflows::add_model(.model_spec[[1]])
+          workflows::add_recipe(model_recipe[[1]]) %>%
+          workflows::add_model(model_spec[[1]])
       )
     ) %>%
     dplyr::mutate(
-      .fitted_wflw = list(
-        parsnip::fit(.wflw[[1]], data = rsample::training(splits_obj$splits))
+      fitted_wflw = list(
+        parsnip::fit(wflw[[1]], data = rsample::training(splits_obj$splits))
       )
     ) %>%
     dplyr::mutate(
-      .pred_wflw = list(
-        predict(.fitted_wflw[[1]], new_data = rsample::testing(splits_obj$splits))
+      pred_wflw = list(
+        stats::predict(fitted_wflw[[1]], new_data = rsample::testing(splits_obj$splits))
       )
     )
 
