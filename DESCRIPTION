@@ -17,11 +17,14 @@ Depends:
 Suggests: 
     knitr,
     rmarkdown,
-    roxygen2
+    roxygen2,
+    stats,
+    recipes
 VignetteBuilder: knitr
 Imports: 
     magrittr,
     rlang (>= 0.4.11),
     purrr (>= 0.3.5),
     dplyr (>= 1.0.10),
-    recipes (>= 1.0.3)
+    rsample (>= 1.1.0),
+    workflows (>= 1.1.2)

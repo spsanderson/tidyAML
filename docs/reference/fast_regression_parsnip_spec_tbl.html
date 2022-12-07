@@ -124,29 +124,29 @@ models in this package you can visit <a href="https://www.tidymodels.org/find/pa
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">fast_regression_parsnip_spec_tbl</span><span class="op">(</span>.parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 14 × 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    .parsnip_engine .parsnip_mode .parsnip_fns .model_spec</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> lm              regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> brulee          regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> gee             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> glm             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> glmer           regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> glmnet          regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> gls             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> h2o             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> keras           regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> lme             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> lmer            regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> spark           regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> stan            regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> stan_glmer      regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    .parsnip_engine .parsnip_mode .parsnip_fns model_spec</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> lm              regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> brulee          regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> gee             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> glm             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> glmer           regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> glmnet          regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> gls             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> h2o             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> keras           regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> lme             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> lmer            regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> spark           regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> stan            regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> stan_glmer      regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
 <span class="r-in"><span><span class="fu">fast_regression_parsnip_spec_tbl</span><span class="op">(</span>.parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   .parsnip_engine .parsnip_mode .parsnip_fns .model_spec</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> lm              regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> glm             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> glm             regression    poisson_reg  <span style="color: #949494;">&lt;spec[+]&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .parsnip_engine .parsnip_mode .parsnip_fns model_spec</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> lm              regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> glm             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> glm             regression    poisson_reg  <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
