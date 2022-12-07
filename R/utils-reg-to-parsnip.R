@@ -5,7 +5,7 @@
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @details Creates a tibble of parsnip regression model specifications. This will
-#' create a tibble of 61 different regression model specifications which can be
+#' create a tibble of 58 different regression model specifications which can be
 #' filtered. The model specs are created first and then filtered out. This will
 #' only create models for __regression__ problems. To find all of the supported
 #' models in this package you can visit \url{https://www.tidymodels.org/find/parsnip/}
@@ -80,13 +80,13 @@ fast_regression_parsnip_spec_tbl <- function(.parsnip_fns = "all",
       # bag_mars
       "earth",
       # bag_tree
-      "rpart", "C5.0",
+      "rpart",
       # bart
-      "dbart",
+      "dbarts",
       # boost_tree
-      "xgboost", "C5.0","h2o","lightgbm","mboost","spark",
+      "xgboost","h2o","lightgbm","spark","mboost",
       # decision_tree
-      "rpart","C5.0","partykit","spark",
+      "rpart","spark","partykit",
       # gen_additive_mod
       "mgcv",
       # mars
@@ -98,24 +98,57 @@ fast_regression_parsnip_spec_tbl <- function(.parsnip_fns = "all",
       # pls
       "mixOmics",
       # rand_forest
-      "ranger","aorsf","h2o","randomforest","spark","partykit",
+      "ranger","h2o","randomForest","spark","partykit","aorsf",
       # rule_fit
       "xrf","h2o",
       # svm_linear
-      "LibLineaR","kernlab",
+      "LiblineaR","kernlab",
       # svm_poly
       "kernlab",
       # svm_rbf
       "kernlab"
     ),
     .parsnip_mode = c(
-      rep("regression", 24),
-      rep("censored regression", 3),
-      rep("regression", 12),
-      rep("censored regression", 1),
+      # linear_reg
       rep("regression", 14),
+      # cubist_rules
+      "regression",
+      # poisson_reg
+      rep("regression", 9),
+      # survival_reg
+      rep("censored regression", 3),
+      # bag_mars
+      "regression",
+      # bag_tree
+      "regression",
+      # bart
+      "regression",
+      # boost_tree
+      rep("regression", 4),
       "censored regression",
-      rep("regression", 6)
+      # decision_tree
+      rep("regression", 3),
+      # gen_additive_mod
+      "regression",
+      # mars
+      "regression",
+      # mlp
+      rep("regression", 4),
+      # nearest_neighbor
+      "regression",
+      # pls
+      "regression",
+      # rand_forest
+      rep("regression", 4),
+      rep("censored regression", 2),
+      # rule_fit
+      rep("regression", 2),
+      # svm_linear
+      rep("regression", 2),
+      # svm_poly
+      "regression",
+      # svm_rbf
+      "regression"
     ),
     .parsnip_fns = c(
       rep("linear_reg", 14),
@@ -123,10 +156,10 @@ fast_regression_parsnip_spec_tbl <- function(.parsnip_fns = "all",
       rep("poisson_reg",9),
       rep("survival_reg", 3),
       "bag_mars",
-      rep("bag_tree",2),
+      rep("bag_tree",1),
       "bart",
-      rep("boost_tree",6),
-      rep("decision_tree", 4),
+      rep("boost_tree",5),
+      rep("decision_tree", 3),
       "gen_additive_mod",
       "mars",
       rep("mlp", 4),
