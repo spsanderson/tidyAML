@@ -40,6 +40,15 @@
     <loc>https://www.spsanderson.com/tidyaml/reference/index.html</loc>
   </url>
   <url>
+    <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_fitted_wflw.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw_predictions.html</loc>
+  </url>
+  <url>
     <loc>https://www.spsanderson.com/tidyaml/reference/pipe.html</loc>
   </url>
   <url>
