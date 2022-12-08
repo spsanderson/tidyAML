@@ -226,3 +226,75 @@ create_model_spec(
 #> 
 #> Computational engine: cubist
 ```
+
+Now the reason we are here. Let’s take a look at the first function for
+modeling with `{tidyaml}`, **`fast_regression()`**.
+
+``` r
+library(recipes)
+library(dplyr)
+
+rec_obj <- recipe(mpg ~ ., data = mtcars)
+frt_tbl <- fast_regression(
+  .data = mtcars, 
+  .rec_obj = rec_obj, 
+  .parsnip_eng = c("lm","glm","gee"),
+  .parsnip_fns = "linear_reg"
+)
+
+glimpse(frt_tbl)
+#> Rows: 3
+#> Columns: 8
+#> $ .model_id       <int> 1, 2, 3
+#> $ .parsnip_engine <chr> "lm", "gee", "glm"
+#> $ .parsnip_mode   <chr> "regression", "regression", "regression"
+#> $ .parsnip_fns    <chr> "linear_reg", "linear_reg", "linear_reg"
+#> $ model_spec      <list> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…
+#> $ wflw            <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
+#> $ fitted_wflw     <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
+#> $ pred_wflw       <list> [<tbl_df[24 x 1]>], "Error - Could not make prediction…
+```
+
+As we see above, one of the models has gracefully failed, thanks in part
+to the function `purrr::safely()`, which was used to make what I call
+**safe_make** functions.
+
+Let’s look at the fitted workflow predictions.
+
+``` r
+frt_tbl$pred_wflw
+#> [[1]]
+#> # A tibble: 24 × 1
+#>    .pred
+#>    <dbl>
+#>  1  22.2
+#>  2  13.1
+#>  3  15.8
+#>  4  28.5
+#>  5  20.2
+#>  6  11.4
+#>  7  30.0
+#>  8  18.7
+#>  9  31.7
+#> 10  16.4
+#> # … with 14 more rows
+#> 
+#> [[2]]
+#> [1] "Error - Could not make predictions"
+#> 
+#> [[3]]
+#> # A tibble: 24 × 1
+#>    .pred
+#>    <dbl>
+#>  1  22.2
+#>  2  13.1
+#>  3  15.8
+#>  4  28.5
+#>  5  20.2
+#>  6  11.4
+#>  7  30.0
+#>  8  18.7
+#>  9  31.7
+#> 10  16.4
+#> # … with 14 more rows
+```
