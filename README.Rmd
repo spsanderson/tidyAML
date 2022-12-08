@@ -110,3 +110,30 @@ create_model_spec(
  .return_tibble = FALSE
  )
 ```
+
+Now the reason we are here. Let's take a look at the first function for modeling 
+with `{tidyaml}`, __`fast_regression()`__.
+
+```{r, warning=FALSE, message=FALSE}
+library(recipes)
+library(dplyr)
+
+rec_obj <- recipe(mpg ~ ., data = mtcars)
+frt_tbl <- fast_regression(
+  .data = mtcars, 
+  .rec_obj = rec_obj, 
+  .parsnip_eng = c("lm","glm","gee"),
+  .parsnip_fns = "linear_reg"
+)
+
+glimpse(frt_tbl)
+```
+
+As we see above, one of the models has gracefully failed, thanks in part to the 
+function `purrr::safely()`, which was used to make what I call __safe_make__ functions.
+
+Let's look at the fitted workflow predictions.
+
+```{r}
+frt_tbl$pred_wflw
+```
