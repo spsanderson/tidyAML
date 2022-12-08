@@ -25,7 +25,8 @@
 #' library(dplyr, quietly = TRUE)
 #'
 #' rec_obj <- recipe(mpg ~ ., data = mtcars)
-#' frt_tbl <- fast_regression(mtcars, rec_obj, .parsnip_eng = c("lm","glm"))
+#' frt_tbl <- fast_regression(mtcars, rec_obj, .parsnip_eng = c("lm","glm"),
+#' .parsnip_fns = "linear_reg")
 #' glimpse(frt_tbl)
 #'
 #' @return
@@ -68,27 +69,22 @@ fast_regression <- function(.data, .rec_obj, .parsnip_fns = "all",
     .parsnip_eng = engine
   )
 
-  mod_rec_tbl <- mod_spec_tbl %>%
-    dplyr::mutate(model_recipe = list(rec_obj))
-
-  mod_tbl <- mod_rec_tbl %>%
+  # Generate Workflow object
+  mod_tbl <- mod_spec_tbl %>%
     dplyr::mutate(
-      wflw = list(
-        workflows::workflow() %>%
-          workflows::add_recipe(model_recipe[[1]]) %>%
-          workflows::add_model(model_spec[[1]])
-      )
-    ) %>%
-    dplyr::mutate(
-      fitted_wflw = list(
-        parsnip::fit(wflw[[1]], data = rsample::training(splits_obj$splits))
-      )
-    ) %>%
-    dplyr::mutate(
-      pred_wflw = list(
-        stats::predict(fitted_wflw[[1]], new_data = rsample::testing(splits_obj$splits))
-      )
+      wflw = internal_make_wflw(mod_spec_tbl, .rec_obj = rec_obj)
     )
+
+  mod_fitted_tbl <- mod_tbl %>%
+    dplyr::mutate(
+      fitted_wflw = internal_make_fitted_wflw(mod_tbl, splits_obj)
+    )
+
+  mod_pred_tbl <- mod_fitted_tbl %>%
+    dplyr::mutate(
+      pred_wflw = internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)
+    )
+
 
   # Return ----
   class(mod_tbl) <- c("fst_reg_tbl", class(mod_tbl))
@@ -96,5 +92,6 @@ fast_regression <- function(.data, .rec_obj, .parsnip_fns = "all",
   attr(mod_tbl, ".parsnip_functions") <- .parsnip_fns
   attr(mod_tbl, ".split_type") <- .split_type
   attr(mod_tbl, ".split_args") <- .split_args
-  return(mod_tbl)
+
+  return(mod_pred_tbl)
 }
