@@ -39,7 +39,8 @@ internal_make_wflw(mod_spec_tbl, rec_obj)
 }
 \seealso{
 Other Internals: 
-\code{\link{internal_make_fitted_wflw}()}
+\code{\link{internal_make_fitted_wflw}()},
+\code{\link{internal_make_wflw_predictions}()}
 }
 \author{
 Steven P. Sanderson II, MPH
