@@ -3,7 +3,7 @@ pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   getting-started: getting-started.html
-last_built: 2022-12-08T17:19Z
+last_built: 2022-12-08T18:27Z
 urls:
   reference: https://www.spsanderson.com/tidyaml/reference
   article: https://www.spsanderson.com/tidyaml/articles
