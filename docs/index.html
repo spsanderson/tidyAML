@@ -94,14 +94,28 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install <a href="https://github.com/spsanderson/tidyaml" class="external-link">tidyaml</a> like so (But neither are available yet)</p>
+<p>You can install <a href="https://github.com/spsanderson/tidyaml" class="external-link">tidyaml</a> like so (Not yet available on CRAN)</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Not yet on CRAN</span></span>
 <span><span class="co"># install.packages("tidyaml")</span></span></code></pre></div>
 <p>Or the development version from GitHub</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="co"># devtools::install_github("spsanderson/TidyDensity")</span></span></code></pre></div>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"spsanderson/tidyaml"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; rsample (1.1.0 -&gt; 1.1.1) [CRAN]</span></span>
+<span><span class="co">#&gt; package 'rsample' successfully unpacked and MD5 sums checked</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; The downloaded binary packages are in</span></span>
+<span><span class="co">#&gt;  C:\Users\steve\AppData\Local\Temp\RtmpCCsVmZ\downloaded_packages</span></span>
+<span><span class="co">#&gt; ── R CMD build ─────────────────────────────────────────────────────────────────</span></span>
+<span><span class="co">#&gt;       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpCCsVmZ\remotes43946eff1838\spsanderson-tidyaml-2756c89/DESCRIPTION'</span></span>
+<span><span class="co">#&gt;       ─  preparing 'tidyaml': (852ms)</span></span>
+<span><span class="co">#&gt;    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information</span></span>
+<span><span class="co">#&gt;       ─  checking for LF line-endings in source and make files and shell scripts</span></span>
+<span><span class="co">#&gt;   ─  checking for empty or unneeded directories</span></span>
+<span><span class="co">#&gt;       ─  building 'tidyaml_0.0.0.9000.tar.gz'</span></span>
+<span><span class="co">#&gt;      </span></span>
+<span><span class="co">#&gt; </span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
@@ -279,16 +293,16 @@
 <span><span class="co">#&gt; # A tibble: 24 × 1</span></span>
 <span><span class="co">#&gt;    .pred</span></span>
 <span><span class="co">#&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1  17.1</span></span>
-<span><span class="co">#&gt;  2  15.2</span></span>
-<span><span class="co">#&gt;  3  21.2</span></span>
-<span><span class="co">#&gt;  4  19.2</span></span>
-<span><span class="co">#&gt;  5  18.5</span></span>
-<span><span class="co">#&gt;  6  29.2</span></span>
-<span><span class="co">#&gt;  7  15.1</span></span>
-<span><span class="co">#&gt;  8  23.0</span></span>
-<span><span class="co">#&gt;  9  13.7</span></span>
-<span><span class="co">#&gt; 10  29.3</span></span>
+<span><span class="co">#&gt;  1  14.8</span></span>
+<span><span class="co">#&gt;  2  28.4</span></span>
+<span><span class="co">#&gt;  3  21.7</span></span>
+<span><span class="co">#&gt;  4  12.9</span></span>
+<span><span class="co">#&gt;  5  19.8</span></span>
+<span><span class="co">#&gt;  6  18.5</span></span>
+<span><span class="co">#&gt;  7  27.9</span></span>
+<span><span class="co">#&gt;  8  14.4</span></span>
+<span><span class="co">#&gt;  9  18.1</span></span>
+<span><span class="co">#&gt; 10  14.6</span></span>
 <span><span class="co">#&gt; # … with 14 more rows</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[2]]</span></span>
@@ -298,16 +312,16 @@
 <span><span class="co">#&gt; # A tibble: 24 × 1</span></span>
 <span><span class="co">#&gt;    .pred</span></span>
 <span><span class="co">#&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1  17.1</span></span>
-<span><span class="co">#&gt;  2  15.2</span></span>
-<span><span class="co">#&gt;  3  21.2</span></span>
-<span><span class="co">#&gt;  4  19.2</span></span>
-<span><span class="co">#&gt;  5  18.5</span></span>
-<span><span class="co">#&gt;  6  29.2</span></span>
-<span><span class="co">#&gt;  7  15.1</span></span>
-<span><span class="co">#&gt;  8  23.0</span></span>
-<span><span class="co">#&gt;  9  13.7</span></span>
-<span><span class="co">#&gt; 10  29.3</span></span>
+<span><span class="co">#&gt;  1  14.8</span></span>
+<span><span class="co">#&gt;  2  28.4</span></span>
+<span><span class="co">#&gt;  3  21.7</span></span>
+<span><span class="co">#&gt;  4  12.9</span></span>
+<span><span class="co">#&gt;  5  19.8</span></span>
+<span><span class="co">#&gt;  6  18.5</span></span>
+<span><span class="co">#&gt;  7  27.9</span></span>
+<span><span class="co">#&gt;  8  14.4</span></span>
+<span><span class="co">#&gt;  9  18.1</span></span>
+<span><span class="co">#&gt; 10  14.6</span></span>
 <span><span class="co">#&gt; # … with 14 more rows</span></span></code></pre></div>
 </div>
 </div>
