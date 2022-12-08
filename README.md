@@ -43,7 +43,7 @@ built on `tidymodels`.
 
 ## Installation
 
-You can install `{tidyaml}` like so (But neither are available yet)
+You can install `{tidyaml}` like so (Not yet available on CRAN)
 
 ``` r
 # Not yet on CRAN
@@ -54,7 +54,21 @@ Or the development version from GitHub
 
 ``` r
 # install.packages("devtools")
-# devtools::install_github("spsanderson/TidyDensity")
+devtools::install_github("spsanderson/tidyaml")
+#> rsample (1.1.0 -> 1.1.1) [CRAN]
+#> package 'rsample' successfully unpacked and MD5 sums checked
+#> 
+#> The downloaded binary packages are in
+#>  C:\Users\steve\AppData\Local\Temp\RtmpCCsVmZ\downloaded_packages
+#> ── R CMD build ─────────────────────────────────────────────────────────────────
+#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpCCsVmZ\remotes43946eff1838\spsanderson-tidyaml-2756c89/DESCRIPTION'
+#>       ─  preparing 'tidyaml': (852ms)
+#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
+#>       ─  checking for LF line-endings in source and make files and shell scripts
+#>   ─  checking for empty or unneeded directories
+#>       ─  building 'tidyaml_0.0.0.9000.tar.gz'
+#>      
+#> 
 ```
 
 ## Examples
@@ -267,16 +281,16 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  17.1
-#>  2  15.2
-#>  3  21.2
-#>  4  19.2
-#>  5  18.5
-#>  6  29.2
-#>  7  15.1
-#>  8  23.0
-#>  9  13.7
-#> 10  29.3
+#>  1  14.8
+#>  2  28.4
+#>  3  21.7
+#>  4  12.9
+#>  5  19.8
+#>  6  18.5
+#>  7  27.9
+#>  8  14.4
+#>  9  18.1
+#> 10  14.6
 #> # … with 14 more rows
 #> 
 #> [[2]]
@@ -286,15 +300,15 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  17.1
-#>  2  15.2
-#>  3  21.2
-#>  4  19.2
-#>  5  18.5
-#>  6  29.2
-#>  7  15.1
-#>  8  23.0
-#>  9  13.7
-#> 10  29.3
+#>  1  14.8
+#>  2  28.4
+#>  3  21.7
+#>  4  12.9
+#>  5  19.8
+#>  6  18.5
+#>  7  27.9
+#>  8  14.4
+#>  9  18.1
+#> 10  14.6
 #> # … with 14 more rows
 ```

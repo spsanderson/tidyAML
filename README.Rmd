@@ -41,16 +41,16 @@ to be setup properly like `h2o` because `{tidyaml}` is built on `tidymodels`.
 
 ## Installation
 
-You can install `{tidyaml}` like so (But neither are available yet)
+You can install `{tidyaml}` like so (Not yet available on CRAN)
 
 ```{r}
 # Not yet on CRAN
 # install.packages("tidyaml")
 ```
 Or the development version from GitHub
-```{r}
+```{r, warning=FALSE, message=FALSE}
 # install.packages("devtools")
-# devtools::install_github("spsanderson/TidyDensity")
+devtools::install_github("spsanderson/tidyaml")
 ```
 
 ## Examples
