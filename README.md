@@ -15,12 +15,22 @@ Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-squ
 
 ## Introduction
 
-The goal of the `{tidyaml}` package is to serve as a sort of **Auto ML**
-for the **`tidymodels`** ecosystem. Some ideas are that we should be
-able to generate regression models on the fly without having to actually
-go through the process of building the specification, especially if it
-is a non-tuning model, meaning we are not planing on tuning
-hyper-parameters like `penalty` and `cost`.
+Welcome to **`{tidyaml}`** which is a new R package that makes it easy
+to use the `tidymodels` ecosystem to perform automated machine learning
+(AutoML). This package provides a simple and intuitive interface that
+allows users to quickly generate machine learning models without
+worrying about the underlying details. It also includes a safety
+mechanism that ensures that the package will fail gracefully if any
+required extension packages are not installed on the user’s machine.
+With `{tidyaml}`, users can easily build high-quality machine learning
+models in just a few lines of code. Whether you are a beginner or an
+experienced machine learning practitioner, `{tidyaml}` has something to
+offer.
+
+Some ideas are that we should be able to generate regression models on
+the fly without having to actually go through the process of building
+the specification, especially if it is a non-tuning model, meaning we
+are not planing on tuning hyper-parameters like `penalty` and `cost`.
 
 The idea is not to re-write the excellent work the `tidymodels` team has
 done (because it’s not possible) but rather to try and make an enhanced
