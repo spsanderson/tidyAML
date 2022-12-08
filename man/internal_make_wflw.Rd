@@ -37,6 +37,10 @@ rec_obj <- recipe(mpg ~ ., data = mtcars)
 internal_make_wflw(mod_spec_tbl, rec_obj)
 
 }
+\seealso{
+Other Internals: 
+\code{\link{internal_make_fitted_wflw}()}
+}
 \author{
 Steven P. Sanderson II, MPH
 }
