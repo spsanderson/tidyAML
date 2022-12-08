@@ -16,7 +16,7 @@ Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-squ
 ## Introduction
 
 The goal of the `{tidyaml}` package is to serve as a sort of **Auto ML**
-for the **`{tidymodels}`** ecosystem. Some ideas are that we should be
+for the **`tidymodels`** ecosystem. Some ideas are that we should be
 able to generate regression models on the fly without having to actually
 go through the process of building the specification, especially if it
 is a non-tuning model, meaning we are not planing on tuning
@@ -28,8 +28,8 @@ easy to use set of functions that do what they say and can generate many
 models and predictions at once.
 
 This is similar to the great `h2o` package, but, `{tidyaml}` does not
-require java to be setup properly liek `h2o` because `{tidyaml}` is
-built on `{tidymodels}`.
+require java to be setup properly like `h2o` because `{tidyaml}` is
+built on `tidymodels`.
 
 ## Installation
 
@@ -113,3 +113,106 @@ As shown we can easily select the models we want either by choosing the
 supported `parsnip` function like `linear_reg()` or by choose the
 desired `engine`, you can also use them both in conjunction with each
 other!
+
+This function also does add a class to the output. Let’s see it.
+
+``` r
+class(fast_regression_parsnip_spec_tbl())
+#> [1] "tidyaml_mod_spec_tbl" "fst_reg_spec_tbl"     "tbl_df"              
+#> [4] "tbl"                  "data.frame"
+```
+
+We see that there are two added classes, first `fst_reg_spec_tbl`
+because this creates a set of non-tuning regression models and then
+`tidyaml_mod_spec_tbl` because this is a model specification tibble
+built with `{tidyaml}`
+
+Now, what if you want to create a non-tuning model spec without using
+the `fast_regression_parsnip_spec_tbl()` function. Well, you can. The
+function is called `create_model_spec()`.
+
+``` r
+create_model_spec(
+ .parsnip_eng = list("lm","glm","glmnet","cubist"),
+ .parsnip_fns = list(
+      rep(
+        "linear_reg", 3),
+        "cubist_rules"
+     )
+ )
+#> # A tibble: 4 × 4
+#>   .parsnip_engine .parsnip_mode .parsnip_fns .model_spec
+#>   <chr>           <chr>         <chr>        <list>     
+#> 1 lm              regression    linear_reg   <spec[+]>  
+#> 2 glm             regression    linear_reg   <spec[+]>  
+#> 3 glmnet          regression    linear_reg   <spec[+]>  
+#> 4 cubist          regression    cubist_rules <spec[+]>
+
+create_model_spec(
+ .parsnip_eng = list("lm","glm","glmnet","cubist"),
+ .parsnip_fns = list(
+      rep(
+        "linear_reg", 3),
+        "cubist_rules"
+     ),
+ .return_tibble = FALSE
+ )
+#> $.parsnip_engine
+#> $.parsnip_engine[[1]]
+#> [1] "lm"
+#> 
+#> $.parsnip_engine[[2]]
+#> [1] "glm"
+#> 
+#> $.parsnip_engine[[3]]
+#> [1] "glmnet"
+#> 
+#> $.parsnip_engine[[4]]
+#> [1] "cubist"
+#> 
+#> 
+#> $.parsnip_mode
+#> $.parsnip_mode[[1]]
+#> [1] "regression"
+#> 
+#> 
+#> $.parsnip_fns
+#> $.parsnip_fns[[1]]
+#> [1] "linear_reg"
+#> 
+#> $.parsnip_fns[[2]]
+#> [1] "linear_reg"
+#> 
+#> $.parsnip_fns[[3]]
+#> [1] "linear_reg"
+#> 
+#> $.parsnip_fns[[4]]
+#> [1] "cubist_rules"
+#> 
+#> 
+#> $.model_spec
+#> $.model_spec[[1]]
+#> Linear Regression Model Specification (regression)
+#> 
+#> Computational engine: lm 
+#> 
+#> 
+#> $.model_spec[[2]]
+#> Linear Regression Model Specification (regression)
+#> 
+#> Computational engine: glm 
+#> 
+#> 
+#> $.model_spec[[3]]
+#> Linear Regression Model Specification (regression)
+#> 
+#> Computational engine: glmnet 
+#> 
+#> 
+#> $.model_spec[[4]]
+#> ! parsnip could not locate an implementation for `cubist_rules` regression
+#>   model specifications using the `cubist` engine.
+#> Cubist Model Specification (regression)
+#> 
+#> Computational engine: cubist
+```

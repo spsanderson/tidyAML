@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 ## Introduction
 
 The goal of the `{tidyaml}` package is to serve as a sort of __Auto ML__ for the
-__`{tidymodels}`__ ecosystem. Some ideas are that we should be able to generate regression
+__`tidymodels`__ ecosystem. Some ideas are that we should be able to generate regression
 models on the fly without having to actually go through the process of building the
 specification, especially if it is a non-tuning model, meaning we are not planing
 on tuning hyper-parameters like `penalty` and `cost`.
@@ -36,7 +36,7 @@ it's not possible) but rather to try and make an enhanced easy to use set of fun
 that do what they say and can generate many models and predictions at once.
 
 This is similar to the great `h2o` package, but, `{tidyaml}` does not require java
-to be setup properly liek `h2o` because `{tidyaml}` is built on `{tidymodels}`.
+to be setup properly like `h2o` because `{tidyaml}` is built on `tidymodels`.
 
 ## Installation
 
@@ -76,4 +76,36 @@ As shown we can easily select the models we want either by choosing the supporte
 `parsnip` function like `linear_reg()` or by choose the desired `engine`, you can 
 also use them both in conjunction with each other!
 
+This function also does add a class to the output. Let's see it.
+```{r}
+class(fast_regression_parsnip_spec_tbl())
+```
 
+We see that there are two added classes, first `fst_reg_spec_tbl` because this 
+creates a set of non-tuning regression models and then `tidyaml_mod_spec_tbl` because
+this is a model specification tibble built with `{tidyaml}`
+
+Now, what if you want to create a non-tuning model spec without using the 
+`fast_regression_parsnip_spec_tbl()` function. Well, you can. The function is called
+`create_model_spec()`. 
+
+```{r}
+create_model_spec(
+ .parsnip_eng = list("lm","glm","glmnet","cubist"),
+ .parsnip_fns = list(
+      rep(
+        "linear_reg", 3),
+        "cubist_rules"
+     )
+ )
+
+create_model_spec(
+ .parsnip_eng = list("lm","glm","glmnet","cubist"),
+ .parsnip_fns = list(
+      rep(
+        "linear_reg", 3),
+        "cubist_rules"
+     ),
+ .return_tibble = FALSE
+ )
+```
