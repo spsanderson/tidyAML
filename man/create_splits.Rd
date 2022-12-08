@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils-create-splits.R
 \name{create_splits}
 \alias{create_splits}
-\title{Utility Crate Splits Object}
+\title{Utility Create Splits Object}
 \usage{
 create_splits(.data, .split_type = "initial_split", .split_args = NULL)
 }
