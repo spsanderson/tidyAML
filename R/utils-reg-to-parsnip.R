@@ -200,6 +200,7 @@ fast_regression_parsnip_spec_tbl <- function(.parsnip_fns = "all",
 
   # Return ----
   class(mod_spec_tbl) <- c("fst_reg_spec_tbl", class(mod_spec_tbl))
+  class(mod_spec_tbl) <- c("tidyaml_mod_spec_tbl", class(mod_spec_tbl))
   attr(mod_spec_tbl, ".parsnip_engines") <- .parsnip_eng
   attr(mod_spec_tbl, ".parsnip_functions") <- .parsnip_fns
 

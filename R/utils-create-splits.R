@@ -1,4 +1,4 @@
-#' Utility Crate Splits Object
+#' Utility Create Splits Object
 #'
 #' @family Utility
 #'

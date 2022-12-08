@@ -5,6 +5,7 @@
 2. Fix #6 - Add function `create_splits()`
 3. Fix #7 - Add function `fast_regression()`
 4. Fix #11 - Add function `create_model_spec()`
+5. Fix #30, #31, 32 - Add internal functions `internal_make_wflw()`, `internal_make_fitted_wflw()`, `internal_make_wflw_predictions()`
 
 ## Breaking Changes
 None

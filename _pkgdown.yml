@@ -24,5 +24,9 @@ reference:
      desc: Utility/Internal Functions and Helpers
      contents:
      -  has_concept("Utility")
+  -  title: Internals
+     desc: Internal/Helper functions
+     contents:
+     -  has_concept("Internals")
 
 search:
