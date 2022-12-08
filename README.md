@@ -13,23 +13,49 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 <!-- badges: end -->
 
-The goal of tidyaml is to …
+## Introduction
+
+The goal of the `{tidyaml}` package is to serve as a sort of **Auto ML**
+for the **`{tidymodels}`** ecosystem. Some ideas are that we should be
+able to generate regression models on the fly without having to actually
+go through the process of building the specification, especially if it
+is a non-tuning model, meaning we are not planing on tuning
+hyper-parameters like `penalty` and `cost`.
+
+The idea is not to re-write the excellent work the `tidymodels` team has
+done (because it’s not possible) but rather to try and make an enhanced
+easy to use set of functions that do what they say and can generate many
+models and predictions at once.
+
+This is similar to the great `h2o` package, but, `{tidyaml}` does not
+require java to be setup properly liek `h2o` because `{tidyaml}` is
+built on `{tidymodels}`.
 
 ## Installation
 
-You can install the development version of tidyaml like so:
+You can install `{tidyaml}` like so (But neither are available yet)
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# Not yet on CRAN
+# install.packages("tidyaml")
 ```
 
-## Example
+Or the development version from GitHub
+
+``` r
+# install.packages("devtools")
+# devtools::install_github("spsanderson/TidyDensity")
+```
+
+## Examples
 
 Part of the reason to use `{tidyaml}` is so that you can generate many
 models of your data set. One way of modeling a data set is using
 regression for some numeric output. There is a convienent function in
-**tidyaml** that will generate a set of non-tunable models for *fast
+**tidyaml** that will generate a set of non-tuning models for *fast
 regression*. Let’s take a look below.
+
+First let’s load the library
 
 ``` r
 library(tidyaml)
@@ -43,7 +69,11 @@ library(tidyaml)
 #>    https://github.com/spsanderson/tidyaml/issues
 #> 
 #> Thank you for using tidyaml!
+```
 
+Now lets see the function in action.
+
+``` r
 fast_regression_parsnip_spec_tbl(.parsnip_fns = "linear_reg")
 #> # A tibble: 14 × 5
 #>    .model_id .parsnip_engine .parsnip_mode .parsnip_fns model_spec
@@ -69,4 +99,17 @@ fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm"))
 #> 1         1 lm              regression    linear_reg   <spec[+]> 
 #> 2         2 glm             regression    linear_reg   <spec[+]> 
 #> 3         3 glm             regression    poisson_reg  <spec[+]>
+fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm","gee"), 
+                                 .parsnip_fns = "linear_reg")
+#> # A tibble: 3 × 5
+#>   .model_id .parsnip_engine .parsnip_mode .parsnip_fns model_spec
+#>       <int> <chr>           <chr>         <chr>        <list>    
+#> 1         1 lm              regression    linear_reg   <spec[+]> 
+#> 2         2 gee             regression    linear_reg   <spec[+]> 
+#> 3         3 glm             regression    linear_reg   <spec[+]>
 ```
+
+As shown we can easily select the models we want either by choosing the
+supported `parsnip` function like `linear_reg()` or by choose the
+desired `engine`, you can also use them both in conjunction with each
+other!

@@ -23,26 +23,57 @@ knitr::opts_chunk$set(
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 <!-- badges: end -->
 
-The goal of tidyaml is to ...
+## Introduction
+
+The goal of the `{tidyaml}` package is to serve as a sort of __Auto ML__ for the
+__`{tidymodels}`__ ecosystem. Some ideas are that we should be able to generate regression
+models on the fly without having to actually go through the process of building the
+specification, especially if it is a non-tuning model, meaning we are not planing
+on tuning hyper-parameters like `penalty` and `cost`.
+
+The idea is not to re-write the excellent work the `tidymodels` team has done (because
+it's not possible) but rather to try and make an enhanced easy to use set of functions
+that do what they say and can generate many models and predictions at once.
+
+This is similar to the great `h2o` package, but, `{tidyaml}` does not require java
+to be setup properly liek `h2o` because `{tidyaml}` is built on `{tidymodels}`.
 
 ## Installation
 
-You can install the development version of tidyaml like so:
+You can install `{tidyaml}` like so (But neither are available yet)
 
-``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+```{r}
+# Not yet on CRAN
+# install.packages("tidyaml")
+```
+Or the development version from GitHub
+```{r}
+# install.packages("devtools")
+# devtools::install_github("spsanderson/TidyDensity")
 ```
 
-## Example
+## Examples
 
 Part of the reason to use `{tidyaml}` is so that you can generate many models of
 your data set. One way of modeling a data set is using regression for some numeric
 output. There is a convienent function in __tidyaml__ that will generate a set of
-non-tunable models for _fast regression_. Let's take a look below.
+non-tuning models for _fast regression_. Let's take a look below.
 
+First let's load the library
 ```{r example}
 library(tidyaml)
+```
 
+Now lets see the function in action.
+```{r}
 fast_regression_parsnip_spec_tbl(.parsnip_fns = "linear_reg")
 fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm"))
+fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm","gee"), 
+                                 .parsnip_fns = "linear_reg")
 ```
+
+As shown we can easily select the models we want either by choosing the supported
+`parsnip` function like `linear_reg()` or by choose the desired `engine`, you can 
+also use them both in conjunction with each other!
+
+
