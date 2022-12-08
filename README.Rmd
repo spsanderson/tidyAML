@@ -40,7 +40,19 @@ This is a basic example which shows you how to solve a common problem:
 ```{r example}
 library(tidyaml)
 
-fast_regression_parsnip_spec_tbl()
+fast_regression_parsnip_spec_tbl(.parsnip_fns = "linear_reg")
+fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm"))
+```
+
+Here are all of the `parsnip::engines` and `parsnip regression` functions that are supported for the `fast_regression_parsnip_spec_tbl()` function.
+
+```{r, warning=FALSE, message=FALSE}
+library(gt)
+library(dplyr)
+
+fast_regression_parsnip_spec_tbl() %>%
+  select(-model_spec) %>%
+  gt()
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
