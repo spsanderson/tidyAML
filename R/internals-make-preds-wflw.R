@@ -1,16 +1,16 @@
-#' Internals Safely Make a Fitted Workflow from Model Spec tibble
+#' Internals Safely Make Predictions on a Fitted Workflow from Model Spec tibble
 #'
 #' @family Internals
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
-#' @description Safely Make a fitted workflow from a model spec tibble.
+#' @description Safely Make predictions on a fitted workflow from a model spec tibble.
 #'
-#' @details Create a fitted `parnsip` model from a `workflow` object.
+#' @details Create predictions on a fitted `parnsip` model from a `workflow` object.
 #'
 #' @param .model_tbl The model table that is generated from a function like
 #' `fast_regression_parsnip_spec_tbl()`, must have a class of "tidyaml_mod_spec_tbl".
-#' This is meant to be used after the function `internal_make_wflw()` has been
+#' This is meant to be used after the function `internal_make_fitted_wflw()` has been
 #' run and the tibble has been saved.
 #' @param .splits_obj The splits object from the auto_ml function. It is internal
 #' to the `auto_ml_` function.
@@ -30,19 +30,22 @@
 #' mod_tbl <- mod_spec_tbl %>%
 #'   mutate(wflw = internal_make_wflw(mod_spec_tbl, rec_obj))
 #'
-#' internal_make_fitted_wflw(mod_tbl, splits_obj)
+#' mod_fitted_tbl <- mod_tbl %>%
+#'   mutate(fitted_wflw = internal_make_fitted_wflw(mod_tbl, splits_obj))
+#'
+#' internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)
 #'
 #' @return
 #' A list object of workflows.
 #'
-#' @name internal_make_fitted_wflw
+#' @name internal_make_wflw_predictions
 NULL
 
 #' @export
-#' @rdname internal_make_fitted_wflw
+#' @rdname internal_make_wflw_predictions
 
-# Safely make fitted workflow
-internal_make_fitted_wflw <- function(.model_tbl, .splits_obj){
+# Safely make predictions on fitted workflow
+internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
 
   # Tidyeval ----
   model_tbl <- .model_tbl
@@ -57,7 +60,7 @@ internal_make_fitted_wflw <- function(.model_tbl, .splits_obj){
     )
   }
 
-  if (!"wflw" %in% col_nms){
+  if (!"fitted_wflw" %in% col_nms){
     rlang::abort(
       message = "Missing the column 'wflw'",
       use_cli_format = TRUE
@@ -73,27 +76,31 @@ internal_make_fitted_wflw <- function(.model_tbl, .splits_obj){
 
   # Manipulation
   # Make a group split object list
-  models_list <- model_tbl %>%
+  model_factor_tbl <- model_tbl %>%
+    dplyr::mutate(.model_id = forcats::as_factor(.model_id))
+
+  models_list <- model_factor_tbl %>%
     dplyr::group_split(.model_id)
 
-  # Make the fitted workflow object using purrr imap
-  fitted_wflw_list <- models_list %>%
+  # Make the predictions on the fitted workflow object using purrr imap
+  wflw_preds_list <- models_list %>%
     purrr::imap(
       .f = function(obj, id){
 
-        # Pull the workflow column and then pluck it
-        wflw <- obj %>% dplyr::pull(6) %>% purrr::pluck(1)
+        # Pull the fitted workflow column and then pluck it
+        fitted_wflw = obj %>% dplyr::pull(7) %>% purrr::pluck(1)
 
-        # Create a safe parsnip::fit function
-        safe_parsnip_fit <- purrr::safely(
-          parsnip::fit,
-          otherwise = "Error - Could not fit the workflow.",
+        # Create a safe stats::predict
+        safe_stats_predict <- purrr::safely(
+          stats::predict,
+          otherwise = "Error - Could not make predictions",
           quiet = FALSE
         )
 
-        # Return the fitted workflow
-        ret <- safe_parsnip_fit(
-          wflw, data = rsample::training(splits_obj$splits)
+        # Return the predictions
+        ret <- safe_stats_predict(
+          fitted_wflw,
+          new_data = rsample::training(splits_obj$splits)
         )
 
         res <- ret %>% purrr::pluck("result")
@@ -102,6 +109,5 @@ internal_make_fitted_wflw <- function(.model_tbl, .splits_obj){
       }
     )
 
-  return(fitted_wflw_list)
-
+  return(wflw_preds_list)
 }
