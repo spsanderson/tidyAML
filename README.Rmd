@@ -52,10 +52,7 @@ library(dplyr)
 
 fast_regression_parsnip_spec_tbl() %>%
   select(-model_spec) %>%
-  gt() %>%
-  tab_header(
-    title = "Supported Parsnip Engines and Functions for Regression"
-  )
+  knitr::kable()
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
