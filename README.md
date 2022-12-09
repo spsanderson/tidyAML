@@ -41,6 +41,12 @@ This is similar to the great `h2o` package, but, `{tidyAML}` does not
 require java to be setup properly like `h2o` because `{tidyAML}` is
 built on `tidymodels`.
 
+## Thanks
+
+Thank you [Garrick
+Aden-Buie](https://fosstodon.org/@grrrck/109479826278916014) for the
+easy name change suggestion.
+
 ## Installation
 
 You can install `{tidyAML}` like so (Not yet available on CRAN)
@@ -59,14 +65,14 @@ devtools::install_github("spsanderson/tidyAML")
 #> package 'rsample' successfully unpacked and MD5 sums checked
 #> 
 #> The downloaded binary packages are in
-#>  C:\Users\steve\AppData\Local\Temp\RtmpiuCyIE\downloaded_packages
+#>  C:\Users\steve\AppData\Local\Temp\RtmpUN9cPO\downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>          checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpiuCyIE\remotes71b0e7844f0\spsanderson-tidyaml-51d21ef/DESCRIPTION' ...     checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpiuCyIE\remotes71b0e7844f0\spsanderson-tidyaml-51d21ef/DESCRIPTION' ...   ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpiuCyIE\remotes71b0e7844f0\spsanderson-tidyaml-51d21ef/DESCRIPTION'
-#>       ─  preparing 'tidyaml': (899ms)
+#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpUN9cPO\remotes36147c714951\spsanderson-tidyAML-33b9e09/DESCRIPTION'
+#>       ─  preparing 'tidyAML': (1s)
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
 #>   ─  checking for empty or unneeded directories
-#>       ─  building 'tidyaml_0.0.0.9000.tar.gz'
+#>       ─  building 'tidyAML_0.0.0.9000.tar.gz'
 #>      
 #> 
 ```
@@ -281,16 +287,16 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  19.0
-#>  2  14.9
-#>  3  15.7
-#>  4  17.0
-#>  5  18.6
-#>  6  17.7
-#>  7  29.2
-#>  8  20.4
-#>  9  11.9
-#> 10  28.5
+#>  1  23.4
+#>  2  10.4
+#>  3  20.0
+#>  4  28.4
+#>  5  25.9
+#>  6  26.4
+#>  7  14.5
+#>  8  30.3
+#>  9  27.8
+#> 10  29.4
 #> # … with 14 more rows
 #> 
 #> [[2]]
@@ -300,15 +306,15 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  19.0
-#>  2  14.9
-#>  3  15.7
-#>  4  17.0
-#>  5  18.6
-#>  6  17.7
-#>  7  29.2
-#>  8  20.4
-#>  9  11.9
-#> 10  28.5
+#>  1  23.4
+#>  2  10.4
+#>  3  20.0
+#>  4  28.4
+#>  5  25.9
+#>  6  26.4
+#>  7  14.5
+#>  8  30.3
+#>  9  27.8
+#> 10  29.4
 #> # … with 14 more rows
 ```
