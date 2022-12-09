@@ -13,19 +13,19 @@ knitr::opts_chunk$set(
 )
 ```
 
-# tidyaml <img src="man/figures/logo.png" width="147" height="170" align="right" />
+# tidyAML <img src="man/figures/logo.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyaml)](https://cran.r-project.org/package=tidyaml)
-![](https://cranlogs.r-pkg.org/badges/tidyaml)
-![](https://cranlogs.r-pkg.org/badges/grand-total/tidyaml)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyAML)](https://cran.r-project.org/package=tidyAML)
+![](https://cranlogs.r-pkg.org/badges/tidyAML)
+![](https://cranlogs.r-pkg.org/badges/grand-total/tidyAML)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html##experimental)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 <!-- badges: end -->
 
 ## Introduction
 
-Welcome to __`{tidyaml}`__ which is a new R package that makes it easy to use the `tidymodels` ecosystem to perform automated machine learning (AutoML). This package provides a simple and intuitive interface that allows users to quickly generate machine learning models without worrying about the underlying details. It also includes a safety mechanism that ensures that the package will fail gracefully if any required extension packages are not installed on the user's machine. With `{tidyaml}`, users can easily build high-quality machine learning models in just a few lines of code. Whether you are a beginner or an experienced machine learning practitioner, `{tidyaml}` has something to offer.
+Welcome to __`{tidyAML}`__ which is a new R package that makes it easy to use the `tidymodels` ecosystem to perform automated machine learning (AutoML). This package provides a simple and intuitive interface that allows users to quickly generate machine learning models without worrying about the underlying details. It also includes a safety mechanism that ensures that the package will fail gracefully if any required extension packages are not installed on the user's machine. With `{tidyAML}`, users can easily build high-quality machine learning models in just a few lines of code. Whether you are a beginner or an experienced machine learning practitioner, `{tidyAML}` has something to offer.
 
 Some ideas are that we should be able to generate regression
 models on the fly without having to actually go through the process of building the
@@ -36,33 +36,33 @@ The idea is not to re-write the excellent work the `tidymodels` team has done (b
 it's not possible) but rather to try and make an enhanced easy to use set of functions
 that do what they say and can generate many models and predictions at once.
 
-This is similar to the great `h2o` package, but, `{tidyaml}` does not require java
-to be setup properly like `h2o` because `{tidyaml}` is built on `tidymodels`.
+This is similar to the great `h2o` package, but, `{tidyAML}` does not require java
+to be setup properly like `h2o` because `{tidyAML}` is built on `tidymodels`.
 
 ## Installation
 
-You can install `{tidyaml}` like so (Not yet available on CRAN)
+You can install `{tidyAML}` like so (Not yet available on CRAN)
 
 ```{r}
 # Not yet on CRAN
-# install.packages("tidyaml")
+# install.packages("tidyAML")
 ```
 Or the development version from GitHub
 ```{r, warning=FALSE, message=FALSE}
 # install.packages("devtools")
-devtools::install_github("spsanderson/tidyaml")
+devtools::install_github("spsanderson/tidyAML")
 ```
 
 ## Examples
 
-Part of the reason to use `{tidyaml}` is so that you can generate many models of
+Part of the reason to use `{tidyAML}` is so that you can generate many models of
 your data set. One way of modeling a data set is using regression for some numeric
-output. There is a convienent function in __tidyaml__ that will generate a set of
+output. There is a convienent function in __tidyAML__ that will generate a set of
 non-tuning models for _fast regression_. Let's take a look below.
 
 First let's load the library
 ```{r example}
-library(tidyaml)
+library(tidyAML)
 ```
 
 Now lets see the function in action.
@@ -84,7 +84,7 @@ class(fast_regression_parsnip_spec_tbl())
 
 We see that there are two added classes, first `fst_reg_spec_tbl` because this 
 creates a set of non-tuning regression models and then `tidyaml_mod_spec_tbl` because
-this is a model specification tibble built with `{tidyaml}`
+this is a model specification tibble built with `{tidyAML}`
 
 Now, what if you want to create a non-tuning model spec without using the 
 `fast_regression_parsnip_spec_tbl()` function. Well, you can. The function is called
@@ -112,7 +112,7 @@ create_model_spec(
 ```
 
 Now the reason we are here. Let's take a look at the first function for modeling 
-with `{tidyaml}`, __`fast_regression()`__.
+with `{tidyAML}`, __`fast_regression()`__.
 
 ```{r, warning=FALSE, message=FALSE}
 library(recipes)

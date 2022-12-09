@@ -1,4 +1,4 @@
-# tidyaml 0.0.0.9000
+# tidyAML 0.0.0.9000
 
 ## New Features
 1. Fix #5 - Add function `fast_regression_to_parsnip_call_tbl()`
