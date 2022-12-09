@@ -1,8 +1,8 @@
 ---
-title: "Getting Started with tidyaml"
+title: "Getting Started with tidyAML"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Getting Started with tidyaml}
+  %\VignetteIndexEntry{Getting Started with tidyAML}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,5 +15,5 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(tidyaml)
+library(tidyAML)
 ```

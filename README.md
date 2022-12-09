@@ -1,13 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tidyaml <img src="man/figures/logo.png" width="147" height="170" align="right" />
+# tidyAML <img src="man/figures/logo.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyaml)](https://cran.r-project.org/package=tidyaml)
-![](https://cranlogs.r-pkg.org/badges/tidyaml)
-![](https://cranlogs.r-pkg.org/badges/grand-total/tidyaml) [![Lifecycle:
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyAML)](https://cran.r-project.org/package=tidyAML)
+![](https://cranlogs.r-pkg.org/badges/tidyAML)
+![](https://cranlogs.r-pkg.org/badges/grand-total/tidyAML) [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html##experimental)
 [![PRs
 Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
@@ -15,16 +15,16 @@ Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-squ
 
 ## Introduction
 
-Welcome to **`{tidyaml}`** which is a new R package that makes it easy
+Welcome to **`{tidyAML}`** which is a new R package that makes it easy
 to use the `tidymodels` ecosystem to perform automated machine learning
 (AutoML). This package provides a simple and intuitive interface that
 allows users to quickly generate machine learning models without
 worrying about the underlying details. It also includes a safety
 mechanism that ensures that the package will fail gracefully if any
 required extension packages are not installed on the user’s machine.
-With `{tidyaml}`, users can easily build high-quality machine learning
+With `{tidyAML}`, users can easily build high-quality machine learning
 models in just a few lines of code. Whether you are a beginner or an
-experienced machine learning practitioner, `{tidyaml}` has something to
+experienced machine learning practitioner, `{tidyAML}` has something to
 offer.
 
 Some ideas are that we should be able to generate regression models on
@@ -37,32 +37,32 @@ done (because it’s not possible) but rather to try and make an enhanced
 easy to use set of functions that do what they say and can generate many
 models and predictions at once.
 
-This is similar to the great `h2o` package, but, `{tidyaml}` does not
-require java to be setup properly like `h2o` because `{tidyaml}` is
+This is similar to the great `h2o` package, but, `{tidyAML}` does not
+require java to be setup properly like `h2o` because `{tidyAML}` is
 built on `tidymodels`.
 
 ## Installation
 
-You can install `{tidyaml}` like so (Not yet available on CRAN)
+You can install `{tidyAML}` like so (Not yet available on CRAN)
 
 ``` r
 # Not yet on CRAN
-# install.packages("tidyaml")
+# install.packages("tidyAML")
 ```
 
 Or the development version from GitHub
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("spsanderson/tidyaml")
+devtools::install_github("spsanderson/tidyAML")
 #> rsample (1.1.0 -> 1.1.1) [CRAN]
 #> package 'rsample' successfully unpacked and MD5 sums checked
 #> 
 #> The downloaded binary packages are in
-#>  C:\Users\steve\AppData\Local\Temp\RtmpCCsVmZ\downloaded_packages
+#>  C:\Users\steve\AppData\Local\Temp\RtmpiuCyIE\downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpCCsVmZ\remotes43946eff1838\spsanderson-tidyaml-2756c89/DESCRIPTION'
-#>       ─  preparing 'tidyaml': (852ms)
+#>          checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpiuCyIE\remotes71b0e7844f0\spsanderson-tidyaml-51d21ef/DESCRIPTION' ...     checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpiuCyIE\remotes71b0e7844f0\spsanderson-tidyaml-51d21ef/DESCRIPTION' ...   ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpiuCyIE\remotes71b0e7844f0\spsanderson-tidyaml-51d21ef/DESCRIPTION'
+#>       ─  preparing 'tidyaml': (899ms)
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
 #>   ─  checking for empty or unneeded directories
@@ -73,26 +73,26 @@ devtools::install_github("spsanderson/tidyaml")
 
 ## Examples
 
-Part of the reason to use `{tidyaml}` is so that you can generate many
+Part of the reason to use `{tidyAML}` is so that you can generate many
 models of your data set. One way of modeling a data set is using
 regression for some numeric output. There is a convienent function in
-**tidyaml** that will generate a set of non-tuning models for *fast
+**tidyAML** that will generate a set of non-tuning models for *fast
 regression*. Let’s take a look below.
 
 First let’s load the library
 
 ``` r
-library(tidyaml)
+library(tidyAML)
 #> Loading required package: parsnip
 #> 
-#> == Welcome to tidyaml ===========================================================================
+#> == Welcome to tidyAML ===========================================================================
 #> If you find this package useful, please leave a star: 
-#>    https://github.com/spsanderson/tidyaml'
+#>    https://github.com/spsanderson/tidyAML'
 #> 
 #> If you encounter a bug or want to request an enhancement please file an issue at:
-#>    https://github.com/spsanderson/tidyaml/issues
+#>    https://github.com/spsanderson/tidyAML/issues
 #> 
-#> Thank you for using tidyaml!
+#> Thank you for using tidyAML!
 ```
 
 Now lets see the function in action.
@@ -149,7 +149,7 @@ class(fast_regression_parsnip_spec_tbl())
 We see that there are two added classes, first `fst_reg_spec_tbl`
 because this creates a set of non-tuning regression models and then
 `tidyaml_mod_spec_tbl` because this is a model specification tibble
-built with `{tidyaml}`
+built with `{tidyAML}`
 
 Now, what if you want to create a non-tuning model spec without using
 the `fast_regression_parsnip_spec_tbl()` function. Well, you can. The
@@ -242,7 +242,7 @@ create_model_spec(
 ```
 
 Now the reason we are here. Let’s take a look at the first function for
-modeling with `{tidyaml}`, **`fast_regression()`**.
+modeling with `{tidyAML}`, **`fast_regression()`**.
 
 ``` r
 library(recipes)
@@ -281,16 +281,16 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  14.8
-#>  2  28.4
-#>  3  21.7
-#>  4  12.9
-#>  5  19.8
-#>  6  18.5
-#>  7  27.9
-#>  8  14.4
-#>  9  18.1
-#> 10  14.6
+#>  1  19.0
+#>  2  14.9
+#>  3  15.7
+#>  4  17.0
+#>  5  18.6
+#>  6  17.7
+#>  7  29.2
+#>  8  20.4
+#>  9  11.9
+#> 10  28.5
 #> # … with 14 more rows
 #> 
 #> [[2]]
@@ -300,15 +300,15 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  14.8
-#>  2  28.4
-#>  3  21.7
-#>  4  12.9
-#>  5  19.8
-#>  6  18.5
-#>  7  27.9
-#>  8  14.4
-#>  9  18.1
-#> 10  14.6
+#>  1  19.0
+#>  2  14.9
+#>  3  15.7
+#>  4  17.0
+#>  5  18.6
+#>  6  17.7
+#>  7  29.2
+#>  8  20.4
+#>  9  11.9
+#> 10  28.5
 #> # … with 14 more rows
 ```
