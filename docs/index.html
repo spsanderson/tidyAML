@@ -92,6 +92,11 @@
 <p>This is similar to the great <code>h2o</code> package, but, <a href="https://github.com/spsanderson/tidyAML" class="external-link">tidyAML</a> does not require java to be setup properly like <code>h2o</code> because <a href="https://github.com/spsanderson/tidyAML" class="external-link">tidyAML</a> is built on <code>tidymodels</code>.</p>
 </div>
 <div class="section level2">
+<h2 id="thanks">Thanks<a class="anchor" aria-label="anchor" href="#thanks"></a>
+</h2>
+<p>Thank you <a href="https://fosstodon.org/@grrrck/109479826278916014" class="external-link">Garrick Aden-Buie</a> for the easy name change suggestion.</p>
+</div>
+<div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>You can install <a href="https://github.com/spsanderson/tidyAML" class="external-link">tidyAML</a> like so (Not yet available on CRAN)</p>
@@ -106,14 +111,14 @@
 <span><span class="co">#&gt; package 'rsample' successfully unpacked and MD5 sums checked</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; The downloaded binary packages are in</span></span>
-<span><span class="co">#&gt;  C:\Users\steve\AppData\Local\Temp\RtmpiuCyIE\downloaded_packages</span></span>
+<span><span class="co">#&gt;  C:\Users\steve\AppData\Local\Temp\RtmpUN9cPO\downloaded_packages</span></span>
 <span><span class="co">#&gt; ── R CMD build ─────────────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt;          checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpiuCyIE\remotes71b0e7844f0\spsanderson-tidyaml-51d21ef/DESCRIPTION' ...     checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpiuCyIE\remotes71b0e7844f0\spsanderson-tidyaml-51d21ef/DESCRIPTION' ...   ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpiuCyIE\remotes71b0e7844f0\spsanderson-tidyaml-51d21ef/DESCRIPTION'</span></span>
-<span><span class="co">#&gt;       ─  preparing 'tidyaml': (899ms)</span></span>
+<span><span class="co">#&gt;       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpUN9cPO\remotes36147c714951\spsanderson-tidyAML-33b9e09/DESCRIPTION'</span></span>
+<span><span class="co">#&gt;       ─  preparing 'tidyAML': (1s)</span></span>
 <span><span class="co">#&gt;    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information</span></span>
 <span><span class="co">#&gt;       ─  checking for LF line-endings in source and make files and shell scripts</span></span>
 <span><span class="co">#&gt;   ─  checking for empty or unneeded directories</span></span>
-<span><span class="co">#&gt;       ─  building 'tidyaml_0.0.0.9000.tar.gz'</span></span>
+<span><span class="co">#&gt;       ─  building 'tidyAML_0.0.0.9000.tar.gz'</span></span>
 <span><span class="co">#&gt;      </span></span>
 <span><span class="co">#&gt; </span></span></code></pre></div>
 </div>
@@ -293,16 +298,16 @@
 <span><span class="co">#&gt; # A tibble: 24 × 1</span></span>
 <span><span class="co">#&gt;    .pred</span></span>
 <span><span class="co">#&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1  19.0</span></span>
-<span><span class="co">#&gt;  2  14.9</span></span>
-<span><span class="co">#&gt;  3  15.7</span></span>
-<span><span class="co">#&gt;  4  17.0</span></span>
-<span><span class="co">#&gt;  5  18.6</span></span>
-<span><span class="co">#&gt;  6  17.7</span></span>
-<span><span class="co">#&gt;  7  29.2</span></span>
-<span><span class="co">#&gt;  8  20.4</span></span>
-<span><span class="co">#&gt;  9  11.9</span></span>
-<span><span class="co">#&gt; 10  28.5</span></span>
+<span><span class="co">#&gt;  1  23.4</span></span>
+<span><span class="co">#&gt;  2  10.4</span></span>
+<span><span class="co">#&gt;  3  20.0</span></span>
+<span><span class="co">#&gt;  4  28.4</span></span>
+<span><span class="co">#&gt;  5  25.9</span></span>
+<span><span class="co">#&gt;  6  26.4</span></span>
+<span><span class="co">#&gt;  7  14.5</span></span>
+<span><span class="co">#&gt;  8  30.3</span></span>
+<span><span class="co">#&gt;  9  27.8</span></span>
+<span><span class="co">#&gt; 10  29.4</span></span>
 <span><span class="co">#&gt; # … with 14 more rows</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[2]]</span></span>
@@ -312,16 +317,16 @@
 <span><span class="co">#&gt; # A tibble: 24 × 1</span></span>
 <span><span class="co">#&gt;    .pred</span></span>
 <span><span class="co">#&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1  19.0</span></span>
-<span><span class="co">#&gt;  2  14.9</span></span>
-<span><span class="co">#&gt;  3  15.7</span></span>
-<span><span class="co">#&gt;  4  17.0</span></span>
-<span><span class="co">#&gt;  5  18.6</span></span>
-<span><span class="co">#&gt;  6  17.7</span></span>
-<span><span class="co">#&gt;  7  29.2</span></span>
-<span><span class="co">#&gt;  8  20.4</span></span>
-<span><span class="co">#&gt;  9  11.9</span></span>
-<span><span class="co">#&gt; 10  28.5</span></span>
+<span><span class="co">#&gt;  1  23.4</span></span>
+<span><span class="co">#&gt;  2  10.4</span></span>
+<span><span class="co">#&gt;  3  20.0</span></span>
+<span><span class="co">#&gt;  4  28.4</span></span>
+<span><span class="co">#&gt;  5  25.9</span></span>
+<span><span class="co">#&gt;  6  26.4</span></span>
+<span><span class="co">#&gt;  7  14.5</span></span>
+<span><span class="co">#&gt;  8  30.3</span></span>
+<span><span class="co">#&gt;  9  27.8</span></span>
+<span><span class="co">#&gt; 10  29.4</span></span>
 <span><span class="co">#&gt; # … with 14 more rows</span></span></code></pre></div>
 </div>
 </div>

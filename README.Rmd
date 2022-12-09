@@ -39,6 +39,10 @@ that do what they say and can generate many models and predictions at once.
 This is similar to the great `h2o` package, but, `{tidyAML}` does not require java
 to be setup properly like `h2o` because `{tidyAML}` is built on `tidymodels`.
 
+## Thanks
+
+Thank you [Garrick Aden-Buie](https://fosstodon.org/@grrrck/109479826278916014) for the easy name change suggestion.
+
 ## Installation
 
 You can install `{tidyAML}` like so (Not yet available on CRAN)
