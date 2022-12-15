@@ -23,7 +23,7 @@ Creates a tibble of parsnip regression model specifications.
 }
 \details{
 Creates a tibble of parsnip regression model specifications. This will
-create a tibble of 58 different regression model specifications which can be
+create a tibble of 46 different regression model specifications which can be
 filtered. The model specs are created first and then filtered out. This will
 only create models for \strong{regression} problems. To find all of the supported
 models in this package you can visit \url{https://www.tidymodels.org/find/parsnip/}
