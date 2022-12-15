@@ -25,6 +25,9 @@
     <loc>https://www.spsanderson.com/tidyaml/news/index.html</loc>
   </url>
   <url>
+    <loc>https://www.spsanderson.com/tidyaml/reference/core_packages.html</loc>
+  </url>
+  <url>
     <loc>https://www.spsanderson.com/tidyaml/reference/create_model_spec.html</loc>
   </url>
   <url>
@@ -40,6 +43,9 @@
     <loc>https://www.spsanderson.com/tidyaml/reference/index.html</loc>
   </url>
   <url>
+    <loc>https://www.spsanderson.com/tidyaml/reference/install_deps.html</loc>
+  </url>
+  <url>
     <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_fitted_wflw.html</loc>
   </url>
   <url>
@@ -47,6 +53,9 @@
   </url>
   <url>
     <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw_predictions.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/tidyaml/reference/load_deps.html</loc>
   </url>
   <url>
     <loc>https://www.spsanderson.com/tidyaml/reference/pipe.html</loc>
