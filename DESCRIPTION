@@ -21,7 +21,8 @@ Suggests:
     stats,
     recipes,
     tibble,
-    stringr
+    stringr,
+    utils
 VignetteBuilder: knitr
 Imports: 
     magrittr,

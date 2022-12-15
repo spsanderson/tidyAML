@@ -73,7 +73,10 @@ fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm"))
 \url{https://parsnip.tidymodels.org/reference/svm_rbf.html}
 
 Other Utility: 
-\code{\link{create_splits}()}
+\code{\link{core_packages}()},
+\code{\link{create_splits}()},
+\code{\link{install_deps}()},
+\code{\link{load_deps}()}
 }
 \author{
 Steven P. Sanderson II, MPH
