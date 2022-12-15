@@ -74,8 +74,8 @@ internal_make_wflw <- function(.model_tbl, .rec_obj){
         # Create a safe add_model function
         safe_add_model <- purrr::safely(
           workflows::add_model,
-          otherwise = "Error - Could not make workflow object.",
-          quiet = FALSE
+          otherwise = NULL,
+          quiet = TRUE
         )
 
         # Return the workflow object with recipe and model
@@ -85,6 +85,8 @@ internal_make_wflw <- function(.model_tbl, .rec_obj){
 
         # Pluck the result
         res <- ret %>% purrr::pluck("result")
+
+        if (!is.null(ret$error)) message(stringr::str_glue("{ret$error}"))
 
         # Return the result
         return(res)

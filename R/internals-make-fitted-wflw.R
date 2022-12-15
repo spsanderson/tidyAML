@@ -87,8 +87,8 @@ internal_make_fitted_wflw <- function(.model_tbl, .splits_obj){
         # Create a safe parsnip::fit function
         safe_parsnip_fit <- purrr::safely(
           parsnip::fit,
-          otherwise = "Error - Could not fit the workflow.",
-          quiet = FALSE
+          otherwise = NULL,
+          quiet = TRUE
         )
 
         # Return the fitted workflow
@@ -97,6 +97,8 @@ internal_make_fitted_wflw <- function(.model_tbl, .splits_obj){
         )
 
         res <- ret %>% purrr::pluck("result")
+
+        if (!is.null(ret$error)) message(stringr::str_glue("{ret$error}"))
 
         return(res)
       }

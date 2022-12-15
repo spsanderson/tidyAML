@@ -93,8 +93,8 @@ internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
         # Create a safe stats::predict
         safe_stats_predict <- purrr::safely(
           stats::predict,
-          otherwise = "Error - Could not make predictions",
-          quiet = FALSE
+          otherwise = NULL,
+          quiet = TRUE
         )
 
         # Return the predictions
@@ -104,6 +104,8 @@ internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
         )
 
         res <- ret %>% purrr::pluck("result")
+
+        if (!is.null(ret$error)) message(stringr::str_glue("{ret$error}"))
 
         return(res)
       }

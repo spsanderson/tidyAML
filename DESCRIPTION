@@ -20,7 +20,8 @@ Suggests:
     roxygen2,
     stats,
     recipes,
-    tibble
+    tibble,
+    stringr
 VignetteBuilder: knitr
 Imports: 
     magrittr,
