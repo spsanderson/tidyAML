@@ -5,7 +5,7 @@
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @details Creates a tibble of parsnip regression model specifications. This will
-#' create a tibble of 58 different regression model specifications which can be
+#' create a tibble of 46 different regression model specifications which can be
 #' filtered. The model specs are created first and then filtered out. This will
 #' only create models for __regression__ problems. To find all of the supported
 #' models in this package you can visit \url{https://www.tidymodels.org/find/parsnip/}
@@ -65,112 +65,54 @@ fast_regression_parsnip_spec_tbl <- function(.parsnip_fns = "all",
     purrr::flatten_chr()
 
   # Make tibble
-  mod_tbl <- dplyr::tibble(
-    .parsnip_engine = c(
-      # linear_reg
-      "lm", "brulee", "gee", "glm", "glmer", "glmnet", "gls", "h2o", "keras",
-      "lme", "lmer", "spark", "stan", "stan_glmer",
-      # cubist_rules
-      "Cubist",
-      # possion_reg
-      "glm", "gee", "glmer", "glmnet", "h2o", "hurdle", "stan", "stan_glmer",
-      "zeroinfl",
-      # survival_reg
-      "survival", "flexsurv", "flexsurvspline",
-      # bag_mars
-      "earth",
-      # bag_tree
-      "rpart",
-      # bart
-      "dbarts",
-      # boost_tree
-      "xgboost","h2o","lightgbm","spark","mboost",
-      # decision_tree
-      "rpart","spark","partykit",
-      # gen_additive_mod
-      "mgcv",
-      # mars
-      "earth",
-      # mlp
-      "nnet","brulee","h2o","keras",
-      # nearest_neighbor
-      "kknn",
-      # pls
-      "mixOmics",
-      # rand_forest
-      "ranger","h2o","randomForest","spark","partykit","aorsf",
-      # rule_fit
-      "xrf","h2o",
-      # svm_linear
-      "LiblineaR","kernlab",
-      # svm_poly
-      "kernlab",
-      # svm_rbf
-      "kernlab"
-    ),
-    .parsnip_mode = c(
-      # linear_reg
-      rep("regression", 14),
-      # cubist_rules
-      "regression",
-      # poisson_reg
-      rep("regression", 9),
-      # survival_reg
-      rep("censored regression", 3),
-      # bag_mars
-      "regression",
-      # bag_tree
-      "regression",
-      # bart
-      "regression",
-      # boost_tree
-      rep("regression", 4),
-      "censored regression",
-      # decision_tree
-      rep("regression", 3),
-      # gen_additive_mod
-      "regression",
-      # mars
-      "regression",
-      # mlp
-      rep("regression", 4),
-      # nearest_neighbor
-      "regression",
-      # pls
-      "regression",
-      # rand_forest
-      rep("regression", 4),
-      rep("censored regression", 2),
-      # rule_fit
-      rep("regression", 2),
-      # svm_linear
-      rep("regression", 2),
-      # svm_poly
-      "regression",
-      # svm_rbf
-      "regression"
-    ),
-    .parsnip_fns = c(
-      rep("linear_reg", 14),
-      "cubist_rules",
-      rep("poisson_reg",9),
-      rep("survival_reg", 3),
-      "bag_mars",
-      rep("bag_tree",1),
-      "bart",
-      rep("boost_tree",5),
-      rep("decision_tree", 3),
-      "gen_additive_mod",
-      "mars",
-      rep("mlp", 4),
-      "nearest_neighbor",
-      "pls",
-      rep("rand_forest",6),
-      rep("rule_fit",2),
-      rep("svm_linear", 2),
-      "svm_poly",
-      "svm_rbf"
-    )
+  mod_tbl <- tibble::tribble(
+    ~.parsnip_engine, ~.parsnip_mode, ~.parsnip_fns,
+    "lm", "regression", "linear_reg",
+    "brulee", "regression", "linear_reg",
+    "gee", "regression", "linear_reg",
+    "glm","regression","linear_reg",
+    "glmer","regression","linear_reg",
+    "glmnet","regression","linear_reg",
+    "gls","regression","linear_reg",
+    "lme","regression","linear_reg",
+    "lmer","regression","linear_reg",
+    "stan","regression","linear_reg",
+    "stan_glmer","regression","linear_reg",
+    "Cubist","regression","cubist_rules",
+    "glm","regression","poisson_reg",
+    "gee","regression","poisson_reg",
+    "glmer","regression","poisson_reg",
+    "glmnet","regression","poisson_reg",
+    "hurdle","regression","poisson_reg",
+    "stan","regression","poisson_reg",
+    "stan_glmer","regression","poisson_reg",
+    "zeroinfl","regression","poisson_reg",
+    "survival","censored regression","survival_reg",
+    "flexsurv","censored regression","survival_reg",
+    "slexsurvspline","censored regression","survival_reg",
+    "earth","regression","bag_mars",
+    "rpart","regression","bag_mars",
+    "dbarts","regression","bart",
+    "xgboost","regression","boost_tree",
+    "lightgbm","regression","boost_tree",
+    "mboost","censored regression","boost_tree",
+    "rpart","regression","decision_tree",
+    "partykit","regression","decision_tree",
+    "mgcv","regression","gen_additive_mod",
+    "earth","regression","mars",
+    "nnet","regression","mlp",
+    "brulee","regression","mlp",
+    "kknn","regression","nearest_neighbor",
+    "mixOmics","regression","pls",
+    "ranger","regression","rand_forest",
+    "randomForest","regression","rand_forest",
+    "partykit","censored regression","rand_forest",
+    "aorsf","censored regression","rand_forest",
+    "xrf","regression","rule_fit",
+    "LiblineaR","regression","svm_linear",
+    "kernlab","regression","svm_linear",
+    "kernlab","regression","svm_poly",
+    "kernlab","regression","svm_rbf"
   )
 
   # Filter ----
