@@ -1,4 +1,4 @@
-# tidyAML 0.0.1
+# tidyAML (development version)
 
 # tidyAML 0.0.0.9000
 
