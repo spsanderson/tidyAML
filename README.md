@@ -61,18 +61,14 @@ Or the development version from GitHub
 ``` r
 # install.packages("devtools")
 devtools::install_github("spsanderson/tidyAML")
-#> rsample (1.1.0 -> 1.1.1) [CRAN]
-#> package 'rsample' successfully unpacked and MD5 sums checked
 #> 
-#> The downloaded binary packages are in
-#>  C:\Users\steve\AppData\Local\Temp\RtmpUN9cPO\downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpUN9cPO\remotes36147c714951\spsanderson-tidyAML-33b9e09/DESCRIPTION'
-#>       ─  preparing 'tidyAML': (1s)
+#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpeyLOkK\remotes39888ed318e\spsanderson-tidyAML-1283f40/DESCRIPTION'
+#>       ─  preparing 'tidyAML': (1.5s)
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>       ─  building 'tidyAML_0.0.0.9000.tar.gz'
+#>       ─  checking for empty or unneeded directories
+#>       ─  building 'tidyAML_0.0.0.9001.tar.gz'
 #>      
 #> 
 ```
@@ -105,7 +101,7 @@ Now lets see the function in action.
 
 ``` r
 fast_regression_parsnip_spec_tbl(.parsnip_fns = "linear_reg")
-#> # A tibble: 14 × 5
+#> # A tibble: 11 × 5
 #>    .model_id .parsnip_engine .parsnip_mode .parsnip_fns model_spec
 #>        <int> <chr>           <chr>         <chr>        <list>    
 #>  1         1 lm              regression    linear_reg   <spec[+]> 
@@ -115,13 +111,10 @@ fast_regression_parsnip_spec_tbl(.parsnip_fns = "linear_reg")
 #>  5         5 glmer           regression    linear_reg   <spec[+]> 
 #>  6         6 glmnet          regression    linear_reg   <spec[+]> 
 #>  7         7 gls             regression    linear_reg   <spec[+]> 
-#>  8         8 h2o             regression    linear_reg   <spec[+]> 
-#>  9         9 keras           regression    linear_reg   <spec[+]> 
-#> 10        10 lme             regression    linear_reg   <spec[+]> 
-#> 11        11 lmer            regression    linear_reg   <spec[+]> 
-#> 12        12 spark           regression    linear_reg   <spec[+]> 
-#> 13        13 stan            regression    linear_reg   <spec[+]> 
-#> 14        14 stan_glmer      regression    linear_reg   <spec[+]>
+#>  8         8 lme             regression    linear_reg   <spec[+]> 
+#>  9         9 lmer            regression    linear_reg   <spec[+]> 
+#> 10        10 stan            regression    linear_reg   <spec[+]> 
+#> 11        11 stan_glmer      regression    linear_reg   <spec[+]>
 fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm"))
 #> # A tibble: 3 × 5
 #>   .model_id .parsnip_engine .parsnip_mode .parsnip_fns model_spec
@@ -272,7 +265,7 @@ glimpse(frt_tbl)
 #> $ model_spec      <list> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…
 #> $ wflw            <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
 #> $ fitted_wflw     <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
-#> $ pred_wflw       <list> [<tbl_df[24 x 1]>], "Error - Could not make prediction…
+#> $ pred_wflw       <list> [<tbl_df[24 x 1]>], <NULL>, [<tbl_df[24 x 1]>]
 ```
 
 As we see above, one of the models has gracefully failed, thanks in part
@@ -287,34 +280,34 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  23.4
-#>  2  10.4
-#>  3  20.0
-#>  4  28.4
-#>  5  25.9
-#>  6  26.4
-#>  7  14.5
-#>  8  30.3
-#>  9  27.8
-#> 10  29.4
+#>  1  22.5
+#>  2  22.0
+#>  3  13.5
+#>  4  17.3
+#>  5  28.6
+#>  6  12.3
+#>  7  24.4
+#>  8  27.8
+#>  9  30.1
+#> 10  28.2
 #> # … with 14 more rows
 #> 
 #> [[2]]
-#> [1] "Error - Could not make predictions"
+#> NULL
 #> 
 #> [[3]]
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  23.4
-#>  2  10.4
-#>  3  20.0
-#>  4  28.4
-#>  5  25.9
-#>  6  26.4
-#>  7  14.5
-#>  8  30.3
-#>  9  27.8
-#> 10  29.4
+#>  1  22.5
+#>  2  22.0
+#>  3  13.5
+#>  4  17.3
+#>  5  28.6
+#>  6  12.3
+#>  7  24.4
+#>  8  27.8
+#>  9  30.1
+#> 10  28.2
 #> # … with 14 more rows
 ```
