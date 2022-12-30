@@ -10,26 +10,6 @@
 #' only create models for __regression__ problems. To find all of the supported
 #' models in this package you can visit \url{https://www.tidymodels.org/find/parsnip/}
 #'
-#' @seealso \url{https://parsnip.tidymodels.org/reference/linear_reg.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/cubist_rules.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/survival_reg.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/poisson_reg.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/bag_mars.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/bag_tree.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/bart.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/boost_tree.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/decision_tree.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/gen_additive_mod.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/mars.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/mlp.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/nearest_neighbor.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/pls.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/rand_forest.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/rule_fit.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/svm_linear.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/svm_poly.html}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/svm_rbf.html}
-#'
 #' @description Creates a tibble of parsnip regression model specifications.
 #'
 #' @param .parsnip_fns The default for this is set to `all`. This means that all

@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="index.html">tidyAML</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9002</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -107,18 +107,14 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"spsanderson/tidyAML"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; rsample (1.1.0 -&gt; 1.1.1) [CRAN]</span></span>
-<span><span class="co">#&gt; package 'rsample' successfully unpacked and MD5 sums checked</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The downloaded binary packages are in</span></span>
-<span><span class="co">#&gt;  C:\Users\steve\AppData\Local\Temp\RtmpUN9cPO\downloaded_packages</span></span>
 <span><span class="co">#&gt; ── R CMD build ─────────────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt;       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpUN9cPO\remotes36147c714951\spsanderson-tidyAML-33b9e09/DESCRIPTION'</span></span>
-<span><span class="co">#&gt;       ─  preparing 'tidyAML': (1s)</span></span>
+<span><span class="co">#&gt;       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpeyLOkK\remotes39888ed318e\spsanderson-tidyAML-1283f40/DESCRIPTION'</span></span>
+<span><span class="co">#&gt;       ─  preparing 'tidyAML': (1.5s)</span></span>
 <span><span class="co">#&gt;    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information</span></span>
 <span><span class="co">#&gt;       ─  checking for LF line-endings in source and make files and shell scripts</span></span>
-<span><span class="co">#&gt;   ─  checking for empty or unneeded directories</span></span>
-<span><span class="co">#&gt;       ─  building 'tidyAML_0.0.0.9000.tar.gz'</span></span>
+<span><span class="co">#&gt;       ─  checking for empty or unneeded directories</span></span>
+<span><span class="co">#&gt;       ─  building 'tidyAML_0.0.0.9001.tar.gz'</span></span>
 <span><span class="co">#&gt;      </span></span>
 <span><span class="co">#&gt; </span></span></code></pre></div>
 </div>
@@ -142,7 +138,7 @@
 <p>Now lets see the function in action.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/fast_regression_parsnip_spec_tbl.html">fast_regression_parsnip_spec_tbl</a></span><span class="op">(</span>.parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 14 × 5</span></span>
+<span><span class="co">#&gt; # A tibble: 11 × 5</span></span>
 <span><span class="co">#&gt;    .model_id .parsnip_engine .parsnip_mode .parsnip_fns model_spec</span></span>
 <span><span class="co">#&gt;        &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;         &lt;chr&gt;        &lt;list&gt;    </span></span>
 <span><span class="co">#&gt;  1         1 lm              regression    linear_reg   &lt;spec[+]&gt; </span></span>
@@ -152,13 +148,10 @@
 <span><span class="co">#&gt;  5         5 glmer           regression    linear_reg   &lt;spec[+]&gt; </span></span>
 <span><span class="co">#&gt;  6         6 glmnet          regression    linear_reg   &lt;spec[+]&gt; </span></span>
 <span><span class="co">#&gt;  7         7 gls             regression    linear_reg   &lt;spec[+]&gt; </span></span>
-<span><span class="co">#&gt;  8         8 h2o             regression    linear_reg   &lt;spec[+]&gt; </span></span>
-<span><span class="co">#&gt;  9         9 keras           regression    linear_reg   &lt;spec[+]&gt; </span></span>
-<span><span class="co">#&gt; 10        10 lme             regression    linear_reg   &lt;spec[+]&gt; </span></span>
-<span><span class="co">#&gt; 11        11 lmer            regression    linear_reg   &lt;spec[+]&gt; </span></span>
-<span><span class="co">#&gt; 12        12 spark           regression    linear_reg   &lt;spec[+]&gt; </span></span>
-<span><span class="co">#&gt; 13        13 stan            regression    linear_reg   &lt;spec[+]&gt; </span></span>
-<span><span class="co">#&gt; 14        14 stan_glmer      regression    linear_reg   &lt;spec[+]&gt;</span></span>
+<span><span class="co">#&gt;  8         8 lme             regression    linear_reg   &lt;spec[+]&gt; </span></span>
+<span><span class="co">#&gt;  9         9 lmer            regression    linear_reg   &lt;spec[+]&gt; </span></span>
+<span><span class="co">#&gt; 10        10 stan            regression    linear_reg   &lt;spec[+]&gt; </span></span>
+<span><span class="co">#&gt; 11        11 stan_glmer      regression    linear_reg   &lt;spec[+]&gt;</span></span>
 <span><span class="fu"><a href="reference/fast_regression_parsnip_spec_tbl.html">fast_regression_parsnip_spec_tbl</a></span><span class="op">(</span>.parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 3 × 5</span></span>
 <span><span class="co">#&gt;   .model_id .parsnip_engine .parsnip_mode .parsnip_fns model_spec</span></span>
@@ -289,7 +282,7 @@
 <span><span class="co">#&gt; $ model_spec      &lt;list&gt; [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…</span></span>
 <span><span class="co">#&gt; $ wflw            &lt;list&gt; [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
 <span><span class="co">#&gt; $ fitted_wflw     &lt;list&gt; [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
-<span><span class="co">#&gt; $ pred_wflw       &lt;list&gt; [&lt;tbl_df[24 x 1]&gt;], "Error - Could not make prediction…</span></span></code></pre></div>
+<span><span class="co">#&gt; $ pred_wflw       &lt;list&gt; [&lt;tbl_df[24 x 1]&gt;], &lt;NULL&gt;, [&lt;tbl_df[24 x 1]&gt;]</span></span></code></pre></div>
 <p>As we see above, one of the models has gracefully failed, thanks in part to the function <code><a href="https://purrr.tidyverse.org/reference/safely.html" class="external-link">purrr::safely()</a></code>, which was used to make what I call <strong>safe_make</strong> functions.</p>
 <p>Let’s look at the fitted workflow predictions.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -298,35 +291,35 @@
 <span><span class="co">#&gt; # A tibble: 24 × 1</span></span>
 <span><span class="co">#&gt;    .pred</span></span>
 <span><span class="co">#&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1  23.4</span></span>
-<span><span class="co">#&gt;  2  10.4</span></span>
-<span><span class="co">#&gt;  3  20.0</span></span>
-<span><span class="co">#&gt;  4  28.4</span></span>
-<span><span class="co">#&gt;  5  25.9</span></span>
-<span><span class="co">#&gt;  6  26.4</span></span>
-<span><span class="co">#&gt;  7  14.5</span></span>
-<span><span class="co">#&gt;  8  30.3</span></span>
-<span><span class="co">#&gt;  9  27.8</span></span>
-<span><span class="co">#&gt; 10  29.4</span></span>
+<span><span class="co">#&gt;  1  22.5</span></span>
+<span><span class="co">#&gt;  2  22.0</span></span>
+<span><span class="co">#&gt;  3  13.5</span></span>
+<span><span class="co">#&gt;  4  17.3</span></span>
+<span><span class="co">#&gt;  5  28.6</span></span>
+<span><span class="co">#&gt;  6  12.3</span></span>
+<span><span class="co">#&gt;  7  24.4</span></span>
+<span><span class="co">#&gt;  8  27.8</span></span>
+<span><span class="co">#&gt;  9  30.1</span></span>
+<span><span class="co">#&gt; 10  28.2</span></span>
 <span><span class="co">#&gt; # … with 14 more rows</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[2]]</span></span>
-<span><span class="co">#&gt; [1] "Error - Could not make predictions"</span></span>
+<span><span class="co">#&gt; NULL</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[3]]</span></span>
 <span><span class="co">#&gt; # A tibble: 24 × 1</span></span>
 <span><span class="co">#&gt;    .pred</span></span>
 <span><span class="co">#&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1  23.4</span></span>
-<span><span class="co">#&gt;  2  10.4</span></span>
-<span><span class="co">#&gt;  3  20.0</span></span>
-<span><span class="co">#&gt;  4  28.4</span></span>
-<span><span class="co">#&gt;  5  25.9</span></span>
-<span><span class="co">#&gt;  6  26.4</span></span>
-<span><span class="co">#&gt;  7  14.5</span></span>
-<span><span class="co">#&gt;  8  30.3</span></span>
-<span><span class="co">#&gt;  9  27.8</span></span>
-<span><span class="co">#&gt; 10  29.4</span></span>
+<span><span class="co">#&gt;  1  22.5</span></span>
+<span><span class="co">#&gt;  2  22.0</span></span>
+<span><span class="co">#&gt;  3  13.5</span></span>
+<span><span class="co">#&gt;  4  17.3</span></span>
+<span><span class="co">#&gt;  5  28.6</span></span>
+<span><span class="co">#&gt;  6  12.3</span></span>
+<span><span class="co">#&gt;  7  24.4</span></span>
+<span><span class="co">#&gt;  8  27.8</span></span>
+<span><span class="co">#&gt;  9  30.1</span></span>
+<span><span class="co">#&gt; 10  28.2</span></span>
 <span><span class="co">#&gt; # … with 14 more rows</span></span></code></pre></div>
 </div>
 </div>
