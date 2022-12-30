@@ -1,4 +1,4 @@
-# tidyAML (development version)
+# tidyAML 0.0.0.9002
 
 ## New Features
 1. Fix #62 - Add function `fast_classification_to_parsnip_call_tbl()`
