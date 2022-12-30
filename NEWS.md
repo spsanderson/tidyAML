@@ -2,6 +2,7 @@
 
 ## New Features
 1. Fix #62 - Add function `fast_classification_to_parsnip_call_tbl()`
+2. Fix #65 - Add function `fast_classification()`
 
 ## Breaking Changes
 None
