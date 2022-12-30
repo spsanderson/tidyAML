@@ -1,24 +1,24 @@
 # tidyAML (development version)
 
 ## New Features
-None
+1. Fix #62 - Add function `fast_classification_to_parsnip_call_tbl()`
 
 ## Breaking Changes
 None
 
-## New Features
+## Minor Fixes and Improvements
 None
 
 # tidyAML 0.0.0.9001
 
 ## New Features
-None
+1. Fix #48 - Add functions `core_packages()` `install_deps()`, and `load_deps()`
 
 ## Breaking Changes
 None
 
-## New Features
-1. Fix #48 - Add functions `core_packages()` `install_deps()`, and `load_deps()`
+## Minor Fixes and Improvements
+None
 
 # tidyAML 0.0.0.9000
 

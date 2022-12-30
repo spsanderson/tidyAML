@@ -34,6 +34,7 @@ create_splits(mtcars, .split_type = "vfold_cv")
 \seealso{
 Other Utility: 
 \code{\link{core_packages}()},
+\code{\link{fast_classification_parsnip_spec_tbl}()},
 \code{\link{fast_regression_parsnip_spec_tbl}()},
 \code{\link{install_deps}()},
 \code{\link{load_deps}()}
