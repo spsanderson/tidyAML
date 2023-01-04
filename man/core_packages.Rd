@@ -27,9 +27,7 @@ Other Utility:
 \code{\link{fast_classification_parsnip_spec_tbl}()},
 \code{\link{fast_regression_parsnip_spec_tbl}()},
 \code{\link{install_deps}()},
-\code{\link{load_deps}()},
-\code{\link{make_classification_base_tbl}()},
-\code{\link{make_regression_base_tbl}()}
+\code{\link{load_deps}()}
 }
 \author{
 Steven P. Sanderson II, MPH

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils-make-base-tbl.R
 \name{make_classification_base_tbl}
 \alias{make_classification_base_tbl}
-\title{Utility Make Base Classification Tibble}
+\title{Internals Make Base Classification Tibble}
 \usage{
 make_classification_base_tbl()
 }
@@ -20,16 +20,13 @@ make_classification_base_tbl()
 
 }
 \seealso{
-Other Utility: 
-\code{\link{core_packages}()},
-\code{\link{create_splits}()},
-\code{\link{fast_classification_parsnip_spec_tbl}()},
-\code{\link{fast_regression_parsnip_spec_tbl}()},
-\code{\link{install_deps}()},
-\code{\link{load_deps}()},
+Other Internals: 
+\code{\link{internal_make_fitted_wflw}()},
+\code{\link{internal_make_wflw_predictions}()},
+\code{\link{internal_make_wflw}()},
 \code{\link{make_regression_base_tbl}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{Utility}
+\concept{Internals}
