@@ -1,6 +1,6 @@
-#' Utility Make Base Regression Tibble
+#' Internals Make Base Regression Tibble
 #'
-#' @family Utility
+#' @family Internals
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
@@ -77,9 +77,9 @@ make_regression_base_tbl <- function(){
   return(mod_tbl)
 }
 
-#' Utility Make Base Classification Tibble
+#' Internals Make Base Classification Tibble
 #'
-#' @family Utility
+#' @family Internals
 #'
 #' @author Steven P. Sanderson II, MPH
 #'

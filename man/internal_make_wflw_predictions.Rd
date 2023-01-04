@@ -48,7 +48,9 @@ internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)
 \seealso{
 Other Internals: 
 \code{\link{internal_make_fitted_wflw}()},
-\code{\link{internal_make_wflw}()}
+\code{\link{internal_make_wflw}()},
+\code{\link{make_classification_base_tbl}()},
+\code{\link{make_regression_base_tbl}()}
 }
 \author{
 Steven P. Sanderson II, MPH
