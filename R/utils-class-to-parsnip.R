@@ -45,41 +45,7 @@ fast_classification_parsnip_spec_tbl <- function(.parsnip_fns = "all",
     purrr::flatten_chr()
 
   # Make tibble
-  mod_tbl <- tibble::tribble(
-    ~.parsnip_engine, ~.parsnip_mode, ~.parsnip_fns,
-    "earth","classification","bag_mars",
-    "earth","classification","discrim_flexible",
-    "dbarts","classification","bart",
-    "MASS","classification","discrim_linear",
-    "mda","classification","discrim_linear",
-    "sda","classification","discrim_linear",
-    "sparsediscrim","classification","discrim_linear",
-    "MASS","classification","discrim_quad",
-    "sparsediscrim","classification","discrim_quad",
-    "klaR","classification","discrim_regularized",
-    "mgcv","classification","gen_additive_mod",
-    "brulee","classification","logistic_reg",
-    "gee","classification","logistic_reg",
-    "glm","classification","logistic_reg",
-    "glmer","classification","logistic_reg",
-    "glmnet","classification","logistic_reg",
-    "LiblineaR","classification","logistic_reg",
-    "earth","classification","mars",
-    "brulee","classification","mlp",
-    "nnet","classification","mlp",
-    "brulee","classification","multinom_reg",
-    "glmnet","classification","multinom_reg",
-    "nnet","classification","multinom_reg",
-    "klaR","classification","naive_Bayes",
-    "kknn","classification","nearest_neighbor",
-    "mixOmics","classification","pls",
-    "xrf","classification","rule_fit",
-    "kernlab","classification","svm_linear",
-    "LiblineaR","classification","svm_linear",
-    "kernlab","classification","svm_poly",
-    "kernlab","classification","svm_rbf",
-    "liquidSVM","classification","svm_rbf"
-  )
+  mod_tbl <- make_classification_base_tbl()
 
   # Filter ----
   if (!"all" %in% engine){

@@ -4,10 +4,13 @@
 None
 
 ## New Features
-None
+1. Fix #73 - Add function `make_regression_base_tbl()`
+2. Fix #74 - Add function `make_classification_base_tbl()`
 
 ## Minor Fixes and Improvements
-None
+1. Fix #72 - Update `fast_classification_to_parsnip_call_tbl()` and 
+`fast_regression_to_parsnip_call_tbl()` to use the __make_regression__ and 
+__make_classification__ functions.
 
 # tidyAML 0.0.0.9002
 
