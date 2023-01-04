@@ -6,16 +6,20 @@ None
 ## New Features
 1. Fix #73 - Add function `make_regression_base_tbl()`
 2. Fix #74 - Add function `make_classification_base_tbl()`
+3. Fix #77 - Add function `internal_make_spec_tbl()`
 
 ## Minor Fixes and Improvements
-1. Fix #72 - Update `fast_classification_to_parsnip_call_tbl()` and 
-`fast_regression_to_parsnip_call_tbl()` to use the __make_regression__ and 
+1. Fix #72 - Update `fast_classification_parsnip_spec_tbl()` and 
+`fast_regression_parsnip_spec_tbl()` to use the __make_regression__ and 
 __make_classification__ functions.
+2. Fix #79 #80 - Update `fast_classification_parsnip_spec_tbl()` and
+`fast_regression_parsnip_spec_tbl()` to use the `internal_make_spec_tbl()`
+function.
 
 # tidyAML 0.0.0.9002
 
 ## New Features
-1. Fix #62 - Add function `fast_classification_to_parsnip_call_tbl()`
+1. Fix #62 - Add function `fast_classification_parsnip_spec_tbl()`
 2. Fix #65 - Add function `fast_classification()`
 
 ## Breaking Changes
@@ -38,7 +42,7 @@ None
 # tidyAML 0.0.0.9000
 
 ## New Features
-1. Fix #5 - Add function `fast_regression_to_parsnip_call_tbl()`
+1. Fix #5 - Add function `fast_regression_parsnip_spec_tbl()`
 2. Fix #6 - Add function `create_splits()`
 3. Fix #7 - Add function `fast_regression()`
 4. Fix #11 - Add function `create_model_spec()`
