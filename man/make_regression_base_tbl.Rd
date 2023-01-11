@@ -25,6 +25,7 @@ Other Internals:
 \code{\link{internal_make_spec_tbl}()},
 \code{\link{internal_make_wflw_predictions}()},
 \code{\link{internal_make_wflw}()},
+\code{\link{internal_set_args_to_tune}()},
 \code{\link{make_classification_base_tbl}()}
 }
 \author{
