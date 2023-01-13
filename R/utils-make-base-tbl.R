@@ -74,6 +74,7 @@ make_regression_base_tbl <- function(){
   )
 
   # Return
+  class(mod_tbl) <- c("tidyaml_base_tbl", class(mod_tbl))
   return(mod_tbl)
 }
 
@@ -140,5 +141,6 @@ make_classification_base_tbl <- function(){
   )
 
   # Return
+  class(mod_tbl) <- c("tidyaml_base_tbl", class(mod_tbl))
   return(mod_tbl)
 }
