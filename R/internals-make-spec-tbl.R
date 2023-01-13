@@ -30,13 +30,20 @@ NULL
 internal_make_spec_tbl <- function(.data){
 
   # Checks ----
-  df <- dplyr::as_tibble(.data)
+  #df <- dplyr::as_tibble(.data)
+  df <- .data
+  # nms <- unique(names(df))
+  #
+  # if (!".parsnip_engine" %in% nms | !".parsnip_mode" %in% nms | !".parsnip_fns" %in% nms){
+  #   rlang::abort(
+  #     message = "The model tibble must come from the class/reg to parsnip function.",
+  #     use_cli_format = TRUE
+  #   )
+  # }
 
-  nms <- unique(names(df))
-
-  if (!".parsnip_engine" %in% nms | !".parsnip_mode" %in% nms | !".parsnip_fns" %in% nms){
+  if (!inherits(df, "tidyaml_base_tbl")){
     rlang::abort(
-      message = "The model tibble must come from the class/reg to parsnip function.",
+      message = "The model tibble must come from the make base tbl function.",
       use_cli_format = TRUE
     )
   }

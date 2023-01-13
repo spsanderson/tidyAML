@@ -16,6 +16,8 @@ __make_classification__ functions.
 2. Fix #79 #80 - Update `fast_classification_parsnip_spec_tbl()` and
 `fast_regression_parsnip_spec_tbl()` to use the `internal_make_spec_tbl()`
 function.
+3. Fix #85 - This also addresses sub tasks #86 #87 and #88 to make the base table
+functions to have a class and to then use that class in `internal_make_spec_tbl()`
 
 # tidyAML 0.0.0.9002
 
