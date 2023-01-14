@@ -47,7 +47,7 @@ make_regression_base_tbl <- function(){
     "zeroinfl","regression","poisson_reg",
     "survival","censored regression","survival_reg",
     "flexsurv","censored regression","survival_reg",
-    "slexsurvspline","censored regression","survival_reg",
+    "flexsurvspline","censored regression","survival_reg",
     "earth","regression","bag_mars",
     "rpart","regression","bag_mars",
     "dbarts","regression","bart",
