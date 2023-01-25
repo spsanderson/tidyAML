@@ -99,7 +99,7 @@ to parsnip spec functions.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="make_regression_base_tbl.html">make_regression_base_tbl</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu">internal_make_spec_tbl</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 46 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 39 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .model_id .parsnip_engine .parsnip_mode .parsnip_fns model_spec</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>         1 lm              regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
@@ -112,11 +112,11 @@ to parsnip spec functions.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>         8 lme             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>         9 lmer            regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>        10 stan            regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 36 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 29 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="make_classification_base_tbl.html">make_classification_base_tbl</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu">internal_make_spec_tbl</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 32 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 31 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    .model_id .parsnip_engine .parsnip_mode  .parsnip_fns        model_spec</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>         1 earth           classification bag_mars            <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
@@ -129,7 +129,7 @@ to parsnip spec functions.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>         8 MASS            classification discrim_quad        <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>         9 sparsediscrim   classification discrim_quad        <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>        10 klaR            classification discrim_regularized <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 22 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 21 more rows</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
