@@ -22,6 +22,7 @@ Installs all dependencies in the \code{core_packages()} function.
 Other Utility: 
 \code{\link{core_packages}()},
 \code{\link{create_splits}()},
+\code{\link{create_workflow_set}()},
 \code{\link{fast_classification_parsnip_spec_tbl}()},
 \code{\link{fast_regression_parsnip_spec_tbl}()},
 \code{\link{load_deps}()}

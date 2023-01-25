@@ -19,10 +19,10 @@ Suggests:
     rmarkdown,
     roxygen2,
     stats,
-    recipes,
     tibble,
     stringr,
-    utils
+    utils,
+    recipes
 VignetteBuilder: knitr
 Imports: 
     magrittr,
@@ -31,4 +31,5 @@ Imports:
     dplyr (>= 1.0.10),
     rsample (>= 1.1.0),
     workflows (>= 1.1.2),
-    forcats
+    forcats,
+    workflowsets

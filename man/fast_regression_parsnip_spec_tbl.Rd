@@ -37,6 +37,7 @@ fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm"))
 Other Utility: 
 \code{\link{core_packages}()},
 \code{\link{create_splits}()},
+\code{\link{create_workflow_set}()},
 \code{\link{fast_classification_parsnip_spec_tbl}()},
 \code{\link{install_deps}()},
 \code{\link{load_deps}()}
