@@ -4,8 +4,8 @@
 # tidyAML <img src="man/figures/logo.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
+<!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyAML)](https://cran.r-project.org/package=tidyAML) -->
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyAML)](https://cran.r-project.org/package=tidyAML)
 ![](https://cranlogs.r-pkg.org/badges/tidyAML)
 ![](https://cranlogs.r-pkg.org/badges/grand-total/tidyAML) [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html##experimental)
@@ -63,8 +63,8 @@ Or the development version from GitHub
 devtools::install_github("spsanderson/tidyAML")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>          checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpcnkN4Y\remotes6c586f395964\spsanderson-tidyAML-17f0011/DESCRIPTION' ...  ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpcnkN4Y\remotes6c586f395964\spsanderson-tidyAML-17f0011/DESCRIPTION'
-#>       ─  preparing 'tidyAML': (1.5s)
+#>          checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpcTQ0qQ\remotes20301fd86a70\spsanderson-tidyAML-4589656/DESCRIPTION' ...  ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpcTQ0qQ\remotes20301fd86a70\spsanderson-tidyAML-4589656/DESCRIPTION'
+#>       ─  preparing 'tidyAML': (1.7s)
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
 #>       ─  checking for empty or unneeded directories
@@ -280,16 +280,16 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  11.1
-#>  2  11.1
-#>  3  21.6
-#>  4  20.2
-#>  5  24.5
-#>  6  28.1
-#>  7  21.5
-#>  8  22.0
-#>  9  19.5
-#> 10  29.3
+#>  1  23.9
+#>  2  31.2
+#>  3  15.4
+#>  4  15.5
+#>  5  11.3
+#>  6  27.1
+#>  7  17.8
+#>  8  32.3
+#>  9  28.1
+#> 10  17.6
 #> # … with 14 more rows
 #> 
 #> [[2]]
@@ -299,15 +299,15 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  11.1
-#>  2  11.1
-#>  3  21.6
-#>  4  20.2
-#>  5  24.5
-#>  6  28.1
-#>  7  21.5
-#>  8  22.0
-#>  9  19.5
-#> 10  29.3
+#>  1  23.9
+#>  2  31.2
+#>  3  15.4
+#>  4  15.5
+#>  5  11.3
+#>  6  27.1
+#>  7  17.8
+#>  8  32.3
+#>  9  28.1
+#> 10  17.6
 #> # … with 14 more rows
 ```
