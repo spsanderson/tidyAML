@@ -94,7 +94,7 @@ the object class type is <code>tidyaml_base_tbl</code>. This function will take 
 of recipes and will grab the model specifications from the base tibble to
 create the workflow sets object. You can also supply the logical of TRUE/FALSe
 the <code>.cross</code> parameter which gets passed to the corresponding parameter as an
-argumnt to the <code><a href="https://rdrr.io/pkg/workflowsets/man/workflow_set.html" class="external-link">workflowsets::workflow_set()</a></code> function.</p>
+argumnt to the <code><a href="https://workflowsets.tidymodels.org/reference/workflow_set.html" class="external-link">workflowsets::workflow_set()</a></code> function.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -117,6 +117,7 @@ argumnt to the <code><a href="https://rdrr.io/pkg/workflowsets/man/workflow_set.
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/recipes" class="external-link">recipes</a></span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'recipes' was built under R version 4.2.2</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: dplyr</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'dplyr' was built under R version 4.2.2</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: 'dplyr'</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from 'package:stats':</span>
@@ -131,7 +132,7 @@ argumnt to the <code><a href="https://rdrr.io/pkg/workflowsets/man/workflow_set.
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     step</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/recipes/man/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">spec_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="fast_regression_parsnip_spec_tbl.html">fast_regression_parsnip_spec_tbl</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span>,</span></span>
 <span class="r-in"><span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span><span class="op">)</span></span></span>

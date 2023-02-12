@@ -9,6 +9,8 @@ None
 3. Fix #77 - Add function `internal_make_spec_tbl()`
 4. Fix #78 - Add function `internal_set_args_to_tune()`
 5. Fix #16 - Add function `create_workflow_set()`
+6. Fix #101 - Add function `get_model()`
+7. Fix #102 - Add function `extract_model_spec()`
 
 ## Minor Fixes and Improvements
 1. Fix #72 - Update `fast_classification_parsnip_spec_tbl()` and 
@@ -19,6 +21,7 @@ __make_classification__ functions.
 function.
 3. Fix #85 - This also addresses sub tasks #86 #87 and #88 to make the base table
 functions to have a class and to then use that class in `internal_make_spec_tbl()`
+4. Fix #99 - Update DESCRIPTION for __R >= 3.4.0__
 
 # tidyAML 0.0.0.9002
 
