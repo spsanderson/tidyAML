@@ -63,12 +63,12 @@ Or the development version from GitHub
 devtools::install_github("spsanderson/tidyAML")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpeyLOkK\remotes39888ed318e\spsanderson-tidyAML-1283f40/DESCRIPTION'
-#>       ─  preparing 'tidyAML': (1.5s)
+#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpsVeyAq\remotes5641da469f4\spsanderson-tidyAML-17f0011/DESCRIPTION'
+#>       ─  preparing 'tidyAML': (1.8s)
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
 #>       ─  checking for empty or unneeded directories
-#>       ─  building 'tidyAML_0.0.0.9001.tar.gz'
+#>       ─  building 'tidyAML_0.0.0.9002.tar.gz'
 #>      
 #> 
 ```
@@ -141,8 +141,8 @@ This function also does add a class to the output. Let’s see it.
 
 ``` r
 class(fast_regression_parsnip_spec_tbl())
-#> [1] "tidyaml_mod_spec_tbl" "fst_reg_spec_tbl"     "tbl_df"              
-#> [4] "tbl"                  "data.frame"
+#> [1] "tidyaml_mod_spec_tbl" "fst_reg_spec_tbl"     "tidyaml_base_tbl"    
+#> [4] "tbl_df"               "tbl"                  "data.frame"
 ```
 
 We see that there are two added classes, first `fst_reg_spec_tbl`
@@ -280,16 +280,16 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  22.5
-#>  2  22.0
-#>  3  13.5
-#>  4  17.3
-#>  5  28.6
-#>  6  12.3
-#>  7  24.4
-#>  8  27.8
-#>  9  30.1
-#> 10  28.2
+#>  1  21.2
+#>  2  24.7
+#>  3  27.8
+#>  4  12.7
+#>  5  19.8
+#>  6  29.1
+#>  7  27.7
+#>  8  20.0
+#>  9  17.7
+#> 10  24.1
 #> # … with 14 more rows
 #> 
 #> [[2]]
@@ -299,15 +299,15 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  22.5
-#>  2  22.0
-#>  3  13.5
-#>  4  17.3
-#>  5  28.6
-#>  6  12.3
-#>  7  24.4
-#>  8  27.8
-#>  9  30.1
-#> 10  28.2
+#>  1  21.2
+#>  2  24.7
+#>  3  27.8
+#>  4  12.7
+#>  5  19.8
+#>  6  29.1
+#>  7  27.7
+#>  8  20.0
+#>  9  17.7
+#> 10  24.1
 #> # … with 14 more rows
 ```
