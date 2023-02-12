@@ -63,8 +63,8 @@ Or the development version from GitHub
 devtools::install_github("spsanderson/tidyAML")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpsVeyAq\remotes5641da469f4\spsanderson-tidyAML-17f0011/DESCRIPTION'
-#>       ─  preparing 'tidyAML': (1.8s)
+#>          checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpcnkN4Y\remotes6c586f395964\spsanderson-tidyAML-17f0011/DESCRIPTION' ...  ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpcnkN4Y\remotes6c586f395964\spsanderson-tidyAML-17f0011/DESCRIPTION'
+#>       ─  preparing 'tidyAML': (1.5s)
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
 #>       ─  checking for empty or unneeded directories
@@ -280,16 +280,16 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  21.2
-#>  2  24.7
-#>  3  27.8
-#>  4  12.7
-#>  5  19.8
-#>  6  29.1
-#>  7  27.7
-#>  8  20.0
-#>  9  17.7
-#> 10  24.1
+#>  1  11.1
+#>  2  11.1
+#>  3  21.6
+#>  4  20.2
+#>  5  24.5
+#>  6  28.1
+#>  7  21.5
+#>  8  22.0
+#>  9  19.5
+#> 10  29.3
 #> # … with 14 more rows
 #> 
 #> [[2]]
@@ -299,15 +299,15 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  21.2
-#>  2  24.7
-#>  3  27.8
-#>  4  12.7
-#>  5  19.8
-#>  6  29.1
-#>  7  27.7
-#>  8  20.0
-#>  9  17.7
-#> 10  24.1
+#>  1  11.1
+#>  2  11.1
+#>  3  21.6
+#>  4  20.2
+#>  5  24.5
+#>  6  28.1
+#>  7  21.5
+#>  8  22.0
+#>  9  19.5
+#> 10  29.3
 #> # … with 14 more rows
 ```
