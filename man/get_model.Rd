@@ -37,6 +37,10 @@ get_model(spec_tbl, 1)
 get_model(spec_tbl, 1:2)
 
 }
+\seealso{
+Other Extractor: 
+\code{\link{extract_model_spec}()}
+}
 \author{
 Steven P. Sanderson II, MPH
 }

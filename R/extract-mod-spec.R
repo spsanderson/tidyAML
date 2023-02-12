@@ -1,15 +1,15 @@
-#' Get a Model
+#' Extract A Model Specification
 #'
 #' @family Extractor
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
-#' @description Get a model from a tidyAML model tibble.
+#' @description Extract a model specification from a tidyAML model tibble.
 #'
-#' @details This function allows you to get a model or models from a tibble with
-#' a class of "tidyaml_mod_spec_tbl". It allows you to select the model by the
-#' `.model_id` column. You can call the model id's by an integer or a sequence
-#' of integers.
+#' @details This function allows you to get a model specification or more from
+#' a tibble with a class of "tidyaml_mod_spec_tbl". It allows you to select the
+#' model by the `.model_id` column. You can call the model id's by an integer
+#' or a sequence of integers.
 #'
 #' @param .data The model table that must have the class `tidyaml_mod_spec_tbl`.
 #' @param .model_id The model number that you want to select, Must be an integer
@@ -24,19 +24,19 @@
 #'   .parsnip_eng = c("lm","glm")
 #' )
 #'
-#' get_model(spec_tbl, 1)
-#' get_model(spec_tbl, 1:2)
+#' extract_model_spec(spec_tbl, 1)
+#' extract_model_spec(spec_tbl, 1:2)
 #'
 #' @return
-#' A tibble with the chosen models.
+#' A tibble with the chosen model specification(s).
 #'
-#' @name get_model
+#' @name extract_model_spec
 NULL
 
 #' @export
-#' @rdname get_model
+#' @rdname extract_model_spec
 
-get_model <- function(.data, .model_id = NULL){
+extract_model_spec <- function(.data, .model_id = NULL){
 
   mod_id <- as.integer(.model_id)
   mod_tbl <- .data
@@ -56,6 +56,8 @@ get_model <- function(.data, .model_id = NULL){
     )
   }
 
-  mod_tbl[mod_id,]
+  # Get model_spec(s)
+  mod_tbl[mod_id,] |>
+    dplyr::pull(model_spec)
 
 }

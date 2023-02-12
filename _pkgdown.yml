@@ -20,6 +20,10 @@ reference:
      desc: Functions that will generate models
      contents:
      -  has_concept("Model_Generator")
+  -  title: Extractors
+     desc: Functions that extract parts of a model spec tibble
+     contents:
+     -  has_concept("Extractor")
   -  title: Utility Functions
      desc: Utility/Internal Functions and Helpers
      contents:
