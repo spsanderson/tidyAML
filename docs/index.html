@@ -283,7 +283,7 @@
 <span><span class="co">#&gt; $ wflw            &lt;list&gt; [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
 <span><span class="co">#&gt; $ fitted_wflw     &lt;list&gt; [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
 <span><span class="co">#&gt; $ pred_wflw       &lt;list&gt; [&lt;tbl_df[24 x 1]&gt;], &lt;NULL&gt;, [&lt;tbl_df[24 x 1]&gt;]</span></span></code></pre></div>
-<p>As we see above, one of the models has gracefully failed, thanks in part to the function <code><a href="https://purrr.tidyverse.org/reference/safely.html" class="external-link">purrr::safely()</a></code>, which was used to make what I call <strong>safe_make</strong> functions.</p>
+<p>As we see above, one of the models has gracefully failed, thanks in part to the function <code><a href="https://rdrr.io/pkg/purrr/man/safely.html" class="external-link">purrr::safely()</a></code>, which was used to make what I call <strong>safe_make</strong> functions.</p>
 <p>Let’s look at the fitted workflow predictions.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">frt_tbl</span><span class="op">$</span><span class="va">pred_wflw</span></span>
