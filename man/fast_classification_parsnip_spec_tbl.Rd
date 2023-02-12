@@ -43,7 +43,8 @@ Other Utility:
 \code{\link{create_workflow_set}()},
 \code{\link{fast_regression_parsnip_spec_tbl}()},
 \code{\link{install_deps}()},
-\code{\link{load_deps}()}
+\code{\link{load_deps}()},
+\code{\link{match_args}()}
 }
 \author{
 Steven P. Sanderson II, MPH

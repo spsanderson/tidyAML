@@ -55,7 +55,8 @@ Other Utility:
 \code{\link{fast_classification_parsnip_spec_tbl}()},
 \code{\link{fast_regression_parsnip_spec_tbl}()},
 \code{\link{install_deps}()},
-\code{\link{load_deps}()}
+\code{\link{load_deps}()},
+\code{\link{match_args}()}
 }
 \author{
 Steven P. Sanderson II, MPH
