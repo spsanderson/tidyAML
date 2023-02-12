@@ -12,6 +12,7 @@ None
 6. Fix #101 - Add function `get_model()`
 7. Fix #102 - Add function `extract_model_spec()`
 8. Fix #103 - Add function `extract_wflw()`
+9. Fix #104 - Add function `extract_wflw_fit()`
 
 ## Minor Fixes and Improvements
 1. Fix #72 - Update `fast_classification_parsnip_spec_tbl()` and 

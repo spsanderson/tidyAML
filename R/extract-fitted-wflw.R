@@ -1,12 +1,12 @@
-#' Extract A Model Workflow
+#' Extract A Model Fitted Workflow
 #'
 #' @family Extractor
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
-#' @description Extract a model workflow from a tidyAML model tibble.
+#' @description Extract a model fitted workflow from a tidyAML model tibble.
 #'
-#' @details This function allows you to get a model workflow or more from
+#' @details This function allows you to get a model fitted workflow or more from
 #' a tibble with a class of "tidyaml_mod_spec_tbl". It allows you to select the
 #' model by the `.model_id` column. You can call the model id's by an integer
 #' or a sequence of integers.
@@ -22,19 +22,19 @@
 #' frt_tbl <- fast_regression(mtcars, rec_obj, .parsnip_eng = c("lm","glm"),
 #'                                            .parsnip_fns = "linear_reg")
 #'
-#' extract_wflw(frt_tbl, 1)
-#' extract_wflw(frt_tbl, 1:2)
+#' extract_wflw_fit(frt_tbl, 1)
+#' extract_wflw_fit(frt_tbl, 1:2)
 #'
 #' @return
 #' A tibble with the chosen model workflow(s).
 #'
-#' @name extract_wflw
+#' @name extract_wflw_fit
 NULL
 
 #' @export
-#' @rdname extract_wflw
+#' @rdname extract_wflw_fit
 
-extract_wflw <- function(.data, .model_id = NULL){
+extract_wflw_fit <- function(.data, .model_id = NULL){
 
   mod_id <- as.integer(.model_id)
   mod_tbl <- .data
@@ -54,16 +54,16 @@ extract_wflw <- function(.data, .model_id = NULL){
     )
   }
 
-  if (!"wflw" %in% names(mod_tbl)){
+  if (!"fitted_wflw" %in% names(mod_tbl)){
     rlang::abort(
       message = "'.data' must be a class of tidyaml_mod_spec_tbl at least passed
-      through `internal_make_wflw()`.",
+      through `internal_make_fitted_wflw()`.",
       use_cli_format = TRUE
     )
   }
 
   # Pull it out
   mod_tbl[mod_id, ] |>
-    dplyr::pull(wflw)
+    dplyr::pull(fitted_wflw)
 
 }
