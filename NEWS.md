@@ -11,6 +11,7 @@ None
 5. Fix #16 - Add function `create_workflow_set()`
 6. Fix #101 - Add function `get_model()`
 7. Fix #102 - Add function `extract_model_spec()`
+8. Fix #103 - Add function `extract_wflw()`
 
 ## Minor Fixes and Improvements
 1. Fix #72 - Update `fast_classification_parsnip_spec_tbl()` and 
