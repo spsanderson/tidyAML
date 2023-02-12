@@ -9,6 +9,7 @@ None
 3. Fix #77 - Add function `internal_make_spec_tbl()`
 4. Fix #78 - Add function `internal_set_args_to_tune()`
 5. Fix #16 - Add function `create_workflow_set()`
+6. Fix #101 - Add function `get_model()`
 
 ## Minor Fixes and Improvements
 1. Fix #72 - Update `fast_classification_parsnip_spec_tbl()` and 
