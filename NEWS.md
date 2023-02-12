@@ -14,6 +14,7 @@ None
 8. Fix #103 - Add function `extract_wflw()`
 9. Fix #104 - Add function `extract_wflw_fit()`
 10. Fix #105 - Add function `extract_wflw_pred()`
+11. Fix #71 - Add function `match_args()`
 
 ## Minor Fixes and Improvements
 1. Fix #72 - Update `fast_classification_parsnip_spec_tbl()` and 
