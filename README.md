@@ -4,8 +4,8 @@
 # tidyAML <img src="man/figures/logo.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
+<!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyAML)](https://cran.r-project.org/package=tidyAML) -->
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyAML)](https://cran.r-project.org/package=tidyAML)
 ![](https://cranlogs.r-pkg.org/badges/tidyAML)
 ![](https://cranlogs.r-pkg.org/badges/grand-total/tidyAML) [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html##experimental)
@@ -63,8 +63,8 @@ Or the development version from GitHub
 devtools::install_github("spsanderson/tidyAML")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpsVeyAq\remotes5641da469f4\spsanderson-tidyAML-17f0011/DESCRIPTION'
-#>       ─  preparing 'tidyAML': (1.8s)
+#>          checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpcTQ0qQ\remotes20301fd86a70\spsanderson-tidyAML-4589656/DESCRIPTION' ...  ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpcTQ0qQ\remotes20301fd86a70\spsanderson-tidyAML-4589656/DESCRIPTION'
+#>       ─  preparing 'tidyAML': (1.7s)
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
 #>       ─  checking for empty or unneeded directories
@@ -280,16 +280,16 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  21.2
-#>  2  24.7
-#>  3  27.8
-#>  4  12.7
-#>  5  19.8
-#>  6  29.1
-#>  7  27.7
-#>  8  20.0
-#>  9  17.7
-#> 10  24.1
+#>  1  23.9
+#>  2  31.2
+#>  3  15.4
+#>  4  15.5
+#>  5  11.3
+#>  6  27.1
+#>  7  17.8
+#>  8  32.3
+#>  9  28.1
+#> 10  17.6
 #> # … with 14 more rows
 #> 
 #> [[2]]
@@ -299,15 +299,15 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  21.2
-#>  2  24.7
-#>  3  27.8
-#>  4  12.7
-#>  5  19.8
-#>  6  29.1
-#>  7  27.7
-#>  8  20.0
-#>  9  17.7
-#> 10  24.1
+#>  1  23.9
+#>  2  31.2
+#>  3  15.4
+#>  4  15.5
+#>  5  11.3
+#>  6  27.1
+#>  7  17.8
+#>  8  32.3
+#>  9  28.1
+#> 10  17.6
 #> # … with 14 more rows
 ```
