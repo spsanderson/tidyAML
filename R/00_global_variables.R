@@ -1,3 +1,11 @@
 globalVariables(
-  ".parsnip_engine"
+  names = c(
+    ".parsnip_engine",
+    ".",
+    ".model_id",
+    "fitted_wflw",
+    "model_spec",
+    "pred_wflw",
+    "wflw"
+    )
 )
