@@ -6,6 +6,9 @@
 \usage{
 load_deps()
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Load all the core packages necessary to run all potential modeling
 algorithms.
@@ -18,8 +21,6 @@ algorithms.
 \dontrun{
 load_deps()
 }
-
-\value{No return value, called for side effects}
 
 }
 \seealso{
