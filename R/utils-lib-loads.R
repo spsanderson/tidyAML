@@ -45,7 +45,8 @@ core_packages <- function(){
 #'   install_deps()
 #' }
 #'
-#' \value{No return value, called for side effects}
+#' @return
+#' No return value, called for side effects
 #'
 #' @name install_deps
 NULL
@@ -91,7 +92,8 @@ install_deps <- function(){
 #' load_deps()
 #' }
 #'
-#' \value{No return value, called for side effects}
+#' @return
+#' No return value, called for side effects
 #'
 #' @name load_deps
 NULL

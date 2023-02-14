@@ -6,6 +6,9 @@
 \usage{
 install_deps()
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Installs all dependencies in the \code{core_packages()} function.
 }
@@ -16,8 +19,6 @@ Installs all dependencies in the \code{core_packages()} function.
 \dontrun{
   install_deps()
 }
-
-\value{No return value, called for side effects}
 
 }
 \seealso{
