@@ -1,10 +1,10 @@
 Package: tidyAML
-Title: Automatic Machine Learning with `tidymodels`
+Title: Automatic Machine Learning with 'tidymodels'
 Version: 0.0.1
 Authors@R: c(
     person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre","cph"))
     )
-Description: The goal of this package will be to provide a simple interface for automatic machine learning that fits the `tidymodels` framework. The intention is to work for regression and classification problems with a simple API.
+Description: The goal of this package will be to provide a simple interface for automatic machine learning that fits the `tidymodels` framework. The intention is to work for regression and classification problems with a simple API. <https://www.spsanderson.com/tidyAML/reference/index.html>
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

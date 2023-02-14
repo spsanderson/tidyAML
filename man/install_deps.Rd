@@ -17,6 +17,8 @@ Installs all dependencies in the \code{core_packages()} function.
   install_deps()
 }
 
+\value{No return value, called for side effects}
+
 }
 \seealso{
 Other Utility: 
