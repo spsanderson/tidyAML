@@ -45,11 +45,10 @@ Thank you [Garrick Aden-Buie](https://fosstodon.org/@grrrck/109479826278916014) 
 
 ## Installation
 
-You can install `{tidyAML}` like so (Not yet available on CRAN)
+You can install `{tidyAML}` like so:
 
 ```{r}
-# Not yet on CRAN
-# install.packages("tidyAML")
+install.packages("tidyAML")
 ```
 Or the development version from GitHub
 ```{r, warning=FALSE, message=FALSE}
