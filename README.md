@@ -4,8 +4,8 @@
 # tidyAML <img src="man/figures/logo.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
-<!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyAML)](https://cran.r-project.org/package=tidyAML) -->
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyAML)](https://cran.r-project.org/package=tidyAML)
 ![](https://cranlogs.r-pkg.org/badges/tidyAML)
 ![](https://cranlogs.r-pkg.org/badges/grand-total/tidyAML) [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html##experimental)
@@ -49,11 +49,17 @@ easy name change suggestion.
 
 ## Installation
 
-You can install `{tidyAML}` like so (Not yet available on CRAN)
+You can install `{tidyAML}` like so:
 
 ``` r
-# Not yet on CRAN
-# install.packages("tidyAML")
+install.packages("tidyAML")
+#> Installing package into 'C:/Users/steve/AppData/Local/Temp/RtmpI3Lei0/temp_libpath512815dd46d2'
+#> (as 'lib' is unspecified)
+#> Warning: package 'tidyAML' is not available for this version of R
+#> 
+#> A version of this package for your version of R might be available elsewhere,
+#> see the ideas at
+#> https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
 ```
 
 Or the development version from GitHub
@@ -63,12 +69,12 @@ Or the development version from GitHub
 devtools::install_github("spsanderson/tidyAML")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>          checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpcTQ0qQ\remotes20301fd86a70\spsanderson-tidyAML-4589656/DESCRIPTION' ...  ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpcTQ0qQ\remotes20301fd86a70\spsanderson-tidyAML-4589656/DESCRIPTION'
+#>          checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpMlKYna\remotes58a05c123ab5\spsanderson-tidyAML-c243578/DESCRIPTION' ...  ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpMlKYna\remotes58a05c123ab5\spsanderson-tidyAML-c243578/DESCRIPTION'
 #>       ─  preparing 'tidyAML': (1.7s)
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
 #>       ─  checking for empty or unneeded directories
-#>       ─  building 'tidyAML_0.0.0.9002.tar.gz'
+#>       ─  building 'tidyAML_0.0.1.tar.gz'
 #>      
 #> 
 ```
@@ -280,16 +286,16 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  23.9
-#>  2  31.2
-#>  3  15.4
-#>  4  15.5
-#>  5  11.3
-#>  6  27.1
-#>  7  17.8
-#>  8  32.3
-#>  9  28.1
-#> 10  17.6
+#>  1  20.0
+#>  2  27.4
+#>  3  30.3
+#>  4  16.4
+#>  5  16.2
+#>  6  22.3
+#>  7  11.5
+#>  8  14.3
+#>  9  13.5
+#> 10  24.9
 #> # … with 14 more rows
 #> 
 #> [[2]]
@@ -299,15 +305,15 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  23.9
-#>  2  31.2
-#>  3  15.4
-#>  4  15.5
-#>  5  11.3
-#>  6  27.1
-#>  7  17.8
-#>  8  32.3
-#>  9  28.1
-#> 10  17.6
+#>  1  20.0
+#>  2  27.4
+#>  3  30.3
+#>  4  16.4
+#>  5  16.2
+#>  6  22.3
+#>  7  11.5
+#>  8  14.3
+#>  9  13.5
+#> 10  24.9
 #> # … with 14 more rows
 ```
