@@ -53,13 +53,9 @@ You can install `{tidyAML}` like so:
 
 ``` r
 install.packages("tidyAML")
-#> Installing package into 'C:/Users/steve/AppData/Local/Temp/RtmpI3Lei0/temp_libpath512815dd46d2'
+#> Installing package into 'C:/Users/steve/AppData/Local/Temp/RtmpM1EnFK/temp_libpath77cdb3583e'
 #> (as 'lib' is unspecified)
-#> Warning: package 'tidyAML' is not available for this version of R
-#> 
-#> A version of this package for your version of R might be available elsewhere,
-#> see the ideas at
-#> https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
+#> installing the source package 'tidyAML'
 ```
 
 Or the development version from GitHub
@@ -69,12 +65,12 @@ Or the development version from GitHub
 devtools::install_github("spsanderson/tidyAML")
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>          checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpMlKYna\remotes58a05c123ab5\spsanderson-tidyAML-c243578/DESCRIPTION' ...  ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpMlKYna\remotes58a05c123ab5\spsanderson-tidyAML-c243578/DESCRIPTION'
+#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpgxmfWe\remotes35203eea2395\spsanderson-tidyAML-e0a544d/DESCRIPTION'
 #>       ─  preparing 'tidyAML': (1.7s)
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
 #>       ─  checking for empty or unneeded directories
-#>       ─  building 'tidyAML_0.0.1.tar.gz'
+#>       ─  building 'tidyAML_0.0.1.9000.tar.gz'
 #>      
 #> 
 ```
@@ -286,16 +282,16 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  20.0
-#>  2  27.4
-#>  3  30.3
-#>  4  16.4
-#>  5  16.2
-#>  6  22.3
-#>  7  11.5
-#>  8  14.3
-#>  9  13.5
-#> 10  24.9
+#>  1  14.6
+#>  2  29.6
+#>  3  23.3
+#>  4  23.1
+#>  5  13.3
+#>  6  24.3
+#>  7  21.4
+#>  8  19.1
+#>  9  16.2
+#> 10  28.0
 #> # … with 14 more rows
 #> 
 #> [[2]]
@@ -305,15 +301,15 @@ frt_tbl$pred_wflw
 #> # A tibble: 24 × 1
 #>    .pred
 #>    <dbl>
-#>  1  20.0
-#>  2  27.4
-#>  3  30.3
-#>  4  16.4
-#>  5  16.2
-#>  6  22.3
-#>  7  11.5
-#>  8  14.3
-#>  9  13.5
-#> 10  24.9
+#>  1  14.6
+#>  2  29.6
+#>  3  23.3
+#>  4  23.1
+#>  5  13.3
+#>  6  24.3
+#>  7  21.4
+#>  8  19.1
+#>  9  16.2
+#> 10  28.0
 #> # … with 14 more rows
 ```
