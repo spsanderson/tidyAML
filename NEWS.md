@@ -1,5 +1,14 @@
 # tidyAML (development version)
 
+## Breaking Changes
+None
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+1. Fix #130 - Add checks to `create_model_spec()`
+
 # tidyAML 0.0.1
 
 ## Breaking Changes

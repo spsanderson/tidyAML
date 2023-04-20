@@ -54,16 +54,26 @@ create_model_spec <- function(.parsnip_eng = list("lm"),
                               .return_tibble = TRUE) {
 
   # Tidyeval ----
-  engine <- .parsnip_eng%>%
-    purrr::flatten_chr() %>%
-    as.list()
-  mode <- .mode %>%
-    purrr::flatten_chr() %>%
-    as.list()
-  call <- .parsnip_fns %>%
-    purrr::flatten_chr() %>%
-    as.list()
+  engine <- .parsnip_eng
+  mode <- .mode
+  call <- .parsnip_fns
   ret_tibble <- as.logical(.return_tibble)
+
+  # Checks
+  # Make sure arguments are correct types
+  if (!is.logical(ret_tibble)){
+    rlang::abort(
+      message = "'.return_tibble' must be a logical of TRUE/FALSE only.",
+      use_cli_format = TRUE
+    )
+  }
+
+  if (!is.list(engine) | !is.list(mode) | !is.list(call)){
+    rlang::abort(
+      message = "'.parsnip_eng', '.mode','.parsnip_fns' must all be list objects.",
+      use_cli_format = TRUE
+    )
+  }
 
   # Make Model list for purrr call
   model_spec_list <- list(
