@@ -1,5 +1,6 @@
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 1 warnings | 2 note
 
-* This is a new release.
+* Minor fixes.
+* Warning stems from parsnip being built on 4.2.3 and tidyAML is 4.2.2
