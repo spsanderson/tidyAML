@@ -42,7 +42,7 @@ extract_model_spec <- function(.data, .model_id = NULL){
   mod_tbl <- .data
 
   # Checks ----
-  if (!is.integer(mod_id) | is.null(mod_id) | any(mod_id < 1)){
+  if (!is.numeric(mod_id) | is.null(mod_id) | any(mod_id < 1)){
     rlang::abort(
       message = "'.model_id' must be an integer like 1",
       use_cli_format = TRUE
@@ -50,14 +50,28 @@ extract_model_spec <- function(.data, .model_id = NULL){
   }
 
   if (!inherits(mod_tbl, "tidyaml_mod_spec_tbl")){
-    rlang::abort(
-      message = "'.data' must have calss of 'tidyaml_mod_spec_tbl'.",
-      use_cli_format = TRUE
-    )
+    if(!inherits(mod_tbl, "create_mod_spec_tbl")){
+      rlang::abort(
+        message = "'.data' must have class of 'tidyaml_mod_spec_tbl/create_mod_spec_tbl'.",
+        use_cli_format = TRUE
+      )
+    }
   }
 
+  # if (!inherits(mod_tbl, "tidyaml_mod_spec_tbl")){
+  #   rlang::abort(
+  #     message = "'.data' must have class of 'tidyaml_mod_spec_tbl'.",
+  #     use_cli_format = TRUE
+  #   )
+  # }
+
   # Get model_spec(s)
-  mod_tbl[mod_id,] |>
-    dplyr::pull(model_spec)
+  if (inherits(mod_tbl, "tidyaml_mod_spec_tbl")){
+    mod_tbl[mod_id,] |>
+      dplyr::pull(model_spec)
+  } else {
+    mod_tbl[mod_id,] |>
+      dplyr::pull(.model_spec)
+  }
 
 }

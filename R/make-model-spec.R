@@ -54,9 +54,15 @@ create_model_spec <- function(.parsnip_eng = list("lm"),
                               .return_tibble = TRUE) {
 
   # Tidyeval ----
-  engine <- .parsnip_eng
-  mode <- .mode
-  call <- .parsnip_fns
+  engine <- .parsnip_eng |>
+    purrr::list_c() |>
+    as.list()
+  mode <- .mode |>
+    purrr::list_c() |>
+    as.list()
+  call <- .parsnip_fns |>
+    purrr::list_c() |>
+    as.list()
   ret_tibble <- as.logical(.return_tibble)
 
   # Checks
@@ -104,6 +110,8 @@ create_model_spec <- function(.parsnip_eng = list("lm"),
     .parsnip_fns    = unlist(call),
     .model_spec     = models
   )
+
+  class(ret_tbl) <- c("create_mod_spec_tbl", class(ret_tbl))
 
   ifelse(ret_tibble, return(ret_tbl), return(models_list))
 }
