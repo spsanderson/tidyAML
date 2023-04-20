@@ -4,7 +4,8 @@
 None
 
 ## New Features
-None
+1. Fix #129 - Add the ability to extract model spec from the `create_model_spec()`
+function.
 
 ## Minor Fixes and Improvements
 1. Fix #130 - Add checks to `create_model_spec()`
