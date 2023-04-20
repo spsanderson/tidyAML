@@ -100,7 +100,7 @@ internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
         # Return the predictions
         ret <- safe_stats_predict(
           fitted_wflw,
-          new_data = rsample::training(splits_obj$splits)
+          new_data = rsample::testing(splits_obj$splits)
         )
 
         res <- ret %>% purrr::pluck("result")

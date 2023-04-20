@@ -9,6 +9,8 @@ function.
 
 ## Minor Fixes and Improvements
 1. Fix #130 - Add checks to `create_model_spec()`
+2. Fix #127 - Fix `internal_make_wflw_predictions()` to use `recipes::testing()`
+instead of `recipes::training()`
 
 # tidyAML 0.0.1
 
