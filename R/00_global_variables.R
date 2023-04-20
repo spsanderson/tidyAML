@@ -6,6 +6,7 @@ globalVariables(
     "fitted_wflw",
     "model_spec",
     "pred_wflw",
-    "wflw"
+    "wflw",
+    ".model_spec"
     )
 )
