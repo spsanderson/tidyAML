@@ -53,9 +53,12 @@ You can install `{tidyAML}` like so:
 
 ``` r
 install.packages("tidyAML")
-#> Installing package into 'C:/Users/steve/AppData/Local/Temp/RtmpM1EnFK/temp_libpath77cdb3583e'
+#> Installing package into 'C:/Users/steve/AppData/Local/Temp/Rtmp6fnaQc/temp_libpath240429af4e9c'
 #> (as 'lib' is unspecified)
-#> installing the source package 'tidyAML'
+#> package 'tidyAML' successfully unpacked and MD5 sums checked
+#> 
+#> The downloaded binary packages are in
+#>  C:\Users\steve\AppData\Local\Temp\Rtmpiac3aC\downloaded_packages
 ```
 
 Or the development version from GitHub
@@ -63,10 +66,14 @@ Or the development version from GitHub
 ``` r
 # install.packages("devtools")
 devtools::install_github("spsanderson/tidyAML")
+#> vctrs (0.6.1 -> 0.6.2) [CRAN]
+#> package 'vctrs' successfully unpacked and MD5 sums checked
 #> 
+#> The downloaded binary packages are in
+#>  C:\Users\steve\AppData\Local\Temp\Rtmpiac3aC\downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpgxmfWe\remotes35203eea2395\spsanderson-tidyAML-e0a544d/DESCRIPTION'
-#>       ─  preparing 'tidyAML': (1.7s)
+#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\Rtmpiac3aC\remotes33d8c3536b0\spsanderson-tidyAML-de7b5bd/DESCRIPTION'
+#>       ─  preparing 'tidyAML': (1.9s)
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
 #>       ─  checking for empty or unneeded directories
@@ -88,6 +95,7 @@ First let’s load the library
 ``` r
 library(tidyAML)
 #> Loading required package: parsnip
+#> Warning: package 'parsnip' was built under R version 4.2.3
 #> 
 #> == Welcome to tidyAML ===========================================================================
 #> If you find this package useful, please leave a star: 
@@ -267,7 +275,7 @@ glimpse(frt_tbl)
 #> $ model_spec      <list> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…
 #> $ wflw            <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
 #> $ fitted_wflw     <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
-#> $ pred_wflw       <list> [<tbl_df[24 x 1]>], <NULL>, [<tbl_df[24 x 1]>]
+#> $ pred_wflw       <list> [<tbl_df[8 x 1]>], <NULL>, [<tbl_df[8 x 1]>]
 ```
 
 As we see above, one of the models has gracefully failed, thanks in part
@@ -279,37 +287,31 @@ Let’s look at the fitted workflow predictions.
 ``` r
 frt_tbl$pred_wflw
 #> [[1]]
-#> # A tibble: 24 × 1
-#>    .pred
-#>    <dbl>
-#>  1  14.6
-#>  2  29.6
-#>  3  23.3
-#>  4  23.1
-#>  5  13.3
-#>  6  24.3
-#>  7  21.4
-#>  8  19.1
-#>  9  16.2
-#> 10  28.0
-#> # … with 14 more rows
+#> # A tibble: 8 × 1
+#>   .pred
+#>   <dbl>
+#> 1 27.0 
+#> 2 25.9 
+#> 3 20.8 
+#> 4 17.5 
+#> 5  7.51
+#> 6 27.4 
+#> 7 32.5 
+#> 8 23.0 
 #> 
 #> [[2]]
 #> NULL
 #> 
 #> [[3]]
-#> # A tibble: 24 × 1
-#>    .pred
-#>    <dbl>
-#>  1  14.6
-#>  2  29.6
-#>  3  23.3
-#>  4  23.1
-#>  5  13.3
-#>  6  24.3
-#>  7  21.4
-#>  8  19.1
-#>  9  16.2
-#> 10  28.0
-#> # … with 14 more rows
+#> # A tibble: 8 × 1
+#>   .pred
+#>   <dbl>
+#> 1 27.0 
+#> 2 25.9 
+#> 3 20.8 
+#> 4 17.5 
+#> 5  7.51
+#> 6 27.4 
+#> 7 32.5 
+#> 8 23.0
 ```
