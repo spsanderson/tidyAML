@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyAML</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -136,10 +136,15 @@ into a factor before you create your recipe.</p>
 <span class="r-in"><span>  .data <span class="op">=</span> <span class="va">df</span>,</span></span>
 <span class="r-in"><span>  .rec_obj <span class="op">=</span> <span class="va">rec_obj</span>,</span></span>
 <span class="r-in"><span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"glm"</span>,<span class="st">"LiblineaR"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>There was 1 warning in `dplyr::mutate()`.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>There were 4 warnings in `dplyr::mutate()`.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> The first warning was:</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> In argument: `fitted_wflw = internal_make_fitted_wflw(mod_tbl, splits_obj)`.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Caused by warning:</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> glm.fit: fitted probabilities numerically 0 or 1 occurred</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> <span style="color: #BBBB00;">!</span> Logistic regression is intended for modeling binary outcomes, but there are 3</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>   levels in the outcome.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> If this is unintended, adjust outcome levels accordingly or see the</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>   `multinom_reg()` function.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Run `dplyr::last_dplyr_warnings()` to see the 3 remaining warnings.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">fct_tbl</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 3</span>
@@ -151,7 +156,7 @@ into a factor before you create your recipe.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ model_spec      <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [~NULL, ~NULL, NULL, classification, TRUE, NULL, glm, …</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ wflw            <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [mpg, disp, hp, drat, wt, qsec, vs, am, gear, carb, cy…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ fitted_wflw     <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [mpg, disp, hp, drat, wt, qsec, vs, am, gear, carb, cy…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ pred_wflw       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [&lt;tbl_df[24 x 1]&gt;], [&lt;tbl_df[24 x 1]&gt;], [&lt;tbl_df[24 x …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ pred_wflw       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [&lt;tbl_df[8 x 1]&gt;], [&lt;tbl_df[8 x 1]&gt;], [&lt;tbl_df[8 x 1]&gt;…</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
