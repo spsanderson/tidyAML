@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="index.html">tidyAML</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,25 +102,28 @@
 <p>You can install <a href="https://github.com/spsanderson/tidyAML" class="external-link">tidyAML</a> like so:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyAML"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Installing package into 'C:/Users/steve/AppData/Local/Temp/RtmpI3Lei0/temp_libpath512815dd46d2'</span></span>
+<span><span class="co">#&gt; Installing package into 'C:/Users/steve/AppData/Local/Temp/Rtmp6fnaQc/temp_libpath240429af4e9c'</span></span>
 <span><span class="co">#&gt; (as 'lib' is unspecified)</span></span>
-<span><span class="co">#&gt; Warning: package 'tidyAML' is not available for this version of R</span></span>
+<span><span class="co">#&gt; package 'tidyAML' successfully unpacked and MD5 sums checked</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; A version of this package for your version of R might be available elsewhere,</span></span>
-<span><span class="co">#&gt; see the ideas at</span></span>
-<span><span class="co">#&gt; https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</span></span></code></pre></div>
+<span><span class="co">#&gt; The downloaded binary packages are in</span></span>
+<span><span class="co">#&gt;  C:\Users\steve\AppData\Local\Temp\Rtmpiac3aC\downloaded_packages</span></span></code></pre></div>
 <p>Or the development version from GitHub</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"spsanderson/tidyAML"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; vctrs (0.6.1 -&gt; 0.6.2) [CRAN]</span></span>
+<span><span class="co">#&gt; package 'vctrs' successfully unpacked and MD5 sums checked</span></span>
 <span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; The downloaded binary packages are in</span></span>
+<span><span class="co">#&gt;  C:\Users\steve\AppData\Local\Temp\Rtmpiac3aC\downloaded_packages</span></span>
 <span><span class="co">#&gt; ── R CMD build ─────────────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt;          checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpMlKYna\remotes58a05c123ab5\spsanderson-tidyAML-c243578/DESCRIPTION' ...  ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\RtmpMlKYna\remotes58a05c123ab5\spsanderson-tidyAML-c243578/DESCRIPTION'</span></span>
-<span><span class="co">#&gt;       ─  preparing 'tidyAML': (1.7s)</span></span>
+<span><span class="co">#&gt;       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\Rtmpiac3aC\remotes33d8c3536b0\spsanderson-tidyAML-de7b5bd/DESCRIPTION'</span></span>
+<span><span class="co">#&gt;       ─  preparing 'tidyAML': (1.9s)</span></span>
 <span><span class="co">#&gt;    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information</span></span>
 <span><span class="co">#&gt;       ─  checking for LF line-endings in source and make files and shell scripts</span></span>
 <span><span class="co">#&gt;       ─  checking for empty or unneeded directories</span></span>
-<span><span class="co">#&gt;       ─  building 'tidyAML_0.0.1.tar.gz'</span></span>
+<span><span class="co">#&gt;       ─  building 'tidyAML_0.0.1.9000.tar.gz'</span></span>
 <span><span class="co">#&gt;      </span></span>
 <span><span class="co">#&gt; </span></span></code></pre></div>
 </div>
@@ -132,6 +135,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/spsanderson/tidyAML" class="external-link">tidyAML</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: parsnip</span></span>
+<span><span class="co">#&gt; Warning: package 'parsnip' was built under R version 4.2.3</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; == Welcome to tidyAML ===========================================================================</span></span>
 <span><span class="co">#&gt; If you find this package useful, please leave a star: </span></span>
@@ -288,50 +292,45 @@
 <span><span class="co">#&gt; $ model_spec      &lt;list&gt; [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…</span></span>
 <span><span class="co">#&gt; $ wflw            &lt;list&gt; [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
 <span><span class="co">#&gt; $ fitted_wflw     &lt;list&gt; [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
-<span><span class="co">#&gt; $ pred_wflw       &lt;list&gt; [&lt;tbl_df[24 x 1]&gt;], &lt;NULL&gt;, [&lt;tbl_df[24 x 1]&gt;]</span></span></code></pre></div>
+<span><span class="co">#&gt; $ pred_wflw       &lt;list&gt; [&lt;tbl_df[8 x 1]&gt;], &lt;NULL&gt;, [&lt;tbl_df[8 x 1]&gt;]</span></span></code></pre></div>
 <p>As we see above, one of the models has gracefully failed, thanks in part to the function <code><a href="https://purrr.tidyverse.org/reference/safely.html" class="external-link">purrr::safely()</a></code>, which was used to make what I call <strong>safe_make</strong> functions.</p>
 <p>Let’s look at the fitted workflow predictions.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">frt_tbl</span><span class="op">$</span><span class="va">pred_wflw</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
-<span><span class="co">#&gt; # A tibble: 24 × 1</span></span>
-<span><span class="co">#&gt;    .pred</span></span>
-<span><span class="co">#&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1  20.0</span></span>
-<span><span class="co">#&gt;  2  27.4</span></span>
-<span><span class="co">#&gt;  3  30.3</span></span>
-<span><span class="co">#&gt;  4  16.4</span></span>
-<span><span class="co">#&gt;  5  16.2</span></span>
-<span><span class="co">#&gt;  6  22.3</span></span>
-<span><span class="co">#&gt;  7  11.5</span></span>
-<span><span class="co">#&gt;  8  14.3</span></span>
-<span><span class="co">#&gt;  9  13.5</span></span>
-<span><span class="co">#&gt; 10  24.9</span></span>
-<span><span class="co">#&gt; # … with 14 more rows</span></span>
+<span><span class="co">#&gt; # A tibble: 8 × 1</span></span>
+<span><span class="co">#&gt;   .pred</span></span>
+<span><span class="co">#&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 27.0 </span></span>
+<span><span class="co">#&gt; 2 25.9 </span></span>
+<span><span class="co">#&gt; 3 20.8 </span></span>
+<span><span class="co">#&gt; 4 17.5 </span></span>
+<span><span class="co">#&gt; 5  7.51</span></span>
+<span><span class="co">#&gt; 6 27.4 </span></span>
+<span><span class="co">#&gt; 7 32.5 </span></span>
+<span><span class="co">#&gt; 8 23.0 </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[2]]</span></span>
 <span><span class="co">#&gt; NULL</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[3]]</span></span>
-<span><span class="co">#&gt; # A tibble: 24 × 1</span></span>
-<span><span class="co">#&gt;    .pred</span></span>
-<span><span class="co">#&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1  20.0</span></span>
-<span><span class="co">#&gt;  2  27.4</span></span>
-<span><span class="co">#&gt;  3  30.3</span></span>
-<span><span class="co">#&gt;  4  16.4</span></span>
-<span><span class="co">#&gt;  5  16.2</span></span>
-<span><span class="co">#&gt;  6  22.3</span></span>
-<span><span class="co">#&gt;  7  11.5</span></span>
-<span><span class="co">#&gt;  8  14.3</span></span>
-<span><span class="co">#&gt;  9  13.5</span></span>
-<span><span class="co">#&gt; 10  24.9</span></span>
-<span><span class="co">#&gt; # … with 14 more rows</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 8 × 1</span></span>
+<span><span class="co">#&gt;   .pred</span></span>
+<span><span class="co">#&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 27.0 </span></span>
+<span><span class="co">#&gt; 2 25.9 </span></span>
+<span><span class="co">#&gt; 3 20.8 </span></span>
+<span><span class="co">#&gt; 4 17.5 </span></span>
+<span><span class="co">#&gt; 5  7.51</span></span>
+<span><span class="co">#&gt; 6 27.4 </span></span>
+<span><span class="co">#&gt; 7 32.5 </span></span>
+<span><span class="co">#&gt; 8 23.0</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=tidyAML" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/spsanderson/tidyAML/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/spsanderson/tidyAML/issues" class="external-link">Report a bug</a></li>
 </ul>
