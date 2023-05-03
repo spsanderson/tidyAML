@@ -2,7 +2,8 @@ Package: tidyAML
 Title: Automatic Machine Learning with 'tidymodels'
 Version: 0.0.2.9000
 Authors@R: c(
-    person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre","cph"))
+    person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre","cph"),
+      comment = c(ORCID = "0009-0006-7661-8247"))
     )
 Description: The goal of this package will be to provide a simple interface for automatic machine learning that fits the 'tidymodels' framework. The intention is to work for regression and classification problems with a simple verb framework.
 License: MIT + file LICENSE
