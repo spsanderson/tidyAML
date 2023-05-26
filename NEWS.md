@@ -7,7 +7,7 @@ None
 None
 
 ## Minor Fixes and Improvements
-None
+1. Fix #142 - Add `gee`, `glmnet`, and `rules` to the `core_packages()` function.
 
 # tidyAML 0.0.2
 
