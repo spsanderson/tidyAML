@@ -26,7 +26,7 @@ core_packages <- function(){
   c(
     "multilevelmod","rules","poissonreg","censored","baguette","bonsai",
     "brulee","rstanarm","dbarts","kknn","ranger","randomForest",
-    "LiblineaR","flexsurv"
+    "LiblineaR","flexsurv","gee","glmnet"
   )
 }
 
