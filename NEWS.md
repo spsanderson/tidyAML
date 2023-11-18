@@ -8,6 +8,7 @@ None
 
 ## Minor Fixes and Improvements
 1. Fix #142 - Add `gee`, `glmnet`, and `rules` to the `core_packages()` function.
+2. Fix #148 - Update `create_model_spec()`
 
 # tidyAML 0.0.2
 
