@@ -12,10 +12,10 @@
 #'
 #' @param .parsnip_fns The input must be a list. The default for this is set to `all`. This means that all
 #' of the parsnip __linear regression__ functions will be used, for example `linear_reg()`,
-#' or `cubist_rules`. You can also choose to pass a c() vector like `c("linear_reg","cubist_rules")`
+#' or `cubist_rules`.
 #' @param .parsnip_eng The input must be a list. The default for this is set to `all`. This means that all
 #' of the parsnip __linear regression engines__ will be used, for example `lm`, or
-#' `glm`. You can also choose to pass a c() vector like `c('lm', 'glm')`
+#' `glm`.
 #' @param .mode The input must be a list. The default is 'regression'
 #' @param .return_tibble The default is TRUE. FALSE will return a list object.
 #'
@@ -54,15 +54,9 @@ create_model_spec <- function(.parsnip_eng = list("lm"),
                               .return_tibble = TRUE) {
 
   # Tidyeval ----
-  engine <- .parsnip_eng |>
-    purrr::list_c() |>
-    as.list()
-  mode <- .mode |>
-    purrr::list_c() |>
-    as.list()
-  call <- .parsnip_fns |>
-    purrr::list_c() |>
-    as.list()
+  engine <- .parsnip_eng
+  mode <- .mode
+  call <- .parsnip_fns
   ret_tibble <- as.logical(.return_tibble)
 
   # Checks
