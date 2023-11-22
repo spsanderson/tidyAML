@@ -23,18 +23,16 @@
 #' create_model_spec(
 #'  .parsnip_eng = list("lm","glm","glmnet","cubist"),
 #'  .parsnip_fns = list(
-#'       rep(
-#'         "linear_reg", 3),
-#'         "cubist_rules"
+#'       "linear_reg","linear_reg","linear_reg",
+#'       "cubist_rules"
 #'      )
 #'  )
 #'
 #' create_model_spec(
 #'  .parsnip_eng = list("lm","glm","glmnet","cubist"),
 #'  .parsnip_fns = list(
-#'       rep(
-#'         "linear_reg", 3),
-#'         "cubist_rules"
+#'       "linear_reg","linear_reg","linear_reg",
+#'       "cubist_rules"
 #'      ),
 #'  .return_tibble = FALSE
 #'  )
@@ -105,7 +103,7 @@ create_model_spec <- function(.parsnip_eng = list("lm"),
     .model_spec     = models
   )
 
-  class(ret_tbl) <- c("create_mod_spec_tbl", class(ret_tbl))
+  class(ret_tbl) <- c(class(ret_tbl), "create_mod_spec_tbl", "tidyaml_base_tbl")
 
   ifelse(ret_tibble, return(ret_tbl), return(models_list))
 }

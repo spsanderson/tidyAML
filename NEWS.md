@@ -10,8 +10,9 @@ will return an extra class of `gee_linear_reg`
 
 ## Minor Fixes and Improvements
 1. Fix #142 - Add `gee`, `glmnet`, and `rules` to the `core_packages()` function.
-2. Fix #148 - Update `create_model_spec()` 
-3. Fix #156 - Update `internal_set_args_to_tune()` to use `dplyr::pick()` instead 
+2. Fix #148 - Update `create_model_spec()`
+3. Fix #155 - Add class `tidyaml_base_tbl` to the output of `create_model_spec()`
+4. Fix #156 - Update `internal_set_args_to_tune()` to use `dplyr::pick()` instead 
 of `dplyr::cur_data()` since it was deprecated.
 
 # tidyAML 0.0.2

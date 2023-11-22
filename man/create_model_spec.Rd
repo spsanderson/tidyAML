@@ -39,18 +39,16 @@ choose that is supported by the \code{parsnip} ecosystem.
 create_model_spec(
  .parsnip_eng = list("lm","glm","glmnet","cubist"),
  .parsnip_fns = list(
-      rep(
-        "linear_reg", 3),
-        "cubist_rules"
+      "linear_reg","linear_reg","linear_reg",
+      "cubist_rules"
      )
  )
 
 create_model_spec(
  .parsnip_eng = list("lm","glm","glmnet","cubist"),
  .parsnip_fns = list(
-      rep(
-        "linear_reg", 3),
-        "cubist_rules"
+      "linear_reg","linear_reg","linear_reg",
+      "cubist_rules"
      ),
  .return_tibble = FALSE
  )
