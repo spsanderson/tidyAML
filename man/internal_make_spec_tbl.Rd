@@ -4,11 +4,11 @@
 \alias{internal_make_spec_tbl}
 \title{Internals Make a Model Spec tibble}
 \usage{
-internal_make_spec_tbl(.data)
+internal_make_spec_tbl(.model_tbl)
 }
 \arguments{
-\item{.data}{This is the data that should be coming from inside of the regression/classification
-to parsnip spec functions.}
+\item{.data}{This is the data that should be coming from inside of the
+regression/classification to parsnip spec functions.}
 }
 \value{
 A model spec tbl.
@@ -20,10 +20,10 @@ Make a Model Spec tibble.
 Make a Model Spec tibble.
 }
 \examples{
-make_regression_base_tbl() \%>\%
+make_regression_base_tbl() |>
   internal_make_spec_tbl()
 
-make_classification_base_tbl() \%>\%
+make_classification_base_tbl() |>
   internal_make_spec_tbl()
 
 }

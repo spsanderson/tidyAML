@@ -4,7 +4,9 @@
 None
 
 ## New Features
-None
+1. Fix #157 - `internal_make_spec_tbl()` now adds a class to each `model_spec`
+created by `parsnip`, for example, a `gee` engine setting using `linear_reg()` 
+will return an extra class of `gee_linear_reg`
 
 ## Minor Fixes and Improvements
 1. Fix #142 - Add `gee`, `glmnet`, and `rules` to the `core_packages()` function.
