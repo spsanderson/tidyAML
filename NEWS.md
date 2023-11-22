@@ -1,7 +1,7 @@
 # tidyAML (development version)
 
 ## Breaking Changes
-None
+1. Fix #150 - Require R version >= 4.1.0 in order to use the native pipe.
 
 ## New Features
 1. Fix #157 - `internal_make_spec_tbl()` now adds a class to each `model_spec`
@@ -14,6 +14,8 @@ will return an extra class of `gee_linear_reg`
 3. Fix #155 - Add class `tidyaml_base_tbl` to the output of `create_model_spec()`
 4. Fix #156 - Update `internal_set_args_to_tune()` to use `dplyr::pick()` instead 
 of `dplyr::cur_data()` since it was deprecated.
+5. Fix #161 - Update `internal_set_args_to_tune()` to use `!names(new_mod_args)`
+instead of `!names(.)`
 
 # tidyAML 0.0.2
 

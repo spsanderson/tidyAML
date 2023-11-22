@@ -20,7 +20,7 @@
 #' mod_tbl <- fast_regression_parsnip_spec_tbl()
 #' mod_tbl$model_spec[[1]]
 #'
-#' updated_mod_tbl <- mod_tbl %>%
+#' updated_mod_tbl <- mod_tbl |>
 #'   mutate(model_spec = internal_set_args_to_tune(mod_tbl))
 #' updated_mod_tbl$model_spec[[1]]
 #'
@@ -46,7 +46,7 @@ internal_set_args_to_tune <- function(.model_tbl){
     )
   }
 
-  model_tbl_with_params <- model_tbl %>%
+  model_tbl_with_params <- model_tbl |>
     dplyr::mutate(
       model_params = purrr::pmap(
         #dplyr::cur_data(),
@@ -55,22 +55,22 @@ internal_set_args_to_tune <- function(.model_tbl){
       )
     )
 
-  models_list_new <- model_tbl_with_params %>%
+  models_list_new <- model_tbl_with_params |>
     dplyr::group_split(.model_id)
 
-  tuned_params_list <- models_list_new %>%
+  tuned_params_list <- models_list_new |>
     purrr::imap(
       .f = function(obj, id){
 
         # Pull the model params
-        mod_params <- obj %>% dplyr::pull(6) %>% purrr::pluck(1) # change to pull(6)
-        mod_params_list <- unlist(mod_params) %>% as.list()
+        mod_params <- obj |> dplyr::pull(6) |> purrr::pluck(1) # change to pull(6)
+        mod_params_list <- unlist(mod_params) |> as.list()
         #param_names <- unlist(mod_params)
         names(mod_params_list) <- unlist(mod_params)
 
         # Set mode and engine
-        p_mode <- obj %>% dplyr::pull(3) %>% purrr::pluck(1)
-        p_engine <- obj %>% dplyr::pull(2) %>% purrr::pluck(1)
+        p_mode <- obj |> dplyr::pull(3) |> purrr::pluck(1)
+        p_engine <- obj |> dplyr::pull(2) |> purrr::pluck(1)
         me_list <- list(
           mode = paste0("mode = ", p_mode),
           engine = paste0("engine = ", p_engine)
@@ -79,7 +79,7 @@ internal_set_args_to_tune <- function(.model_tbl){
         # Get all other params
         me_vec <- c("mode","engine")
         pv <- unlist(mod_params)
-        params_to_modify <- pv[!pv %in% me_vec] %>% as.list()
+        params_to_modify <- pv[!pv %in% me_vec] |> as.list()
         names(params_to_modify) <- unlist(params_to_modify)
 
         # Set each item equal to .x = tune::tune()
@@ -104,24 +104,24 @@ internal_set_args_to_tune <- function(.model_tbl){
     ~ {.y$model_params <- list(.x[.y$model_params[[1]][[1]]]);.y}
   )
 
-  new_mod_obj <- models_with_params_list %>%
+  new_mod_obj <- models_with_params_list |>
     purrr::imap(
       .f = function(obj, id){
 
         # Get Model Specification
-        mod_spec <- obj %>%
-          dplyr::pull(5) %>%
+        mod_spec <- obj |>
+          dplyr::pull(5) |>
           purrr::pluck(1)
 
         # Get the tuned params
-        new_mod_args <- obj %>%
-          dplyr::pull(6) %>%
+        new_mod_args <- obj |>
+          dplyr::pull(6) |>
           purrr::pluck(1)
 
         # Drop the ones we don't need to set
-        new_mod_args <- new_mod_args %>%
-          unlist() %>%
-          subset(!names(.) %in% c('mode','engine')) %>%
+        new_mod_args <- new_mod_args |>
+          unlist() |>
+          subset(!names(new_mod_args) %in% c('mode','engine')) |>
           as.list()
 
         # Set the new model arguments

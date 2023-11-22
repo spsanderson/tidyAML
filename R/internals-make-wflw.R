@@ -52,24 +52,24 @@ internal_make_wflw <- function(.model_tbl, .rec_obj){
   }
 
   # Manipulation
-  model_factor_tbl <- model_tbl %>%
-    dplyr::mutate(.model_id = forcats::as_factor(.model_id)) %>%
+  model_factor_tbl <- model_tbl |>
+    dplyr::mutate(.model_id = forcats::as_factor(.model_id)) |>
     dplyr::mutate(rec_obj = list(rec_obj))
 
   # Make a group split object list
-  models_list <- model_factor_tbl %>%
+  models_list <- model_factor_tbl |>
     dplyr::group_split(.model_id)
 
   # Make the Workflow Object using purrr imap
-  wflw_list <- models_list %>%
+  wflw_list <- models_list |>
     purrr::imap(
       .f = function(obj, id){
 
         # Pull the model column and then pluck the model
-        mod <- obj %>% dplyr::pull(5) %>% purrr::pluck(1)
+        mod <- obj |> dplyr::pull(5) |> purrr::pluck(1)
 
         # PUll the recipe column and then pluck the recipe
-        rec_obj <- obj %>% dplyr::pull(6) %>% purrr::pluck(1)
+        rec_obj <- obj |> dplyr::pull(6) |> purrr::pluck(1)
 
         # Create a safe add_model function
         safe_add_model <- purrr::safely(
@@ -79,12 +79,12 @@ internal_make_wflw <- function(.model_tbl, .rec_obj){
         )
 
         # Return the workflow object with recipe and model
-        ret <- workflows::workflow() %>%
-          workflows::add_recipe(rec_obj) %>%
+        ret <- workflows::workflow() |>
+          workflows::add_recipe(rec_obj) |>
           safe_add_model(mod)
 
         # Pluck the result
-        res <- ret %>% purrr::pluck("result")
+        res <- ret |> purrr::pluck("result")
 
         if (!is.null(ret$error)) message(stringr::str_glue("{ret$error}"))
 
