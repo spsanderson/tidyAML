@@ -8,7 +8,7 @@
 #'
 #' @details Make a Model Spec tibble.
 #'
-#' @param .data This is the data that should be coming from inside of the
+#' @param .model_tbl This is the data that should be coming from inside of the
 #' regression/classification to parsnip spec functions.
 #'
 #' @examples

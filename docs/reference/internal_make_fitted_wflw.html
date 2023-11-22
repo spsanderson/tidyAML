@@ -115,7 +115,7 @@ to the <code>auto_ml_</code> function.</p></dd>
 <span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">splits_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_splits.html">create_splits</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="st">"initial_split"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">mod_tbl</span> <span class="op">&lt;-</span> <span class="va">mod_spec_tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">mod_tbl</span> <span class="op">&lt;-</span> <span class="va">mod_spec_tbl</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>wflw <span class="op">=</span> <span class="fu"><a href="internal_make_wflw.html">internal_make_wflw</a></span><span class="op">(</span><span class="va">mod_spec_tbl</span>, <span class="va">rec_obj</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `.f()`:</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> <span style="color: #0000BB;">parsnip</span> could not locate an implementation for `linear_reg` regression</span>
@@ -141,9 +141,9 @@ to the <code>auto_ml_</code> function.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          cyl         disp           hp         drat           wt  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   28.109816    -0.992927     0.005893    -0.005039    -0.287468    -3.013069  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   24.712980    -0.386945     0.006179    -0.029404     1.209342    -1.497570  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        qsec           vs           am         gear         carb  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    0.514374     1.406664     2.914062    -0.377996    -0.334704  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   -0.015523     0.559213     1.959841     0.862498    -1.099068  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
@@ -163,13 +163,13 @@ to the <code>auto_ml_</code> function.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          cyl         disp           hp         drat           wt  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   28.109816    -0.992927     0.005893    -0.005039    -0.287468    -3.013069  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   24.712980    -0.386945     0.006179    -0.029404     1.209342    -1.497570  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        qsec           vs           am         gear         carb  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    0.514374     1.406664     2.914062    -0.377996    -0.334704  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   -0.015523     0.559213     1.959841     0.862498    -1.099068  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 23 Total (i.e. Null);  13 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    955.9 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 94.5 	AIC: 125</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    771.3 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 104 	AIC: 127.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
