@@ -39,9 +39,9 @@ fast_classification_parsnip_spec_tbl <- function(.parsnip_fns = "all",
 
   # Thank you https://stackoverflow.com/questions/74691333/build-a-tibble-of-parsnip-model-calls-with-match-fun/74691529#74691529
   # Tidyeval ----
-  call <- list(.parsnip_fns) %>%
+  call <- list(.parsnip_fns) |>
     purrr::flatten_chr()
-  engine <- list(.parsnip_eng) %>%
+  engine <- list(.parsnip_eng) |>
     purrr::flatten_chr()
 
   # Make tibble
@@ -49,18 +49,18 @@ fast_classification_parsnip_spec_tbl <- function(.parsnip_fns = "all",
 
   # Filter ----
   if (!"all" %in% engine){
-    mod_tbl <- mod_tbl %>%
+    mod_tbl <- mod_tbl |>
       dplyr::filter(.parsnip_engine %in% engine)
   }
 
   if (!"all" %in% call){
-    mod_tbl <- mod_tbl %>%
+    mod_tbl <- mod_tbl |>
       dplyr::filter(.parsnip_fns %in% call)
   }
 
   mod_filtered_tbl <- mod_tbl
 
-  mod_spec_tbl <- mod_filtered_tbl %>%
+  mod_spec_tbl <- mod_filtered_tbl |>
     internal_make_spec_tbl()
 
   # Return ----

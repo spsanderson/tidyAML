@@ -44,9 +44,9 @@ fast_regression <- function(.data, .rec_obj, .parsnip_fns = "all",
                             .split_args = NULL){
 
   # Tidy Eval ----
-  call <- list(.parsnip_fns) %>%
+  call <- list(.parsnip_fns) |>
     purrr::flatten_chr()
-  engine <- list(.parsnip_eng) %>%
+  engine <- list(.parsnip_eng) |>
     purrr::flatten_chr()
 
   rec_obj <- .rec_obj
@@ -70,17 +70,17 @@ fast_regression <- function(.data, .rec_obj, .parsnip_fns = "all",
   )
 
   # Generate Workflow object
-  mod_tbl <- mod_spec_tbl %>%
+  mod_tbl <- mod_spec_tbl |>
     dplyr::mutate(
       wflw = internal_make_wflw(mod_spec_tbl, .rec_obj = rec_obj)
     )
 
-  mod_fitted_tbl <- mod_tbl %>%
+  mod_fitted_tbl <- mod_tbl |>
     dplyr::mutate(
       fitted_wflw = internal_make_fitted_wflw(mod_tbl, splits_obj)
     )
 
-  mod_pred_tbl <- mod_fitted_tbl %>%
+  mod_pred_tbl <- mod_fitted_tbl |>
     dplyr::mutate(
       pred_wflw = internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)
     )

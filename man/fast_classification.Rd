@@ -46,7 +46,7 @@ into a factor before you create your recipe.
 library(recipes, quietly = TRUE)
 library(dplyr, quietly = TRUE)
 
-df <- mtcars \%>\% mutate(cyl = as.factor(cyl))
+df <- mtcars |> mutate(cyl = as.factor(cyl))
 rec_obj <- recipe(cyl ~ ., data = df)
 
 fct_tbl <- fast_classification(

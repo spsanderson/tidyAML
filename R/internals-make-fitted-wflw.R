@@ -27,7 +27,7 @@
 #' rec_obj <- recipe(mpg ~ ., data = mtcars)
 #' splits_obj <- create_splits(mtcars, "initial_split")
 #'
-#' mod_tbl <- mod_spec_tbl %>%
+#' mod_tbl <- mod_spec_tbl |>
 #'   mutate(wflw = internal_make_wflw(mod_spec_tbl, rec_obj))
 #'
 #' internal_make_fitted_wflw(mod_tbl, splits_obj)
@@ -73,16 +73,16 @@ internal_make_fitted_wflw <- function(.model_tbl, .splits_obj){
 
   # Manipulation
   # Make a group split object list
-  models_list <- model_tbl %>%
+  models_list <- model_tbl |>
     dplyr::group_split(.model_id)
 
   # Make the fitted workflow object using purrr imap
-  fitted_wflw_list <- models_list %>%
+  fitted_wflw_list <- models_list |>
     purrr::imap(
       .f = function(obj, id){
 
         # Pull the workflow column and then pluck it
-        wflw <- obj %>% dplyr::pull(6) %>% purrr::pluck(1)
+        wflw <- obj |> dplyr::pull(6) |> purrr::pluck(1)
 
         # Create a safe parsnip::fit function
         safe_parsnip_fit <- purrr::safely(
@@ -96,7 +96,7 @@ internal_make_fitted_wflw <- function(.model_tbl, .splits_obj){
           wflw, data = rsample::training(splits_obj$splits)
         )
 
-        res <- ret %>% purrr::pluck("result")
+        res <- ret |> purrr::pluck("result")
 
         if (!is.null(ret$error)) message(stringr::str_glue("{ret$error}"))
 
