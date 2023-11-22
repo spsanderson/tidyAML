@@ -28,7 +28,7 @@ library(dplyr)
 mod_tbl <- fast_regression_parsnip_spec_tbl()
 mod_tbl$model_spec[[1]]
 
-updated_mod_tbl <- mod_tbl \%>\%
+updated_mod_tbl <- mod_tbl |>
   mutate(model_spec = internal_set_args_to_tune(mod_tbl))
 updated_mod_tbl$model_spec[[1]]
 
