@@ -63,12 +63,13 @@ internal_make_spec_tbl <- function(.model_tbl){
         ret <- match.fun(pf)(mode = pm, engine = pe)
 
         # Add parsnip engine and fns as class
-        class(ret) <- c(
-          class(ret),
-          paste0(base::tolower(pe), "_", base::tolower(pf))
-        )
+        # class(ret) <- c(
+        #   class(ret),
+        #   paste0(base::tolower(pe), "_", base::tolower(pf))
+        # )
 
         # Return the result
+        attributes(ret)$.tidyaml_mod_class <- paste0(base::tolower(pe), "_", base::tolower(pf))
         return(ret)
       }
     )
