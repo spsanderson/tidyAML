@@ -49,7 +49,8 @@ internal_set_args_to_tune <- function(.model_tbl){
   model_tbl_with_params <- model_tbl %>%
     dplyr::mutate(
       model_params = purrr::pmap(
-        dplyr::cur_data(),
+        #dplyr::cur_data(),
+        dplyr::pick(dplyr::everything()),
         ~ list(formalArgs(..4))
       )
     )
