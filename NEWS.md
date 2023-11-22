@@ -17,6 +17,7 @@ of `dplyr::cur_data()` since it was deprecated.
 5. Fix #161 - Update `internal_set_args_to_tune()` to use `!names(new_mod_args)`
 instead of `!names(.)`
 6. Fix #163 - Add attribute to model spec and drop class from #155
+7. Fix #147 - Add packages to suggests, as they are not necessary for the pkg to work.
 
 # tidyAML 0.0.2
 
