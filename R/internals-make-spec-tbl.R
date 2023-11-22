@@ -8,14 +8,14 @@
 #'
 #' @details Make a Model Spec tibble.
 #'
-#' @param .data This is the data that should be coming from inside of the regression/classification
-#' to parsnip spec functions.
+#' @param .data This is the data that should be coming from inside of the
+#' regression/classification to parsnip spec functions.
 #'
 #' @examples
-#' make_regression_base_tbl() %>%
+#' make_regression_base_tbl() |>
 #'   internal_make_spec_tbl()
 #'
-#' make_classification_base_tbl() %>%
+#' make_classification_base_tbl() |>
 #'   internal_make_spec_tbl()
 #'
 #' @return
@@ -27,40 +27,57 @@ NULL
 #' @export
 #' @rdname internal_make_spec_tbl
 
-internal_make_spec_tbl <- function(.data){
+internal_make_spec_tbl <- function(.model_tbl){
+
+  # Tidyeval ----
+  model_tbl <- .model_tbl
 
   # Checks ----
-  #df <- dplyr::as_tibble(.data)
-  df <- .data
-  # nms <- unique(names(df))
-  #
-  # if (!".parsnip_engine" %in% nms | !".parsnip_mode" %in% nms | !".parsnip_fns" %in% nms){
-  #   rlang::abort(
-  #     message = "The model tibble must come from the class/reg to parsnip function.",
-  #     use_cli_format = TRUE
-  #   )
-  # }
-
-  if (!inherits(df, "tidyaml_base_tbl")){
+  if (!inherits(model_tbl, "tidyaml_base_tbl")){
     rlang::abort(
       message = "The model tibble must come from the make base tbl function.",
       use_cli_format = TRUE
     )
   }
 
-  # Make tibble ----
-  mod_spec_tbl <- df %>%
-    dplyr::mutate(
-      model_spec = purrr::pmap(
-        dplyr::cur_data(),
-        ~ match.fun(..3)(mode = ..2, engine = ..1)
-      )
-    ) %>%
-    # add .model_id column
-    dplyr::mutate(.model_id = dplyr::row_number()) %>%
+  # Manipulation
+  model_factor_tbl <- model_tbl |>
+    dplyr::mutate(.model_id = dplyr::row_number() |>
+                    forcats::as_factor()) |>
     dplyr::select(.model_id, dplyr::everything())
 
-  # Return ----
-  return(mod_spec_tbl)
+  # Make a group split object list
+  models_list <- model_factor_tbl |>
+    dplyr::group_split(.model_id)
 
+  # Make the Workflow Object using purrr imap
+  model_spec <- models_list |>
+    purrr::imap(
+      .f = function(obj, id){
+
+        # Pull the model column and then pluck the model
+        pe <- obj |> dplyr::pull(2) |> purrr::pluck(1)
+        pm <- obj |> dplyr::pull(3) |> purrr::pluck(1)
+        pf <- obj |> dplyr::pull(4) |> purrr::pluck(1)
+
+        ret <- match.fun(pf)(mode = pm, engine = pe)
+
+        # Add parsnip engine and fns as class
+        class(ret) <- c(
+          class(ret),
+          paste0(base::tolower(pe), "_", base::tolower(pf))
+        )
+
+        # Return the result
+        return(ret)
+      }
+    )
+
+  # Return
+  # Make sure to return as a tibble
+  model_spec_ret <- model_factor_tbl |>
+    dplyr::mutate(model_spec = model_spec)  |>
+    dplyr::mutate(.model_id = as.integer(.model_id))
+
+  return(model_spec_ret)
 }
