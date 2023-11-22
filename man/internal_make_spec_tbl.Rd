@@ -7,7 +7,7 @@
 internal_make_spec_tbl(.model_tbl)
 }
 \arguments{
-\item{.data}{This is the data that should be coming from inside of the
+\item{.model_tbl}{This is the data that should be coming from inside of the
 regression/classification to parsnip spec functions.}
 }
 \value{
