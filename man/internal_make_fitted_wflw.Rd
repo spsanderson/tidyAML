@@ -36,7 +36,7 @@ mod_spec_tbl <- fast_regression_parsnip_spec_tbl(
 rec_obj <- recipe(mpg ~ ., data = mtcars)
 splits_obj <- create_splits(mtcars, "initial_split")
 
-mod_tbl <- mod_spec_tbl \%>\%
+mod_tbl <- mod_spec_tbl |>
   mutate(wflw = internal_make_wflw(mod_spec_tbl, rec_obj))
 
 internal_make_fitted_wflw(mod_tbl, splits_obj)

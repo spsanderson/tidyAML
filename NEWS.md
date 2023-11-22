@@ -16,6 +16,7 @@ will return an extra class of `gee_linear_reg`
 of `dplyr::cur_data()` since it was deprecated.
 5. Fix #161 - Update `internal_set_args_to_tune()` to use `!names(new_mod_args)`
 instead of `!names(.)`
+6. Fix #163 - Add attribute to model spec and drop class from #155
 
 # tidyAML 0.0.2
 

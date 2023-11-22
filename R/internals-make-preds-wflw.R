@@ -27,10 +27,10 @@
 #' rec_obj <- recipe(mpg ~ ., data = mtcars)
 #' splits_obj <- create_splits(mtcars, "initial_split")
 #'
-#' mod_tbl <- mod_spec_tbl %>%
+#' mod_tbl <- mod_spec_tbl |>
 #'   mutate(wflw = internal_make_wflw(mod_spec_tbl, rec_obj))
 #'
-#' mod_fitted_tbl <- mod_tbl %>%
+#' mod_fitted_tbl <- mod_tbl |>
 #'   mutate(fitted_wflw = internal_make_fitted_wflw(mod_tbl, splits_obj))
 #'
 #' internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)
@@ -76,19 +76,19 @@ internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
 
   # Manipulation
   # Make a group split object list
-  model_factor_tbl <- model_tbl %>%
+  model_factor_tbl <- model_tbl |>
     dplyr::mutate(.model_id = forcats::as_factor(.model_id))
 
-  models_list <- model_factor_tbl %>%
+  models_list <- model_factor_tbl |>
     dplyr::group_split(.model_id)
 
   # Make the predictions on the fitted workflow object using purrr imap
-  wflw_preds_list <- models_list %>%
+  wflw_preds_list <- models_list |>
     purrr::imap(
       .f = function(obj, id){
 
         # Pull the fitted workflow column and then pluck it
-        fitted_wflw = obj %>% dplyr::pull(7) %>% purrr::pluck(1)
+        fitted_wflw = obj |> dplyr::pull(7) |> purrr::pluck(1)
 
         # Create a safe stats::predict
         safe_stats_predict <- purrr::safely(
@@ -103,7 +103,7 @@ internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
           new_data = rsample::testing(splits_obj$splits)
         )
 
-        res <- ret %>% purrr::pluck("result")
+        res <- ret |> purrr::pluck("result")
 
         if (!is.null(ret$error)) message(stringr::str_glue("{ret$error}"))
 
