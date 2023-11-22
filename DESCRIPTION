@@ -14,7 +14,7 @@ URL: https://github.com/spsanderson/tidyAML
 BugReports: https://github.com/spsanderson/tidyAML/issues
 Depends:
     parsnip,
-    R (>= 3.4.0)
+    R (>= 4.1.0)
 Suggests: 
     knitr,
     rmarkdown,
@@ -23,7 +23,23 @@ Suggests:
     tibble,
     stringr,
     utils,
-    recipes
+    recipes,
+    multilevelmod,
+    rules,
+    poissonreg,
+    censored,
+    baguette,
+    bonsai, 
+    brulee,
+    rstanarm,
+    dbarts,
+    kknn,
+    ranger,
+    randomForest, 
+    LiblineaR,
+    flexsurv,
+    gee,
+    glmnet 
 VignetteBuilder: knitr
 Imports: 
     magrittr,
