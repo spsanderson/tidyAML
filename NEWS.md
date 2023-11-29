@@ -1,4 +1,4 @@
-# tidyAML (development version)
+# tidyAML 0.0.3
 
 ## Breaking Changes
 1. Fix #150 - Require R version >= 4.1.0 in order to use the native pipe.
