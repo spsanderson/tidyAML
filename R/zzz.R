@@ -9,6 +9,8 @@
     "\nIf you encounter a bug or want to request an enhancement please file an issue at:",
     "\n   https://github.com/spsanderson/tidyAML/issues",
     "\n",
+    "\nIt is suggested that you run tidymodels::tidymodel_prefer() to set the defaults for your session.",
+    "\n",
     "\nThank you for using tidyAML!",
     "\n"
   )
