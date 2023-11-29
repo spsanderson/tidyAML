@@ -7,6 +7,8 @@ globalVariables(
     "model_spec",
     "pred_wflw",
     "wflw",
-    ".model_spec"
+    ".model_spec",
+    "role",
+    "variable"
     )
 )
