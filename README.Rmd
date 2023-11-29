@@ -142,3 +142,20 @@ Let's look at the fitted workflow predictions.
 ```{r}
 frt_tbl$pred_wflw
 ```
+
+Now let's load the `multilevelmod` library so that we can run the `gee` linear regression.
+
+```{r}
+library(multilevelmod)
+
+rec_obj <- recipe(mpg ~ ., data = mtcars)
+frt_tbl <- fast_regression(
+  .data = mtcars, 
+  .rec_obj = rec_obj, 
+  .parsnip_eng = c("lm","glm","gee"),
+  .parsnip_fns = "linear_reg"
+)
+
+frt_tbl$pred_wflw
+
+```
