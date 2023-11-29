@@ -79,7 +79,7 @@ fast_classification <- function(.data, .rec_obj, .parsnip_fns = "all",
   # Generate Workflow object
   mod_tbl <- mod_spec_tbl |>
     dplyr::mutate(
-      wflw = internal_make_wflw(mod_spec_tbl, .rec_obj = rec_obj)
+      wflw = full_internal_make_wflw(mod_spec_tbl, .rec_obj = rec_obj)
     )
 
   mod_fitted_tbl <- mod_tbl |>

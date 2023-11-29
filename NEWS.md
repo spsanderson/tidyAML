@@ -22,6 +22,8 @@ instead of `!names(.)`
 8. Fix #139 - Add suggestion to startup message to run `tidymodels::tidymodels_prefer()`
 9. Fix #167 - Add function `internal_make_wflw_gee_lin_reg()`
 10. Fix #168 - Add function `full_internal_make_wflw`
+11. Fix #169 - Update `fast_classification()` and `fast_regression()` to use
+`full_internal_make_wflw()`
 
 # tidyAML 0.0.2
 
