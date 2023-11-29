@@ -18,6 +18,7 @@ of `dplyr::cur_data()` since it was deprecated.
 instead of `!names(.)`
 6. Fix #163 - Add attribute to model spec and drop class from #155
 7. Fix #147 - Add packages to suggests, as they are not necessary for the pkg to work.
+8. Fix #139 - Add suggestion to startup message to run `tidymodels::tidymodels_prefer()`
 
 # tidyAML 0.0.2
 
