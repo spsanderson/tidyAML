@@ -21,6 +21,7 @@ instead of `!names(.)`
 7. Fix #147 - Add packages to suggests, as they are not necessary for the pkg to work.
 8. Fix #139 - Add suggestion to startup message to run `tidymodels::tidymodels_prefer()`
 9. Fix #167 - Add function `internal_make_wflw_gee_lin_reg()`
+10. Fix #168 - Add function `full_internal_make_wflw`
 
 # tidyAML 0.0.2
 

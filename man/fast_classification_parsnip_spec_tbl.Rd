@@ -42,6 +42,7 @@ Other Utility:
 \code{\link{create_splits}()},
 \code{\link{create_workflow_set}()},
 \code{\link{fast_regression_parsnip_spec_tbl}()},
+\code{\link{full_internal_make_wflw}()},
 \code{\link{install_deps}()},
 \code{\link{load_deps}()},
 \code{\link{match_args}()}
