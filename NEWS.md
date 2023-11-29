@@ -2,6 +2,7 @@
 
 ## Breaking Changes
 1. Fix #150 - Require R version >= 4.1.0 in order to use the native pipe.
+2. Fix #170 - Drop `magrittr` from `Imports` of `DESCRIPTION` file from #150.
 
 ## New Features
 1. Fix #157 - `internal_make_spec_tbl()` now adds a class to each `model_spec`
@@ -19,6 +20,7 @@ instead of `!names(.)`
 6. Fix #163 - Add attribute to model spec and drop class from #155
 7. Fix #147 - Add packages to suggests, as they are not necessary for the pkg to work.
 8. Fix #139 - Add suggestion to startup message to run `tidymodels::tidymodels_prefer()`
+9. Fix #167 - Add function `internal_make_wflw_gee_lin_reg()`
 
 # tidyAML 0.0.2
 
