@@ -53,12 +53,12 @@ You can install `{tidyAML}` like so:
 
 ``` r
 install.packages("tidyAML")
-#> Installing package into 'C:/Users/steve/AppData/Local/Temp/Rtmp6fnaQc/temp_libpath240429af4e9c'
+#> Installing package into 'C:/Users/steve/AppData/Local/Temp/RtmpWQakJl/temp_libpathbdc7ad15ebc'
 #> (as 'lib' is unspecified)
 #> package 'tidyAML' successfully unpacked and MD5 sums checked
 #> 
 #> The downloaded binary packages are in
-#>  C:\Users\steve\AppData\Local\Temp\Rtmpiac3aC\downloaded_packages
+#>  C:\Users\steve\AppData\Local\Temp\Rtmps1W5T5\downloaded_packages
 ```
 
 Or the development version from GitHub
@@ -66,18 +66,18 @@ Or the development version from GitHub
 ``` r
 # install.packages("devtools")
 devtools::install_github("spsanderson/tidyAML")
-#> vctrs (0.6.1 -> 0.6.2) [CRAN]
-#> package 'vctrs' successfully unpacked and MD5 sums checked
+#> scales (1.2.1 -> 1.3.0) [CRAN]
+#> package 'scales' successfully unpacked and MD5 sums checked
 #> 
 #> The downloaded binary packages are in
-#>  C:\Users\steve\AppData\Local\Temp\Rtmpiac3aC\downloaded_packages
+#>  C:\Users\steve\AppData\Local\Temp\Rtmps1W5T5\downloaded_packages
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>       ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\Rtmpiac3aC\remotes33d8c3536b0\spsanderson-tidyAML-de7b5bd/DESCRIPTION'
-#>       ─  preparing 'tidyAML': (1.9s)
+#>          checking for file 'C:\Users\steve\AppData\Local\Temp\Rtmps1W5T5\remotes810226223e7\spsanderson-tidyAML-80d6268/DESCRIPTION' ...  ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\Rtmps1W5T5\remotes810226223e7\spsanderson-tidyAML-80d6268/DESCRIPTION'
+#>       ─  preparing 'tidyAML': (2.4s)
 #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
 #>       ─  checking for LF line-endings in source and make files and shell scripts
-#>       ─  checking for empty or unneeded directories
-#>       ─  building 'tidyAML_0.0.1.9000.tar.gz'
+#>   ─  checking for empty or unneeded directories
+#>       ─  building 'tidyAML_0.0.2.9000.tar.gz'
 #>      
 #> 
 ```
@@ -103,6 +103,8 @@ library(tidyAML)
 #> 
 #> If you encounter a bug or want to request an enhancement please file an issue at:
 #>    https://github.com/spsanderson/tidyAML/issues
+#> 
+#> It is suggested that you run tidymodels::tidymodel_prefer() to set the defaults for your session.
 #> 
 #> Thank you for using tidyAML!
 ```
@@ -168,9 +170,10 @@ function is called `create_model_spec()`.
 create_model_spec(
  .parsnip_eng = list("lm","glm","glmnet","cubist"),
  .parsnip_fns = list(
-      rep(
-        "linear_reg", 3),
-        "cubist_rules"
+      "linear_reg",
+      "linear_reg",
+      "linear_reg",
+      "cubist_rules"
      )
  )
 #> # A tibble: 4 × 4
@@ -184,9 +187,10 @@ create_model_spec(
 create_model_spec(
  .parsnip_eng = list("lm","glm","glmnet","cubist"),
  .parsnip_fns = list(
-      rep(
-        "linear_reg", 3),
-        "cubist_rules"
+      "linear_reg",
+      "linear_reg",
+      "linear_reg",
+      "cubist_rules"
      ),
  .return_tibble = FALSE
  )
@@ -290,14 +294,14 @@ frt_tbl$pred_wflw
 #> # A tibble: 8 × 1
 #>   .pred
 #>   <dbl>
-#> 1 27.0 
-#> 2 25.9 
-#> 3 20.8 
-#> 4 17.5 
-#> 5  7.51
-#> 6 27.4 
-#> 7 32.5 
-#> 8 23.0 
+#> 1  25.3
+#> 2  24.9
+#> 3  18.3
+#> 4  22.0
+#> 5  25.3
+#> 6  18.7
+#> 7  21.5
+#> 8  14.5
 #> 
 #> [[2]]
 #> NULL
@@ -306,12 +310,70 @@ frt_tbl$pred_wflw
 #> # A tibble: 8 × 1
 #>   .pred
 #>   <dbl>
-#> 1 27.0 
-#> 2 25.9 
-#> 3 20.8 
-#> 4 17.5 
-#> 5  7.51
-#> 6 27.4 
-#> 7 32.5 
-#> 8 23.0
+#> 1  25.3
+#> 2  24.9
+#> 3  18.3
+#> 4  22.0
+#> 5  25.3
+#> 6  18.7
+#> 7  21.5
+#> 8  14.5
+```
+
+Now let’s load the `multilevelmod` library so that we can run the `gee`
+linear regression.
+
+``` r
+library(multilevelmod)
+#> Warning: package 'multilevelmod' was built under R version 4.2.2
+
+rec_obj <- recipe(mpg ~ ., data = mtcars)
+frt_tbl <- fast_regression(
+  .data = mtcars, 
+  .rec_obj = rec_obj, 
+  .parsnip_eng = c("lm","glm","gee"),
+  .parsnip_fns = "linear_reg"
+)
+#> Beginning Cgee S-function, @(#) geeformula.q 4.13 98/01/27
+#> running glm to get initial regression estimate
+
+frt_tbl$pred_wflw
+#> [[1]]
+#> # A tibble: 8 × 1
+#>   .pred
+#>   <dbl>
+#> 1 21.8 
+#> 2 12.2 
+#> 3 11.5 
+#> 4  8.79
+#> 5 32.3 
+#> 6 21.8 
+#> 7 16.9 
+#> 8 23.4 
+#> 
+#> [[2]]
+#> # A tibble: 8 × 1
+#>   .pred
+#>   <dbl>
+#> 1 21.8 
+#> 2 11.9 
+#> 3 11.7 
+#> 4  8.81
+#> 5 32.2 
+#> 6 23.3 
+#> 7 16.8 
+#> 8 21.3 
+#> 
+#> [[3]]
+#> # A tibble: 8 × 1
+#>   .pred
+#>   <dbl>
+#> 1 21.8 
+#> 2 12.2 
+#> 3 11.5 
+#> 4  8.79
+#> 5 32.3 
+#> 6 21.8 
+#> 7 16.9 
+#> 8 23.4
 ```
