@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyAML</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,7 +104,7 @@ or a sequence of integers.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/recipes" class="external-link">recipes</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/recipes/man/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">frt_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="fast_regression.html">fast_regression</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">rec_obj</span>, .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>                                           .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -124,9 +124,9 @@ or a sequence of integers.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          cyl         disp           hp         drat           wt  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  -31.780125     0.851950     0.027816    -0.006479     2.908234    -4.783152  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  -1.116e+01   -2.624e-01    7.149e-03    8.764e-04    9.664e-01   -3.618e+00  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        qsec           vs           am         gear         carb  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.986317    -0.276129     2.284458     3.217492    -0.664270  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1.943e+00   -2.586e+00    2.116e+00    1.861e+00   -5.994e-01  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu">extract_wflw_fit</span><span class="op">(</span><span class="va">frt_tbl</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span></span>
@@ -145,9 +145,9 @@ or a sequence of integers.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          cyl         disp           hp         drat           wt  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  -31.780125     0.851950     0.027816    -0.006479     2.908234    -4.783152  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  -1.116e+01   -2.624e-01    7.149e-03    8.764e-04    9.664e-01   -3.618e+00  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        qsec           vs           am         gear         carb  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.986317    -0.276129     2.284458     3.217492    -0.664270  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1.943e+00   -2.586e+00    2.116e+00    1.861e+00   -5.994e-01  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
@@ -164,13 +164,13 @@ or a sequence of integers.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          cyl         disp           hp         drat           wt  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  -31.780125     0.851950     0.027816    -0.006479     2.908234    -4.783152  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  -1.116e+01   -2.624e-01    7.149e-03    8.764e-04    9.664e-01   -3.618e+00  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        qsec           vs           am         gear         carb  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.986317    -0.276129     2.284458     3.217492    -0.664270  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1.943e+00   -2.586e+00    2.116e+00    1.861e+00   -5.994e-01  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 23 Total (i.e. Null);  13 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    772.5 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 72.88 	AIC: 118.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    880.5 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 123.6 	AIC: 131.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyAML</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,20 +113,14 @@ to the <code>auto_ml_</code> function.</p></dd>
 <span class="r-in"><span>  .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/recipes/man/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">splits_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_splits.html">create_splits</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="st">"initial_split"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">mod_tbl</span> <span class="op">&lt;-</span> <span class="va">mod_spec_tbl</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>wflw <span class="op">=</span> <span class="fu"><a href="internal_make_wflw.html">internal_make_wflw</a></span><span class="op">(</span><span class="va">mod_spec_tbl</span>, <span class="va">rec_obj</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `.f()`:</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> <span style="color: #0000BB;">parsnip</span> could not locate an implementation for `linear_reg` regression</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   model specifications using the `gee` engine.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The parsnip extension package <span style="color: #0000BB;">multilevelmod</span> implements support for this</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   specification.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please install (if needed) and load to continue.</span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>wflw <span class="op">=</span> <span class="fu"><a href="internal_make_wflw.html">internal_make_wflw</a></span><span class="op">(</span><span class="va">mod_spec_tbl</span>, <span class="va">rec_obj</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">internal_make_fitted_wflw</span><span class="op">(</span><span class="va">mod_tbl</span>, <span class="va">splits_obj</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Error in UseMethod("fit"): no applicable method for 'fit' applied to an object of class "NULL"</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Error in terms.formula(f, specials = "id_var"): '.' in formula and no 'data' argument</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ══ Workflow [trained] ══════════════════════════════════════════════════════════</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-style: italic;">Preprocessor:</span> Recipe</span>
@@ -142,9 +136,9 @@ to the <code>auto_ml_</code> function.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          cyl         disp           hp         drat           wt  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    7.407411     0.005594     0.008411    -0.006807     0.261294    -3.718821  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    17.49089     -0.40750      0.02346     -0.03763      0.05632     -4.60612  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        qsec           vs           am         gear         carb  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.197476    -0.884073     3.977847     0.347336    -0.487383  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     0.85320     -0.23095      2.74963      0.72190      0.36228  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
@@ -164,13 +158,13 @@ to the <code>auto_ml_</code> function.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          cyl         disp           hp         drat           wt  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    7.407411     0.005594     0.008411    -0.006807     0.261294    -3.718821  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    17.49089     -0.40750      0.02346     -0.03763      0.05632     -4.60612  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        qsec           vs           am         gear         carb  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1.197476    -0.884073     3.977847     0.347336    -0.487383  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     0.85320     -0.23095      2.74963      0.72190      0.36228  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 23 Total (i.e. Null);  13 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    795.1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 137.5 	AIC: 134</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    974.2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 132.6 	AIC: 133.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
