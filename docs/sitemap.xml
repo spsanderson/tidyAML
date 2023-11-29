@@ -61,6 +61,9 @@
     <loc>https://www.spsanderson.com/tidyaml/reference/fast_regression_parsnip_spec_tbl.html</loc>
   </url>
   <url>
+    <loc>https://www.spsanderson.com/tidyaml/reference/full_internal_make_wflw.html</loc>
+  </url>
+  <url>
     <loc>https://www.spsanderson.com/tidyaml/reference/get_model.html</loc>
   </url>
   <url>
@@ -77,6 +80,9 @@
   </url>
   <url>
     <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw_gee_lin_reg.html</loc>
   </url>
   <url>
     <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw_predictions.html</loc>

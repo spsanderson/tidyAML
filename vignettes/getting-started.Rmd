@@ -14,6 +14,122 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+## Introduction
+
+Welcome to __`{tidyAML}`__ which is a new R package that makes it easy to use the `tidymodels` ecosystem to perform automated machine learning (AutoML). This package provides a simple and intuitive interface that allows users to quickly generate machine learning models without worrying about the underlying details. It also includes a safety mechanism that ensures that the package will fail gracefully if any required extension packages are not installed on the user's machine. With `{tidyAML}`, users can easily build high-quality machine learning models in just a few lines of code. Whether you are a beginner or an experienced machine learning practitioner, `{tidyAML}` has something to offer.
+
+Some ideas are that we should be able to generate regression
+models on the fly without having to actually go through the process of building the
+specification, especially if it is a non-tuning model, meaning we are not planing
+on tuning hyper-parameters like `penalty` and `cost`.
+
+The idea is not to re-write the excellent work the `tidymodels` team has done (because
+it's not possible) but rather to try and make an enhanced easy to use set of functions
+that do what they say and can generate many models and predictions at once.
+
+This is similar to the great `h2o` package, but, `{tidyAML}` does not require java
+to be setup properly like `h2o` because `{tidyAML}` is built on `tidymodels`.
+
+## Thanks
+
+Thank you [Garrick Aden-Buie](https://fosstodon.org/@grrrck/109479826278916014) for the easy name change suggestion.
+
+## Installation
+
+You can install `{tidyAML}` like so:
+
+```{r eval=FALSE}
+install.packages("tidyAML")
+```
+Or the development version from GitHub
+```{r, warning=FALSE, message=FALSE, eval=FALSE}
+# install.packages("devtools")  
+devtools::install_github("spsanderson/tidyAML")
+```
+
+## Examples
+
+Part of the reason to use `{tidyAML}` is so that you can generate many models of
+your data set. One way of modeling a data set is using regression for some numeric
+output. There is a convienent function in __tidyAML__ that will generate a set of
+non-tuning models for _fast regression_. Let's take a look below.
+
+First let's load the library
+```{r example}
 library(tidyAML)
+```
+
+Now lets see the function in action.
+```{r}
+fast_regression_parsnip_spec_tbl(.parsnip_fns = "linear_reg")
+fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm"))
+fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm","gee"), 
+                                 .parsnip_fns = "linear_reg")
+```
+
+As shown we can easily select the models we want either by choosing the supported
+`parsnip` function like `linear_reg()` or by choose the desired `engine`, you can 
+also use them both in conjunction with each other!
+
+This function also does add a class to the output. Let's see it.
+```{r}
+class(fast_regression_parsnip_spec_tbl())
+```
+
+We see that there are two added classes, first `fst_reg_spec_tbl` because this 
+creates a set of non-tuning regression models and then `tidyaml_mod_spec_tbl` because
+this is a model specification tibble built with `{tidyAML}`
+
+Now, what if you want to create a non-tuning model spec without using the 
+`fast_regression_parsnip_spec_tbl()` function. Well, you can. The function is called
+`create_model_spec()`. 
+
+```{r}
+create_model_spec(
+ .parsnip_eng = list("lm","glm","glmnet","cubist"),
+ .parsnip_fns = list(
+      "linear_reg",
+      "linear_reg",
+      "linear_reg",
+      "cubist_rules"
+     )
+ )
+
+create_model_spec(
+ .parsnip_eng = list("lm","glm","glmnet","cubist"),
+ .parsnip_fns = list(
+      "linear_reg",
+      "linear_reg",
+      "linear_reg",
+      "cubist_rules"
+     ),
+ .return_tibble = FALSE
+ )
+```
+
+Now the reason we are here. Let's take a look at the first function for modeling 
+with `{tidyAML}`, __`fast_regression()`__.
+
+```{r, warning=FALSE, message=FALSE}
+library(recipes)
+library(dplyr)
+
+rec_obj <- recipe(mpg ~ ., data = mtcars)
+frt_tbl <- fast_regression(
+  .data = mtcars, 
+  .rec_obj = rec_obj, 
+  .parsnip_eng = c("lm","glm","gee"),
+  .parsnip_fns = "linear_reg"
+)
+
+glimpse(frt_tbl)
+```
+
+As we see above, one of the models has gracefully failed, thanks in part to the 
+function `purrr::safely()`, which was used to make what I call __safe_make__ functions.
+
+Let's look at the fitted workflow predictions.
+
+```{r}
+frt_tbl$pred_wflw
 ```
