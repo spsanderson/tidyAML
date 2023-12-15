@@ -20,7 +20,7 @@
 #' library(dplyr, quietly = TRUE)
 #'
 #' mod_spec_tbl <- fast_regression_parsnip_spec_tbl(
-#'   .parsnip_eng = c("lm","glm","gee"),
+#'   .parsnip_eng = c("lm","glm"),
 #'   .parsnip_fns = "linear_reg"
 #' )
 #'
@@ -28,7 +28,7 @@
 #' splits_obj <- create_splits(mtcars, "initial_split")
 #'
 #' mod_tbl <- mod_spec_tbl |>
-#'   mutate(wflw = internal_make_wflw(mod_spec_tbl, rec_obj))
+#'   mutate(wflw = full_internal_make_wflw(mod_spec_tbl, rec_obj))
 #'
 #' mod_fitted_tbl <- mod_tbl |>
 #'   mutate(fitted_wflw = internal_make_fitted_wflw(mod_tbl, splits_obj))
@@ -36,7 +36,18 @@
 #' internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)
 #'
 #' @return
-#' A list object of workflows.
+#' A list object tibble of the outcome variable and it's values along with the
+#' testing and training predictions in a single tibble.
+#'
+#' | .data_category | .data_type | .value |
+#' |----------------|------------|--------|
+#' | actual         | actual     | 21.0   |
+#' | actual         | actual     | 21.0   |
+#' | actual         | actual     | 22.8   |
+#' | ...            | ...        | ...    |
+#' | predicted      | training   | 21.0   |
+#' | ...            | ...        | ...    |
+#' | predicted      | training   | 21.0   |
 #'
 #' @name internal_make_wflw_predictions
 NULL
@@ -103,9 +114,32 @@ internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
           new_data = rsample::testing(splits_obj$splits)
         )
 
-        res <- ret |> purrr::pluck("result")
-
         if (!is.null(ret$error)) message(stringr::str_glue("{ret$error}"))
+
+        # Get testing predictions
+        test_res <- ret |> purrr::pluck("result")
+        test_res <- test_res |>
+          dplyr::mutate(.data_type = "testing") |>
+          dplyr::select(.data_type, .pred) |>
+          purrr::set_names(c(".data_type", ".value"))
+
+        # Get training predictions
+        train_res <- fitted_wflw |>
+          broom::augment(new_data = rsample::training(splits_obj$splits)) |>
+          dplyr::mutate(.data_type = "training") |>
+          dplyr::select(.data_type, .pred) |>
+          purrr::set_names(c(".data_type", ".value"))
+
+        # Get actual outcome values
+        pred_var <- rec_obj$term_info |> filter(role == "outcome") |> pull(variable)
+        actual_res <- dplyr::as_tibble(rec_obj$template[[pred_var]]) |>
+          dplyr::mutate(.data_type = "actual") |>
+          dplyr::select(.data_type, value) |>
+          purrr::set_names(c(".data_type", ".value"))
+
+        res <- base::rbind(actual_res, train_res, test_res) |>
+          dplyr::mutate(.data_category = ifelse(.data_type == "actual", "actual", "predicted")) |>
+          dplyr::select(.data_category, .data_type, .value)
 
         return(res)
       }

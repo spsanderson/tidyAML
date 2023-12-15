@@ -16,7 +16,17 @@ run and the tibble has been saved.}
 to the \code{auto_ml_} function.}
 }
 \value{
-A list object of workflows.
+A list object tibble of the outcome variable and it's values along with the
+testing and training predictions in a single tibble.\tabular{lll}{
+   .data_category \tab .data_type \tab .value \cr
+   actual \tab actual \tab 21.0 \cr
+   actual \tab actual \tab 21.0 \cr
+   actual \tab actual \tab 22.8 \cr
+   ... \tab ... \tab ... \cr
+   predicted \tab training \tab 21.0 \cr
+   ... \tab ... \tab ... \cr
+   predicted \tab training \tab 21.0 \cr
+}
 }
 \description{
 Safely Make predictions on a fitted workflow from a model spec tibble.
@@ -29,7 +39,7 @@ library(recipes, quietly = TRUE)
 library(dplyr, quietly = TRUE)
 
 mod_spec_tbl <- fast_regression_parsnip_spec_tbl(
-  .parsnip_eng = c("lm","glm","gee"),
+  .parsnip_eng = c("lm","glm"),
   .parsnip_fns = "linear_reg"
 )
 
@@ -37,7 +47,7 @@ rec_obj <- recipe(mpg ~ ., data = mtcars)
 splits_obj <- create_splits(mtcars, "initial_split")
 
 mod_tbl <- mod_spec_tbl |>
-  mutate(wflw = internal_make_wflw(mod_spec_tbl, rec_obj))
+  mutate(wflw = full_internal_make_wflw(mod_spec_tbl, rec_obj))
 
 mod_fitted_tbl <- mod_tbl |>
   mutate(fitted_wflw = internal_make_fitted_wflw(mod_tbl, splits_obj))
