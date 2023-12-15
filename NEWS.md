@@ -15,6 +15,10 @@ None
     * `liquidSVM`
     * `kernlab`
     * `klaR`
+2. Fix #190 - Update the `internal_make_wflw_predictions()` to include all data
+    * The actual data
+    * The training predictions
+    * The testing predictions
 
 # tidyAML 0.0.3
 

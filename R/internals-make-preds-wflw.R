@@ -36,7 +36,18 @@
 #' internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)
 #'
 #' @return
-#' A list object of workflows.
+#' A list object tibble of the outcome variable and it's values along with the
+#' testing and training predictions in a single tibble.
+#'
+#' | .data_category | .data_type | .value |
+#' |----------------|------------|--------|
+#' | actual         | actual     | 21.0   |
+#' | actual         | actual     | 21.0   |
+#' | actual         | actual     | 22.8   |
+#' | ...            | ...        | ...    |
+#' | predicted      | training   | 21.0   |
+#' | ...            | ...        | ...    |
+#' | predicted      | training   | 21.0   |
 #'
 #' @name internal_make_wflw_predictions
 NULL
