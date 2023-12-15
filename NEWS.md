@@ -1,5 +1,21 @@
 # tidyAML (development version)
 
+## Breaking Changes
+None
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+1. Fix #186 - Add the following to the core_packages():
+    * `discrim`
+    * `mda`
+    * `sda`
+    * `sparsediscrim`
+    * `liquidSVM`
+    * `kernlab`
+    * `klaR`
+
 # tidyAML 0.0.3
 
 ## Breaking Changes

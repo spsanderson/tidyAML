@@ -39,7 +39,14 @@ Suggests:
     LiblineaR,
     flexsurv,
     gee,
-    glmnet 
+    glmnet,
+    discrim,
+    kernlab,
+    klaR,
+    mda,
+    sda,
+    sparsediscrim,
+    liquidSVM
 VignetteBuilder: knitr
 Imports: 
     rlang (>= 0.4.11),
