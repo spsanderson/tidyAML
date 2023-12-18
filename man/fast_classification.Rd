@@ -52,7 +52,7 @@ rec_obj <- recipe(cyl ~ ., data = df)
 fct_tbl <- fast_classification(
   .data = df,
   .rec_obj = rec_obj,
-  .parsnip_eng = c("glm","LiblineaR"))
+  .parsnip_eng = c("glm"))
 
 glimpse(fct_tbl)
 
