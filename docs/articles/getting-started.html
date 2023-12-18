@@ -305,21 +305,21 @@ for modeling with <a href="https://github.com/spsanderson/tidyAML" class="extern
 <span><span class="va">frt_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fast_regression.html">fast_regression</a></span><span class="op">(</span></span>
 <span>  .data <span class="op">=</span> <span class="va">mtcars</span>, </span>
 <span>  .rec_obj <span class="op">=</span> <span class="va">rec_obj</span>, </span>
-<span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span>,<span class="st">"gee"</span><span class="op">)</span>,</span>
+<span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span><span class="op">)</span>,</span>
 <span>  .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">frt_tbl</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 3</span></span>
+<span><span class="co">#&gt; Rows: 2</span></span>
 <span><span class="co">#&gt; Columns: 8</span></span>
-<span><span class="co">#&gt; $ .model_id       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 2, 3</span></span>
-<span><span class="co">#&gt; $ .parsnip_engine <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "lm", "gee", "glm"</span></span>
-<span><span class="co">#&gt; $ .parsnip_mode   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "regression", "regression", "regression"</span></span>
-<span><span class="co">#&gt; $ .parsnip_fns    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "linear_reg", "linear_reg", "linear_reg"</span></span>
+<span><span class="co">#&gt; $ .model_id       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 2</span></span>
+<span><span class="co">#&gt; $ .parsnip_engine <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "lm", "glm"</span></span>
+<span><span class="co">#&gt; $ .parsnip_mode   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "regression", "regression"</span></span>
+<span><span class="co">#&gt; $ .parsnip_fns    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "linear_reg", "linear_reg"</span></span>
 <span><span class="co">#&gt; $ model_spec      <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…</span></span>
 <span><span class="co">#&gt; $ wflw            <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
 <span><span class="co">#&gt; $ fitted_wflw     <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
-<span><span class="co">#&gt; $ pred_wflw       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [&lt;tbl_df[8 x 1]&gt;], &lt;NULL&gt;, [&lt;tbl_df[8 x 1]&gt;]</span></span></code></pre></div>
+<span><span class="co">#&gt; $ pred_wflw       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [&lt;tbl_df[64 x 3]&gt;], [&lt;tbl_df[64 x 3]&gt;]</span></span></code></pre></div>
 <p>As we see above, one of the models has gracefully failed, thanks in
 part to the function <code><a href="https://purrr.tidyverse.org/reference/safely.html" class="external-link">purrr::safely()</a></code>, which was used to
 make what I call <strong>safe_make</strong> functions.</p>
@@ -327,33 +327,36 @@ make what I call <strong>safe_make</strong> functions.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">frt_tbl</span><span class="op">$</span><span class="va">pred_wflw</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 8 × 1</span></span></span>
-<span><span class="co">#&gt;   .pred</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 26.4 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 22.0 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 17.6 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>  9.02</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 29.3 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 18.1 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> 18.7 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> 11.1 </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 64 × 3</span></span></span>
+<span><span class="co">#&gt;    .data_category .data_type .value</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> actual         actual       21  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> actual         actual       21  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> actual         actual       22.8</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> actual         actual       21.4</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> actual         actual       18.7</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> actual         actual       18.1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> actual         actual       14.3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> actual         actual       24.4</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> actual         actual       22.8</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> actual         actual       19.2</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 54 more rows</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[2]]</span></span>
-<span><span class="co">#&gt; NULL</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[3]]</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 8 × 1</span></span></span>
-<span><span class="co">#&gt;   .pred</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 26.4 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 22.0 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 17.6 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>  9.02</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 29.3 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 18.1 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> 18.7 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> 11.1</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 64 × 3</span></span></span>
+<span><span class="co">#&gt;    .data_category .data_type .value</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> actual         actual       21  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> actual         actual       21  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> actual         actual       22.8</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> actual         actual       21.4</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> actual         actual       18.7</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> actual         actual       18.1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> actual         actual       14.3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> actual         actual       24.4</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> actual         actual       22.8</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> actual         actual       19.2</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 54 more rows</span></span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

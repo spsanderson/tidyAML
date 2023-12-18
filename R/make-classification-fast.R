@@ -23,11 +23,16 @@
 #' of the split type will be executed for the rsample split type.
 #'
 #' @examples
-#' library(recipes, quietly = TRUE)
-#' library(dplyr, quietly = TRUE)
+#' library(recipes)
+#' library(dplyr)
+#' library(tidyr)
 #'
-#' df <- mtcars |> mutate(cyl = as.factor(cyl))
-#' rec_obj <- recipe(cyl ~ ., data = df)
+#' df <- Titanic |>
+#'  as_tibble() |>
+#'  uncount(n) |>
+#'  mutate(across(everything(), as.factor))
+#'
+#' rec_obj <- recipe(Survived ~ ., data = df)
 #'
 #' fct_tbl <- fast_classification(
 #'   .data = df,

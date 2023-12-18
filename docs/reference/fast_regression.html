@@ -130,17 +130,14 @@ model specification and it's fitted <code>workflow</code> object.</p>
 <span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">frt_tbl</span> <span class="op">&lt;-</span> <span class="fu">fast_regression</span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">rec_obj</span>, .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>.parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dplyr::mutate(mod_fitted_tbl, pred_wflw = internal_make_wflw_predictions(mod_fitted_tbl,     splits_obj)):</span> <span style="color: #00BBBB;">ℹ</span> In argument: `pred_wflw =</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)`.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `map2()`:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> In index: 1.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `dplyr::filter()`:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> object 'rec_obj' not found</span>
 <span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">frt_tbl</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ .model_id       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ .parsnip_engine <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "lm", "glm"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ .parsnip_mode   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "regression", "regression"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ .parsnip_fns    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "linear_reg", "linear_reg"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ model_spec      <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ wflw            <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ fitted_wflw     <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ pred_wflw       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [&lt;tbl_df[8 x 1]&gt;], [&lt;tbl_df[8 x 1]&gt;]</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in glimpse(frt_tbl):</span> object 'frt_tbl' not found</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
