@@ -118,20 +118,22 @@ internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
 
         # Get testing predictions
         test_res <- ret |> purrr::pluck("result")
+        pred_col_nm <- names(test_res)
         test_res <- test_res |>
           dplyr::mutate(.data_type = "testing") |>
-          dplyr::select(.data_type, .pred) |>
+          dplyr::select(.data_type, !!pred_col_nm) |>
           purrr::set_names(c(".data_type", ".value"))
 
         # Get training predictions
         train_res <- fitted_wflw |>
           broom::augment(new_data = rsample::training(splits_obj$splits)) |>
           dplyr::mutate(.data_type = "training") |>
-          dplyr::select(.data_type, .pred) |>
+          dplyr::select(.data_type, !!pred_col_nm) |>
           purrr::set_names(c(".data_type", ".value"))
 
         # Get actual outcome values
-        pred_var <- rec_obj$term_info |> filter(role == "outcome") |> pull(variable)
+        pred_var <- rec_obj$term_info |> dplyr::filter(role == "outcome") |>
+          dplyr::pull(variable)
         actual_res <- dplyr::as_tibble(rec_obj$template[[pred_var]]) |>
           dplyr::mutate(.data_type = "actual") |>
           dplyr::select(.data_type, value) |>
