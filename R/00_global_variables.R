@@ -9,6 +9,15 @@ globalVariables(
     "wflw",
     ".model_spec",
     "role",
-    "variable"
+    "variable",
+    ".data_category",
+    ".data_type",
+    ".model_type",
+    ".parsnip_fns",
+    ".pred",
+    ".resid",
+    ".value",
+    "actual",
+    "predicted","rec_obj","value"
     )
 )

@@ -40,6 +40,7 @@ get_model(spec_tbl, 1:2)
 \seealso{
 Other Extractor: 
 \code{\link{extract_model_spec}()},
+\code{\link{extract_regression_residuals}()},
 \code{\link{extract_wflw_fit}()},
 \code{\link{extract_wflw_pred}()},
 \code{\link{extract_wflw}()}

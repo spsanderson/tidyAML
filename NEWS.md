@@ -4,7 +4,7 @@
 None
 
 ## New Features
-None
+1. Fix #187 - Add function `extract_regression_residuals()`
 
 ## Minor Fixes and Improvements
 1. Fix #186 - Add the following to the core_packages():
