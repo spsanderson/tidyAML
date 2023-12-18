@@ -55,4 +55,6 @@ Imports:
     rsample (>= 1.1.0),
     workflows (>= 1.1.2),
     forcats,
-    workflowsets
+    workflowsets,
+    tidyr,
+    broom
