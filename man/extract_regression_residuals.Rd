@@ -26,7 +26,6 @@ and predicted values for a specific model.
 }
 \examples{
 library(recipes, quietly = TRUE)
-library(dplyr, quietly = TRUE)
 
 rec_obj <- recipe(mpg ~ ., data = mtcars)
 

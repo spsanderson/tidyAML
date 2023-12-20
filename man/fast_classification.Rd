@@ -59,7 +59,7 @@ fct_tbl <- fast_classification(
   .rec_obj = rec_obj,
   .parsnip_eng = c("glm"))
 
-glimpse(fct_tbl)
+fct_tbl
 
 }
 \seealso{

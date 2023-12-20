@@ -16,9 +16,6 @@
 #' or sequence of integers, ie. `1` or `c(1,3,5)` or `1:2`
 #'
 #' @examples
-#' library(recipes)
-#'
-#' rec_obj <- recipe(mpg ~ ., data = mtcars)
 #' spec_tbl <- fast_regression_parsnip_spec_tbl(
 #'   .parsnip_fns = "linear_reg",
 #'   .parsnip_eng = c("lm","glm")

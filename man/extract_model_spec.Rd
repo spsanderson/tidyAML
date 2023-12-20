@@ -25,9 +25,6 @@ model by the \code{.model_id} column. You can call the model id's by an integer
 or a sequence of integers.
 }
 \examples{
-library(recipes)
-
-rec_obj <- recipe(mpg ~ ., data = mtcars)
 spec_tbl <- fast_regression_parsnip_spec_tbl(
   .parsnip_fns = "linear_reg",
   .parsnip_eng = c("lm","glm")

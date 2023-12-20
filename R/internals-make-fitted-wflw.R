@@ -17,10 +17,9 @@
 #'
 #' @examples
 #' library(recipes, quietly = TRUE)
-#' library(dplyr, quietly = TRUE)
 #'
 #' mod_spec_tbl <- fast_regression_parsnip_spec_tbl(
-#'   .parsnip_eng = c("lm","glm","gee"),
+#'   .parsnip_eng = c("lm","glm"),
 #'   .parsnip_fns = "linear_reg"
 #' )
 #'
@@ -28,7 +27,7 @@
 #' splits_obj <- create_splits(mtcars, "initial_split")
 #'
 #' mod_tbl <- mod_spec_tbl |>
-#'   mutate(wflw = internal_make_wflw(mod_spec_tbl, rec_obj))
+#'   mutate(wflw = full_internal_make_wflw(mod_spec_tbl, rec_obj))
 #'
 #' internal_make_fitted_wflw(mod_tbl, splits_obj)
 #'

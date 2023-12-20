@@ -14,7 +14,6 @@
 #' @param args The arguments you want to supply to `f`
 #'
 #' @examples
-#' library(parsnip)
 #'
 #' match_args(
 #'   f = "linear_reg",
