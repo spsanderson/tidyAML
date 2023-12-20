@@ -35,7 +35,7 @@ rec_obj <- recipe(mpg ~ ., data = mtcars)
 mod_tbl <- make_regression_base_tbl()
 mod_tbl <- mod_tbl |>
   filter(
-    .parsnip_engine \%in\% c("lm", "glm", "gee") &
+    .parsnip_engine \%in\% c("lm", "glm") &
     .parsnip_fns == "linear_reg"
     )
 class(mod_tbl) <- c("tidyaml_mod_spec_tbl", class(mod_tbl))

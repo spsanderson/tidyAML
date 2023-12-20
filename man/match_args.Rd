@@ -23,7 +23,6 @@ Match a functions arguments, the bad ones passed will be rejected but
 the remaining passing ones will be returned.
 }
 \examples{
-library(parsnip)
 
 match_args(
   f = "linear_reg",

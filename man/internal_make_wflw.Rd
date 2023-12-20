@@ -25,7 +25,6 @@ list column.
 }
 \examples{
 library(recipes, quietly = TRUE)
-library(dplyr, quietly = TRUE)
 
 mod_spec_tbl <- fast_regression_parsnip_spec_tbl(
   .parsnip_eng = c("lm","glm","gee"),

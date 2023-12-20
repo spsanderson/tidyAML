@@ -42,12 +42,12 @@ model specification and it's fitted \code{workflow} object.
 }
 \examples{
 library(recipes, quietly = TRUE)
-library(dplyr, quietly = TRUE)
 
 rec_obj <- recipe(mpg ~ ., data = mtcars)
 frt_tbl <- fast_regression(mtcars, rec_obj, .parsnip_eng = c("lm","glm"),
 .parsnip_fns = "linear_reg")
-glimpse(frt_tbl)
+
+frt_tbl
 
 }
 \seealso{

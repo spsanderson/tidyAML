@@ -37,9 +37,10 @@
 #' fct_tbl <- fast_classification(
 #'   .data = df,
 #'   .rec_obj = rec_obj,
-#'   .parsnip_eng = c("glm"))
+#'   .parsnip_eng = c("glm")
+#'   )
 #'
-#' glimpse(fct_tbl)
+#' fct_tbl
 #'
 #' @return
 #' A list or a tibble.
