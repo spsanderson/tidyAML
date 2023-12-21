@@ -57,7 +57,8 @@ rec_obj <- recipe(Survived ~ ., data = df)
 fct_tbl <- fast_classification(
   .data = df,
   .rec_obj = rec_obj,
-  .parsnip_eng = c("glm"))
+  .parsnip_eng = "glm"
+  )
 
 fct_tbl
 

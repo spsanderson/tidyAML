@@ -112,7 +112,7 @@ to the <code>auto_ml_</code> function.</p></dd>
 <span class="r-in"><span>  .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/recipes/man/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">splits_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_splits.html">create_splits</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="st">"initial_split"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">mod_tbl</span> <span class="op">&lt;-</span> <span class="va">mod_spec_tbl</span> <span class="op">|&gt;</span></span></span>
@@ -134,9 +134,9 @@ to the <code>auto_ml_</code> function.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          cyl         disp           hp         drat           wt  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    17.41739     -0.10861      0.02008     -0.02858     -1.18243     -5.62114  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  -35.101187     0.668269     0.014342     0.003826     3.535597    -4.892274  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        qsec           vs           am         gear         carb  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1.17516      0.58111      2.49600      0.58807      0.33557  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2.908092    -3.705634     3.574713    -0.332111    -0.250442  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
@@ -153,13 +153,13 @@ to the <code>auto_ml_</code> function.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)          cyl         disp           hp         drat           wt  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    17.41739     -0.10861      0.02008     -0.02858     -1.18243     -5.62114  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  -35.101187     0.668269     0.014342     0.003826     3.535597    -4.892274  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        qsec           vs           am         gear         carb  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1.17516      0.58111      2.49600      0.58807      0.33557  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2.908092    -3.705634     3.574713    -0.332111    -0.250442  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom: 23 Total (i.e. Null);  13 Residual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    930.6 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 103.1 	AIC: 127.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null Deviance:	    790.2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 69.29 	AIC: 117.6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

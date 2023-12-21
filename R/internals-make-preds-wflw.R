@@ -100,6 +100,9 @@ internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
         # Pull the fitted workflow column and then pluck it
         fitted_wflw = obj |> dplyr::pull(7) |> purrr::pluck(1)
 
+        # Get rec_obj
+        rec_obj <- workflows::extract_preprocessor(fitted_wflw)
+
         # Create a safe stats::predict
         safe_stats_predict <- purrr::safely(
           stats::predict,
@@ -133,6 +136,7 @@ internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
         # Get actual outcome values
         pred_var <- rec_obj$term_info |> dplyr::filter(role == "outcome") |>
           dplyr::pull(variable)
+
         actual_res <- dplyr::as_tibble(rec_obj$template[[pred_var]]) |>
           dplyr::mutate(.data_type = "actual") |>
           dplyr::select(.data_type, value) |>
