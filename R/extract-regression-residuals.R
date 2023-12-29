@@ -15,6 +15,8 @@
 #' and predicted values for a specific model.
 #'
 #' @param .model_tbl A fast regression model specification table (`fst_reg_spec_tbl`).
+#' @param .pivot_long A logical value indicating if the output should be pivoted.
+#' The default is `FALSE`.
 #'
 #' @examples
 #' library(recipes, quietly = TRUE)
@@ -24,9 +26,8 @@
 #' fr_tbl <- fast_regression(mtcars, rec_obj, .parsnip_eng = c("lm","glm"),
 #' .parsnip_fns = "linear_reg")
 #'
-#' result <- extract_regression_residuals(fr_tbl)
-#'
-#' head(result[[1]])
+#' extract_regression_residuals(fr_tbl)
+#' extract_regression_residuals(fr_tbl, .pivot_long = TRUE)
 #'
 #' @return
 #' The function returns a list of data frames, each containing residuals,
@@ -38,7 +39,7 @@ NULL
 #' @export
 #' @rdname extract_regression_residuals
 
-extract_regression_residuals <- function(.model_tbl) {
+extract_regression_residuals <- function(.model_tbl, .pivot_long = FALSE) {
 
   # Checks
   if (!inherits(.model_tbl, "fst_reg_spec_tbl")) {
@@ -87,6 +88,13 @@ extract_regression_residuals <- function(.model_tbl) {
         ) |>
         dplyr::select(.model_type, actual, predicted, .resid) |>
         purrr::set_names(c(".model_type", ".actual", ".predicted", ".resid"))
+
+      if (.pivot_long) {
+        ap_tbl <- ap_tbl |>
+          tidyr::pivot_longer(
+            cols = -.model_type
+          )
+      }
 
       return(ap_tbl)
     })
