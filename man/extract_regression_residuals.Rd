@@ -4,10 +4,13 @@
 \alias{extract_regression_residuals}
 \title{Extract Residuals from Fast Regression Models}
 \usage{
-extract_regression_residuals(.model_tbl)
+extract_regression_residuals(.model_tbl, .pivot_long = FALSE)
 }
 \arguments{
 \item{.model_tbl}{A fast regression model specification table (\code{fst_reg_spec_tbl}).}
+
+\item{.pivot_long}{A logical value indicating if the output should be pivoted.
+The default is \code{FALSE}.}
 }
 \value{
 The function returns a list of data frames, each containing residuals,
@@ -32,9 +35,8 @@ rec_obj <- recipe(mpg ~ ., data = mtcars)
 fr_tbl <- fast_regression(mtcars, rec_obj, .parsnip_eng = c("lm","glm"),
 .parsnip_fns = "linear_reg")
 
-result <- extract_regression_residuals(fr_tbl)
-
-head(result[[1]])
+extract_regression_residuals(fr_tbl)
+extract_regression_residuals(fr_tbl, .pivot_long = TRUE)
 
 }
 \seealso{
