@@ -52,34 +52,14 @@ easy name change suggestion.
 You can install `{tidyAML}` like so:
 
 ``` r
-install.packages("tidyAML")
-#> Installing package into 'C:/Users/steve/AppData/Local/Temp/RtmpWQakJl/temp_libpathbdc7ad15ebc'
-#> (as 'lib' is unspecified)
-#> package 'tidyAML' successfully unpacked and MD5 sums checked
-#> 
-#> The downloaded binary packages are in
-#>  C:\Users\steve\AppData\Local\Temp\Rtmps1W5T5\downloaded_packages
+#install.packages("tidyAML")
 ```
 
 Or the development version from GitHub
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("spsanderson/tidyAML")
-#> scales (1.2.1 -> 1.3.0) [CRAN]
-#> package 'scales' successfully unpacked and MD5 sums checked
-#> 
-#> The downloaded binary packages are in
-#>  C:\Users\steve\AppData\Local\Temp\Rtmps1W5T5\downloaded_packages
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>          checking for file 'C:\Users\steve\AppData\Local\Temp\Rtmps1W5T5\remotes810226223e7\spsanderson-tidyAML-80d6268/DESCRIPTION' ...  ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\Rtmps1W5T5\remotes810226223e7\spsanderson-tidyAML-80d6268/DESCRIPTION'
-#>       ─  preparing 'tidyAML': (2.4s)
-#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
-#>       ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>       ─  building 'tidyAML_0.0.2.9000.tar.gz'
-#>      
-#> 
+#devtools::install_github("spsanderson/tidyAML")
 ```
 
 ## Examples
@@ -247,8 +227,6 @@ create_model_spec(
 #> 
 #> 
 #> $.model_spec[[4]]
-#> ! parsnip could not locate an implementation for `cubist_rules` regression
-#>   model specifications using the `cubist` engine.
 #> Cubist Model Specification (regression)
 #> 
 #> Computational engine: cubist
@@ -266,7 +244,8 @@ frt_tbl <- fast_regression(
   .data = mtcars, 
   .rec_obj = rec_obj, 
   .parsnip_eng = c("lm","glm","gee"),
-  .parsnip_fns = "linear_reg"
+  .parsnip_fns = "linear_reg",
+  .drop_na = FALSE
 )
 
 glimpse(frt_tbl)
@@ -279,7 +258,7 @@ glimpse(frt_tbl)
 #> $ model_spec      <list> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…
 #> $ wflw            <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
 #> $ fitted_wflw     <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
-#> $ pred_wflw       <list> [<tbl_df[8 x 1]>], <NULL>, [<tbl_df[8 x 1]>]
+#> $ pred_wflw       <list> [<tbl_df[64 x 3]>], <NULL>, [<tbl_df[64 x 3]>]
 ```
 
 As we see above, one of the models has gracefully failed, thanks in part
@@ -291,33 +270,39 @@ Let’s look at the fitted workflow predictions.
 ``` r
 frt_tbl$pred_wflw
 #> [[1]]
-#> # A tibble: 8 × 1
-#>   .pred
-#>   <dbl>
-#> 1  25.3
-#> 2  24.9
-#> 3  18.3
-#> 4  22.0
-#> 5  25.3
-#> 6  18.7
-#> 7  21.5
-#> 8  14.5
+#> # A tibble: 64 × 3
+#>    .data_category .data_type .value
+#>    <chr>          <chr>       <dbl>
+#>  1 actual         actual       18.1
+#>  2 actual         actual       21  
+#>  3 actual         actual       24.4
+#>  4 actual         actual       21.4
+#>  5 actual         actual       15.5
+#>  6 actual         actual       13.3
+#>  7 actual         actual       27.3
+#>  8 actual         actual       14.7
+#>  9 actual         actual       10.4
+#> 10 actual         actual       15.2
+#> # ℹ 54 more rows
 #> 
 #> [[2]]
 #> NULL
 #> 
 #> [[3]]
-#> # A tibble: 8 × 1
-#>   .pred
-#>   <dbl>
-#> 1  25.3
-#> 2  24.9
-#> 3  18.3
-#> 4  22.0
-#> 5  25.3
-#> 6  18.7
-#> 7  21.5
-#> 8  14.5
+#> # A tibble: 64 × 3
+#>    .data_category .data_type .value
+#>    <chr>          <chr>       <dbl>
+#>  1 actual         actual       18.1
+#>  2 actual         actual       21  
+#>  3 actual         actual       24.4
+#>  4 actual         actual       21.4
+#>  5 actual         actual       15.5
+#>  6 actual         actual       13.3
+#>  7 actual         actual       27.3
+#>  8 actual         actual       14.7
+#>  9 actual         actual       10.4
+#> 10 actual         actual       15.2
+#> # ℹ 54 more rows
 ```
 
 Now let’s load the `multilevelmod` library so that we can run the `gee`
@@ -325,7 +310,6 @@ linear regression.
 
 ``` r
 library(multilevelmod)
-#> Warning: package 'multilevelmod' was built under R version 4.2.2
 
 rec_obj <- recipe(mpg ~ ., data = mtcars)
 frt_tbl <- fast_regression(
@@ -334,46 +318,162 @@ frt_tbl <- fast_regression(
   .parsnip_eng = c("lm","glm","gee"),
   .parsnip_fns = "linear_reg"
 )
-#> Beginning Cgee S-function, @(#) geeformula.q 4.13 98/01/27
-#> running glm to get initial regression estimate
 
-frt_tbl$pred_wflw
+extract_wflw_pred(frt_tbl, 1:3)
 #> [[1]]
-#> # A tibble: 8 × 1
-#>   .pred
-#>   <dbl>
-#> 1 21.8 
-#> 2 12.2 
-#> 3 11.5 
-#> 4  8.79
-#> 5 32.3 
-#> 6 21.8 
-#> 7 16.9 
-#> 8 23.4 
+#> # A tibble: 64 × 3
+#>    .data_category .data_type .value
+#>    <chr>          <chr>       <dbl>
+#>  1 actual         actual       26  
+#>  2 actual         actual       10.4
+#>  3 actual         actual       18.7
+#>  4 actual         actual       14.7
+#>  5 actual         actual       21.5
+#>  6 actual         actual       15  
+#>  7 actual         actual       27.3
+#>  8 actual         actual       16.4
+#>  9 actual         actual       15.5
+#> 10 actual         actual       17.3
+#> # ℹ 54 more rows
 #> 
 #> [[2]]
-#> # A tibble: 8 × 1
-#>   .pred
-#>   <dbl>
-#> 1 21.8 
-#> 2 11.9 
-#> 3 11.7 
-#> 4  8.81
-#> 5 32.2 
-#> 6 23.3 
-#> 7 16.8 
-#> 8 21.3 
+#> # A tibble: 64 × 3
+#>    .data_category .data_type .value
+#>    <chr>          <chr>       <dbl>
+#>  1 actual         actual       26  
+#>  2 actual         actual       10.4
+#>  3 actual         actual       18.7
+#>  4 actual         actual       14.7
+#>  5 actual         actual       21.5
+#>  6 actual         actual       15  
+#>  7 actual         actual       27.3
+#>  8 actual         actual       16.4
+#>  9 actual         actual       15.5
+#> 10 actual         actual       17.3
+#> # ℹ 54 more rows
 #> 
 #> [[3]]
-#> # A tibble: 8 × 1
-#>   .pred
-#>   <dbl>
-#> 1 21.8 
-#> 2 12.2 
-#> 3 11.5 
-#> 4  8.79
-#> 5 32.3 
-#> 6 21.8 
-#> 7 16.9 
-#> 8 23.4
+#> # A tibble: 64 × 3
+#>    .data_category .data_type .value
+#>    <chr>          <chr>       <dbl>
+#>  1 actual         actual       26  
+#>  2 actual         actual       10.4
+#>  3 actual         actual       18.7
+#>  4 actual         actual       14.7
+#>  5 actual         actual       21.5
+#>  6 actual         actual       15  
+#>  7 actual         actual       27.3
+#>  8 actual         actual       16.4
+#>  9 actual         actual       15.5
+#> 10 actual         actual       17.3
+#> # ℹ 54 more rows
+```
+
+*Getting Regression Residuals*
+
+Getting residuals is easy with `{tidyAML}`. Let’s take a look.
+
+``` r
+extract_regression_residuals(frt_tbl)
+#> [[1]]
+#> # A tibble: 32 × 4
+#>    .model_type     .actual .predicted .resid
+#>    <chr>             <dbl>      <dbl>  <dbl>
+#>  1 lm - linear_reg    26         25.8  0.167
+#>  2 lm - linear_reg    10.4       12.6 -2.20 
+#>  3 lm - linear_reg    18.7       15.7  3.00 
+#>  4 lm - linear_reg    14.7       12.9  1.84 
+#>  5 lm - linear_reg    21.5       23.8 -2.32 
+#>  6 lm - linear_reg    15         13.9  1.08 
+#>  7 lm - linear_reg    27.3       28.8 -1.50 
+#>  8 lm - linear_reg    16.4       15.6  0.789
+#>  9 lm - linear_reg    15.5       15.8 -0.255
+#> 10 lm - linear_reg    17.3       15.7  1.55 
+#> # ℹ 22 more rows
+#> 
+#> [[2]]
+#> # A tibble: 32 × 4
+#>    .model_type      .actual .predicted .resid
+#>    <chr>              <dbl>      <dbl>  <dbl>
+#>  1 gee - linear_reg    26         25.5  0.466
+#>  2 gee - linear_reg    10.4       12.4 -2.03 
+#>  3 gee - linear_reg    18.7       15.7  2.98 
+#>  4 gee - linear_reg    14.7       12.7  1.99 
+#>  5 gee - linear_reg    21.5       23.4 -1.94 
+#>  6 gee - linear_reg    15         13.9  1.13 
+#>  7 gee - linear_reg    27.3       28.8 -1.48 
+#>  8 gee - linear_reg    16.4       15.8  0.599
+#>  9 gee - linear_reg    15.5       15.8 -0.295
+#> 10 gee - linear_reg    17.3       15.9  1.36 
+#> # ℹ 22 more rows
+#> 
+#> [[3]]
+#> # A tibble: 32 × 4
+#>    .model_type      .actual .predicted .resid
+#>    <chr>              <dbl>      <dbl>  <dbl>
+#>  1 glm - linear_reg    26         25.8  0.167
+#>  2 glm - linear_reg    10.4       12.6 -2.20 
+#>  3 glm - linear_reg    18.7       15.7  3.00 
+#>  4 glm - linear_reg    14.7       12.9  1.84 
+#>  5 glm - linear_reg    21.5       23.8 -2.32 
+#>  6 glm - linear_reg    15         13.9  1.08 
+#>  7 glm - linear_reg    27.3       28.8 -1.50 
+#>  8 glm - linear_reg    16.4       15.6  0.789
+#>  9 glm - linear_reg    15.5       15.8 -0.255
+#> 10 glm - linear_reg    17.3       15.7  1.55 
+#> # ℹ 22 more rows
+```
+
+You can also pivot them into a long format making plotting easy with
+`ggplot2`.
+
+``` r
+extract_regression_residuals(frt_tbl, .pivot_long = TRUE)
+#> [[1]]
+#> # A tibble: 96 × 3
+#>    .model_type     name        value
+#>    <chr>           <chr>       <dbl>
+#>  1 lm - linear_reg .actual    26    
+#>  2 lm - linear_reg .predicted 25.8  
+#>  3 lm - linear_reg .resid      0.167
+#>  4 lm - linear_reg .actual    10.4  
+#>  5 lm - linear_reg .predicted 12.6  
+#>  6 lm - linear_reg .resid     -2.20 
+#>  7 lm - linear_reg .actual    18.7  
+#>  8 lm - linear_reg .predicted 15.7  
+#>  9 lm - linear_reg .resid      3.00 
+#> 10 lm - linear_reg .actual    14.7  
+#> # ℹ 86 more rows
+#> 
+#> [[2]]
+#> # A tibble: 96 × 3
+#>    .model_type      name        value
+#>    <chr>            <chr>       <dbl>
+#>  1 gee - linear_reg .actual    26    
+#>  2 gee - linear_reg .predicted 25.5  
+#>  3 gee - linear_reg .resid      0.466
+#>  4 gee - linear_reg .actual    10.4  
+#>  5 gee - linear_reg .predicted 12.4  
+#>  6 gee - linear_reg .resid     -2.03 
+#>  7 gee - linear_reg .actual    18.7  
+#>  8 gee - linear_reg .predicted 15.7  
+#>  9 gee - linear_reg .resid      2.98 
+#> 10 gee - linear_reg .actual    14.7  
+#> # ℹ 86 more rows
+#> 
+#> [[3]]
+#> # A tibble: 96 × 3
+#>    .model_type      name        value
+#>    <chr>            <chr>       <dbl>
+#>  1 glm - linear_reg .actual    26    
+#>  2 glm - linear_reg .predicted 25.8  
+#>  3 glm - linear_reg .resid      0.167
+#>  4 glm - linear_reg .actual    10.4  
+#>  5 glm - linear_reg .predicted 12.6  
+#>  6 glm - linear_reg .resid     -2.20 
+#>  7 glm - linear_reg .actual    18.7  
+#>  8 glm - linear_reg .predicted 15.7  
+#>  9 glm - linear_reg .resid      3.00 
+#> 10 glm - linear_reg .actual    14.7  
+#> # ℹ 86 more rows
 ```

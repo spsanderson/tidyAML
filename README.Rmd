@@ -47,13 +47,13 @@ Thank you [Garrick Aden-Buie](https://fosstodon.org/@grrrck/109479826278916014) 
 
 You can install `{tidyAML}` like so:
 
-```{r}
-install.packages("tidyAML")
+```{r message=FALSE, warning=FALSE}
+#install.packages("tidyAML")
 ```
 Or the development version from GitHub
 ```{r, warning=FALSE, message=FALSE}
 # install.packages("devtools")
-devtools::install_github("spsanderson/tidyAML")
+#devtools::install_github("spsanderson/tidyAML")
 ```
 
 ## Examples
@@ -64,12 +64,14 @@ output. There is a convienent function in __tidyAML__ that will generate a set o
 non-tuning models for _fast regression_. Let's take a look below.
 
 First let's load the library
+
 ```{r example}
 library(tidyAML)
 ```
 
 Now lets see the function in action.
-```{r}
+
+```{r message=FALSE, warning=FALSE}
 fast_regression_parsnip_spec_tbl(.parsnip_fns = "linear_reg")
 fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm"))
 fast_regression_parsnip_spec_tbl(.parsnip_eng = c("lm","glm","gee"), 
@@ -81,7 +83,8 @@ As shown we can easily select the models we want either by choosing the supporte
 also use them both in conjunction with each other!
 
 This function also does add a class to the output. Let's see it.
-```{r}
+
+```{r message=FALSE, warning=FALSE}
 class(fast_regression_parsnip_spec_tbl())
 ```
 
@@ -93,7 +96,7 @@ Now, what if you want to create a non-tuning model spec without using the
 `fast_regression_parsnip_spec_tbl()` function. Well, you can. The function is called
 `create_model_spec()`. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 create_model_spec(
  .parsnip_eng = list("lm","glm","glmnet","cubist"),
  .parsnip_fns = list(
@@ -128,7 +131,8 @@ frt_tbl <- fast_regression(
   .data = mtcars, 
   .rec_obj = rec_obj, 
   .parsnip_eng = c("lm","glm","gee"),
-  .parsnip_fns = "linear_reg"
+  .parsnip_fns = "linear_reg",
+  .drop_na = FALSE
 )
 
 glimpse(frt_tbl)
@@ -139,13 +143,13 @@ function `purrr::safely()`, which was used to make what I call __safe_make__ fun
 
 Let's look at the fitted workflow predictions.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 frt_tbl$pred_wflw
 ```
 
 Now let's load the `multilevelmod` library so that we can run the `gee` linear regression.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(multilevelmod)
 
 rec_obj <- recipe(mpg ~ ., data = mtcars)
@@ -156,19 +160,19 @@ frt_tbl <- fast_regression(
   .parsnip_fns = "linear_reg"
 )
 
-extract_wf_preds(frt_tbl)
+extract_wflw_pred(frt_tbl, 1:3)
 ```
 
 _Getting Regression Residuals_
 
 Getting residuals is easy with `{tidyAML}`. Let's take a look.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 extract_regression_residuals(frt_tbl)
 ```
 
 You can also pivot them into a long format making plotting easy with `ggplot2`.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 extract_regression_residuals(frt_tbl, .pivot_long = TRUE)
 ```

@@ -5,6 +5,8 @@ None
 
 ## New Features
 1. Fix #187 and #198 - Add function `extract_regression_residuals()`
+2. Fix #199 - Add parameters `.drop_na` to `fast_classification()` and 
+`fast_regression()`.
 
 ## Minor Fixes and Improvements
 1. Fix #186 - Add the following to the core_packages():
