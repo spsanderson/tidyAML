@@ -138,13 +138,14 @@ internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
           purrr::set_names(c(".data_type", ".value"))
 
         # Get actual outcome values
-        # pred_var <- rec_obj$term_info |> dplyr::filter(role == "outcome") |>
-        #   dplyr::pull(variable)
-
-        pred_var <- fitted_wflw$fit$fit$preproc$y_var
-
-        #actual_res <- dplyr::as_tibble(rec_obj$template[[pred_var]]) |>
-        actual_res <- fitted_wflw[["pre"]][["mold"]][["outcomes"]] |>
+        pred_y <- names(fitted_wflw[["pre"]][["mold"]][["outcomes"]])
+        train_act <- rsample::training(splits_obj$splits)[,pred_y] |>
+          dplyr::as_tibble() |>
+          purrr::set_names(pred_y)
+        test_act <- rsample::testing(splits_obj$splits)[,pred_y] |>
+          dplyr::as_tibble() |>
+          purrr::set_names(pred_y)
+        actual_res <- rbind(train_act, test_act) |>
           dplyr::mutate(.data_type = "actual") |>
           purrr::set_names("value", ".data_type") |>
           dplyr::select(.data_type, value) |>
