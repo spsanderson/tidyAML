@@ -10,7 +10,8 @@ fast_classification(
   .parsnip_fns = "all",
   .parsnip_eng = "all",
   .split_type = "initial_split",
-  .split_args = NULL
+  .split_args = NULL,
+  .drop_na = TRUE
 )
 }
 \arguments{
@@ -29,6 +30,8 @@ split supported by \code{rsample}}
 
 \item{.split_args}{The default is NULL, when NULL then the default parameters
 of the split type will be executed for the rsample split type.}
+
+\item{.drop_na}{The default is TRUE, which will drop all NA's from the data.}
 }
 \value{
 A list or a tibble.
@@ -57,7 +60,7 @@ rec_obj <- recipe(Survived ~ ., data = df)
 fct_tbl <- fast_classification(
   .data = df,
   .rec_obj = rec_obj,
-  .parsnip_eng = "glm"
+  .parsnip_eng = c("glm","earth")
   )
 
 fct_tbl
