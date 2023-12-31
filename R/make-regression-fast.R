@@ -91,17 +91,16 @@ fast_regression <- function(.data, .rec_obj, .parsnip_fns = "all",
     )
 
   if (.drop_na){
-    mod_pred_tbl <- tidyr::drop_na(mod_pred_tbl, pred_wflw) |>
-      dplyr::mutate(.model_id = dplyr::row_number())
+    mod_pred_tbl <- mod_pred_tbl[!sapply(mod_pred_tbl$wflw, function(x) length(x) == 0), ]
   }
 
   # Return ----
-  class(mod_tbl) <- c("fst_reg_tbl", class(mod_tbl))
-  attr(mod_tbl, ".parsnip_engines") <- .parsnip_eng
-  attr(mod_tbl, ".parsnip_functions") <- .parsnip_fns
-  attr(mod_tbl, ".split_type") <- .split_type
-  attr(mod_tbl, ".split_args") <- .split_args
-  attr(mod_tbl, ".drop_na") <- .drop_na
+  class(mod_pred_tbl) <- c("fst_reg_tbl", class(mod_pred_tbl))
+  attr(mod_pred_tbl, ".parsnip_engines") <- .parsnip_eng
+  attr(mod_pred_tbl, ".parsnip_functions") <- .parsnip_fns
+  attr(mod_pred_tbl, ".split_type") <- .split_type
+  attr(mod_pred_tbl, ".split_args") <- .split_args
+  attr(mod_pred_tbl, ".drop_na") <- .drop_na
 
   return(mod_pred_tbl)
 }
