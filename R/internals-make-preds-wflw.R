@@ -101,7 +101,13 @@ internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
         fitted_wflw = obj |> dplyr::pull(7) |> purrr::pluck(1)
 
         # Get rec_obj
-        rec_obj <- workflows::extract_preprocessor(fitted_wflw)
+        safe_extract_preprocessor <- purrr::safely(
+          workflows::extract_preprocessor,
+          otherwise = NULL,
+          quiet = TRUE
+        )
+
+        rec_obj <- safe_extract_preprocessor(fitted_wflw)
 
         # Create a safe stats::predict
         safe_stats_predict <- purrr::safely(
