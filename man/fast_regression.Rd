@@ -10,7 +10,8 @@ fast_regression(
   .parsnip_fns = "all",
   .parsnip_eng = "all",
   .split_type = "initial_split",
-  .split_args = NULL
+  .split_args = NULL,
+  .drop_na = TRUE
 )
 }
 \arguments{
@@ -29,6 +30,8 @@ split supported by \code{rsample}}
 
 \item{.split_args}{The default is NULL, when NULL then the default parameters
 of the split type will be executed for the rsample split type.}
+
+\item{.drop_na}{The default is TRUE, which will drop all NA's from the data.}
 }
 \value{
 A list or a tibble.
@@ -44,8 +47,12 @@ model specification and it's fitted \code{workflow} object.
 library(recipes, quietly = TRUE)
 
 rec_obj <- recipe(mpg ~ ., data = mtcars)
-frt_tbl <- fast_regression(mtcars, rec_obj, .parsnip_eng = c("lm","glm"),
-.parsnip_fns = "linear_reg")
+frt_tbl <- fast_regression(
+  mtcars,
+  rec_obj,
+  .parsnip_eng = c("lm","glm","gee"),
+  .parsnip_fns = "linear_reg"
+  )
 
 frt_tbl
 

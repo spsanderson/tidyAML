@@ -156,6 +156,19 @@ frt_tbl <- fast_regression(
   .parsnip_fns = "linear_reg"
 )
 
-frt_tbl$pred_wflw
+extract_wf_preds(frt_tbl)
+```
 
+_Getting Regression Residuals_
+
+Getting residuals is easy with `{tidyAML}`. Let's take a look.
+
+```{r}
+extract_regression_residuals(frt_tbl)
+```
+
+You can also pivot them into a long format making plotting easy with `ggplot2`.
+
+```{r}
+extract_regression_residuals(frt_tbl, .pivot_long = TRUE)
 ```
