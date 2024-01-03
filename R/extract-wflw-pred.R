@@ -64,6 +64,9 @@ extract_wflw_pred <- function(.data, .model_id = NULL){
 
   # Pull it out
   mod_tbl[mod_id, ] |>
-    dplyr::pull(pred_wflw)
+    dplyr::mutate(.model_type = paste0(.parsnip_engine, " - ", .parsnip_fns)) |>
+    dplyr::select(.model_type, pred_wflw) |>
+    tidyr::unnest(cols = pred_wflw)
+    #dplyr::pull(pred_wflw)
 
 }
