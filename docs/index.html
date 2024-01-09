@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="index.html">tidyAML</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.4.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,31 +101,11 @@
 </h2>
 <p>You can install <a href="https://github.com/spsanderson/tidyAML" class="external-link">tidyAML</a> like so:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyAML"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Installing package into 'C:/Users/steve/AppData/Local/Temp/RtmpWQakJl/temp_libpathbdc7ad15ebc'</span></span>
-<span><span class="co">#&gt; (as 'lib' is unspecified)</span></span>
-<span><span class="co">#&gt; package 'tidyAML' successfully unpacked and MD5 sums checked</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The downloaded binary packages are in</span></span>
-<span><span class="co">#&gt;  C:\Users\steve\AppData\Local\Temp\Rtmps1W5T5\downloaded_packages</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#install.packages("tidyAML")</span></span></code></pre></div>
 <p>Or the development version from GitHub</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"spsanderson/tidyAML"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; scales (1.2.1 -&gt; 1.3.0) [CRAN]</span></span>
-<span><span class="co">#&gt; package 'scales' successfully unpacked and MD5 sums checked</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The downloaded binary packages are in</span></span>
-<span><span class="co">#&gt;  C:\Users\steve\AppData\Local\Temp\Rtmps1W5T5\downloaded_packages</span></span>
-<span><span class="co">#&gt; ── R CMD build ─────────────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt;          checking for file 'C:\Users\steve\AppData\Local\Temp\Rtmps1W5T5\remotes810226223e7\spsanderson-tidyAML-80d6268/DESCRIPTION' ...  ✔  checking for file 'C:\Users\steve\AppData\Local\Temp\Rtmps1W5T5\remotes810226223e7\spsanderson-tidyAML-80d6268/DESCRIPTION'</span></span>
-<span><span class="co">#&gt;       ─  preparing 'tidyAML': (2.4s)</span></span>
-<span><span class="co">#&gt;    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information</span></span>
-<span><span class="co">#&gt;       ─  checking for LF line-endings in source and make files and shell scripts</span></span>
-<span><span class="co">#&gt;   ─  checking for empty or unneeded directories</span></span>
-<span><span class="co">#&gt;       ─  building 'tidyAML_0.0.2.9000.tar.gz'</span></span>
-<span><span class="co">#&gt;      </span></span>
-<span><span class="co">#&gt; </span></span></code></pre></div>
+<span><span class="co">#devtools::install_github("spsanderson/tidyAML")</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
@@ -268,8 +248,6 @@
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $.model_spec[[4]]</span></span>
-<span><span class="co">#&gt; ! parsnip could not locate an implementation for `cubist_rules` regression</span></span>
-<span><span class="co">#&gt;   model specifications using the `cubist` engine.</span></span>
 <span><span class="co">#&gt; Cubist Model Specification (regression)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Computational engine: cubist</span></span></code></pre></div>
@@ -283,7 +261,8 @@
 <span>  .data <span class="op">=</span> <span class="va">mtcars</span>, </span>
 <span>  .rec_obj <span class="op">=</span> <span class="va">rec_obj</span>, </span>
 <span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span>,<span class="st">"gee"</span><span class="op">)</span>,</span>
-<span>  .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span></span>
+<span>  .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span>,</span>
+<span>  .drop_na <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">frt_tbl</span><span class="op">)</span></span>
@@ -296,43 +275,48 @@
 <span><span class="co">#&gt; $ model_spec      &lt;list&gt; [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…</span></span>
 <span><span class="co">#&gt; $ wflw            &lt;list&gt; [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
 <span><span class="co">#&gt; $ fitted_wflw     &lt;list&gt; [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
-<span><span class="co">#&gt; $ pred_wflw       &lt;list&gt; [&lt;tbl_df[8 x 1]&gt;], &lt;NULL&gt;, [&lt;tbl_df[8 x 1]&gt;]</span></span></code></pre></div>
+<span><span class="co">#&gt; $ pred_wflw       &lt;list&gt; [&lt;tbl_df[64 x 3]&gt;], &lt;NULL&gt;, [&lt;tbl_df[64 x 3]&gt;]</span></span></code></pre></div>
 <p>As we see above, one of the models has gracefully failed, thanks in part to the function <code><a href="https://purrr.tidyverse.org/reference/safely.html" class="external-link">purrr::safely()</a></code>, which was used to make what I call <strong>safe_make</strong> functions.</p>
 <p>Let’s look at the fitted workflow predictions.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">frt_tbl</span><span class="op">$</span><span class="va">pred_wflw</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
-<span><span class="co">#&gt; # A tibble: 8 × 1</span></span>
-<span><span class="co">#&gt;   .pred</span></span>
-<span><span class="co">#&gt;   &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1  25.3</span></span>
-<span><span class="co">#&gt; 2  24.9</span></span>
-<span><span class="co">#&gt; 3  18.3</span></span>
-<span><span class="co">#&gt; 4  22.0</span></span>
-<span><span class="co">#&gt; 5  25.3</span></span>
-<span><span class="co">#&gt; 6  18.7</span></span>
-<span><span class="co">#&gt; 7  21.5</span></span>
-<span><span class="co">#&gt; 8  14.5</span></span>
+<span><span class="co">#&gt; # A tibble: 64 × 3</span></span>
+<span><span class="co">#&gt;    .data_category .data_type .value</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 actual         actual       18.1</span></span>
+<span><span class="co">#&gt;  2 actual         actual       21  </span></span>
+<span><span class="co">#&gt;  3 actual         actual       24.4</span></span>
+<span><span class="co">#&gt;  4 actual         actual       21.4</span></span>
+<span><span class="co">#&gt;  5 actual         actual       15.5</span></span>
+<span><span class="co">#&gt;  6 actual         actual       13.3</span></span>
+<span><span class="co">#&gt;  7 actual         actual       27.3</span></span>
+<span><span class="co">#&gt;  8 actual         actual       14.7</span></span>
+<span><span class="co">#&gt;  9 actual         actual       10.4</span></span>
+<span><span class="co">#&gt; 10 actual         actual       15.2</span></span>
+<span><span class="co">#&gt; # ℹ 54 more rows</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[2]]</span></span>
 <span><span class="co">#&gt; NULL</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[3]]</span></span>
-<span><span class="co">#&gt; # A tibble: 8 × 1</span></span>
-<span><span class="co">#&gt;   .pred</span></span>
-<span><span class="co">#&gt;   &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1  25.3</span></span>
-<span><span class="co">#&gt; 2  24.9</span></span>
-<span><span class="co">#&gt; 3  18.3</span></span>
-<span><span class="co">#&gt; 4  22.0</span></span>
-<span><span class="co">#&gt; 5  25.3</span></span>
-<span><span class="co">#&gt; 6  18.7</span></span>
-<span><span class="co">#&gt; 7  21.5</span></span>
-<span><span class="co">#&gt; 8  14.5</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 64 × 3</span></span>
+<span><span class="co">#&gt;    .data_category .data_type .value</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 actual         actual       18.1</span></span>
+<span><span class="co">#&gt;  2 actual         actual       21  </span></span>
+<span><span class="co">#&gt;  3 actual         actual       24.4</span></span>
+<span><span class="co">#&gt;  4 actual         actual       21.4</span></span>
+<span><span class="co">#&gt;  5 actual         actual       15.5</span></span>
+<span><span class="co">#&gt;  6 actual         actual       13.3</span></span>
+<span><span class="co">#&gt;  7 actual         actual       27.3</span></span>
+<span><span class="co">#&gt;  8 actual         actual       14.7</span></span>
+<span><span class="co">#&gt;  9 actual         actual       10.4</span></span>
+<span><span class="co">#&gt; 10 actual         actual       15.2</span></span>
+<span><span class="co">#&gt; # ℹ 54 more rows</span></span></code></pre></div>
 <p>Now let’s load the <code>multilevelmod</code> library so that we can run the <code>gee</code> linear regression.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/multilevelmod" class="external-link">multilevelmod</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: package 'multilevelmod' was built under R version 4.2.2</span></span>
 <span></span>
 <span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
 <span><span class="va">frt_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fast_regression.html">fast_regression</a></span><span class="op">(</span></span>
@@ -341,48 +325,156 @@
 <span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span>,<span class="st">"gee"</span><span class="op">)</span>,</span>
 <span>  .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; Beginning Cgee S-function, @(#) geeformula.q 4.13 98/01/27</span></span>
-<span><span class="co">#&gt; running glm to get initial regression estimate</span></span>
 <span></span>
-<span><span class="va">frt_tbl</span><span class="op">$</span><span class="va">pred_wflw</span></span>
+<span><span class="fu"><a href="reference/extract_wflw_pred.html">extract_wflw_pred</a></span><span class="op">(</span><span class="va">frt_tbl</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
-<span><span class="co">#&gt; # A tibble: 8 × 1</span></span>
-<span><span class="co">#&gt;   .pred</span></span>
-<span><span class="co">#&gt;   &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 21.8 </span></span>
-<span><span class="co">#&gt; 2 12.2 </span></span>
-<span><span class="co">#&gt; 3 11.5 </span></span>
-<span><span class="co">#&gt; 4  8.79</span></span>
-<span><span class="co">#&gt; 5 32.3 </span></span>
-<span><span class="co">#&gt; 6 21.8 </span></span>
-<span><span class="co">#&gt; 7 16.9 </span></span>
-<span><span class="co">#&gt; 8 23.4 </span></span>
+<span><span class="co">#&gt; # A tibble: 64 × 3</span></span>
+<span><span class="co">#&gt;    .data_category .data_type .value</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 actual         actual       26  </span></span>
+<span><span class="co">#&gt;  2 actual         actual       10.4</span></span>
+<span><span class="co">#&gt;  3 actual         actual       18.7</span></span>
+<span><span class="co">#&gt;  4 actual         actual       14.7</span></span>
+<span><span class="co">#&gt;  5 actual         actual       21.5</span></span>
+<span><span class="co">#&gt;  6 actual         actual       15  </span></span>
+<span><span class="co">#&gt;  7 actual         actual       27.3</span></span>
+<span><span class="co">#&gt;  8 actual         actual       16.4</span></span>
+<span><span class="co">#&gt;  9 actual         actual       15.5</span></span>
+<span><span class="co">#&gt; 10 actual         actual       17.3</span></span>
+<span><span class="co">#&gt; # ℹ 54 more rows</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[2]]</span></span>
-<span><span class="co">#&gt; # A tibble: 8 × 1</span></span>
-<span><span class="co">#&gt;   .pred</span></span>
-<span><span class="co">#&gt;   &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 21.8 </span></span>
-<span><span class="co">#&gt; 2 11.9 </span></span>
-<span><span class="co">#&gt; 3 11.7 </span></span>
-<span><span class="co">#&gt; 4  8.81</span></span>
-<span><span class="co">#&gt; 5 32.2 </span></span>
-<span><span class="co">#&gt; 6 23.3 </span></span>
-<span><span class="co">#&gt; 7 16.8 </span></span>
-<span><span class="co">#&gt; 8 21.3 </span></span>
+<span><span class="co">#&gt; # A tibble: 64 × 3</span></span>
+<span><span class="co">#&gt;    .data_category .data_type .value</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 actual         actual       26  </span></span>
+<span><span class="co">#&gt;  2 actual         actual       10.4</span></span>
+<span><span class="co">#&gt;  3 actual         actual       18.7</span></span>
+<span><span class="co">#&gt;  4 actual         actual       14.7</span></span>
+<span><span class="co">#&gt;  5 actual         actual       21.5</span></span>
+<span><span class="co">#&gt;  6 actual         actual       15  </span></span>
+<span><span class="co">#&gt;  7 actual         actual       27.3</span></span>
+<span><span class="co">#&gt;  8 actual         actual       16.4</span></span>
+<span><span class="co">#&gt;  9 actual         actual       15.5</span></span>
+<span><span class="co">#&gt; 10 actual         actual       17.3</span></span>
+<span><span class="co">#&gt; # ℹ 54 more rows</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[3]]</span></span>
-<span><span class="co">#&gt; # A tibble: 8 × 1</span></span>
-<span><span class="co">#&gt;   .pred</span></span>
-<span><span class="co">#&gt;   &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 21.8 </span></span>
-<span><span class="co">#&gt; 2 12.2 </span></span>
-<span><span class="co">#&gt; 3 11.5 </span></span>
-<span><span class="co">#&gt; 4  8.79</span></span>
-<span><span class="co">#&gt; 5 32.3 </span></span>
-<span><span class="co">#&gt; 6 21.8 </span></span>
-<span><span class="co">#&gt; 7 16.9 </span></span>
-<span><span class="co">#&gt; 8 23.4</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 64 × 3</span></span>
+<span><span class="co">#&gt;    .data_category .data_type .value</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 actual         actual       26  </span></span>
+<span><span class="co">#&gt;  2 actual         actual       10.4</span></span>
+<span><span class="co">#&gt;  3 actual         actual       18.7</span></span>
+<span><span class="co">#&gt;  4 actual         actual       14.7</span></span>
+<span><span class="co">#&gt;  5 actual         actual       21.5</span></span>
+<span><span class="co">#&gt;  6 actual         actual       15  </span></span>
+<span><span class="co">#&gt;  7 actual         actual       27.3</span></span>
+<span><span class="co">#&gt;  8 actual         actual       16.4</span></span>
+<span><span class="co">#&gt;  9 actual         actual       15.5</span></span>
+<span><span class="co">#&gt; 10 actual         actual       17.3</span></span>
+<span><span class="co">#&gt; # ℹ 54 more rows</span></span></code></pre></div>
+<p><em>Getting Regression Residuals</em></p>
+<p>Getting residuals is easy with <a href="https://github.com/spsanderson/tidyAML" class="external-link">tidyAML</a>. Let’s take a look.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/extract_regression_residuals.html">extract_regression_residuals</a></span><span class="op">(</span><span class="va">frt_tbl</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; # A tibble: 32 × 4</span></span>
+<span><span class="co">#&gt;    .model_type     .actual .predicted .resid</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 lm - linear_reg    26         25.8  0.167</span></span>
+<span><span class="co">#&gt;  2 lm - linear_reg    10.4       12.6 -2.20 </span></span>
+<span><span class="co">#&gt;  3 lm - linear_reg    18.7       15.7  3.00 </span></span>
+<span><span class="co">#&gt;  4 lm - linear_reg    14.7       12.9  1.84 </span></span>
+<span><span class="co">#&gt;  5 lm - linear_reg    21.5       23.8 -2.32 </span></span>
+<span><span class="co">#&gt;  6 lm - linear_reg    15         13.9  1.08 </span></span>
+<span><span class="co">#&gt;  7 lm - linear_reg    27.3       28.8 -1.50 </span></span>
+<span><span class="co">#&gt;  8 lm - linear_reg    16.4       15.6  0.789</span></span>
+<span><span class="co">#&gt;  9 lm - linear_reg    15.5       15.8 -0.255</span></span>
+<span><span class="co">#&gt; 10 lm - linear_reg    17.3       15.7  1.55 </span></span>
+<span><span class="co">#&gt; # ℹ 22 more rows</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; [[2]]</span></span>
+<span><span class="co">#&gt; # A tibble: 32 × 4</span></span>
+<span><span class="co">#&gt;    .model_type      .actual .predicted .resid</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;              &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 gee - linear_reg    26         25.5  0.466</span></span>
+<span><span class="co">#&gt;  2 gee - linear_reg    10.4       12.4 -2.03 </span></span>
+<span><span class="co">#&gt;  3 gee - linear_reg    18.7       15.7  2.98 </span></span>
+<span><span class="co">#&gt;  4 gee - linear_reg    14.7       12.7  1.99 </span></span>
+<span><span class="co">#&gt;  5 gee - linear_reg    21.5       23.4 -1.94 </span></span>
+<span><span class="co">#&gt;  6 gee - linear_reg    15         13.9  1.13 </span></span>
+<span><span class="co">#&gt;  7 gee - linear_reg    27.3       28.8 -1.48 </span></span>
+<span><span class="co">#&gt;  8 gee - linear_reg    16.4       15.8  0.599</span></span>
+<span><span class="co">#&gt;  9 gee - linear_reg    15.5       15.8 -0.295</span></span>
+<span><span class="co">#&gt; 10 gee - linear_reg    17.3       15.9  1.36 </span></span>
+<span><span class="co">#&gt; # ℹ 22 more rows</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; [[3]]</span></span>
+<span><span class="co">#&gt; # A tibble: 32 × 4</span></span>
+<span><span class="co">#&gt;    .model_type      .actual .predicted .resid</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;              &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 glm - linear_reg    26         25.8  0.167</span></span>
+<span><span class="co">#&gt;  2 glm - linear_reg    10.4       12.6 -2.20 </span></span>
+<span><span class="co">#&gt;  3 glm - linear_reg    18.7       15.7  3.00 </span></span>
+<span><span class="co">#&gt;  4 glm - linear_reg    14.7       12.9  1.84 </span></span>
+<span><span class="co">#&gt;  5 glm - linear_reg    21.5       23.8 -2.32 </span></span>
+<span><span class="co">#&gt;  6 glm - linear_reg    15         13.9  1.08 </span></span>
+<span><span class="co">#&gt;  7 glm - linear_reg    27.3       28.8 -1.50 </span></span>
+<span><span class="co">#&gt;  8 glm - linear_reg    16.4       15.6  0.789</span></span>
+<span><span class="co">#&gt;  9 glm - linear_reg    15.5       15.8 -0.255</span></span>
+<span><span class="co">#&gt; 10 glm - linear_reg    17.3       15.7  1.55 </span></span>
+<span><span class="co">#&gt; # ℹ 22 more rows</span></span></code></pre></div>
+<p>You can also pivot them into a long format making plotting easy with <code>ggplot2</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/extract_regression_residuals.html">extract_regression_residuals</a></span><span class="op">(</span><span class="va">frt_tbl</span>, .pivot_long <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; # A tibble: 96 × 3</span></span>
+<span><span class="co">#&gt;    .model_type     name        value</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;           &lt;chr&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 lm - linear_reg .actual    26    </span></span>
+<span><span class="co">#&gt;  2 lm - linear_reg .predicted 25.8  </span></span>
+<span><span class="co">#&gt;  3 lm - linear_reg .resid      0.167</span></span>
+<span><span class="co">#&gt;  4 lm - linear_reg .actual    10.4  </span></span>
+<span><span class="co">#&gt;  5 lm - linear_reg .predicted 12.6  </span></span>
+<span><span class="co">#&gt;  6 lm - linear_reg .resid     -2.20 </span></span>
+<span><span class="co">#&gt;  7 lm - linear_reg .actual    18.7  </span></span>
+<span><span class="co">#&gt;  8 lm - linear_reg .predicted 15.7  </span></span>
+<span><span class="co">#&gt;  9 lm - linear_reg .resid      3.00 </span></span>
+<span><span class="co">#&gt; 10 lm - linear_reg .actual    14.7  </span></span>
+<span><span class="co">#&gt; # ℹ 86 more rows</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; [[2]]</span></span>
+<span><span class="co">#&gt; # A tibble: 96 × 3</span></span>
+<span><span class="co">#&gt;    .model_type      name        value</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;            &lt;chr&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 gee - linear_reg .actual    26    </span></span>
+<span><span class="co">#&gt;  2 gee - linear_reg .predicted 25.5  </span></span>
+<span><span class="co">#&gt;  3 gee - linear_reg .resid      0.466</span></span>
+<span><span class="co">#&gt;  4 gee - linear_reg .actual    10.4  </span></span>
+<span><span class="co">#&gt;  5 gee - linear_reg .predicted 12.4  </span></span>
+<span><span class="co">#&gt;  6 gee - linear_reg .resid     -2.03 </span></span>
+<span><span class="co">#&gt;  7 gee - linear_reg .actual    18.7  </span></span>
+<span><span class="co">#&gt;  8 gee - linear_reg .predicted 15.7  </span></span>
+<span><span class="co">#&gt;  9 gee - linear_reg .resid      2.98 </span></span>
+<span><span class="co">#&gt; 10 gee - linear_reg .actual    14.7  </span></span>
+<span><span class="co">#&gt; # ℹ 86 more rows</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; [[3]]</span></span>
+<span><span class="co">#&gt; # A tibble: 96 × 3</span></span>
+<span><span class="co">#&gt;    .model_type      name        value</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;            &lt;chr&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 glm - linear_reg .actual    26    </span></span>
+<span><span class="co">#&gt;  2 glm - linear_reg .predicted 25.8  </span></span>
+<span><span class="co">#&gt;  3 glm - linear_reg .resid      0.167</span></span>
+<span><span class="co">#&gt;  4 glm - linear_reg .actual    10.4  </span></span>
+<span><span class="co">#&gt;  5 glm - linear_reg .predicted 12.6  </span></span>
+<span><span class="co">#&gt;  6 glm - linear_reg .resid     -2.20 </span></span>
+<span><span class="co">#&gt;  7 glm - linear_reg .actual    18.7  </span></span>
+<span><span class="co">#&gt;  8 glm - linear_reg .predicted 15.7  </span></span>
+<span><span class="co">#&gt;  9 glm - linear_reg .resid      3.00 </span></span>
+<span><span class="co">#&gt; 10 glm - linear_reg .actual    14.7  </span></span>
+<span><span class="co">#&gt; # ℹ 86 more rows</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
