@@ -1,6 +1,6 @@
 Package: tidyAML
 Title: Automatic Machine Learning with 'tidymodels'
-Version: 0.0.4
+Version: 0.0.4.9000
 Authors@R: c(
     person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre","cph"),
       comment = c(ORCID = "0009-0006-7661-8247"))
