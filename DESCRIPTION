@@ -44,8 +44,7 @@ Suggests:
     klaR,
     mda,
     sda,
-    sparsediscrim,
-    liquidSVM
+    sparsediscrim
 VignetteBuilder: knitr
 Imports: 
     rlang (>= 0.4.11),
