@@ -4,7 +4,7 @@
 None
 
 ## New Features
-None
+1. Fix #217 - Add plotting function for `extract_regression_residuals()`
 
 ## Minor Fixes and Improvements
 1. Fix #214 - Drop selection message from `load_deps()`
