@@ -4,8 +4,9 @@
 None
 
 ## New Features
-1. Fix #217 - Add plotting function for `extract_regression_residuals()`
-2. Fix #215 - Add plotting function for `extract_wflw_predictions()`
+1. Fix #217 - Add function `plot_regression_residuals()` to plot the residuals.
+2. Fix #215 - Add function `plot_regression_predictions()` to plot the predictions
+from the function `extract_wflw_predictions()`
 
 ## Minor Fixes and Improvements
 1. Fix #214 - Drop selection message from `load_deps()`
