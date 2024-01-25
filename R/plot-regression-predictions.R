@@ -73,7 +73,7 @@ plot_regression_predictions <- function(.data, .output = "list"){
       dplyr::group_split(.model_type) |>
       purrr::map(\(x) x |>
                    dplyr::group_by(.data_category) |>
-                   dplyr::mutate(x = row_number()) |>
+                   dplyr::mutate(x = dplyr::row_number()) |>
                    dplyr::ungroup() |>
                    tidyr::pivot_wider(names_from = .data_type, values_from = .value) |>
                    ggplot2::ggplot(ggplot2::aes(x = x, y = actual, group = .data_category)) +
