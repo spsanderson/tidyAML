@@ -132,7 +132,7 @@ internal_make_wflw_predictions <- function(.model_tbl, .splits_obj){
         # Get training predictions
         train_res <- fitted_wflw |>
           broom::augment(new_data = rsample::training(splits_obj$splits)) |>
-          dplyr::mutate(.data_type = "training")
+          dplyr::mutate(.data_type = "training") |>
           dplyr::select(.data_type, !!pred_col_nm) |>
           purrr::set_names(c(".data_type", ".value"))
 
