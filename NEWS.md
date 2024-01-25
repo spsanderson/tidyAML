@@ -1,5 +1,14 @@
 # tidyAML (development version)
 
+## Breaking Changes
+None
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+1. Fix #214 - Drop selection message from `load_deps()`
+
 # tidyAML 0.0.4
 
 ## Breaking Changes
