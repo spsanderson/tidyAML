@@ -18,6 +18,6 @@ globalVariables(
     ".resid",
     ".value",
     "actual",
-    "predicted","rec_obj","value"
+    "predicted","rec_obj","value","name","x","training","testing"
     )
 )
