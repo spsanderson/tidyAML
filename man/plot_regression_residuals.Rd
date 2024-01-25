@@ -36,6 +36,10 @@ extract_regression_residuals(frt_tbl, FALSE)[1] |> plot_regression_residuals()
 extract_regression_residuals(frt_tbl, TRUE)[1] |> plot_regression_residuals()
 
 }
+\seealso{
+Other Plotting: 
+\code{\link{plot_regression_predictions}()}
+}
 \author{
 Steven P. Sanderson II, MPH
 }
