@@ -105,8 +105,6 @@ NULL
 
 load_deps <- function(){
 
-  ans <- utils::menu(c("Yes","No"), title = "Do you want to load core dependencies?")
-
   pkgs <- core_packages()
 
   pkgs_unloaded <- function(){
@@ -127,10 +125,6 @@ load_deps <- function(){
     invisible(to_load)
   }
 
-  if (ans == 1){
-
-    pkgs_unloaded()
-    tidyaml_pkg_attach()
-
-  }
+  pkgs_unloaded()
+  tidyaml_pkg_attach()
 }

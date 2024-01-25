@@ -9,7 +9,6 @@ Description: The goal of this package will be to provide a simple interface for 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
 URL: https://www.spsanderson.com/tidyAML/, https://github.com/spsanderson/tidyAML
 BugReports: https://github.com/spsanderson/tidyAML/issues
 Depends:
