@@ -54,5 +54,7 @@ Imports:
     forcats,
     workflowsets,
     tidyr,
-    broom
+    broom,
+    ggplot2,
+    magrittr
 RoxygenNote: 7.3.0
