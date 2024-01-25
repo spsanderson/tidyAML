@@ -101,6 +101,7 @@ fast_classification <- function(.data, .rec_obj, .parsnip_fns = "all",
 
   if (.drop_na){
     mod_pred_tbl <- mod_pred_tbl[!sapply(mod_pred_tbl$fitted_wflw, function(x) length(x) == 0), ]
+    mod_pred_tbl <- mod_pred_tbl[!sapply(mod_pred_tbl$pred_wflw, function(x) length(x) == 0), ]
   }
 
   # Return ----

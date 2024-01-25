@@ -5,9 +5,12 @@ None
 
 ## New Features
 1. Fix #217 - Add plotting function for `extract_regression_residuals()`
+2. Fix #215 - Add plotting function for `extract_wflw_predictions()`
 
 ## Minor Fixes and Improvements
 1. Fix #214 - Drop selection message from `load_deps()`
+2. Fix #222 - Update `fast_regression()` and `fast_classification()` to drop NULL
+predictions.
 
 # tidyAML 0.0.4
 
