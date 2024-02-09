@@ -94,17 +94,24 @@ plot_regression_predictions <- function(.data, .output = "list"){
                    )
       )
   } else {
-    p <- .data |>
+
+    df <- .data |>
+      dplyr::group_by(.model_type, .data_category) |>
+      dplyr::mutate(x = dplyr::row_number()) |>
+      dplyr::ungroup()
+
+    act_data <- dplyr::filter(df, .data_type == "actual")
+    train_data <- dplyr::filter(df, .data_type == "training")
+    test_data <- dplyr::filter(df, .data_type == "testing")
+
+    p <- df |>
       dplyr::group_by(.model_type, .data_category) |>
       dplyr::mutate(x = dplyr::row_number()) |>
       dplyr::ungroup() |>
       ggplot2::ggplot(ggplot2::aes(x = x, y = .value)) +
-      ggplot2::geom_line(data = . %>% dplyr::filter(.data_type == "actual"),
-                         color = "black") +
-      ggplot2::geom_line(data = . %>% dplyr::filter(.data_type == "training"),
-                         linetype = "dashed", color = "red") +
-      ggplot2::geom_line(data = . %>% dplyr::filter(.data_type == "testing"),
-                         linetype = "dashed", color = "blue") +
+      ggplot2::geom_line(data = act_data, color = "black") +
+      ggplot2::geom_line(data = train_data, linetype = "dashed", color = "red") +
+      ggplot2::geom_line(data = test_data, linetype = "dashed", color = "blue") +
       ggplot2::facet_wrap(~ .model_type, ncol = 2, scales = "free") +
       ggplot2::labs(
         x = "",

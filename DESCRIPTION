@@ -57,4 +57,4 @@ Imports:
     broom,
     ggplot2,
     magrittr
-RoxygenNote: 7.3.0
+RoxygenNote: 7.3.1

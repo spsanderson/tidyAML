@@ -58,8 +58,8 @@ internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)
 Other Internals: 
 \code{\link{internal_make_fitted_wflw}()},
 \code{\link{internal_make_spec_tbl}()},
-\code{\link{internal_make_wflw_gee_lin_reg}()},
 \code{\link{internal_make_wflw}()},
+\code{\link{internal_make_wflw_gee_lin_reg}()},
 \code{\link{internal_set_args_to_tune}()},
 \code{\link{make_classification_base_tbl}()},
 \code{\link{make_regression_base_tbl}()}
