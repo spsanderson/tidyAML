@@ -75,7 +75,6 @@ First let’s load the library
 ``` r
 library(tidyAML)
 #> Loading required package: parsnip
-#> Warning: package 'parsnip' was built under R version 4.2.3
 #> 
 #> == Welcome to tidyAML ===========================================================================
 #> If you find this package useful, please leave a star: 
@@ -273,16 +272,16 @@ frt_tbl$pred_wflw
 #> # A tibble: 64 × 3
 #>    .data_category .data_type .value
 #>    <chr>          <chr>       <dbl>
-#>  1 actual         actual       18.1
-#>  2 actual         actual       21  
-#>  3 actual         actual       24.4
-#>  4 actual         actual       21.4
-#>  5 actual         actual       15.5
-#>  6 actual         actual       13.3
-#>  7 actual         actual       27.3
-#>  8 actual         actual       14.7
-#>  9 actual         actual       10.4
-#> 10 actual         actual       15.2
+#>  1 actual         actual       15.2
+#>  2 actual         actual       19.2
+#>  3 actual         actual       22.8
+#>  4 actual         actual       33.9
+#>  5 actual         actual       26  
+#>  6 actual         actual       19.2
+#>  7 actual         actual       15  
+#>  8 actual         actual       27.3
+#>  9 actual         actual       24.4
+#> 10 actual         actual       17.3
 #> # ℹ 54 more rows
 #> 
 #> [[2]]
@@ -292,16 +291,16 @@ frt_tbl$pred_wflw
 #> # A tibble: 64 × 3
 #>    .data_category .data_type .value
 #>    <chr>          <chr>       <dbl>
-#>  1 actual         actual       18.1
-#>  2 actual         actual       21  
-#>  3 actual         actual       24.4
-#>  4 actual         actual       21.4
-#>  5 actual         actual       15.5
-#>  6 actual         actual       13.3
-#>  7 actual         actual       27.3
-#>  8 actual         actual       14.7
-#>  9 actual         actual       10.4
-#> 10 actual         actual       15.2
+#>  1 actual         actual       15.2
+#>  2 actual         actual       19.2
+#>  3 actual         actual       22.8
+#>  4 actual         actual       33.9
+#>  5 actual         actual       26  
+#>  6 actual         actual       19.2
+#>  7 actual         actual       15  
+#>  8 actual         actual       27.3
+#>  9 actual         actual       24.4
+#> 10 actual         actual       17.3
 #> # ℹ 54 more rows
 ```
 
@@ -320,53 +319,20 @@ frt_tbl <- fast_regression(
 )
 
 extract_wflw_pred(frt_tbl, 1:3)
-#> [[1]]
-#> # A tibble: 64 × 3
-#>    .data_category .data_type .value
-#>    <chr>          <chr>       <dbl>
-#>  1 actual         actual       26  
-#>  2 actual         actual       10.4
-#>  3 actual         actual       18.7
-#>  4 actual         actual       14.7
-#>  5 actual         actual       21.5
-#>  6 actual         actual       15  
-#>  7 actual         actual       27.3
-#>  8 actual         actual       16.4
-#>  9 actual         actual       15.5
-#> 10 actual         actual       17.3
-#> # ℹ 54 more rows
-#> 
-#> [[2]]
-#> # A tibble: 64 × 3
-#>    .data_category .data_type .value
-#>    <chr>          <chr>       <dbl>
-#>  1 actual         actual       26  
-#>  2 actual         actual       10.4
-#>  3 actual         actual       18.7
-#>  4 actual         actual       14.7
-#>  5 actual         actual       21.5
-#>  6 actual         actual       15  
-#>  7 actual         actual       27.3
-#>  8 actual         actual       16.4
-#>  9 actual         actual       15.5
-#> 10 actual         actual       17.3
-#> # ℹ 54 more rows
-#> 
-#> [[3]]
-#> # A tibble: 64 × 3
-#>    .data_category .data_type .value
-#>    <chr>          <chr>       <dbl>
-#>  1 actual         actual       26  
-#>  2 actual         actual       10.4
-#>  3 actual         actual       18.7
-#>  4 actual         actual       14.7
-#>  5 actual         actual       21.5
-#>  6 actual         actual       15  
-#>  7 actual         actual       27.3
-#>  8 actual         actual       16.4
-#>  9 actual         actual       15.5
-#> 10 actual         actual       17.3
-#> # ℹ 54 more rows
+#> # A tibble: 192 × 4
+#>    .model_type     .data_category .data_type .value
+#>    <chr>           <chr>          <chr>       <dbl>
+#>  1 lm - linear_reg actual         actual       32.4
+#>  2 lm - linear_reg actual         actual       14.3
+#>  3 lm - linear_reg actual         actual       15.8
+#>  4 lm - linear_reg actual         actual       30.4
+#>  5 lm - linear_reg actual         actual       24.4
+#>  6 lm - linear_reg actual         actual       15  
+#>  7 lm - linear_reg actual         actual       33.9
+#>  8 lm - linear_reg actual         actual       22.8
+#>  9 lm - linear_reg actual         actual       19.2
+#> 10 lm - linear_reg actual         actual       21.4
+#> # ℹ 182 more rows
 ```
 
 *Getting Regression Residuals*
@@ -379,48 +345,48 @@ extract_regression_residuals(frt_tbl)
 #> # A tibble: 32 × 4
 #>    .model_type     .actual .predicted .resid
 #>    <chr>             <dbl>      <dbl>  <dbl>
-#>  1 lm - linear_reg    26         25.8  0.167
-#>  2 lm - linear_reg    10.4       12.6 -2.20 
-#>  3 lm - linear_reg    18.7       15.7  3.00 
-#>  4 lm - linear_reg    14.7       12.9  1.84 
-#>  5 lm - linear_reg    21.5       23.8 -2.32 
-#>  6 lm - linear_reg    15         13.9  1.08 
-#>  7 lm - linear_reg    27.3       28.8 -1.50 
-#>  8 lm - linear_reg    16.4       15.6  0.789
-#>  9 lm - linear_reg    15.5       15.8 -0.255
-#> 10 lm - linear_reg    17.3       15.7  1.55 
+#>  1 lm - linear_reg    32.4       27.5  4.94 
+#>  2 lm - linear_reg    14.3       14.2  0.121
+#>  3 lm - linear_reg    15.8       18.5 -2.71 
+#>  4 lm - linear_reg    30.4       30.6 -0.178
+#>  5 lm - linear_reg    24.4       22.6  1.82 
+#>  6 lm - linear_reg    15         13.3  1.69 
+#>  7 lm - linear_reg    33.9       29.3  4.64 
+#>  8 lm - linear_reg    22.8       25.3 -2.53 
+#>  9 lm - linear_reg    19.2       17.6  1.62 
+#> 10 lm - linear_reg    21.4       21.2  0.162
 #> # ℹ 22 more rows
 #> 
 #> [[2]]
 #> # A tibble: 32 × 4
-#>    .model_type      .actual .predicted .resid
-#>    <chr>              <dbl>      <dbl>  <dbl>
-#>  1 gee - linear_reg    26         25.5  0.466
-#>  2 gee - linear_reg    10.4       12.4 -2.03 
-#>  3 gee - linear_reg    18.7       15.7  2.98 
-#>  4 gee - linear_reg    14.7       12.7  1.99 
-#>  5 gee - linear_reg    21.5       23.4 -1.94 
-#>  6 gee - linear_reg    15         13.9  1.13 
-#>  7 gee - linear_reg    27.3       28.8 -1.48 
-#>  8 gee - linear_reg    16.4       15.8  0.599
-#>  9 gee - linear_reg    15.5       15.8 -0.295
-#> 10 gee - linear_reg    17.3       15.9  1.36 
+#>    .model_type      .actual .predicted  .resid
+#>    <chr>              <dbl>      <dbl>   <dbl>
+#>  1 gee - linear_reg    32.4       27.5  4.95  
+#>  2 gee - linear_reg    14.3       14.2  0.0928
+#>  3 gee - linear_reg    15.8       18.5 -2.67  
+#>  4 gee - linear_reg    30.4       30.5 -0.147 
+#>  5 gee - linear_reg    24.4       22.6  1.83  
+#>  6 gee - linear_reg    15         13.3  1.68  
+#>  7 gee - linear_reg    33.9       29.3  4.65  
+#>  8 gee - linear_reg    22.8       25.3 -2.53  
+#>  9 gee - linear_reg    19.2       17.6  1.60  
+#> 10 gee - linear_reg    21.4       21.2  0.165 
 #> # ℹ 22 more rows
 #> 
 #> [[3]]
 #> # A tibble: 32 × 4
 #>    .model_type      .actual .predicted .resid
 #>    <chr>              <dbl>      <dbl>  <dbl>
-#>  1 glm - linear_reg    26         25.8  0.167
-#>  2 glm - linear_reg    10.4       12.6 -2.20 
-#>  3 glm - linear_reg    18.7       15.7  3.00 
-#>  4 glm - linear_reg    14.7       12.9  1.84 
-#>  5 glm - linear_reg    21.5       23.8 -2.32 
-#>  6 glm - linear_reg    15         13.9  1.08 
-#>  7 glm - linear_reg    27.3       28.8 -1.50 
-#>  8 glm - linear_reg    16.4       15.6  0.789
-#>  9 glm - linear_reg    15.5       15.8 -0.255
-#> 10 glm - linear_reg    17.3       15.7  1.55 
+#>  1 glm - linear_reg    32.4       27.5  4.94 
+#>  2 glm - linear_reg    14.3       14.2  0.121
+#>  3 glm - linear_reg    15.8       18.5 -2.71 
+#>  4 glm - linear_reg    30.4       30.6 -0.178
+#>  5 glm - linear_reg    24.4       22.6  1.82 
+#>  6 glm - linear_reg    15         13.3  1.69 
+#>  7 glm - linear_reg    33.9       29.3  4.64 
+#>  8 glm - linear_reg    22.8       25.3 -2.53 
+#>  9 glm - linear_reg    19.2       17.6  1.62 
+#> 10 glm - linear_reg    21.4       21.2  0.162
 #> # ℹ 22 more rows
 ```
 
@@ -433,47 +399,47 @@ extract_regression_residuals(frt_tbl, .pivot_long = TRUE)
 #> # A tibble: 96 × 3
 #>    .model_type     name        value
 #>    <chr>           <chr>       <dbl>
-#>  1 lm - linear_reg .actual    26    
-#>  2 lm - linear_reg .predicted 25.8  
-#>  3 lm - linear_reg .resid      0.167
-#>  4 lm - linear_reg .actual    10.4  
-#>  5 lm - linear_reg .predicted 12.6  
-#>  6 lm - linear_reg .resid     -2.20 
-#>  7 lm - linear_reg .actual    18.7  
-#>  8 lm - linear_reg .predicted 15.7  
-#>  9 lm - linear_reg .resid      3.00 
-#> 10 lm - linear_reg .actual    14.7  
+#>  1 lm - linear_reg .actual    32.4  
+#>  2 lm - linear_reg .predicted 27.5  
+#>  3 lm - linear_reg .resid      4.94 
+#>  4 lm - linear_reg .actual    14.3  
+#>  5 lm - linear_reg .predicted 14.2  
+#>  6 lm - linear_reg .resid      0.121
+#>  7 lm - linear_reg .actual    15.8  
+#>  8 lm - linear_reg .predicted 18.5  
+#>  9 lm - linear_reg .resid     -2.71 
+#> 10 lm - linear_reg .actual    30.4  
 #> # ℹ 86 more rows
 #> 
 #> [[2]]
 #> # A tibble: 96 × 3
-#>    .model_type      name        value
-#>    <chr>            <chr>       <dbl>
-#>  1 gee - linear_reg .actual    26    
-#>  2 gee - linear_reg .predicted 25.5  
-#>  3 gee - linear_reg .resid      0.466
-#>  4 gee - linear_reg .actual    10.4  
-#>  5 gee - linear_reg .predicted 12.4  
-#>  6 gee - linear_reg .resid     -2.03 
-#>  7 gee - linear_reg .actual    18.7  
-#>  8 gee - linear_reg .predicted 15.7  
-#>  9 gee - linear_reg .resid      2.98 
-#> 10 gee - linear_reg .actual    14.7  
+#>    .model_type      name         value
+#>    <chr>            <chr>        <dbl>
+#>  1 gee - linear_reg .actual    32.4   
+#>  2 gee - linear_reg .predicted 27.5   
+#>  3 gee - linear_reg .resid      4.95  
+#>  4 gee - linear_reg .actual    14.3   
+#>  5 gee - linear_reg .predicted 14.2   
+#>  6 gee - linear_reg .resid      0.0928
+#>  7 gee - linear_reg .actual    15.8   
+#>  8 gee - linear_reg .predicted 18.5   
+#>  9 gee - linear_reg .resid     -2.67  
+#> 10 gee - linear_reg .actual    30.4   
 #> # ℹ 86 more rows
 #> 
 #> [[3]]
 #> # A tibble: 96 × 3
 #>    .model_type      name        value
 #>    <chr>            <chr>       <dbl>
-#>  1 glm - linear_reg .actual    26    
-#>  2 glm - linear_reg .predicted 25.8  
-#>  3 glm - linear_reg .resid      0.167
-#>  4 glm - linear_reg .actual    10.4  
-#>  5 glm - linear_reg .predicted 12.6  
-#>  6 glm - linear_reg .resid     -2.20 
-#>  7 glm - linear_reg .actual    18.7  
-#>  8 glm - linear_reg .predicted 15.7  
-#>  9 glm - linear_reg .resid      3.00 
-#> 10 glm - linear_reg .actual    14.7  
+#>  1 glm - linear_reg .actual    32.4  
+#>  2 glm - linear_reg .predicted 27.5  
+#>  3 glm - linear_reg .resid      4.94 
+#>  4 glm - linear_reg .actual    14.3  
+#>  5 glm - linear_reg .predicted 14.2  
+#>  6 glm - linear_reg .resid      0.121
+#>  7 glm - linear_reg .actual    15.8  
+#>  8 glm - linear_reg .predicted 18.5  
+#>  9 glm - linear_reg .resid     -2.71 
+#> 10 glm - linear_reg .actual    30.4  
 #> # ℹ 86 more rows
 ```
