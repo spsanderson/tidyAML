@@ -28,6 +28,10 @@ reference:
      desc: Utility/Internal Functions and Helpers
      contents:
      -  has_concept("Utility")
+  -  title: Plotting
+     desc: Functions that plot model information
+     contents:
+     -  has_concept("Plotting")
   -  title: Internals
      desc: Internal/Helper functions
      contents:
