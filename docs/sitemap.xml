@@ -13,6 +13,12 @@
     <loc>https://www.spsanderson.com/tidyaml/authors.html</loc>
   </url>
   <url>
+    <loc>https://www.spsanderson.com/tidyaml/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/tidyaml/CONTRIBUTING.html</loc>
+  </url>
+  <url>
     <loc>https://www.spsanderson.com/tidyaml/index.html</loc>
   </url>
   <url>
@@ -107,6 +113,12 @@
   </url>
   <url>
     <loc>https://www.spsanderson.com/tidyaml/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/tidyaml/reference/plot_regression_predictions.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/tidyaml/reference/plot_regression_residuals.html</loc>
   </url>
   <url>
     <loc>https://www.spsanderson.com/tidyaml/reference/tidyeval.html</loc>
