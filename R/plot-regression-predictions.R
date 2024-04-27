@@ -11,7 +11,7 @@
 #' or a single faceted plot. This function takes the output of the function
 #' `extract_wflw_pred()` function.
 #'
-#' @param .data The data from the output of the `extract_regression_residuals()`
+#' @param .data The data from the output of the `extract_wflw_pred()`
 #' function.
 #' @param .output The default is "list" which will return a list of plots. The
 #' other option is "facet" which will return a single faceted plot.
