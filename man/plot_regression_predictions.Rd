@@ -7,7 +7,7 @@
 plot_regression_predictions(.data, .output = "list")
 }
 \arguments{
-\item{.data}{The data from the output of the \code{extract_regression_residuals()}
+\item{.data}{The data from the output of the \code{extract_wflw_pred()}
 function.}
 
 \item{.output}{The default is "list" which will return a list of plots. The
