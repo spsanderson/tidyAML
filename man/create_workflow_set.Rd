@@ -50,6 +50,7 @@ create_workflow_set(
 \url{https://workflowsets.tidymodels.org/}
 
 Other Utility: 
+\code{\link{check_duplicate_rows}()},
 \code{\link{core_packages}()},
 \code{\link{create_splits}()},
 \code{\link{fast_classification_parsnip_spec_tbl}()},
@@ -57,7 +58,8 @@ Other Utility:
 \code{\link{full_internal_make_wflw}()},
 \code{\link{install_deps}()},
 \code{\link{load_deps}()},
-\code{\link{match_args}()}
+\code{\link{match_args}()},
+\code{\link{quantile_normalize}()}
 }
 \author{
 Steven P. Sanderson II, MPH
