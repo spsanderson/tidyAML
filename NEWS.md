@@ -4,7 +4,8 @@
 None
 
 ## New Features
-None
+1. Fix #242 - Add function `quantile_normalize()`.
+2. Fix #243 - Add function `check_duplicate_rows()`.
 
 ## Minor Fixes and Improvements
 None

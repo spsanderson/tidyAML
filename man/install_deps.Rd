@@ -23,6 +23,7 @@ Installs all dependencies in the \code{core_packages()} function.
 }
 \seealso{
 Other Utility: 
+\code{\link{check_duplicate_rows}()},
 \code{\link{core_packages}()},
 \code{\link{create_splits}()},
 \code{\link{create_workflow_set}()},
@@ -30,7 +31,8 @@ Other Utility:
 \code{\link{fast_regression_parsnip_spec_tbl}()},
 \code{\link{full_internal_make_wflw}()},
 \code{\link{load_deps}()},
-\code{\link{match_args}()}
+\code{\link{match_args}()},
+\code{\link{quantile_normalize}()}
 }
 \author{
 Steven P. Sanderson II, MPH
