@@ -8,7 +8,7 @@ None
 2. Fix #243 - Add function `check_duplicate_rows()`.
 
 ## Minor Fixes and Improvements
-1. Fix #239 - Fix erroneou documentation for `plot_regression_predictions()`.
+1. Fix #239 - Fix erroneous documentation for `plot_regression_predictions()`.
 
 # tidyAML 0.0.5
 
