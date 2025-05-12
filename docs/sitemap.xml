@@ -1,126 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/404.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/articles/getting-started.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/CONTRIBUTING.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/core_packages.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/create_model_spec.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/create_splits.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/create_workflow_set.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/extract_model_spec.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/extract_regression_residuals.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/extract_wflw.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/extract_wflw_fit.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/extract_wflw_pred.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/fast_classification.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/fast_classification_parsnip_spec_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/fast_regression.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/fast_regression_parsnip_spec_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/full_internal_make_wflw.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/get_model.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/install_deps.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_fitted_wflw.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_spec_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw_gee_lin_reg.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw_predictions.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/internal_set_args_to_tune.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/load_deps.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/make_classification_base_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/make_regression_base_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/match_args.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/plot_regression_predictions.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/plot_regression_residuals.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/tidyaml/reference/tidyeval.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://www.spsanderson.com/tidyaml/404.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/articles/getting-started.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/articles/index.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/authors.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/CONTRIBUTING.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/index.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/LICENSE-text.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/LICENSE.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/news/index.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/check_duplicate_rows.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/core_packages.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/create_model_spec.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/create_splits.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/create_workflow_set.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/extract_model_spec.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/extract_regression_residuals.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/extract_tunable_params.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/extract_wflw.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/extract_wflw_fit.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/extract_wflw_pred.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/fast_classification.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/fast_classification_parsnip_spec_tbl.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/fast_regression.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/fast_regression_parsnip_spec_tbl.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/full_internal_make_wflw.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/get_model.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/index.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/install_deps.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/internal_make_fitted_wflw.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/internal_make_spec_tbl.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw_gee_lin_reg.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw_predictions.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/internal_set_args_to_tune.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/load_deps.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/make_classification_base_tbl.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/make_regression_base_tbl.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/match_args.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/pipe.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/plot_regression_predictions.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/plot_regression_residuals.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/quantile_normalize.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/tidyeval.html</loc></url>
 </urlset>
+
