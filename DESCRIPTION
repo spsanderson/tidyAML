@@ -56,5 +56,6 @@ Imports:
     tidyr,
     broom,
     ggplot2,
-    magrittr
-RoxygenNote: 7.3.1
+    magrittr,
+    tune (>= 1.3.0)
+RoxygenNote: 7.3.2

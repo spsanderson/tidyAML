@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 ![](https://cranlogs.r-pkg.org/badges/tidyAML)
 ![](https://cranlogs.r-pkg.org/badges/grand-total/tidyAML)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html##experimental)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://kentcdodds.github.io/makeapullrequest.com/)
 <!-- badges: end -->
 
 ## Introduction
