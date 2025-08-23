@@ -67,12 +67,15 @@ install_deps <- function(){
     # Loop through each name
     for (lib in pkgs){
 
-      # check if already installed
-      if (!require(lib, character.only = TRUE)){
+      # Wrap in try expression for safe failure
+      try({
+        # check if already installed
+        if (!require(lib, character.only = TRUE)){
 
-        # If the library is not installed then install it
-        utils::install.packages(lib, dependencies = TRUE)
-      }
+          # If the library is not installed then install it
+          utils::install.packages(lib, dependencies = TRUE)
+        }
+      }, silent = TRUE)
     }
   }
 }
@@ -113,8 +116,11 @@ load_deps <- function(){
   }
 
   same_lib <- function(pkg){
-    loc <- if (pkg %in% loadedNamespaces()) dirname(getNamespaceInfo(pkg, "path"))
-    library(pkg, lib.loc = loc, character.only = TRUE, warn.conflicts = FALSE)
+    # Wrap in try expression for safe failure
+    try({
+      loc <- if (pkg %in% loadedNamespaces()) dirname(getNamespaceInfo(pkg, "path"))
+      library(pkg, lib.loc = loc, character.only = TRUE, warn.conflicts = FALSE)
+    }, silent = TRUE)
   }
 
   tidyaml_pkg_attach <- function(){
