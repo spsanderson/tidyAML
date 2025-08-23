@@ -16,7 +16,6 @@
     "\nYou should run the following commands after loading tidyAML:",
     "\n",
     "\nlibrary(tidymodels)",
-    "\n",
     "\ntidymodels::tidymodels_prefer()"
   )
 
