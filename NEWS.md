@@ -1,5 +1,14 @@
 # tidyAML (development version)
 
+## Breaking Changes
+None
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+1. Fix #256 - Update `load_deps()` and `install_deps()` to use a `try` block.
+
 # tidyAML 0.0.6
 
 ## Breaking Changes
