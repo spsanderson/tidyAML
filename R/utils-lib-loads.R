@@ -68,14 +68,17 @@ install_deps <- function(){
     for (lib in pkgs){
 
       # Wrap in try expression for safe failure
-      try({
+      # Attempt to install the package, and message if it fails
+      tryCatch({
         # check if already installed
         if (!require(lib, character.only = TRUE)){
 
           # If the library is not installed then install it
           utils::install.packages(lib, dependencies = TRUE)
         }
-      }, silent = TRUE)
+      }, error = function(e) {
+        message(paste0("Failed to install package '", lib, "'. Error: ", e$message))
+      })
     }
   }
 }
@@ -117,10 +120,13 @@ load_deps <- function(){
 
   same_lib <- function(pkg){
     # Wrap in try expression for safe failure
-    try({
+    # Attempt to load the package, and message if it fails
+    tryCatch({
       loc <- if (pkg %in% loadedNamespaces()) dirname(getNamespaceInfo(pkg, "path"))
       library(pkg, lib.loc = loc, character.only = TRUE, warn.conflicts = FALSE)
-    }, silent = TRUE)
+    }, error = function(e) {
+      message(paste0("Failed to load package '", pkg, "'. Please ensure it is installed. Error: ", e$message))
+    })
   }
 
   tidyaml_pkg_attach <- function(){
