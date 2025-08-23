@@ -12,7 +12,11 @@
     "\nIt is suggested that you run tidymodels::tidymodel_prefer() to set the defaults for your session.",
     "\n",
     "\nThank you for using tidyAML!",
-    "\n"
+    "\n",
+    "\nYou should run the following commands after loading tidyAML:",
+    "\n",
+    "\nlibrary(tidymodels)",
+    "\ntidymodels::tidymodels_prefer()"
   )
 
   packageStartupMessage(msg)
