@@ -60,7 +60,16 @@ internal_make_spec_tbl <- function(.model_tbl){
         pm <- obj |> dplyr::pull(3) |> purrr::pluck(1)
         pf <- obj |> dplyr::pull(4) |> purrr::pluck(1)
 
-        ret <- match.fun(pf)(mode = pm, engine = pe)
+        # Build function name based on engine, mode, and parsnip function
+        # Format: {engine}_{mode}_{parsnip_function}
+        fn_name <- paste0(
+          base::tolower(pe), "_",
+          base::tolower(pm), "_",
+          base::tolower(pf)
+        )
+
+        # Call the pre-built model function
+        ret <- match.fun(fn_name)()
 
         # Add parsnip engine and fns as class
         # class(ret) <- c(
