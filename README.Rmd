@@ -29,6 +29,8 @@ knitr::opts_chunk$set(
 
 ## Overview
 
+To view the full wiki, click here: [Full tidyAML Wiki](https://github.com/spsanderson/tidyAML/blob/master/wiki/Home.md)
+
 __`{tidyAML}`__ is an R package that brings the power of Automated Machine Learning (AutoML) to the `tidymodels` ecosystem. With just a few lines of code, you can generate, train, and compare multiple machine learning models simultaneously, making it perfect for both rapid prototyping and production workflows.
 
 ### Key Features

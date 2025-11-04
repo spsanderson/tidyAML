@@ -67,6 +67,8 @@ regression/classification to parsnip spec functions.</p></dd>
 <code><a href="internal_make_wflw.html">internal_make_wflw</a>()</code>,
 <code><a href="internal_make_wflw_gee_lin_reg.html">internal_make_wflw_gee_lin_reg</a>()</code>,
 <code><a href="internal_make_wflw_predictions.html">internal_make_wflw_predictions</a>()</code>,
+<code><a href="internal_model_builders_classification.html">internal_model_builders_classification</a></code>,
+<code><a href="internal_model_builders_regression.html">internal_model_builders_regression</a></code>,
 <code><a href="internal_set_args_to_tune.html">internal_set_args_to_tune</a>()</code>,
 <code><a href="make_classification_base_tbl.html">make_classification_base_tbl</a>()</code>,
 <code><a href="make_regression_base_tbl.html">make_regression_base_tbl</a>()</code></p></div>
@@ -97,20 +99,10 @@ regression/classification to parsnip spec functions.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="make_classification_base_tbl.html">make_classification_base_tbl</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">internal_make_spec_tbl</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 31 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    .model_id .parsnip_engine .parsnip_mode  .parsnip_fns        model_spec</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>         1 earth           classification bag_mars            <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>         2 earth           classification discrim_flexible    <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>         3 dbarts          classification bart                <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>         4 MASS            classification discrim_linear      <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>         5 mda             classification discrim_linear      <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>         6 sda             classification discrim_linear      <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>         7 sparsediscrim   classification discrim_linear      <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>         8 MASS            classification discrim_quad        <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>         9 sparsediscrim   classification discrim_quad        <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>        10 klaR            classification discrim_regularized <span style="color: #949494;">&lt;spec[+]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 21 more rows</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in map2(.x, vec_index(.x), .f, ...):</span> <span style="color: #00BBBB;">ℹ</span> In index: 10.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Could not find model builder function 'klar_classification_discrim_regularized' for engine='klaR', mode='classification', parsnip_function='discrim_regularized'.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> Original error: object 'klar_classification_discrim_regularized' of mode 'function' was not found</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -123,7 +115,7 @@ regression/classification to parsnip spec functions.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer></div>

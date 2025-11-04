@@ -61,52 +61,151 @@
 </div>
 <!-- badges: start -->
 
+<blockquote>
+<p><strong>Automated Machine Learning with tidymodels</strong> - Build and compare multiple ML models effortlessly</p>
+</blockquote>
 <div class="section level2">
-<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>Welcome to <strong><a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a></strong> which is a new R package that makes it easy to use the <code>tidymodels</code> ecosystem to perform automated machine learning (AutoML). This package provides a simple and intuitive interface that allows users to quickly generate machine learning models without worrying about the underlying details. It also includes a safety mechanism that ensures that the package will fail gracefully if any required extension packages are not installed on the user’s machine. With <a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a>, users can easily build high-quality machine learning models in just a few lines of code. Whether you are a beginner or an experienced machine learning practitioner, <a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a> has something to offer.</p>
-<p>Some ideas are that we should be able to generate regression models on the fly without having to actually go through the process of building the specification, especially if it is a non-tuning model, meaning we are not planing on tuning hyper-parameters like <code>penalty</code> and <code>cost</code>.</p>
-<p>The idea is not to re-write the excellent work the <code>tidymodels</code> team has done (because it’s not possible) but rather to try and make an enhanced easy to use set of functions that do what they say and can generate many models and predictions at once.</p>
-<p>This is similar to the great <code>h2o</code> package, but, <a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a> does not require java to be setup properly like <code>h2o</code> because <a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a> is built on <code>tidymodels</code>.</p>
+<p>To view the full wiki, click here: <a href="https://github.com/spsanderson/tidyAML/blob/master/wiki/Home.md" class="external-link">Full tidyAML Wiki</a></p>
+<p><strong><a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a></strong> is an R package that brings the power of Automated Machine Learning (AutoML) to the <code>tidymodels</code> ecosystem. With just a few lines of code, you can generate, train, and compare multiple machine learning models simultaneously, making it perfect for both rapid prototyping and production workflows.</p>
+<div class="section level3">
+<h3 id="key-features">Key Features<a class="anchor" aria-label="anchor" href="#key-features"></a>
+</h3>
+<ul>
+<li>
+<strong>🚀 Fast Model Generation</strong>: Create multiple model specifications instantly</li>
+<li>
+<strong>🔄 Batch Training</strong>: Train dozens of models with a single function call</li>
+<li>
+<strong>📊 Both Regression &amp; Classification</strong>: Support for all common ML tasks</li>
+<li>
+<strong>🛡️ Graceful Failure Handling</strong>: Models fail safely without breaking your workflow</li>
+<li>
+<strong>🎯 tidymodels Native</strong>: Built on the robust tidymodels framework</li>
+<li>
+<strong>⚡ No Java Required</strong>: Unlike h2o, runs purely in R</li>
+<li>
+<strong>🔌 Extensible</strong>: Works with 30+ parsnip engines out of the box</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="why-tidyaml">Why tidyAML?<a class="anchor" aria-label="anchor" href="#why-tidyaml"></a>
+</h3>
+<table style="width:100%;" class="table">
+<colgroup>
+<col width="34%">
+<col width="23%">
+<col width="19%">
+<col width="22%">
+</colgroup>
+<thead><tr>
+<th>Feature</th>
+<th>tidyAML</th>
+<th>h2o</th>
+<th>caret</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>tidymodels Integration</td>
+<td>✅ Native</td>
+<td>❌ No</td>
+<td>⚠️ Limited</td>
+</tr>
+<tr>
+<td>Java Required</td>
+<td>✅ No</td>
+<td>❌ Yes</td>
+<td>✅ No</td>
+</tr>
+<tr>
+<td>Parallel Model Training</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Modern R Workflow</td>
+<td>✅ Pipes &amp; tidy</td>
+<td>❌ Old style</td>
+<td>⚠️ Mixed</td>
+</tr>
+<tr>
+<td>Active Development</td>
+<td>✅ Yes</td>
+<td>⚠️ Slowing</td>
+<td>❌ Maintenance</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section level2">
-<h2 id="thanks">Thanks<a class="anchor" aria-label="anchor" href="#thanks"></a>
+<h2 id="table-of-contents">Table of Contents<a class="anchor" aria-label="anchor" href="#table-of-contents"></a>
 </h2>
-<p>Thank you <a href="https://fosstodon.org/@grrrck/109479826278916014" class="external-link">Garrick Aden-Buie</a> for the easy name change suggestion.</p>
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#quick-start">Quick Start</a></li>
+<li><a href="#regression-example">Regression Example</a></li>
+<li><a href="#classification-example">Classification Example</a></li>
+<li><a href="#key-functions">Key Functions</a></li>
+<li><a href="#visualization">Visualization</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#citation">Citation</a></li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install <a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a> like so:</p>
+<p>Install the stable version from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#install.packages("tidyAML")</span></span></code></pre></div>
-<p>Or the development version from GitHub</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyAML"</span><span class="op">)</span></span></code></pre></div>
+<p>Or get the development version from GitHub:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="co">#devtools::install_github("spsanderson/tidyAML")</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
-</h2>
-<p>Part of the reason to use <a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a> is so that you can generate many models of your data set. One way of modeling a data set is using regression for some numeric output. There is a convienent function in <strong>tidyAML</strong> that will generate a set of non-tuning models for <em>fast regression</em>. Let’s take a look below.</p>
-<p>First let’s load the library</p>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"spsanderson/tidyAML"</span><span class="op">)</span></span></code></pre></div>
+<p>After installation, it’s recommended to set tidymodels preferences:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Loading required package: parsnip</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; == Welcome to tidyAML ===========================================================================</span></span>
-<span><span class="co">#&gt; If you find this package useful, please leave a star: </span></span>
-<span><span class="co">#&gt;    https://github.com/spsanderson/tidyAML'</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; If you encounter a bug or want to request an enhancement please file an issue at:</span></span>
-<span><span class="co">#&gt;    https://github.com/spsanderson/tidyAML/issues</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; It is suggested that you run tidymodels::tidymodel_prefer() to set the defaults for your session.</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Thank you for using tidyAML!</span></span></code></pre></div>
-<p>Now lets see the function in action.</p>
+<span><span class="fu">tidymodels</span><span class="fu">::</span><span class="fu"><a href="https://tidymodels.tidymodels.org/reference/tidymodels_prefer.html" class="external-link">tidymodels_prefer</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="quick-start">Quick Start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
+</h2>
+<p>Here’s a minimal example to get you started:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/fast_regression_parsnip_spec_tbl.html">fast_regression_parsnip_spec_tbl</a></span><span class="op">(</span>.parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/recipes" class="external-link">recipes</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Prepare a recipe</span></span>
+<span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Generate and train multiple models at once</span></span>
+<span><span class="va">models</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fast_regression.html">fast_regression</a></span><span class="op">(</span></span>
+<span>  .data <span class="op">=</span> <span class="va">mtcars</span>,</span>
+<span>  .rec_obj <span class="op">=</span> <span class="va">rec_obj</span>,</span>
+<span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>, <span class="st">"glm"</span>, <span class="st">"glmnet"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Extract predictions</span></span>
+<span><span class="fu"><a href="reference/extract_wflw_pred.html">extract_wflw_pred</a></span><span class="op">(</span><span class="va">models</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="regression-example">Regression Example<a class="anchor" aria-label="anchor" href="#regression-example"></a>
+</h2>
+<p>Let’s build multiple regression models to predict car mileage (mpg) using the mtcars dataset:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/recipes" class="external-link">recipes</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="creating-model-specifications">Creating Model Specifications<a class="anchor" aria-label="anchor" href="#creating-model-specifications"></a>
+</h3>
+<p>You can generate model specifications in several ways:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Generate all linear regression models</span></span>
+<span><span class="fu"><a href="reference/fast_regression_parsnip_spec_tbl.html">fast_regression_parsnip_spec_tbl</a></span><span class="op">(</span>.parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 11 × 5</span></span>
 <span><span class="co">#&gt;    .model_id .parsnip_engine .parsnip_mode .parsnip_fns model_spec</span></span>
 <span><span class="co">#&gt;        &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;         &lt;chr&gt;        &lt;list&gt;    </span></span>
@@ -121,6 +220,8 @@
 <span><span class="co">#&gt;  9         9 lmer            regression    linear_reg   &lt;spec[+]&gt; </span></span>
 <span><span class="co">#&gt; 10        10 stan            regression    linear_reg   &lt;spec[+]&gt; </span></span>
 <span><span class="co">#&gt; 11        11 stan_glmer      regression    linear_reg   &lt;spec[+]&gt;</span></span>
+<span></span>
+<span><span class="co"># Select specific engines</span></span>
 <span><span class="fu"><a href="reference/fast_regression_parsnip_spec_tbl.html">fast_regression_parsnip_spec_tbl</a></span><span class="op">(</span>.parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 3 × 5</span></span>
 <span><span class="co">#&gt;   .model_id .parsnip_engine .parsnip_mode .parsnip_fns model_spec</span></span>
@@ -128,297 +229,291 @@
 <span><span class="co">#&gt; 1         1 lm              regression    linear_reg   &lt;spec[+]&gt; </span></span>
 <span><span class="co">#&gt; 2         2 glm             regression    linear_reg   &lt;spec[+]&gt; </span></span>
 <span><span class="co">#&gt; 3         3 glm             regression    poisson_reg  &lt;spec[+]&gt;</span></span>
-<span><span class="fu"><a href="reference/fast_regression_parsnip_spec_tbl.html">fast_regression_parsnip_spec_tbl</a></span><span class="op">(</span>.parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span>,<span class="st">"gee"</span><span class="op">)</span>, </span>
-<span>                                 .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 3 × 5</span></span>
+<span></span>
+<span><span class="co"># Combine function and engine filters</span></span>
+<span><span class="fu"><a href="reference/fast_regression_parsnip_spec_tbl.html">fast_regression_parsnip_spec_tbl</a></span><span class="op">(</span></span>
+<span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span><span class="op">)</span>, </span>
+<span>  .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 5</span></span>
 <span><span class="co">#&gt;   .model_id .parsnip_engine .parsnip_mode .parsnip_fns model_spec</span></span>
 <span><span class="co">#&gt;       &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;         &lt;chr&gt;        &lt;list&gt;    </span></span>
 <span><span class="co">#&gt; 1         1 lm              regression    linear_reg   &lt;spec[+]&gt; </span></span>
-<span><span class="co">#&gt; 2         2 gee             regression    linear_reg   &lt;spec[+]&gt; </span></span>
-<span><span class="co">#&gt; 3         3 glm             regression    linear_reg   &lt;spec[+]&gt;</span></span></code></pre></div>
-<p>As shown we can easily select the models we want either by choosing the supported <code>parsnip</code> function like <code><a href="https://parsnip.tidymodels.org/reference/linear_reg.html" class="external-link">linear_reg()</a></code> or by choose the desired <code>engine</code>, you can also use them both in conjunction with each other!</p>
-<p>This function also does add a class to the output. Let’s see it.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="fu"><a href="reference/fast_regression_parsnip_spec_tbl.html">fast_regression_parsnip_spec_tbl</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "tidyaml_mod_spec_tbl" "fst_reg_spec_tbl"     "tidyaml_base_tbl"    </span></span>
-<span><span class="co">#&gt; [4] "tbl_df"               "tbl"                  "data.frame"</span></span></code></pre></div>
-<p>We see that there are two added classes, first <code>fst_reg_spec_tbl</code> because this creates a set of non-tuning regression models and then <code>tidyaml_mod_spec_tbl</code> because this is a model specification tibble built with <a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a></p>
-<p>Now, what if you want to create a non-tuning model spec without using the <code><a href="reference/fast_regression_parsnip_spec_tbl.html">fast_regression_parsnip_spec_tbl()</a></code> function. Well, you can. The function is called <code><a href="reference/create_model_spec.html">create_model_spec()</a></code>.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<span><span class="co">#&gt; 2         2 glm             regression    linear_reg   &lt;spec[+]&gt;</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="custom-model-specifications">Custom Model Specifications<a class="anchor" aria-label="anchor" href="#custom-model-specifications"></a>
+</h3>
+<p>For more control, use <code><a href="reference/create_model_spec.html">create_model_spec()</a></code>:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/create_model_spec.html">create_model_spec</a></span><span class="op">(</span></span>
-<span> .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span>,<span class="st">"glmnet"</span>,<span class="st">"cubist"</span><span class="op">)</span>,</span>
-<span> .parsnip_fns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      <span class="st">"linear_reg"</span>,</span>
-<span>      <span class="st">"linear_reg"</span>,</span>
-<span>      <span class="st">"linear_reg"</span>,</span>
-<span>      <span class="st">"cubist_rules"</span></span>
-<span>     <span class="op">)</span></span>
-<span> <span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 4 × 4</span></span>
+<span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"lm"</span>, <span class="st">"glm"</span>, <span class="st">"glmnet"</span><span class="op">)</span>,</span>
+<span>  .parsnip_fns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"linear_reg"</span>, <span class="st">"linear_reg"</span>, <span class="st">"linear_reg"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 3 × 4</span></span>
 <span><span class="co">#&gt;   .parsnip_engine .parsnip_mode .parsnip_fns .model_spec</span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;           &lt;chr&gt;         &lt;chr&gt;        &lt;list&gt;     </span></span>
 <span><span class="co">#&gt; 1 lm              regression    linear_reg   &lt;spec[+]&gt;  </span></span>
 <span><span class="co">#&gt; 2 glm             regression    linear_reg   &lt;spec[+]&gt;  </span></span>
-<span><span class="co">#&gt; 3 glmnet          regression    linear_reg   &lt;spec[+]&gt;  </span></span>
-<span><span class="co">#&gt; 4 cubist          regression    cubist_rules &lt;spec[+]&gt;</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/create_model_spec.html">create_model_spec</a></span><span class="op">(</span></span>
-<span> .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span>,<span class="st">"glmnet"</span>,<span class="st">"cubist"</span><span class="op">)</span>,</span>
-<span> .parsnip_fns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      <span class="st">"linear_reg"</span>,</span>
-<span>      <span class="st">"linear_reg"</span>,</span>
-<span>      <span class="st">"linear_reg"</span>,</span>
-<span>      <span class="st">"cubist_rules"</span></span>
-<span>     <span class="op">)</span>,</span>
-<span> .return_tibble <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span> <span class="op">)</span></span>
-<span><span class="co">#&gt; $.parsnip_engine</span></span>
-<span><span class="co">#&gt; $.parsnip_engine[[1]]</span></span>
-<span><span class="co">#&gt; [1] "lm"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $.parsnip_engine[[2]]</span></span>
-<span><span class="co">#&gt; [1] "glm"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $.parsnip_engine[[3]]</span></span>
-<span><span class="co">#&gt; [1] "glmnet"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $.parsnip_engine[[4]]</span></span>
-<span><span class="co">#&gt; [1] "cubist"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $.parsnip_mode</span></span>
-<span><span class="co">#&gt; $.parsnip_mode[[1]]</span></span>
-<span><span class="co">#&gt; [1] "regression"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $.parsnip_fns</span></span>
-<span><span class="co">#&gt; $.parsnip_fns[[1]]</span></span>
-<span><span class="co">#&gt; [1] "linear_reg"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $.parsnip_fns[[2]]</span></span>
-<span><span class="co">#&gt; [1] "linear_reg"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $.parsnip_fns[[3]]</span></span>
-<span><span class="co">#&gt; [1] "linear_reg"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $.parsnip_fns[[4]]</span></span>
-<span><span class="co">#&gt; [1] "cubist_rules"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $.model_spec</span></span>
-<span><span class="co">#&gt; $.model_spec[[1]]</span></span>
-<span><span class="co">#&gt; Linear Regression Model Specification (regression)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Computational engine: lm </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $.model_spec[[2]]</span></span>
-<span><span class="co">#&gt; Linear Regression Model Specification (regression)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Computational engine: glm </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $.model_spec[[3]]</span></span>
-<span><span class="co">#&gt; Linear Regression Model Specification (regression)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Computational engine: glmnet </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $.model_spec[[4]]</span></span>
-<span><span class="co">#&gt; Cubist Model Specification (regression)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Computational engine: cubist</span></span></code></pre></div>
-<p>Now the reason we are here. Let’s take a look at the first function for modeling with <a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a>, <strong><code><a href="reference/fast_regression.html">fast_regression()</a></code></strong>.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/recipes" class="external-link">recipes</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
-<span><span class="va">frt_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fast_regression.html">fast_regression</a></span><span class="op">(</span></span>
-<span>  .data <span class="op">=</span> <span class="va">mtcars</span>, </span>
-<span>  .rec_obj <span class="op">=</span> <span class="va">rec_obj</span>, </span>
-<span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span>,<span class="st">"gee"</span><span class="op">)</span>,</span>
-<span>  .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span>,</span>
-<span>  .drop_na <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">frt_tbl</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 3</span></span>
-<span><span class="co">#&gt; Columns: 8</span></span>
-<span><span class="co">#&gt; $ .model_id       &lt;int&gt; 1, 2, 3</span></span>
-<span><span class="co">#&gt; $ .parsnip_engine &lt;chr&gt; "lm", "gee", "glm"</span></span>
-<span><span class="co">#&gt; $ .parsnip_mode   &lt;chr&gt; "regression", "regression", "regression"</span></span>
-<span><span class="co">#&gt; $ .parsnip_fns    &lt;chr&gt; "linear_reg", "linear_reg", "linear_reg"</span></span>
-<span><span class="co">#&gt; $ model_spec      &lt;list&gt; [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…</span></span>
-<span><span class="co">#&gt; $ wflw            &lt;list&gt; [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
-<span><span class="co">#&gt; $ fitted_wflw     &lt;list&gt; [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
-<span><span class="co">#&gt; $ pred_wflw       &lt;list&gt; [&lt;tbl_df[64 x 3]&gt;], &lt;NULL&gt;, [&lt;tbl_df[64 x 3]&gt;]</span></span></code></pre></div>
-<p>As we see above, one of the models has gracefully failed, thanks in part to the function <code><a href="https://purrr.tidyverse.org/reference/safely.html" class="external-link">purrr::safely()</a></code>, which was used to make what I call <strong>safe_make</strong> functions.</p>
-<p>Let’s look at the fitted workflow predictions.</p>
+<span><span class="co">#&gt; 3 glmnet          regression    linear_reg   &lt;spec[+]&gt;</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="training-multiple-models">Training Multiple Models<a class="anchor" aria-label="anchor" href="#training-multiple-models"></a>
+</h3>
+<p>The real power comes from training multiple models at once:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">frt_tbl</span><span class="op">$</span><span class="va">pred_wflw</span></span>
-<span><span class="co">#&gt; [[1]]</span></span>
-<span><span class="co">#&gt; # A tibble: 64 × 3</span></span>
-<span><span class="co">#&gt;    .data_category .data_type .value</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 actual         actual       22.8</span></span>
-<span><span class="co">#&gt;  2 actual         actual       15  </span></span>
-<span><span class="co">#&gt;  3 actual         actual       17.8</span></span>
-<span><span class="co">#&gt;  4 actual         actual       18.7</span></span>
-<span><span class="co">#&gt;  5 actual         actual       30.4</span></span>
-<span><span class="co">#&gt;  6 actual         actual       26  </span></span>
-<span><span class="co">#&gt;  7 actual         actual       14.3</span></span>
-<span><span class="co">#&gt;  8 actual         actual       19.2</span></span>
-<span><span class="co">#&gt;  9 actual         actual       14.7</span></span>
-<span><span class="co">#&gt; 10 actual         actual       17.3</span></span>
-<span><span class="co">#&gt; # ℹ 54 more rows</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[2]]</span></span>
-<span><span class="co">#&gt; NULL</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[3]]</span></span>
-<span><span class="co">#&gt; # A tibble: 64 × 3</span></span>
-<span><span class="co">#&gt;    .data_category .data_type .value</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 actual         actual       22.8</span></span>
-<span><span class="co">#&gt;  2 actual         actual       15  </span></span>
-<span><span class="co">#&gt;  3 actual         actual       17.8</span></span>
-<span><span class="co">#&gt;  4 actual         actual       18.7</span></span>
-<span><span class="co">#&gt;  5 actual         actual       30.4</span></span>
-<span><span class="co">#&gt;  6 actual         actual       26  </span></span>
-<span><span class="co">#&gt;  7 actual         actual       14.3</span></span>
-<span><span class="co">#&gt;  8 actual         actual       19.2</span></span>
-<span><span class="co">#&gt;  9 actual         actual       14.7</span></span>
-<span><span class="co">#&gt; 10 actual         actual       17.3</span></span>
-<span><span class="co">#&gt; # ℹ 54 more rows</span></span></code></pre></div>
-<p>Now let’s load the <code>multilevelmod</code> library so that we can run the <code>gee</code> linear regression.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/multilevelmod" class="external-link">multilevelmod</a></span><span class="op">)</span></span>
-<span></span>
+<code class="sourceCode R"><span><span class="co"># Create a recipe</span></span>
 <span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
-<span><span class="va">frt_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fast_regression.html">fast_regression</a></span><span class="op">(</span></span>
+<span></span>
+<span><span class="co"># Train multiple models</span></span>
+<span><span class="va">models_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fast_regression.html">fast_regression</a></span><span class="op">(</span></span>
 <span>  .data <span class="op">=</span> <span class="va">mtcars</span>, </span>
 <span>  .rec_obj <span class="op">=</span> <span class="va">rec_obj</span>, </span>
-<span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span>,<span class="st">"gee"</span><span class="op">)</span>,</span>
+<span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>, <span class="st">"glm"</span><span class="op">)</span>,</span>
 <span>  .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/extract_wflw_pred.html">extract_wflw_pred</a></span><span class="op">(</span><span class="va">frt_tbl</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 192 × 4</span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">models_tbl</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 2</span></span>
+<span><span class="co">#&gt; Columns: 8</span></span>
+<span><span class="co">#&gt; $ .model_id       &lt;int&gt; 1, 2</span></span>
+<span><span class="co">#&gt; $ .parsnip_engine &lt;chr&gt; "lm", "glm"</span></span>
+<span><span class="co">#&gt; $ .parsnip_mode   &lt;chr&gt; "regression", "regression"</span></span>
+<span><span class="co">#&gt; $ .parsnip_fns    &lt;chr&gt; "linear_reg", "linear_reg"</span></span>
+<span><span class="co">#&gt; $ model_spec      &lt;list&gt; [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…</span></span>
+<span><span class="co">#&gt; $ wflw            &lt;list&gt; [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
+<span><span class="co">#&gt; $ fitted_wflw     &lt;list&gt; [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…</span></span>
+<span><span class="co">#&gt; $ pred_wflw       &lt;list&gt; [&lt;tbl_df[64 x 3]&gt;], [&lt;tbl_df[64 x 3]&gt;]</span></span></code></pre></div>
+<p>The function uses <code><a href="https://purrr.tidyverse.org/reference/safely.html" class="external-link">purrr::safely()</a></code> to handle failures gracefully - if a model can’t be trained (e.g., missing dependencies), it returns NULL without stopping the entire process.</p>
+</div>
+<div class="section level3">
+<h3 id="working-with-predictions">Working with Predictions<a class="anchor" aria-label="anchor" href="#working-with-predictions"></a>
+</h3>
+<p>Extract predictions from trained models:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Get predictions from all models</span></span>
+<span><span class="va">predictions</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_wflw_pred.html">extract_wflw_pred</a></span><span class="op">(</span><span class="va">models_tbl</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">predictions</span></span>
+<span><span class="co">#&gt; # A tibble: 128 × 4</span></span>
 <span><span class="co">#&gt;    .model_type     .data_category .data_type .value</span></span>
 <span><span class="co">#&gt;    &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 lm - linear_reg actual         actual       15.5</span></span>
-<span><span class="co">#&gt;  2 lm - linear_reg actual         actual       19.2</span></span>
-<span><span class="co">#&gt;  3 lm - linear_reg actual         actual       21.5</span></span>
-<span><span class="co">#&gt;  4 lm - linear_reg actual         actual       14.3</span></span>
-<span><span class="co">#&gt;  5 lm - linear_reg actual         actual       21.4</span></span>
+<span><span class="co">#&gt;  1 lm - linear_reg actual         actual       18.1</span></span>
+<span><span class="co">#&gt;  2 lm - linear_reg actual         actual       15.8</span></span>
+<span><span class="co">#&gt;  3 lm - linear_reg actual         actual       22.8</span></span>
+<span><span class="co">#&gt;  4 lm - linear_reg actual         actual       33.9</span></span>
+<span><span class="co">#&gt;  5 lm - linear_reg actual         actual       30.4</span></span>
 <span><span class="co">#&gt;  6 lm - linear_reg actual         actual       21  </span></span>
-<span><span class="co">#&gt;  7 lm - linear_reg actual         actual       13.3</span></span>
-<span><span class="co">#&gt;  8 lm - linear_reg actual         actual       15.2</span></span>
-<span><span class="co">#&gt;  9 lm - linear_reg actual         actual       24.4</span></span>
-<span><span class="co">#&gt; 10 lm - linear_reg actual         actual       10.4</span></span>
-<span><span class="co">#&gt; # ℹ 182 more rows</span></span></code></pre></div>
-<p><em>Getting Regression Residuals</em></p>
-<p>Getting residuals is easy with <a href="https://www.spsanderson.com/tidyAML/" class="external-link">tidyAML</a>. Let’s take a look.</p>
+<span><span class="co">#&gt;  7 lm - linear_reg actual         actual       17.8</span></span>
+<span><span class="co">#&gt;  8 lm - linear_reg actual         actual       17.3</span></span>
+<span><span class="co">#&gt;  9 lm - linear_reg actual         actual       18.7</span></span>
+<span><span class="co">#&gt; 10 lm - linear_reg actual         actual       21  </span></span>
+<span><span class="co">#&gt; # ℹ 118 more rows</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="analyzing-residuals">Analyzing Residuals<a class="anchor" aria-label="anchor" href="#analyzing-residuals"></a>
+</h3>
+<p>Get model residuals for diagnostic purposes:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/extract_regression_residuals.html">extract_regression_residuals</a></span><span class="op">(</span><span class="va">frt_tbl</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [[1]]</span></span>
+<code class="sourceCode R"><span><span class="co"># Extract residuals</span></span>
+<span><span class="va">residuals</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_regression_residuals.html">extract_regression_residuals</a></span><span class="op">(</span><span class="va">models_tbl</span><span class="op">)</span></span>
+<span><span class="va">residuals</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>  <span class="co"># View first model's residuals</span></span>
 <span><span class="co">#&gt; # A tibble: 32 × 4</span></span>
-<span><span class="co">#&gt;    .model_type     .actual .predicted  .resid</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 lm - linear_reg    15.5       16.5 -0.988 </span></span>
-<span><span class="co">#&gt;  2 lm - linear_reg    19.2       19.7 -0.488 </span></span>
-<span><span class="co">#&gt;  3 lm - linear_reg    21.5       21.6 -0.127 </span></span>
-<span><span class="co">#&gt;  4 lm - linear_reg    14.3       14.1  0.157 </span></span>
-<span><span class="co">#&gt;  5 lm - linear_reg    21.4       24.6 -3.23  </span></span>
-<span><span class="co">#&gt;  6 lm - linear_reg    21         21.1 -0.0800</span></span>
-<span><span class="co">#&gt;  7 lm - linear_reg    13.3       13.8 -0.482 </span></span>
-<span><span class="co">#&gt;  8 lm - linear_reg    15.2       17.7 -2.52  </span></span>
-<span><span class="co">#&gt;  9 lm - linear_reg    24.4       22.3  2.11  </span></span>
-<span><span class="co">#&gt; 10 lm - linear_reg    10.4       11.5 -1.14  </span></span>
-<span><span class="co">#&gt; # ℹ 22 more rows</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[2]]</span></span>
-<span><span class="co">#&gt; # A tibble: 32 × 4</span></span>
-<span><span class="co">#&gt;    .model_type      .actual .predicted  .resid</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;              &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 gee - linear_reg    15.5       16.4 -0.896 </span></span>
-<span><span class="co">#&gt;  2 gee - linear_reg    19.2       19.2  0.0385</span></span>
-<span><span class="co">#&gt;  3 gee - linear_reg    21.5       22.3 -0.797 </span></span>
-<span><span class="co">#&gt;  4 gee - linear_reg    14.3       14.6 -0.250 </span></span>
-<span><span class="co">#&gt;  5 gee - linear_reg    21.4       24.6 -3.24  </span></span>
-<span><span class="co">#&gt;  6 gee - linear_reg    21         21.1 -0.135 </span></span>
-<span><span class="co">#&gt;  7 gee - linear_reg    13.3       13.8 -0.505 </span></span>
-<span><span class="co">#&gt;  8 gee - linear_reg    15.2       17.4 -2.16  </span></span>
-<span><span class="co">#&gt;  9 gee - linear_reg    24.4       22.6  1.80  </span></span>
-<span><span class="co">#&gt; 10 gee - linear_reg    10.4       11.8 -1.39  </span></span>
-<span><span class="co">#&gt; # ℹ 22 more rows</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[3]]</span></span>
-<span><span class="co">#&gt; # A tibble: 32 × 4</span></span>
-<span><span class="co">#&gt;    .model_type      .actual .predicted  .resid</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;              &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 glm - linear_reg    15.5       16.5 -0.988 </span></span>
-<span><span class="co">#&gt;  2 glm - linear_reg    19.2       19.7 -0.488 </span></span>
-<span><span class="co">#&gt;  3 glm - linear_reg    21.5       21.6 -0.127 </span></span>
-<span><span class="co">#&gt;  4 glm - linear_reg    14.3       14.1  0.157 </span></span>
-<span><span class="co">#&gt;  5 glm - linear_reg    21.4       24.6 -3.23  </span></span>
-<span><span class="co">#&gt;  6 glm - linear_reg    21         21.1 -0.0800</span></span>
-<span><span class="co">#&gt;  7 glm - linear_reg    13.3       13.8 -0.482 </span></span>
-<span><span class="co">#&gt;  8 glm - linear_reg    15.2       17.7 -2.52  </span></span>
-<span><span class="co">#&gt;  9 glm - linear_reg    24.4       22.3  2.11  </span></span>
-<span><span class="co">#&gt; 10 glm - linear_reg    10.4       11.5 -1.14  </span></span>
+<span><span class="co">#&gt;    .model_type     .actual .predicted .resid</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 lm - linear_reg    18.1       21.1 -3.04 </span></span>
+<span><span class="co">#&gt;  2 lm - linear_reg    15.8       18.5 -2.74 </span></span>
+<span><span class="co">#&gt;  3 lm - linear_reg    22.8       25.1 -2.32 </span></span>
+<span><span class="co">#&gt;  4 lm - linear_reg    33.9       31.5  2.43 </span></span>
+<span><span class="co">#&gt;  5 lm - linear_reg    30.4       28.1  2.27 </span></span>
+<span><span class="co">#&gt;  6 lm - linear_reg    21         22.4 -1.38 </span></span>
+<span><span class="co">#&gt;  7 lm - linear_reg    17.8       19.3 -1.45 </span></span>
+<span><span class="co">#&gt;  8 lm - linear_reg    17.3       15.8  1.49 </span></span>
+<span><span class="co">#&gt;  9 lm - linear_reg    18.7       18.3  0.432</span></span>
+<span><span class="co">#&gt; 10 lm - linear_reg    21         22.6 -1.58 </span></span>
 <span><span class="co">#&gt; # ℹ 22 more rows</span></span></code></pre></div>
-<p>You can also pivot them into a long format making plotting easy with <code>ggplot2</code>.</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="classification-example">Classification Example<a class="anchor" aria-label="anchor" href="#classification-example"></a>
+</h2>
+<p>tidyAML also excels at classification tasks. Here’s an example using the Titanic dataset:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/extract_regression_residuals.html">extract_regression_residuals</a></span><span class="op">(</span><span class="va">frt_tbl</span>, .pivot_long <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [[1]]</span></span>
-<span><span class="co">#&gt; # A tibble: 96 × 3</span></span>
-<span><span class="co">#&gt;    .model_type     name        value</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;           &lt;chr&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 lm - linear_reg .actual    15.5  </span></span>
-<span><span class="co">#&gt;  2 lm - linear_reg .predicted 16.5  </span></span>
-<span><span class="co">#&gt;  3 lm - linear_reg .resid     -0.988</span></span>
-<span><span class="co">#&gt;  4 lm - linear_reg .actual    19.2  </span></span>
-<span><span class="co">#&gt;  5 lm - linear_reg .predicted 19.7  </span></span>
-<span><span class="co">#&gt;  6 lm - linear_reg .resid     -0.488</span></span>
-<span><span class="co">#&gt;  7 lm - linear_reg .actual    21.5  </span></span>
-<span><span class="co">#&gt;  8 lm - linear_reg .predicted 21.6  </span></span>
-<span><span class="co">#&gt;  9 lm - linear_reg .resid     -0.127</span></span>
-<span><span class="co">#&gt; 10 lm - linear_reg .actual    14.3  </span></span>
-<span><span class="co">#&gt; # ℹ 86 more rows</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[2]]</span></span>
-<span><span class="co">#&gt; # A tibble: 96 × 3</span></span>
-<span><span class="co">#&gt;    .model_type      name         value</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;            &lt;chr&gt;        &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 gee - linear_reg .actual    15.5   </span></span>
-<span><span class="co">#&gt;  2 gee - linear_reg .predicted 16.4   </span></span>
-<span><span class="co">#&gt;  3 gee - linear_reg .resid     -0.896 </span></span>
-<span><span class="co">#&gt;  4 gee - linear_reg .actual    19.2   </span></span>
-<span><span class="co">#&gt;  5 gee - linear_reg .predicted 19.2   </span></span>
-<span><span class="co">#&gt;  6 gee - linear_reg .resid      0.0385</span></span>
-<span><span class="co">#&gt;  7 gee - linear_reg .actual    21.5   </span></span>
-<span><span class="co">#&gt;  8 gee - linear_reg .predicted 22.3   </span></span>
-<span><span class="co">#&gt;  9 gee - linear_reg .resid     -0.797 </span></span>
-<span><span class="co">#&gt; 10 gee - linear_reg .actual    14.3   </span></span>
-<span><span class="co">#&gt; # ℹ 86 more rows</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[3]]</span></span>
-<span><span class="co">#&gt; # A tibble: 96 × 3</span></span>
-<span><span class="co">#&gt;    .model_type      name        value</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;            &lt;chr&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 glm - linear_reg .actual    15.5  </span></span>
-<span><span class="co">#&gt;  2 glm - linear_reg .predicted 16.5  </span></span>
-<span><span class="co">#&gt;  3 glm - linear_reg .resid     -0.988</span></span>
-<span><span class="co">#&gt;  4 glm - linear_reg .actual    19.2  </span></span>
-<span><span class="co">#&gt;  5 glm - linear_reg .predicted 19.7  </span></span>
-<span><span class="co">#&gt;  6 glm - linear_reg .resid     -0.488</span></span>
-<span><span class="co">#&gt;  7 glm - linear_reg .actual    21.5  </span></span>
-<span><span class="co">#&gt;  8 glm - linear_reg .predicted 21.6  </span></span>
-<span><span class="co">#&gt;  9 glm - linear_reg .resid     -0.127</span></span>
-<span><span class="co">#&gt; 10 glm - linear_reg .actual    14.3  </span></span>
-<span><span class="co">#&gt; # ℹ 86 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Prepare data</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">Titanic</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/uncount.html" class="external-link">uncount</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">as.factor</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create recipe</span></span>
+<span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">Survived</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Train multiple classification models</span></span>
+<span><span class="va">class_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fast_classification.html">fast_classification</a></span><span class="op">(</span></span>
+<span>  .data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>  .rec_obj <span class="op">=</span> <span class="va">rec_obj</span>,</span>
+<span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"glm"</span>, <span class="st">"glmnet"</span><span class="op">)</span>,</span>
+<span>  .parsnip_fns <span class="op">=</span> <span class="st">"logistic_reg"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">class_models</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 1</span></span>
+<span><span class="co">#&gt; Columns: 8</span></span>
+<span><span class="co">#&gt; $ .model_id       &lt;int&gt; 1</span></span>
+<span><span class="co">#&gt; $ .parsnip_engine &lt;chr&gt; "glm"</span></span>
+<span><span class="co">#&gt; $ .parsnip_mode   &lt;chr&gt; "classification"</span></span>
+<span><span class="co">#&gt; $ .parsnip_fns    &lt;chr&gt; "logistic_reg"</span></span>
+<span><span class="co">#&gt; $ model_spec      &lt;list&gt; [~NULL, ~NULL, NULL, classification, TRUE, NULL, glm, …</span></span>
+<span><span class="co">#&gt; $ wflw            &lt;list&gt; [Class, Sex, Age, Survived, factor, unordered, nominal…</span></span>
+<span><span class="co">#&gt; $ fitted_wflw     &lt;list&gt; [Class, Sex, Age, Survived, factor, unordered, nominal…</span></span>
+<span><span class="co">#&gt; $ pred_wflw       &lt;list&gt; [&lt;tbl_df[4402 x 3]&gt;]</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="extract-classification-predictions">Extract Classification Predictions<a class="anchor" aria-label="anchor" href="#extract-classification-predictions"></a>
+</h3>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Get predictions</span></span>
+<span><span class="va">class_predictions</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_wflw_pred.html">extract_wflw_pred</a></span><span class="op">(</span><span class="va">class_models</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">class_predictions</span></span>
+<span><span class="co">#&gt; # A tibble: 4,402 × 4</span></span>
+<span><span class="co">#&gt;    .model_type        .data_category .data_type .value</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;              &lt;chr&gt;          &lt;chr&gt;      &lt;fct&gt; </span></span>
+<span><span class="co">#&gt;  1 glm - logistic_reg actual         actual     No    </span></span>
+<span><span class="co">#&gt;  2 glm - logistic_reg actual         actual     Yes   </span></span>
+<span><span class="co">#&gt;  3 glm - logistic_reg actual         actual     No    </span></span>
+<span><span class="co">#&gt;  4 glm - logistic_reg actual         actual     Yes   </span></span>
+<span><span class="co">#&gt;  5 glm - logistic_reg actual         actual     No    </span></span>
+<span><span class="co">#&gt;  6 glm - logistic_reg actual         actual     No    </span></span>
+<span><span class="co">#&gt;  7 glm - logistic_reg actual         actual     No    </span></span>
+<span><span class="co">#&gt;  8 glm - logistic_reg actual         actual     No    </span></span>
+<span><span class="co">#&gt;  9 glm - logistic_reg actual         actual     No    </span></span>
+<span><span class="co">#&gt; 10 glm - logistic_reg actual         actual     No    </span></span>
+<span><span class="co">#&gt; # ℹ 4,392 more rows</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="key-functions">Key Functions<a class="anchor" aria-label="anchor" href="#key-functions"></a>
+</h2>
+<div class="section level3">
+<h3 id="model-generation">Model Generation<a class="anchor" aria-label="anchor" href="#model-generation"></a>
+</h3>
+<ul>
+<li>
+<code><a href="reference/fast_regression.html">fast_regression()</a></code> - Generate and train multiple regression models</li>
+<li>
+<code><a href="reference/fast_classification.html">fast_classification()</a></code> - Generate and train multiple classification models</li>
+<li>
+<code><a href="reference/fast_regression_parsnip_spec_tbl.html">fast_regression_parsnip_spec_tbl()</a></code> - Create regression model specifications</li>
+<li>
+<code><a href="reference/fast_classification_parsnip_spec_tbl.html">fast_classification_parsnip_spec_tbl()</a></code> - Create classification model specifications</li>
+<li>
+<code><a href="reference/create_model_spec.html">create_model_spec()</a></code> - Custom model specification creation</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="extractors">Extractors<a class="anchor" aria-label="anchor" href="#extractors"></a>
+</h3>
+<ul>
+<li>
+<code><a href="reference/extract_wflw_pred.html">extract_wflw_pred()</a></code> - Extract workflow predictions</li>
+<li>
+<code><a href="reference/extract_wflw.html">extract_wflw()</a></code> - Extract workflow objects</li>
+<li>
+<code><a href="reference/extract_wflw_fit.html">extract_wflw_fit()</a></code> - Extract fitted workflows</li>
+<li>
+<code><a href="reference/extract_model_spec.html">extract_model_spec()</a></code> - Extract model specifications</li>
+<li>
+<code><a href="reference/extract_regression_residuals.html">extract_regression_residuals()</a></code> - Extract residuals from regression models</li>
+<li>
+<code><a href="reference/extract_tunable_params.html">extract_tunable_params()</a></code> - Extract tunable parameters</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="utilities">Utilities<a class="anchor" aria-label="anchor" href="#utilities"></a>
+</h3>
+<ul>
+<li>
+<code><a href="reference/create_splits.html">create_splits()</a></code> - Create rsample splits</li>
+<li>
+<code><a href="reference/core_packages.html">core_packages()</a></code> - List core package dependencies</li>
+<li>
+<code><a href="reference/install_deps.html">install_deps()</a></code> - Install tidyAML dependencies</li>
+<li>
+<code><a href="reference/load_deps.html">load_deps()</a></code> - Load required packages</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="visualization">Visualization<a class="anchor" aria-label="anchor" href="#visualization"></a>
+</h3>
+<ul>
+<li>
+<code><a href="reference/plot_regression_predictions.html">plot_regression_predictions()</a></code> - Plot regression predictions</li>
+<li>
+<code><a href="reference/plot_regression_residuals.html">plot_regression_residuals()</a></code> - Plot regression residuals</li>
+</ul>
+</div>
+</div>
+<div class="section level2">
+<h2 id="visualization-1">Visualization<a class="anchor" aria-label="anchor" href="#visualization-1"></a>
+</h2>
+<p>Visualize model performance easily:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Plot predictions</span></span>
+<span><span class="fu"><a href="reference/plot_regression_predictions.html">plot_regression_predictions</a></span><span class="op">(</span><span class="va">models_tbl</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plot residuals</span></span>
+<span><span class="fu"><a href="reference/plot_regression_residuals.html">plot_regression_residuals</a></span><span class="op">(</span><span class="va">models_tbl</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
+</h2>
+<ul>
+<li>
+<strong>Website</strong>: <a href="https://www.spsanderson.com/tidyAML/" class="external-link uri">https://www.spsanderson.com/tidyAML/</a>
+</li>
+<li>
+<strong>Getting Started Vignette</strong>: <code><a href="articles/getting-started.html">vignette("getting-started", package = "tidyAML")</a></code>
+</li>
+<li>
+<strong>Function Reference</strong>: <a href="https://www.spsanderson.com/tidyAML/reference/" class="external-link uri">https://www.spsanderson.com/tidyAML/reference/</a>
+</li>
+<li>
+<strong>GitHub Repository</strong>: <a href="https://github.com/spsanderson/tidyAML" class="external-link uri">https://github.com/spsanderson/tidyAML</a>
+</li>
+<li>
+<strong>Bug Reports</strong>: <a href="https://github.com/spsanderson/tidyAML/issues" class="external-link uri">https://github.com/spsanderson/tidyAML/issues</a>
+</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
+</h2>
+<p>Contributions are welcome! Please see <a href="CONTRIBUTING.html">CONTRIBUTING.md</a> for guidelines.</p>
+<p>Key ways to contribute: - Report bugs or request features via <a href="https://github.com/spsanderson/tidyAML/issues" class="external-link">GitHub Issues</a> - Submit Pull Requests for bug fixes or new features - Improve documentation or add examples - Share your use cases and feedback</p>
+<p>Please note that this project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
+</div>
+<div class="section level2">
+<h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
+</h2>
+<p>If you use tidyAML in your research or work, please cite it:</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"tidyAML"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="acknowledgments">Acknowledgments<a class="anchor" aria-label="anchor" href="#acknowledgments"></a>
+</h2>
+<ul>
+<li>Thanks to <a href="https://fosstodon.org/@grrrck/109479826278916014" class="external-link">Garrick Aden-Buie</a> for the package name suggestion</li>
+<li>Built on the excellent <a href="https://www.tidymodels.org/" class="external-link">tidymodels</a> framework</li>
+<li>Inspired by <a href="https://h2o.ai/" class="external-link">h2o</a> but designed to work seamlessly with tidyverse tools</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
+<p>MIT © Steven P. Sanderson II, MPH</p>
+<hr>
+<p><strong>Need Help?</strong> - 📖 Read the <a href="https://www.spsanderson.com/tidyAML/articles/getting-started.html" class="external-link">Getting Started Guide</a> - 💬 Open an <a href="https://github.com/spsanderson/tidyAML/issues" class="external-link">Issue</a> - ⭐ Star the repo if you find it useful!</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -478,7 +573,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer>
