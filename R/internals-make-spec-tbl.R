@@ -68,8 +68,19 @@ internal_make_spec_tbl <- function(.model_tbl){
           base::tolower(pf)
         )
 
-        # Call the pre-built model function
-        ret <- match.fun(fn_name)()
+        # Call the pre-built model function with error handling
+        ret <- tryCatch(
+          match.fun(fn_name)(),
+          error = function(e) {
+            stop(
+              sprintf(
+                "Could not find model builder function '%s' for engine='%s', mode='%s', parsnip_function='%s'.\nOriginal error: %s",
+                fn_name, pe, pm, pf, e$message
+              ),
+              call. = FALSE
+            )
+          }
+        )
 
         # Add parsnip engine and fns as class
         # class(ret) <- c(
