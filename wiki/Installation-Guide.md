@@ -152,7 +152,7 @@ If you find this package useful, please leave a star:
 If you encounter a bug or want to request an enhancement please file an issue at:
    https://github.com/spsanderson/tidyAML/issues
 
-It is suggested that you run tidymodels::tidymodel_prefer() to set the defaults for your session.
+It is suggested that you run tidymodels::tidymodels_prefer() to set the defaults for your session.
 
 Thank you for using tidyAML!
 ```
