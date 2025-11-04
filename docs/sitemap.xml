@@ -33,6 +33,8 @@
 <url><loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw.html</loc></url>
 <url><loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw_gee_lin_reg.html</loc></url>
 <url><loc>https://www.spsanderson.com/tidyaml/reference/internal_make_wflw_predictions.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.html</loc></url>
+<url><loc>https://www.spsanderson.com/tidyaml/reference/internal_model_builders_regression.html</loc></url>
 <url><loc>https://www.spsanderson.com/tidyaml/reference/internal_set_args_to_tune.html</loc></url>
 <url><loc>https://www.spsanderson.com/tidyaml/reference/load_deps.html</loc></url>
 <url><loc>https://www.spsanderson.com/tidyaml/reference/make_classification_base_tbl.html</loc></url>

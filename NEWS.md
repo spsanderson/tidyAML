@@ -8,6 +8,7 @@ None
 
 ## Minor Fixes and Improvements
 1. Fix #256 - Update `load_deps()` and `install_deps()` to use a `try` block.
+2. Fix #266 - Major overhaul in how regression and classification model specs are built.
 
 # tidyAML 0.0.6
 

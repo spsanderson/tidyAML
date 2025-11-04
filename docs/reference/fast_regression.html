@@ -118,16 +118,21 @@ model specification and it's fitted <code>workflow</code> object.</p>
 <span class="r-in"><span>  .parsnip_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lm"</span>,<span class="st">"glm"</span>,<span class="st">"gee"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  .parsnip_fns <span class="op">=</span> <span class="st">"linear_reg"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Beginning Cgee S-function, @(#) geeformula.q 4.13 98/01/27</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> running glm to get initial regression estimate</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `.f()`:</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> <span style="color: #0000BB;">parsnip</span> could not locate an implementation for `linear_reg` regression</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   model specifications using the `gee` engine.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The parsnip extension package <span style="color: #0000BB;">multilevelmod</span> implements support for this</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   specification.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please install (if needed) and load to continue.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Error in UseMethod("fit"): no applicable method for 'fit' applied to an object of class "NULL"</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Error in UseMethod("predict"): no applicable method for 'predict' applied to an object of class "NULL"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">frt_tbl</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   .model_id .parsnip_engine .parsnip_mode .parsnip_fns model_spec wflw      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>         1 lm              regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  <span style="color: #949494;">&lt;workflow&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>         2 gee             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  <span style="color: #949494;">&lt;workflow&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>         3 glm             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  <span style="color: #949494;">&lt;workflow&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>         3 glm             regression    linear_reg   <span style="color: #949494;">&lt;spec[+]&gt;</span>  <span style="color: #949494;">&lt;workflow&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: fitted_wflw &lt;list&gt;, pred_wflw &lt;list&gt;</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
@@ -141,7 +146,7 @@ model specification and it's fitted <code>workflow</code> object.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer></div>

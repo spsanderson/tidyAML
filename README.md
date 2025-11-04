@@ -7,8 +7,7 @@
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyAML)](https://cran.r-project.org/package=tidyAML)
 ![](https://cranlogs.r-pkg.org/badges/tidyAML)
-![](https://cranlogs.r-pkg.org/badges/grand-total/tidyAML)
-[![Lifecycle:
+![](https://cranlogs.r-pkg.org/badges/grand-total/tidyAML) [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html##experimental)
 [![PRs
 Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://kentcdodds.github.io/makeapullrequest.com/)
@@ -19,10 +18,13 @@ Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-squ
 
 ## Overview
 
+To view the full wiki, click here: [Full tidyAML
+Wiki](https://github.com/spsanderson/tidyAML/blob/master/wiki/Home.md)
+
 **`{tidyAML}`** is an R package that brings the power of Automated
-Machine Learning (AutoML) to the `tidymodels` ecosystem. With just a
-few lines of code, you can generate, train, and compare multiple
-machine learning models simultaneously, making it perfect for both rapid
+Machine Learning (AutoML) to the `tidymodels` ecosystem. With just a few
+lines of code, you can generate, train, and compare multiple machine
+learning models simultaneously, making it perfect for both rapid
 prototyping and production workflows.
 
 ### Key Features
@@ -41,13 +43,13 @@ prototyping and production workflows.
 
 ### Why tidyAML?
 
-| Feature                   | tidyAML     | h2o         | caret       |
-|---------------------------|-------------|-------------|-------------|
-| tidymodels Integration    | ✅ Native   | ❌ No       | ⚠️ Limited  |
-| Java Required             | ✅ No       | ❌ Yes      | ✅ No       |
-| Parallel Model Training   | ✅ Yes      | ✅ Yes      | ✅ Yes      |
-| Modern R Workflow         | ✅ Pipes & tidy | ❌ Old style | ⚠️ Mixed |
-| Active Development        | ✅ Yes      | ⚠️ Slowing  | ❌ Maintenance |
+| Feature                 | tidyAML         | h2o          | caret          |
+|-------------------------|-----------------|--------------|----------------|
+| tidymodels Integration  | ✅ Native       | ❌ No        | ⚠️ Limited     |
+| Java Required           | ✅ No           | ❌ Yes       | ✅ No          |
+| Parallel Model Training | ✅ Yes          | ✅ Yes       | ✅ Yes         |
+| Modern R Workflow       | ✅ Pipes & tidy | ❌ Old style | ⚠️ Mixed       |
+| Active Development      | ✅ Yes          | ⚠️ Slowing   | ❌ Maintenance |
 
 ## Table of Contents
 
@@ -76,7 +78,7 @@ Or get the development version from GitHub:
 devtools::install_github("spsanderson/tidyAML")
 ```
 
-After installation, it's recommended to set tidymodels preferences:
+After installation, it’s recommended to set tidymodels preferences:
 
 ``` r
 library(tidyAML)
@@ -85,7 +87,7 @@ tidymodels::tidymodels_prefer()
 
 ## Quick Start
 
-Here's a minimal example to get you started:
+Here’s a minimal example to get you started:
 
 ``` r
 library(tidyAML)
@@ -107,23 +109,11 @@ extract_wflw_pred(models, 1:3)
 
 ## Regression Example
 
-Let's build multiple regression models to predict car mileage (mpg)
+Let’s build multiple regression models to predict car mileage (mpg)
 using the mtcars dataset:
 
 ``` r
 library(tidyAML)
-#> Loading required package: parsnip
-#> 
-#> == Welcome to tidyAML ===========================================================================
-#> If you find this package useful, please leave a star: 
-#>    https://github.com/spsanderson/tidyAML'
-#> 
-#> If you encounter a bug or want to request an enhancement please file an issue at:
-#>    https://github.com/spsanderson/tidyAML/issues
-#> 
-#> It is suggested that you run tidymodels::tidymodel_prefer() to set the defaults for your session.
-#> 
-#> Thank you for using tidyAML!
 library(recipes)
 library(dplyr)
 ```
@@ -217,8 +207,8 @@ glimpse(models_tbl)
 #> $ pred_wflw       <list> [<tbl_df[64 x 3]>], [<tbl_df[64 x 3]>]
 ```
 
-The function uses `purrr::safely()` to handle failures gracefully - if
-a model can't be trained (e.g., missing dependencies), it returns NULL
+The function uses `purrr::safely()` to handle failures gracefully - if a
+model can’t be trained (e.g., missing dependencies), it returns NULL
 without stopping the entire process.
 
 ### Working with Predictions
@@ -232,16 +222,16 @@ predictions
 #> # A tibble: 128 × 4
 #>    .model_type     .data_category .data_type .value
 #>    <chr>           <chr>          <chr>       <dbl>
-#>  1 lm - linear_reg actual         actual       15.5
-#>  2 lm - linear_reg actual         actual       19.2
-#>  3 lm - linear_reg actual         actual       21.5
-#>  4 lm - linear_reg actual         actual       14.3
-#>  5 lm - linear_reg actual         actual       21.4
+#>  1 lm - linear_reg actual         actual       18.1
+#>  2 lm - linear_reg actual         actual       15.8
+#>  3 lm - linear_reg actual         actual       22.8
+#>  4 lm - linear_reg actual         actual       33.9
+#>  5 lm - linear_reg actual         actual       30.4
 #>  6 lm - linear_reg actual         actual       21  
-#>  7 lm - linear_reg actual         actual       13.3
-#>  8 lm - linear_reg actual         actual       15.2
-#>  9 lm - linear_reg actual         actual       24.4
-#> 10 lm - linear_reg actual         actual       10.4
+#>  7 lm - linear_reg actual         actual       17.8
+#>  8 lm - linear_reg actual         actual       17.3
+#>  9 lm - linear_reg actual         actual       18.7
+#> 10 lm - linear_reg actual         actual       21  
 #> # ℹ 118 more rows
 ```
 
@@ -254,25 +244,25 @@ Get model residuals for diagnostic purposes:
 residuals <- extract_regression_residuals(models_tbl)
 residuals[[1]]  # View first model's residuals
 #> # A tibble: 32 × 4
-#>    .model_type     .actual .predicted  .resid
-#>    <chr>             <dbl>      <dbl>   <dbl>
-#>  1 lm - linear_reg    15.5       16.5 -0.988 
-#>  2 lm - linear_reg    19.2       19.7 -0.488 
-#>  3 lm - linear_reg    21.5       21.6 -0.127 
-#>  4 lm - linear_reg    14.3       14.1  0.157 
-#>  5 lm - linear_reg    21.4       24.6 -3.23  
-#>  6 lm - linear_reg    21         21.1 -0.0800
-#>  7 lm - linear_reg    13.3       13.8 -0.482 
-#>  8 lm - linear_reg    15.2       17.7 -2.52  
-#>  9 lm - linear_reg    24.4       22.3  2.11  
-#> 10 lm - linear_reg    10.4       11.5 -1.14  
+#>    .model_type     .actual .predicted .resid
+#>    <chr>             <dbl>      <dbl>  <dbl>
+#>  1 lm - linear_reg    18.1       21.1 -3.04 
+#>  2 lm - linear_reg    15.8       18.5 -2.74 
+#>  3 lm - linear_reg    22.8       25.1 -2.32 
+#>  4 lm - linear_reg    33.9       31.5  2.43 
+#>  5 lm - linear_reg    30.4       28.1  2.27 
+#>  6 lm - linear_reg    21         22.4 -1.38 
+#>  7 lm - linear_reg    17.8       19.3 -1.45 
+#>  8 lm - linear_reg    17.3       15.8  1.49 
+#>  9 lm - linear_reg    18.7       18.3  0.432
+#> 10 lm - linear_reg    21         22.6 -1.58 
 #> # ℹ 22 more rows
 ```
 
 ## Classification Example
 
-tidyAML also excels at classification tasks. Here's an example using
-the Titanic dataset:
+tidyAML also excels at classification tasks. Here’s an example using the
+Titanic dataset:
 
 ``` r
 library(tidyr)
@@ -295,16 +285,16 @@ class_models <- fast_classification(
 )
 
 glimpse(class_models)
-#> Rows: 2
+#> Rows: 1
 #> Columns: 8
-#> $ .model_id       <int> 1, 2
-#> $ .parsnip_engine <chr> "glm", "glmnet"
-#> $ .parsnip_mode   <chr> "classification", "classification"
-#> $ .parsnip_fns    <chr> "logistic_reg", "logistic_reg"
-#> $ model_spec      <list> [~NULL, ~NULL, NULL, classification, TRUE, NULL, glm…
-#> $ wflw            <list> [Class, Sex, Age, Survived, Survived ~ Class + Sex + Age…
-#> $ fitted_wflw     <list> [Class, Sex, Age, Survived, Survived ~ Class + Sex + Age…
-#> $ pred_wflw       <list> [<tbl_df[4402 x 4]>], [<tbl_df[4402 x 4]>]
+#> $ .model_id       <int> 1
+#> $ .parsnip_engine <chr> "glm"
+#> $ .parsnip_mode   <chr> "classification"
+#> $ .parsnip_fns    <chr> "logistic_reg"
+#> $ model_spec      <list> [~NULL, ~NULL, NULL, classification, TRUE, NULL, glm, …
+#> $ wflw            <list> [Class, Sex, Age, Survived, factor, unordered, nominal…
+#> $ fitted_wflw     <list> [Class, Sex, Age, Survived, factor, unordered, nominal…
+#> $ pred_wflw       <list> [<tbl_df[4402 x 3]>]
 ```
 
 ### Extract Classification Predictions
@@ -313,20 +303,20 @@ glimpse(class_models)
 # Get predictions
 class_predictions <- extract_wflw_pred(class_models, 1:2)
 class_predictions
-#> # A tibble: 8,804 × 5
-#>    .model_type          .data_category .data_type .pred_class .pred_probability
-#>    <chr>                <chr>          <chr>      <fct>                   <dbl>
-#>  1 glm - logistic_reg   actual         actual     No                     NA    
-#>  2 glm - logistic_reg   actual         actual     No                     NA    
-#>  3 glm - logistic_reg   actual         actual     Yes                    NA    
-#>  4 glm - logistic_reg   actual         actual     Yes                    NA    
-#>  5 glm - logistic_reg   actual         actual     No                     NA    
-#>  6 glm - logistic_reg   actual         actual     No                     NA    
-#>  7 glm - logistic_reg   actual         actual     Yes                    NA    
-#>  8 glm - logistic_reg   actual         actual     Yes                    NA    
-#>  9 glm - logistic_reg   actual         actual     No                     NA    
-#> 10 glm - logistic_reg   actual         actual     No                     NA    
-#> # ℹ 8,794 more rows
+#> # A tibble: 4,402 × 4
+#>    .model_type        .data_category .data_type .value
+#>    <chr>              <chr>          <chr>      <fct> 
+#>  1 glm - logistic_reg actual         actual     No    
+#>  2 glm - logistic_reg actual         actual     Yes   
+#>  3 glm - logistic_reg actual         actual     No    
+#>  4 glm - logistic_reg actual         actual     Yes   
+#>  5 glm - logistic_reg actual         actual     No    
+#>  6 glm - logistic_reg actual         actual     No    
+#>  7 glm - logistic_reg actual         actual     No    
+#>  8 glm - logistic_reg actual         actual     No    
+#>  9 glm - logistic_reg actual         actual     No    
+#> 10 glm - logistic_reg actual         actual     No    
+#> # ℹ 4,392 more rows
 ```
 
 ## Key Functions
@@ -338,8 +328,8 @@ class_predictions
   models
 - `fast_regression_parsnip_spec_tbl()` - Create regression model
   specifications
-- `fast_classification_parsnip_spec_tbl()` - Create classification
-  model specifications
+- `fast_classification_parsnip_spec_tbl()` - Create classification model
+  specifications
 - `create_model_spec()` - Custom model specification creation
 
 ### Extractors
@@ -378,33 +368,27 @@ plot_regression_residuals(models_tbl)
 
 ## Documentation
 
-- **Website**:
-  <https://www.spsanderson.com/tidyAML/>
+- **Website**: <https://www.spsanderson.com/tidyAML/>
 - **Getting Started Vignette**:
   `vignette("getting-started", package = "tidyAML")`
 - **Function Reference**:
   <https://www.spsanderson.com/tidyAML/reference/>
-- **GitHub Repository**:
-  <https://github.com/spsanderson/tidyAML>
-- **Bug Reports**:
-  <https://github.com/spsanderson/tidyAML/issues>
+- **GitHub Repository**: <https://github.com/spsanderson/tidyAML>
+- **Bug Reports**: <https://github.com/spsanderson/tidyAML/issues>
 
 ## Contributing
 
-Contributions are welcome! Please see
-[CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md)
+for guidelines.
 
-Key ways to contribute:
-
-- Report bugs or request features via [GitHub
-  Issues](https://github.com/spsanderson/tidyAML/issues)
-- Submit Pull Requests for bug fixes or new features
-- Improve documentation or add examples
-- Share your use cases and feedback
+Key ways to contribute: - Report bugs or request features via [GitHub
+Issues](https://github.com/spsanderson/tidyAML/issues) - Submit Pull
+Requests for bug fixes or new features - Improve documentation or add
+examples - Share your use cases and feedback
 
 Please note that this project is released with a [Contributor Code of
-Conduct](CODE_OF_CONDUCT.md). By participating in this project you
-agree to abide by its terms.
+Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree
+to abide by its terms.
 
 ## Citation
 
@@ -431,6 +415,6 @@ MIT © Steven P. Sanderson II, MPH
 ------------------------------------------------------------------------
 
 **Need Help?** - 📖 Read the [Getting Started
-Guide](https://www.spsanderson.com/tidyAML/articles/getting-started.html)
-- 💬 Open an [Issue](https://github.com/spsanderson/tidyAML/issues) -
-⭐ Star the repo if you find it useful!
+Guide](https://www.spsanderson.com/tidyAML/articles/getting-started.html) -
+💬 Open an [Issue](https://github.com/spsanderson/tidyAML/issues) - ⭐
+Star the repo if you find it useful!
