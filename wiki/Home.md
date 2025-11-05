@@ -30,7 +30,6 @@ Welcome to the **tidyAML** wiki! This comprehensive guide will help you master A
 
 ### Contributing
 - [Contributing to tidyAML](Contributing.md)
-- [Contributing to Wiki](Contributing-Wiki.md)
 
 ---
 
