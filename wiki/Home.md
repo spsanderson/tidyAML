@@ -15,7 +15,6 @@ Welcome to the **tidyAML** wiki! This comprehensive guide will help you master A
 ### Tutorials
 - [Regression Tutorial](Regression-Tutorial.md)
 - [Classification Tutorial](Classification-Tutorial.md)
-- [Multi-Model Comparison](Multi-Model-Comparison.md)
 - [Model Evaluation](Model-Evaluation.md)
 
 ### Function Reference
