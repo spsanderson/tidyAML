@@ -22,12 +22,6 @@ Welcome to the **tidyAML** wiki! This comprehensive guide will help you master A
 - [Utilities](Function-Reference-Utilities.md)
 - [Plotting Functions](Function-Reference-Plotting.md)
 
-### Advanced Topics
-- [Custom Model Specifications](Advanced-Custom-Models.md)
-- [Tuning Hyperparameters](Advanced-Tuning.md)
-- [Working with Splits](Advanced-Splits.md)
-- [Performance Optimization](Advanced-Performance.md)
-
 ### Reference
 - [Supported Models and Engines](Supported-Models.md)
 - [Troubleshooting](Troubleshooting.md)
