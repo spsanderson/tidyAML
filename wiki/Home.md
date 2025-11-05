@@ -11,9 +11,6 @@ Welcome to the **tidyAML** wiki! This comprehensive guide will help you master A
 
 ### Core Concepts
 - [Package Overview](Package-Overview.md)
-- [Model Specification](Model-Specification.md)
-- [Workflows and Engines](Workflows-and-Engines.md)
-- [Data Preprocessing](Data-Preprocessing.md)
 
 ### Tutorials
 - [Regression Tutorial](Regression-Tutorial.md)
