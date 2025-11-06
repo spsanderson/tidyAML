@@ -1,9 +1,9 @@
 pandoc: 3.6.3
-pkgdown: 2.1.3
+pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   getting-started: getting-started.html
-last_built: 2025-11-04T19:34Z
+last_built: 2025-11-06T19:51Z
 urls:
   reference: https://www.spsanderson.com/tidyaml/reference
   article: https://www.spsanderson.com/tidyaml/articles
