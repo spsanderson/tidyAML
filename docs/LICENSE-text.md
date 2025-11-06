@@ -1,0 +1,4 @@
+# License
+
+    YEAR: 2022
+    COPYRIGHT HOLDER: Steven Paul Sanderson II, MPH

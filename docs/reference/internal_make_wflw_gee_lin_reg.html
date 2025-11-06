@@ -69,15 +69,15 @@ list column.</p>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other Internals:
-<code><a href="internal_make_fitted_wflw.html">internal_make_fitted_wflw</a>()</code>,
-<code><a href="internal_make_spec_tbl.html">internal_make_spec_tbl</a>()</code>,
-<code><a href="internal_make_wflw.html">internal_make_wflw</a>()</code>,
-<code><a href="internal_make_wflw_predictions.html">internal_make_wflw_predictions</a>()</code>,
+<code><a href="internal_make_fitted_wflw.html">internal_make_fitted_wflw()</a></code>,
+<code><a href="internal_make_spec_tbl.html">internal_make_spec_tbl()</a></code>,
+<code><a href="internal_make_wflw.html">internal_make_wflw()</a></code>,
+<code><a href="internal_make_wflw_predictions.html">internal_make_wflw_predictions()</a></code>,
 <code><a href="internal_model_builders_classification.html">internal_model_builders_classification</a></code>,
 <code><a href="internal_model_builders_regression.html">internal_model_builders_regression</a></code>,
-<code><a href="internal_set_args_to_tune.html">internal_set_args_to_tune</a>()</code>,
-<code><a href="make_classification_base_tbl.html">make_classification_base_tbl</a>()</code>,
-<code><a href="make_regression_base_tbl.html">make_regression_base_tbl</a>()</code></p></div>
+<code><a href="internal_set_args_to_tune.html">internal_set_args_to_tune()</a></code>,
+<code><a href="make_classification_base_tbl.html">make_classification_base_tbl()</a></code>,
+<code><a href="make_regression_base_tbl.html">make_regression_base_tbl()</a></code></p></div>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
@@ -89,6 +89,7 @@ list column.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/recipes" class="external-link">recipes</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/multilevelmod" class="external-link">multilevelmod</a></span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in library(multilevelmod):</span> there is no package called 'multilevelmod'</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">mod_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="make_regression_base_tbl.html">make_regression_base_tbl</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">mod_tbl</span> <span class="op">&lt;-</span> <span class="va">mod_tbl</span> <span class="op">|&gt;</span></span></span>
@@ -102,20 +103,14 @@ list column.</p>
 <span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">internal_make_wflw_gee_lin_reg</span><span class="op">(</span><span class="va">mod_spec_tbl</span>, <span class="va">rec_obj</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `.f()`:</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> <span style="color: #0000BB;">parsnip</span> could not locate an implementation for `linear_reg` regression</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   model specifications using the `gee` engine.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The parsnip extension package <span style="color: #0000BB;">multilevelmod</span> implements support for this</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   specification.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please install (if needed) and load to continue.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ══ Workflow ════════════════════════════════════════════════════════════════════</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-style: italic;">Preprocessor:</span> Variables</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-style: italic;">Model:</span> linear_reg()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ── Preprocessor ────────────────────────────────────────────────────────────────</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Outcomes: outcome_var</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Predictors: predictor_vars</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ── Model ───────────────────────────────────────────────────────────────────────</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Linear Regression Model Specification (regression)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Computational engine: gee </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
@@ -129,7 +124,7 @@ list column.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>
