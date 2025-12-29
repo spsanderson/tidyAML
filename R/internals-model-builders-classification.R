@@ -86,7 +86,7 @@ sparsediscrim_classification_discrim_quad <- function() {
 # Regularized Discriminant Analysis ----
 #' @rdname internal_model_builders_classification
 #' @export
-klaR_classification_discrim_regularized <- function() {
+klar_classification_discrim_regularized <- function() {
   parsnip::discrim_regularized(mode = "classification", engine = "klaR")
 }
 

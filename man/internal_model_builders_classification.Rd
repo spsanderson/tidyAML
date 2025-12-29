@@ -12,7 +12,7 @@
 \alias{sparsediscrim_classification_discrim_linear}
 \alias{mass_classification_discrim_quad}
 \alias{sparsediscrim_classification_discrim_quad}
-\alias{klaR_classification_discrim_regularized}
+\alias{klar_classification_discrim_regularized}
 \alias{mgcv_classification_gen_additive_mod}
 \alias{brulee_classification_logistic_reg}
 \alias{gee_classification_logistic_reg}
@@ -55,7 +55,7 @@ mass_classification_discrim_quad()
 
 sparsediscrim_classification_discrim_quad()
 
-klaR_classification_discrim_regularized()
+klar_classification_discrim_regularized()
 
 mgcv_classification_gen_additive_mod()
 
