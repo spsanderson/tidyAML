@@ -222,16 +222,16 @@ predictions
 #> # A tibble: 128 × 4
 #>    .model_type     .data_category .data_type .value
 #>    <chr>           <chr>          <chr>       <dbl>
-#>  1 lm - linear_reg actual         actual       18.1
+#>  1 lm - linear_reg actual         actual       33.9
 #>  2 lm - linear_reg actual         actual       15.8
-#>  3 lm - linear_reg actual         actual       22.8
-#>  4 lm - linear_reg actual         actual       33.9
-#>  5 lm - linear_reg actual         actual       30.4
-#>  6 lm - linear_reg actual         actual       21  
-#>  7 lm - linear_reg actual         actual       17.8
-#>  8 lm - linear_reg actual         actual       17.3
-#>  9 lm - linear_reg actual         actual       18.7
-#> 10 lm - linear_reg actual         actual       21  
+#>  3 lm - linear_reg actual         actual       30.4
+#>  4 lm - linear_reg actual         actual       21.4
+#>  5 lm - linear_reg actual         actual       15  
+#>  6 lm - linear_reg actual         actual       30.4
+#>  7 lm - linear_reg actual         actual       21  
+#>  8 lm - linear_reg actual         actual       15.2
+#>  9 lm - linear_reg actual         actual       21.5
+#> 10 lm - linear_reg actual         actual       17.8
 #> # ℹ 118 more rows
 ```
 
@@ -244,18 +244,18 @@ Get model residuals for diagnostic purposes:
 residuals <- extract_regression_residuals(models_tbl)
 residuals[[1]]  # View first model's residuals
 #> # A tibble: 32 × 4
-#>    .model_type     .actual .predicted .resid
-#>    <chr>             <dbl>      <dbl>  <dbl>
-#>  1 lm - linear_reg    18.1       21.1 -3.04 
-#>  2 lm - linear_reg    15.8       18.5 -2.74 
-#>  3 lm - linear_reg    22.8       25.1 -2.32 
-#>  4 lm - linear_reg    33.9       31.5  2.43 
-#>  5 lm - linear_reg    30.4       28.1  2.27 
-#>  6 lm - linear_reg    21         22.4 -1.38 
-#>  7 lm - linear_reg    17.8       19.3 -1.45 
-#>  8 lm - linear_reg    17.3       15.8  1.49 
-#>  9 lm - linear_reg    18.7       18.3  0.432
-#> 10 lm - linear_reg    21         22.6 -1.58 
+#>    .model_type     .actual .predicted   .resid
+#>    <chr>             <dbl>      <dbl>    <dbl>
+#>  1 lm - linear_reg    33.9       29.6  4.30   
+#>  2 lm - linear_reg    15.8       18.1 -2.27   
+#>  3 lm - linear_reg    30.4       29.2  1.17   
+#>  4 lm - linear_reg    21.4       21.4  0.00912
+#>  5 lm - linear_reg    15         13.8  1.15   
+#>  6 lm - linear_reg    30.4       29.8  0.581  
+#>  7 lm - linear_reg    21         21.6 -0.608  
+#>  8 lm - linear_reg    15.2       14.9  0.279  
+#>  9 lm - linear_reg    21.5       23.5 -2.03   
+#> 10 lm - linear_reg    17.8       18.3 -0.470  
 #> # ℹ 22 more rows
 ```
 
@@ -307,11 +307,11 @@ class_predictions
 #>    .model_type        .data_category .data_type .value
 #>    <chr>              <chr>          <chr>      <fct> 
 #>  1 glm - logistic_reg actual         actual     No    
-#>  2 glm - logistic_reg actual         actual     Yes   
+#>  2 glm - logistic_reg actual         actual     No    
 #>  3 glm - logistic_reg actual         actual     No    
-#>  4 glm - logistic_reg actual         actual     Yes   
+#>  4 glm - logistic_reg actual         actual     No    
 #>  5 glm - logistic_reg actual         actual     No    
-#>  6 glm - logistic_reg actual         actual     No    
+#>  6 glm - logistic_reg actual         actual     Yes   
 #>  7 glm - logistic_reg actual         actual     No    
 #>  8 glm - logistic_reg actual         actual     No    
 #>  9 glm - logistic_reg actual         actual     No    
