@@ -1,4 +1,4 @@
-# tidyAML (development version)
+# tidyAML 0.0.7
 
 ## Breaking Changes
 None
