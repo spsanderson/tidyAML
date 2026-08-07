@@ -1,3 +1,5 @@
+# tidyAML 0.0.8
+
 # tidyAML 0.0.7
 
 ## Breaking Changes
