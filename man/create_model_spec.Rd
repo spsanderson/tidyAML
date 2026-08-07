@@ -55,9 +55,9 @@ create_model_spec(
 
 }
 \seealso{
-Other Model_Generator: 
-\code{\link{fast_classification}()},
-\code{\link{fast_regression}()}
+Other Model_Generator:
+\code{\link[=fast_classification]{fast_classification()}},
+\code{\link[=fast_regression]{fast_regression()}}
 }
 \author{
 Steven P. Sanderson II, MPH

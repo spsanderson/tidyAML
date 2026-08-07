@@ -58,9 +58,9 @@ frt_tbl
 
 }
 \seealso{
-Other Model_Generator: 
-\code{\link{create_model_spec}()},
-\code{\link{fast_classification}()}
+Other Model_Generator:
+\code{\link[=create_model_spec]{create_model_spec()}},
+\code{\link[=fast_classification]{fast_classification()}}
 }
 \author{
 Steven P. Sanderson II, MPH

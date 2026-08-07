@@ -8,7 +8,7 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyAML)](https://cran.r-project.org/package=tidyAML)
 ![](https://cranlogs.r-pkg.org/badges/tidyAML)
 ![](https://cranlogs.r-pkg.org/badges/grand-total/tidyAML) [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html##experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![PRs
 Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://kentcdodds.github.io/makeapullrequest.com/)
 <!-- badges: end -->
@@ -187,6 +187,7 @@ The real power comes from training multiple models at once:
 rec_obj <- recipe(mpg ~ ., data = mtcars)
 
 # Train multiple models
+set.seed(42)
 models_tbl <- fast_regression(
   .data = mtcars, 
   .rec_obj = rec_obj, 
@@ -201,7 +202,7 @@ glimpse(models_tbl)
 #> $ .parsnip_engine <chr> "lm", "glm"
 #> $ .parsnip_mode   <chr> "regression", "regression"
 #> $ .parsnip_fns    <chr> "linear_reg", "linear_reg"
-#> $ model_spec      <list> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…
+#> $ model_spec      <list> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE,…
 #> $ wflw            <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
 #> $ fitted_wflw     <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
 #> $ pred_wflw       <list> [<tbl_df[64 x 3]>], [<tbl_df[64 x 3]>]
@@ -222,16 +223,16 @@ predictions
 #> # A tibble: 128 × 4
 #>    .model_type     .data_category .data_type .value
 #>    <chr>           <chr>          <chr>       <dbl>
-#>  1 lm - linear_reg actual         actual       33.9
-#>  2 lm - linear_reg actual         actual       15.8
-#>  3 lm - linear_reg actual         actual       30.4
-#>  4 lm - linear_reg actual         actual       21.4
-#>  5 lm - linear_reg actual         actual       15  
-#>  6 lm - linear_reg actual         actual       30.4
-#>  7 lm - linear_reg actual         actual       21  
-#>  8 lm - linear_reg actual         actual       15.2
-#>  9 lm - linear_reg actual         actual       21.5
-#> 10 lm - linear_reg actual         actual       17.8
+#>  1 lm - linear_reg actual         actual       14.7
+#>  2 lm - linear_reg actual         actual       18.7
+#>  3 lm - linear_reg actual         actual       21  
+#>  4 lm - linear_reg actual         actual       19.2
+#>  5 lm - linear_reg actual         actual       19.2
+#>  6 lm - linear_reg actual         actual       21.4
+#>  7 lm - linear_reg actual         actual       32.4
+#>  8 lm - linear_reg actual         actual       21.4
+#>  9 lm - linear_reg actual         actual       10.4
+#> 10 lm - linear_reg actual         actual       14.3
 #> # ℹ 118 more rows
 ```
 
@@ -244,18 +245,18 @@ Get model residuals for diagnostic purposes:
 residuals <- extract_regression_residuals(models_tbl)
 residuals[[1]]  # View first model's residuals
 #> # A tibble: 32 × 4
-#>    .model_type     .actual .predicted   .resid
-#>    <chr>             <dbl>      <dbl>    <dbl>
-#>  1 lm - linear_reg    33.9       29.6  4.30   
-#>  2 lm - linear_reg    15.8       18.1 -2.27   
-#>  3 lm - linear_reg    30.4       29.2  1.17   
-#>  4 lm - linear_reg    21.4       21.4  0.00912
-#>  5 lm - linear_reg    15         13.8  1.15   
-#>  6 lm - linear_reg    30.4       29.8  0.581  
-#>  7 lm - linear_reg    21         21.6 -0.608  
-#>  8 lm - linear_reg    15.2       14.9  0.279  
-#>  9 lm - linear_reg    21.5       23.5 -2.03   
-#> 10 lm - linear_reg    17.8       18.3 -0.470  
+#>    .model_type     .actual .predicted  .resid
+#>    <chr>             <dbl>      <dbl>   <dbl>
+#>  1 lm - linear_reg    14.7       11.8  2.88  
+#>  2 lm - linear_reg    18.7       19.3 -0.620 
+#>  3 lm - linear_reg    21         20.9  0.0888
+#>  4 lm - linear_reg    19.2       18.1  1.06  
+#>  5 lm - linear_reg    19.2       18.2  1.01  
+#>  6 lm - linear_reg    21.4       20.1  1.27  
+#>  7 lm - linear_reg    32.4       28.1  4.33  
+#>  8 lm - linear_reg    21.4       23.7 -2.34  
+#>  9 lm - linear_reg    10.4       11.6 -1.19  
+#> 10 lm - linear_reg    14.3       13.8  0.488 
 #> # ℹ 22 more rows
 ```
 

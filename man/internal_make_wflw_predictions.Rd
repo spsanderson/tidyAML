@@ -55,16 +55,16 @@ internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)
 
 }
 \seealso{
-Other Internals: 
-\code{\link{internal_make_fitted_wflw}()},
-\code{\link{internal_make_spec_tbl}()},
-\code{\link{internal_make_wflw}()},
-\code{\link{internal_make_wflw_gee_lin_reg}()},
+Other Internals:
+\code{\link[=internal_make_fitted_wflw]{internal_make_fitted_wflw()}},
+\code{\link[=internal_make_spec_tbl]{internal_make_spec_tbl()}},
+\code{\link[=internal_make_wflw]{internal_make_wflw()}},
+\code{\link[=internal_make_wflw_gee_lin_reg]{internal_make_wflw_gee_lin_reg()}},
 \code{\link{internal_model_builders_classification}},
 \code{\link{internal_model_builders_regression}},
-\code{\link{internal_set_args_to_tune}()},
-\code{\link{make_classification_base_tbl}()},
-\code{\link{make_regression_base_tbl}()}
+\code{\link[=internal_set_args_to_tune]{internal_set_args_to_tune()}},
+\code{\link[=make_classification_base_tbl]{make_classification_base_tbl()}},
+\code{\link[=make_regression_base_tbl]{make_regression_base_tbl()}}
 }
 \author{
 Steven P. Sanderson II, MPH

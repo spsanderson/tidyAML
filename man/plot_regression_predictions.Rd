@@ -42,8 +42,8 @@ extract_wflw_pred(frt_tbl,1:nrow(frt_tbl)) |>
 
 }
 \seealso{
-Other Plotting: 
-\code{\link{plot_regression_residuals}()}
+Other Plotting:
+\code{\link[=plot_regression_residuals]{plot_regression_residuals()}}
 }
 \author{
 Steven P. Sanderson II, MPH

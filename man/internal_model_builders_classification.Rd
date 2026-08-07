@@ -111,16 +111,16 @@ model specifications. Each function follows the naming pattern:
 \verb{\{engine\}_\{mode\}_\{parsnip_function\}()}
 }
 \seealso{
-Other Internals: 
-\code{\link{internal_make_fitted_wflw}()},
-\code{\link{internal_make_spec_tbl}()},
-\code{\link{internal_make_wflw}()},
-\code{\link{internal_make_wflw_gee_lin_reg}()},
-\code{\link{internal_make_wflw_predictions}()},
+Other Internals:
+\code{\link[=internal_make_fitted_wflw]{internal_make_fitted_wflw()}},
+\code{\link[=internal_make_spec_tbl]{internal_make_spec_tbl()}},
+\code{\link[=internal_make_wflw]{internal_make_wflw()}},
+\code{\link[=internal_make_wflw_gee_lin_reg]{internal_make_wflw_gee_lin_reg()}},
+\code{\link[=internal_make_wflw_predictions]{internal_make_wflw_predictions()}},
 \code{\link{internal_model_builders_regression}},
-\code{\link{internal_set_args_to_tune}()},
-\code{\link{make_classification_base_tbl}()},
-\code{\link{make_regression_base_tbl}()}
+\code{\link[=internal_set_args_to_tune]{internal_set_args_to_tune()}},
+\code{\link[=make_classification_base_tbl]{make_classification_base_tbl()}},
+\code{\link[=make_regression_base_tbl]{make_regression_base_tbl()}}
 }
 \author{
 Steven P. Sanderson II, MPH

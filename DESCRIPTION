@@ -1,6 +1,6 @@
 Package: tidyAML
 Title: Automatic Machine Learning with 'tidymodels'
-Version: 0.0.6.9000
+Version: 0.0.8
 Authors@R: c(
     person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre","cph"),
       comment = c(ORCID = "0009-0006-7661-8247"))
@@ -58,4 +58,4 @@ Imports:
     ggplot2,
     magrittr,
     tune (>= 1.3.0)
-RoxygenNote: 7.3.3
+Config/roxygen2/version: 8.1.0

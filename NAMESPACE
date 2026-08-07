@@ -109,13 +109,17 @@ export(xrf_classification_rule_fit)
 export(xrf_regression_rule_fit)
 export(zeroinfl_regression_poisson_reg)
 importFrom(magrittr,"%>%")
-importFrom(parsnip,cubist_rules)
-importFrom(parsnip,linear_reg)
-importFrom(parsnip,poisson_reg)
-importFrom(parsnip,survival_reg)
-importFrom(rlang,":=")
-importFrom(rlang,.data)
-importFrom(rlang,as_label)
-importFrom(rlang,as_name)
-importFrom(rlang,enquo)
-importFrom(rlang,enquos)
+importFrom(parsnip,
+  cubist_rules,
+  linear_reg,
+  poisson_reg,
+  survival_reg
+)
+importFrom(rlang,
+  ":=",
+  .data,
+  as_label,
+  as_name,
+  enquo,
+  enquos
+)

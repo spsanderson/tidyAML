@@ -33,17 +33,17 @@ check_duplicate_rows(data)
 \seealso{
 \code{\link{duplicated}}, \code{\link{anyDuplicated}}
 
-Other Utility: 
-\code{\link{core_packages}()},
-\code{\link{create_splits}()},
-\code{\link{create_workflow_set}()},
-\code{\link{fast_classification_parsnip_spec_tbl}()},
-\code{\link{fast_regression_parsnip_spec_tbl}()},
-\code{\link{full_internal_make_wflw}()},
-\code{\link{install_deps}()},
-\code{\link{load_deps}()},
-\code{\link{match_args}()},
-\code{\link{quantile_normalize}()}
+Other Utility:
+\code{\link[=core_packages]{core_packages()}},
+\code{\link[=create_splits]{create_splits()}},
+\code{\link[=create_workflow_set]{create_workflow_set()}},
+\code{\link[=fast_classification_parsnip_spec_tbl]{fast_classification_parsnip_spec_tbl()}},
+\code{\link[=fast_regression_parsnip_spec_tbl]{fast_regression_parsnip_spec_tbl()}},
+\code{\link[=full_internal_make_wflw]{full_internal_make_wflw()}},
+\code{\link[=install_deps]{install_deps()}},
+\code{\link[=load_deps]{load_deps()}},
+\code{\link[=match_args]{match_args()}},
+\code{\link[=quantile_normalize]{quantile_normalize()}}
 }
 \author{
 Steven P. Sanderson II, MPH

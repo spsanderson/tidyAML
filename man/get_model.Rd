@@ -38,13 +38,13 @@ get_model(spec_tbl, 1:2)
 
 }
 \seealso{
-Other Extractor: 
-\code{\link{extract_model_spec}()},
-\code{\link{extract_regression_residuals}()},
-\code{\link{extract_tunable_params}()},
-\code{\link{extract_wflw}()},
-\code{\link{extract_wflw_fit}()},
-\code{\link{extract_wflw_pred}()}
+Other Extractor:
+\code{\link[=extract_model_spec]{extract_model_spec()}},
+\code{\link[=extract_regression_residuals]{extract_regression_residuals()}},
+\code{\link[=extract_tunable_params]{extract_tunable_params()}},
+\code{\link[=extract_wflw]{extract_wflw()}},
+\code{\link[=extract_wflw_fit]{extract_wflw_fit()}},
+\code{\link[=extract_wflw_pred]{extract_wflw_pred()}}
 }
 \author{
 Steven P. Sanderson II, MPH
