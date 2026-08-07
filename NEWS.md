@@ -1,5 +1,14 @@
 # tidyAML 0.0.8
 
+## Breaking Changes
+None
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+ocumentation and roxygen output refresh.
+
 # tidyAML 0.0.7
 
 ## Breaking Changes

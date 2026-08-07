@@ -187,6 +187,7 @@ The real power comes from training multiple models at once:
 rec_obj <- recipe(mpg ~ ., data = mtcars)
 
 # Train multiple models
+set.seed(42)
 models_tbl <- fast_regression(
   .data = mtcars, 
   .rec_obj = rec_obj, 
@@ -222,16 +223,16 @@ predictions
 #> # A tibble: 128 × 4
 #>    .model_type     .data_category .data_type .value
 #>    <chr>           <chr>          <chr>       <dbl>
-#>  1 lm - linear_reg actual         actual       18.7
-#>  2 lm - linear_reg actual         actual       21.4
-#>  3 lm - linear_reg actual         actual       15.2
-#>  4 lm - linear_reg actual         actual       21  
-#>  5 lm - linear_reg actual         actual       19.7
-#>  6 lm - linear_reg actual         actual       13.3
-#>  7 lm - linear_reg actual         actual       14.3
-#>  8 lm - linear_reg actual         actual       22.8
+#>  1 lm - linear_reg actual         actual       14.7
+#>  2 lm - linear_reg actual         actual       18.7
+#>  3 lm - linear_reg actual         actual       21  
+#>  4 lm - linear_reg actual         actual       19.2
+#>  5 lm - linear_reg actual         actual       19.2
+#>  6 lm - linear_reg actual         actual       21.4
+#>  7 lm - linear_reg actual         actual       32.4
+#>  8 lm - linear_reg actual         actual       21.4
 #>  9 lm - linear_reg actual         actual       10.4
-#> 10 lm - linear_reg actual         actual       21  
+#> 10 lm - linear_reg actual         actual       14.3
 #> # ℹ 118 more rows
 ```
 
@@ -244,18 +245,18 @@ Get model residuals for diagnostic purposes:
 residuals <- extract_regression_residuals(models_tbl)
 residuals[[1]]  # View first model's residuals
 #> # A tibble: 32 × 4
-#>    .model_type     .actual .predicted .resid
-#>    <chr>             <dbl>      <dbl>  <dbl>
-#>  1 lm - linear_reg    18.7       17.9  0.839
-#>  2 lm - linear_reg    21.4       21.0  0.445
-#>  3 lm - linear_reg    15.2       17.8 -2.58 
-#>  4 lm - linear_reg    21         21.6 -0.602
-#>  5 lm - linear_reg    19.7       20.0 -0.317
-#>  6 lm - linear_reg    13.3       12.5  0.780
-#>  7 lm - linear_reg    14.3       14.5 -0.182
-#>  8 lm - linear_reg    22.8       23.7 -0.901
-#>  9 lm - linear_reg    10.4       11.5 -1.08 
-#> 10 lm - linear_reg    21         22.4 -1.36 
+#>    .model_type     .actual .predicted  .resid
+#>    <chr>             <dbl>      <dbl>   <dbl>
+#>  1 lm - linear_reg    14.7       11.8  2.88  
+#>  2 lm - linear_reg    18.7       19.3 -0.620 
+#>  3 lm - linear_reg    21         20.9  0.0888
+#>  4 lm - linear_reg    19.2       18.1  1.06  
+#>  5 lm - linear_reg    19.2       18.2  1.01  
+#>  6 lm - linear_reg    21.4       20.1  1.27  
+#>  7 lm - linear_reg    32.4       28.1  4.33  
+#>  8 lm - linear_reg    21.4       23.7 -2.34  
+#>  9 lm - linear_reg    10.4       11.6 -1.19  
+#> 10 lm - linear_reg    14.3       13.8  0.488 
 #> # ℹ 22 more rows
 ```
 
@@ -306,9 +307,9 @@ class_predictions
 #> # A tibble: 4,402 × 4
 #>    .model_type        .data_category .data_type .value
 #>    <chr>              <chr>          <chr>      <fct> 
-#>  1 glm - logistic_reg actual         actual     Yes   
+#>  1 glm - logistic_reg actual         actual     No    
 #>  2 glm - logistic_reg actual         actual     No    
-#>  3 glm - logistic_reg actual         actual     Yes   
+#>  3 glm - logistic_reg actual         actual     No    
 #>  4 glm - logistic_reg actual         actual     No    
 #>  5 glm - logistic_reg actual         actual     No    
 #>  6 glm - logistic_reg actual         actual     Yes   

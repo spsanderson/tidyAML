@@ -157,6 +157,7 @@ The real power comes from training multiple models at once:
 rec_obj <- recipe(mpg ~ ., data = mtcars)
 
 # Train multiple models
+set.seed(42)
 models_tbl <- fast_regression(
   .data = mtcars, 
   .rec_obj = rec_obj, 
