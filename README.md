@@ -8,7 +8,7 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tidyAML)](https://cran.r-project.org/package=tidyAML)
 ![](https://cranlogs.r-pkg.org/badges/tidyAML)
 ![](https://cranlogs.r-pkg.org/badges/grand-total/tidyAML) [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html##experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![PRs
 Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://kentcdodds.github.io/makeapullrequest.com/)
 <!-- badges: end -->
@@ -201,7 +201,7 @@ glimpse(models_tbl)
 #> $ .parsnip_engine <chr> "lm", "glm"
 #> $ .parsnip_mode   <chr> "regression", "regression"
 #> $ .parsnip_fns    <chr> "linear_reg", "linear_reg"
-#> $ model_spec      <list> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…
+#> $ model_spec      <list> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE,…
 #> $ wflw            <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
 #> $ fitted_wflw     <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
 #> $ pred_wflw       <list> [<tbl_df[64 x 3]>], [<tbl_df[64 x 3]>]
@@ -222,16 +222,16 @@ predictions
 #> # A tibble: 128 × 4
 #>    .model_type     .data_category .data_type .value
 #>    <chr>           <chr>          <chr>       <dbl>
-#>  1 lm - linear_reg actual         actual       33.9
-#>  2 lm - linear_reg actual         actual       15.8
-#>  3 lm - linear_reg actual         actual       30.4
-#>  4 lm - linear_reg actual         actual       21.4
-#>  5 lm - linear_reg actual         actual       15  
-#>  6 lm - linear_reg actual         actual       30.4
-#>  7 lm - linear_reg actual         actual       21  
-#>  8 lm - linear_reg actual         actual       15.2
-#>  9 lm - linear_reg actual         actual       21.5
-#> 10 lm - linear_reg actual         actual       17.8
+#>  1 lm - linear_reg actual         actual       18.7
+#>  2 lm - linear_reg actual         actual       21.4
+#>  3 lm - linear_reg actual         actual       15.2
+#>  4 lm - linear_reg actual         actual       21  
+#>  5 lm - linear_reg actual         actual       19.7
+#>  6 lm - linear_reg actual         actual       13.3
+#>  7 lm - linear_reg actual         actual       14.3
+#>  8 lm - linear_reg actual         actual       22.8
+#>  9 lm - linear_reg actual         actual       10.4
+#> 10 lm - linear_reg actual         actual       21  
 #> # ℹ 118 more rows
 ```
 
@@ -244,18 +244,18 @@ Get model residuals for diagnostic purposes:
 residuals <- extract_regression_residuals(models_tbl)
 residuals[[1]]  # View first model's residuals
 #> # A tibble: 32 × 4
-#>    .model_type     .actual .predicted   .resid
-#>    <chr>             <dbl>      <dbl>    <dbl>
-#>  1 lm - linear_reg    33.9       29.6  4.30   
-#>  2 lm - linear_reg    15.8       18.1 -2.27   
-#>  3 lm - linear_reg    30.4       29.2  1.17   
-#>  4 lm - linear_reg    21.4       21.4  0.00912
-#>  5 lm - linear_reg    15         13.8  1.15   
-#>  6 lm - linear_reg    30.4       29.8  0.581  
-#>  7 lm - linear_reg    21         21.6 -0.608  
-#>  8 lm - linear_reg    15.2       14.9  0.279  
-#>  9 lm - linear_reg    21.5       23.5 -2.03   
-#> 10 lm - linear_reg    17.8       18.3 -0.470  
+#>    .model_type     .actual .predicted .resid
+#>    <chr>             <dbl>      <dbl>  <dbl>
+#>  1 lm - linear_reg    18.7       17.9  0.839
+#>  2 lm - linear_reg    21.4       21.0  0.445
+#>  3 lm - linear_reg    15.2       17.8 -2.58 
+#>  4 lm - linear_reg    21         21.6 -0.602
+#>  5 lm - linear_reg    19.7       20.0 -0.317
+#>  6 lm - linear_reg    13.3       12.5  0.780
+#>  7 lm - linear_reg    14.3       14.5 -0.182
+#>  8 lm - linear_reg    22.8       23.7 -0.901
+#>  9 lm - linear_reg    10.4       11.5 -1.08 
+#> 10 lm - linear_reg    21         22.4 -1.36 
 #> # ℹ 22 more rows
 ```
 
@@ -306,9 +306,9 @@ class_predictions
 #> # A tibble: 4,402 × 4
 #>    .model_type        .data_category .data_type .value
 #>    <chr>              <chr>          <chr>      <fct> 
-#>  1 glm - logistic_reg actual         actual     No    
+#>  1 glm - logistic_reg actual         actual     Yes   
 #>  2 glm - logistic_reg actual         actual     No    
-#>  3 glm - logistic_reg actual         actual     No    
+#>  3 glm - logistic_reg actual         actual     Yes   
 #>  4 glm - logistic_reg actual         actual     No    
 #>  5 glm - logistic_reg actual         actual     No    
 #>  6 glm - logistic_reg actual         actual     Yes   
