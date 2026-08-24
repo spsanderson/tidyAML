@@ -54,7 +54,7 @@ Steven P. Sanderson II, MPH
 library(dplyr)
 library(recipes)
 library(multilevelmod)
-#> Error in library(multilevelmod): there is no package called 'multilevelmod'
+#> Warning: package 'multilevelmod' was built under R version 4.6.1
 
 mod_tbl <- make_regression_base_tbl()
 mod_tbl <- mod_tbl |>
@@ -68,13 +68,19 @@ mod_spec_tbl <- internal_make_spec_tbl(mod_tbl)
 rec_obj <- recipe(mpg ~ ., data = mtcars)
 
 internal_make_wflw_gee_lin_reg(mod_spec_tbl, rec_obj)
-#> Error in `.f()`:
-#> ! parsnip could not locate an implementation for `linear_reg` regression
-#>   model specifications using the `gee` engine.
-#> ℹ The parsnip extension package multilevelmod implements support for this
-#>   specification.
-#> ℹ Please install (if needed) and load to continue.
 #> [[1]]
-#> NULL
+#> ══ Workflow ════════════════════════════════════════════════════════════════════
+#> Preprocessor: Variables
+#> Model: linear_reg()
+#> 
+#> ── Preprocessor ────────────────────────────────────────────────────────────────
+#> Outcomes: outcome_var
+#> Predictors: predictor_vars
+#> 
+#> ── Model ───────────────────────────────────────────────────────────────────────
+#> Linear Regression Model Specification (regression)
+#> 
+#> Computational engine: gee 
+#> 
 #> 
 ```

@@ -85,32 +85,32 @@ internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)
 #> # A tibble: 64 × 3
 #>    .data_category .data_type .value
 #>    <chr>          <chr>       <dbl>
-#>  1 actual         actual       30.4
-#>  2 actual         actual       10.4
-#>  3 actual         actual       15.2
-#>  4 actual         actual       17.3
-#>  5 actual         actual       21.5
-#>  6 actual         actual       22.8
-#>  7 actual         actual       15.5
-#>  8 actual         actual       21  
-#>  9 actual         actual       21  
-#> 10 actual         actual       19.7
+#>  1 actual         actual       21.4
+#>  2 actual         actual       15.2
+#>  3 actual         actual       30.4
+#>  4 actual         actual       22.8
+#>  5 actual         actual       15  
+#>  6 actual         actual       14.7
+#>  7 actual         actual       32.4
+#>  8 actual         actual       19.2
+#>  9 actual         actual       21.5
+#> 10 actual         actual       18.1
 #> # ℹ 54 more rows
 #> 
 #> [[2]]
 #> # A tibble: 64 × 3
 #>    .data_category .data_type .value
 #>    <chr>          <chr>       <dbl>
-#>  1 actual         actual       30.4
-#>  2 actual         actual       10.4
-#>  3 actual         actual       15.2
-#>  4 actual         actual       17.3
-#>  5 actual         actual       21.5
-#>  6 actual         actual       22.8
-#>  7 actual         actual       15.5
-#>  8 actual         actual       21  
-#>  9 actual         actual       21  
-#> 10 actual         actual       19.7
+#>  1 actual         actual       21.4
+#>  2 actual         actual       15.2
+#>  3 actual         actual       30.4
+#>  4 actual         actual       22.8
+#>  5 actual         actual       15  
+#>  6 actual         actual       14.7
+#>  7 actual         actual       32.4
+#>  8 actual         actual       19.2
+#>  9 actual         actual       21.5
+#> 10 actual         actual       18.1
 #> # ℹ 54 more rows
 #> 
 ```

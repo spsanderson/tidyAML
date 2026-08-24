@@ -81,9 +81,9 @@ internal_make_fitted_wflw(mod_tbl, splits_obj)
 #> 
 #> Coefficients:
 #> (Intercept)          cyl         disp           hp         drat           wt  
-#>    16.51837     -0.50076      0.01985     -0.03085      0.49398     -2.51001  
+#>   23.068535     0.167894     0.002459    -0.021997    -0.719376    -2.071675  
 #>        qsec           vs           am         gear         carb  
-#>     0.59043      1.69088      4.26327      0.18528     -0.07205  
+#>    0.357921     2.749810     4.720170     0.567812    -1.235715  
 #> 
 #> 
 #> [[2]]
@@ -100,12 +100,12 @@ internal_make_fitted_wflw(mod_tbl, splits_obj)
 #> 
 #> Coefficients:
 #> (Intercept)          cyl         disp           hp         drat           wt  
-#>    16.51837     -0.50076      0.01985     -0.03085      0.49398     -2.51001  
+#>   23.068535     0.167894     0.002459    -0.021997    -0.719376    -2.071675  
 #>        qsec           vs           am         gear         carb  
-#>     0.59043      1.69088      4.26327      0.18528     -0.07205  
+#>    0.357921     2.749810     4.720170     0.567812    -1.235715  
 #> 
 #> Degrees of Freedom: 23 Total (i.e. Null);  13 Residual
-#> Null Deviance:       802.4 
-#> Residual Deviance: 118.2     AIC: 130.4
+#> Null Deviance:       1002 
+#> Residual Deviance: 71.63     AIC: 118.4
 #> 
 ```

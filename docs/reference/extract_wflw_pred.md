@@ -57,30 +57,30 @@ extract_wflw_pred(frt_tbl, 1)
 #> # A tibble: 64 × 4
 #>    .model_type     .data_category .data_type .value
 #>    <chr>           <chr>          <chr>       <dbl>
-#>  1 lm - linear_reg actual         actual       21  
-#>  2 lm - linear_reg actual         actual       22.8
-#>  3 lm - linear_reg actual         actual       32.4
-#>  4 lm - linear_reg actual         actual       30.4
-#>  5 lm - linear_reg actual         actual       16.4
-#>  6 lm - linear_reg actual         actual       15.8
-#>  7 lm - linear_reg actual         actual       14.7
-#>  8 lm - linear_reg actual         actual       19.2
-#>  9 lm - linear_reg actual         actual       30.4
-#> 10 lm - linear_reg actual         actual       17.3
+#>  1 lm - linear_reg actual         actual       15.2
+#>  2 lm - linear_reg actual         actual       13.3
+#>  3 lm - linear_reg actual         actual       21  
+#>  4 lm - linear_reg actual         actual       24.4
+#>  5 lm - linear_reg actual         actual       22.8
+#>  6 lm - linear_reg actual         actual       30.4
+#>  7 lm - linear_reg actual         actual       30.4
+#>  8 lm - linear_reg actual         actual       18.1
+#>  9 lm - linear_reg actual         actual       17.3
+#> 10 lm - linear_reg actual         actual       15  
 #> # ℹ 54 more rows
 extract_wflw_pred(frt_tbl, 1:2)
 #> # A tibble: 128 × 4
 #>    .model_type     .data_category .data_type .value
 #>    <chr>           <chr>          <chr>       <dbl>
-#>  1 lm - linear_reg actual         actual       21  
-#>  2 lm - linear_reg actual         actual       22.8
-#>  3 lm - linear_reg actual         actual       32.4
-#>  4 lm - linear_reg actual         actual       30.4
-#>  5 lm - linear_reg actual         actual       16.4
-#>  6 lm - linear_reg actual         actual       15.8
-#>  7 lm - linear_reg actual         actual       14.7
-#>  8 lm - linear_reg actual         actual       19.2
-#>  9 lm - linear_reg actual         actual       30.4
-#> 10 lm - linear_reg actual         actual       17.3
+#>  1 lm - linear_reg actual         actual       15.2
+#>  2 lm - linear_reg actual         actual       13.3
+#>  3 lm - linear_reg actual         actual       21  
+#>  4 lm - linear_reg actual         actual       24.4
+#>  5 lm - linear_reg actual         actual       22.8
+#>  6 lm - linear_reg actual         actual       30.4
+#>  7 lm - linear_reg actual         actual       30.4
+#>  8 lm - linear_reg actual         actual       18.1
+#>  9 lm - linear_reg actual         actual       17.3
+#> 10 lm - linear_reg actual         actual       15  
 #> # ℹ 118 more rows
 ```

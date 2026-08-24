@@ -113,7 +113,7 @@ Internal/Helper functions
   [`sparsediscrim_classification_discrim_linear()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
   [`mass_classification_discrim_quad()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
   [`sparsediscrim_classification_discrim_quad()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
-  [`klaR_classification_discrim_regularized()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
+  [`klar_classification_discrim_regularized()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
   [`mgcv_classification_gen_additive_mod()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
   [`brulee_classification_logistic_reg()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
   [`gee_classification_logistic_reg()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)

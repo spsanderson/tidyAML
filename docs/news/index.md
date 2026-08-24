@@ -2,6 +2,24 @@
 
 ## tidyAML (development version)
 
+## tidyAML 0.0.8
+
+CRAN release: 2026-08-24
+
+### Breaking Changes
+
+None
+
+### New Features
+
+None
+
+### Minor Fixes and Improvements
+
+Documentation and roxygen output refresh.
+
+## tidyAML 0.0.7
+
 ### Breaking Changes
 
 None
