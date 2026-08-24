@@ -49,6 +49,7 @@ Steven P. Sanderson II, MPH
 ## Examples
 
 ``` r
+
 match_args(
   f = "linear_reg",
   args = list(

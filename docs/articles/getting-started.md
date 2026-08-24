@@ -43,12 +43,14 @@ easy name change suggestion.
 You can install [tidyAML](https://www.spsanderson.com/tidyAML/) like so:
 
 ``` r
+
 install.packages("tidyAML")
 ```
 
 Or the development version from GitHub
 
 ``` r
+
 # install.packages("devtools")  
 devtools::install_github("spsanderson/tidyAML")
 ```
@@ -65,6 +67,7 @@ regression*. Let’s take a look below.
 First let’s load the library
 
 ``` r
+
 library(tidyAML)
 #> Loading required package: parsnip
 #> 
@@ -88,6 +91,7 @@ library(tidyAML)
 Now lets see the function in action.
 
 ``` r
+
 fast_regression_parsnip_spec_tbl(.parsnip_fns = "linear_reg")
 #> # A tibble: 11 × 5
 #>    .model_id .parsnip_engine .parsnip_mode .parsnip_fns model_spec
@@ -129,6 +133,7 @@ conjunction with each other!
 This function also does add a class to the output. Let’s see it.
 
 ``` r
+
 class(fast_regression_parsnip_spec_tbl())
 #> [1] "tidyaml_mod_spec_tbl" "fst_reg_spec_tbl"     "tidyaml_base_tbl"    
 #> [4] "tbl_df"               "tbl"                  "data.frame"
@@ -146,6 +151,7 @@ function. Well, you can. The function is called
 [`create_model_spec()`](https://www.spsanderson.com/tidyaml/reference/create_model_spec.md).
 
 ``` r
+
 create_model_spec(
  .parsnip_eng = list("lm","glm","glmnet","cubist"),
  .parsnip_fns = list(
@@ -238,6 +244,7 @@ modeling with [tidyAML](https://www.spsanderson.com/tidyAML/),
 **[`fast_regression()`](https://www.spsanderson.com/tidyaml/reference/fast_regression.md)**.
 
 ``` r
+
 library(recipes)
 library(dplyr)
 
@@ -256,7 +263,7 @@ glimpse(frt_tbl)
 #> $ .parsnip_engine <chr> "lm", "glm"
 #> $ .parsnip_mode   <chr> "regression", "regression"
 #> $ .parsnip_fns    <chr> "linear_reg", "linear_reg"
-#> $ model_spec      <list> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…
+#> $ model_spec      <list> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE,…
 #> $ wflw            <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
 #> $ fitted_wflw     <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
 #> $ pred_wflw       <list> [<tbl_df[64 x 3]>], [<tbl_df[64 x 3]>]
@@ -270,6 +277,7 @@ which was used to make what I call **safe_make** functions.
 Let’s look at the fitted workflow predictions.
 
 ``` r
+
 frt_tbl$pred_wflw
 #> [[1]]
 #> # A tibble: 64 × 3

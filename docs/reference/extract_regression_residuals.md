@@ -62,65 +62,65 @@ extract_regression_residuals(fr_tbl)
 #> # A tibble: 32 × 4
 #>    .model_type     .actual .predicted  .resid
 #>    <chr>             <dbl>      <dbl>   <dbl>
-#>  1 lm - linear_reg    15         13.9  1.12  
-#>  2 lm - linear_reg    21         21.6 -0.608 
-#>  3 lm - linear_reg    18.1       19.7 -1.62  
-#>  4 lm - linear_reg    21         21.5 -0.533 
-#>  5 lm - linear_reg    30.4       30.4  0.0351
-#>  6 lm - linear_reg    15.2       17.1 -1.93  
-#>  7 lm - linear_reg    21.4       23.0 -1.55  
-#>  8 lm - linear_reg    19.2       16.1  3.05  
-#>  9 lm - linear_reg    10.4       11.4 -1.02  
-#> 10 lm - linear_reg    32.4       27.6  4.81  
+#>  1 lm - linear_reg    21.5       23.5 -1.97  
+#>  2 lm - linear_reg    18.1       19.6 -1.54  
+#>  3 lm - linear_reg    22.8       24.2 -1.43  
+#>  4 lm - linear_reg    15.5       16.3 -0.815 
+#>  5 lm - linear_reg    19.2       19.2  0.0490
+#>  6 lm - linear_reg    21.4       23.0 -1.64  
+#>  7 lm - linear_reg    21         21.2 -0.244 
+#>  8 lm - linear_reg    14.7       10.0  4.66  
+#>  9 lm - linear_reg    33.9       28.5  5.43  
+#> 10 lm - linear_reg    15.8       18.4 -2.60  
 #> # ℹ 22 more rows
 #> 
 #> [[2]]
 #> # A tibble: 32 × 4
 #>    .model_type      .actual .predicted  .resid
 #>    <chr>              <dbl>      <dbl>   <dbl>
-#>  1 glm - linear_reg    15         13.9  1.12  
-#>  2 glm - linear_reg    21         21.6 -0.608 
-#>  3 glm - linear_reg    18.1       19.7 -1.62  
-#>  4 glm - linear_reg    21         21.5 -0.533 
-#>  5 glm - linear_reg    30.4       30.4  0.0351
-#>  6 glm - linear_reg    15.2       17.1 -1.93  
-#>  7 glm - linear_reg    21.4       23.0 -1.55  
-#>  8 glm - linear_reg    19.2       16.1  3.05  
-#>  9 glm - linear_reg    10.4       11.4 -1.02  
-#> 10 glm - linear_reg    32.4       27.6  4.81  
+#>  1 glm - linear_reg    21.5       23.5 -1.97  
+#>  2 glm - linear_reg    18.1       19.6 -1.54  
+#>  3 glm - linear_reg    22.8       24.2 -1.43  
+#>  4 glm - linear_reg    15.5       16.3 -0.815 
+#>  5 glm - linear_reg    19.2       19.2  0.0490
+#>  6 glm - linear_reg    21.4       23.0 -1.64  
+#>  7 glm - linear_reg    21         21.2 -0.244 
+#>  8 glm - linear_reg    14.7       10.0  4.66  
+#>  9 glm - linear_reg    33.9       28.5  5.43  
+#> 10 glm - linear_reg    15.8       18.4 -2.60  
 #> # ℹ 22 more rows
 #> 
 extract_regression_residuals(fr_tbl, .pivot_long = TRUE)
 #> [[1]]
 #> # A tibble: 96 × 3
-#>    .model_type     name        value
-#>    <chr>           <chr>       <dbl>
-#>  1 lm - linear_reg .actual    15    
-#>  2 lm - linear_reg .predicted 13.9  
-#>  3 lm - linear_reg .resid      1.12 
-#>  4 lm - linear_reg .actual    21    
-#>  5 lm - linear_reg .predicted 21.6  
-#>  6 lm - linear_reg .resid     -0.608
-#>  7 lm - linear_reg .actual    18.1  
-#>  8 lm - linear_reg .predicted 19.7  
-#>  9 lm - linear_reg .resid     -1.62 
-#> 10 lm - linear_reg .actual    21    
+#>    .model_type     name       value
+#>    <chr>           <chr>      <dbl>
+#>  1 lm - linear_reg .actual    21.5 
+#>  2 lm - linear_reg .predicted 23.5 
+#>  3 lm - linear_reg .resid     -1.97
+#>  4 lm - linear_reg .actual    18.1 
+#>  5 lm - linear_reg .predicted 19.6 
+#>  6 lm - linear_reg .resid     -1.54
+#>  7 lm - linear_reg .actual    22.8 
+#>  8 lm - linear_reg .predicted 24.2 
+#>  9 lm - linear_reg .resid     -1.43
+#> 10 lm - linear_reg .actual    15.5 
 #> # ℹ 86 more rows
 #> 
 #> [[2]]
 #> # A tibble: 96 × 3
-#>    .model_type      name        value
-#>    <chr>            <chr>       <dbl>
-#>  1 glm - linear_reg .actual    15    
-#>  2 glm - linear_reg .predicted 13.9  
-#>  3 glm - linear_reg .resid      1.12 
-#>  4 glm - linear_reg .actual    21    
-#>  5 glm - linear_reg .predicted 21.6  
-#>  6 glm - linear_reg .resid     -0.608
-#>  7 glm - linear_reg .actual    18.1  
-#>  8 glm - linear_reg .predicted 19.7  
-#>  9 glm - linear_reg .resid     -1.62 
-#> 10 glm - linear_reg .actual    21    
+#>    .model_type      name       value
+#>    <chr>            <chr>      <dbl>
+#>  1 glm - linear_reg .actual    21.5 
+#>  2 glm - linear_reg .predicted 23.5 
+#>  3 glm - linear_reg .resid     -1.97
+#>  4 glm - linear_reg .actual    18.1 
+#>  5 glm - linear_reg .predicted 19.6 
+#>  6 glm - linear_reg .resid     -1.54
+#>  7 glm - linear_reg .actual    22.8 
+#>  8 glm - linear_reg .predicted 24.2 
+#>  9 glm - linear_reg .resid     -1.43
+#> 10 glm - linear_reg .actual    15.5 
 #> # ℹ 86 more rows
 #> 
 ```

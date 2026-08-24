@@ -62,8 +62,18 @@ make_regression_base_tbl() |>
 
 make_classification_base_tbl() |>
   internal_make_spec_tbl()
-#> Error in map2(.x, vec_index(.x), .f, ...): ℹ In index: 10.
-#> Caused by error:
-#> ! Could not find model builder function 'klar_classification_discrim_regularized' for engine='klaR', mode='classification', parsnip_function='discrim_regularized'.
-#> Original error: object 'klar_classification_discrim_regularized' of mode 'function' was not found
+#> # A tibble: 31 × 5
+#>    .model_id .parsnip_engine .parsnip_mode  .parsnip_fns        model_spec
+#>        <int> <chr>           <chr>          <chr>               <list>    
+#>  1         1 earth           classification bag_mars            <spec[+]> 
+#>  2         2 earth           classification discrim_flexible    <spec[+]> 
+#>  3         3 dbarts          classification bart                <spec[+]> 
+#>  4         4 MASS            classification discrim_linear      <spec[+]> 
+#>  5         5 mda             classification discrim_linear      <spec[+]> 
+#>  6         6 sda             classification discrim_linear      <spec[+]> 
+#>  7         7 sparsediscrim   classification discrim_linear      <spec[+]> 
+#>  8         8 MASS            classification discrim_quad        <spec[+]> 
+#>  9         9 sparsediscrim   classification discrim_quad        <spec[+]> 
+#> 10        10 klaR            classification discrim_regularized <spec[+]> 
+#> # ℹ 21 more rows
 ```

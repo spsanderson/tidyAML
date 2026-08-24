@@ -27,7 +27,7 @@ mass_classification_discrim_quad()
 
 sparsediscrim_classification_discrim_quad()
 
-klaR_classification_discrim_regularized()
+klar_classification_discrim_regularized()
 
 mgcv_classification_gen_additive_mod()
 

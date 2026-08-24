@@ -69,9 +69,9 @@ extract_wflw_fit(frt_tbl, 1)
 #> 
 #> Coefficients:
 #> (Intercept)          cyl         disp           hp         drat           wt  
-#>    18.15559     -0.55442      0.03200     -0.03765     -0.67125     -5.90849  
+#>  -11.707745    -0.297490     0.016804    -0.001976     0.358231    -4.368291  
 #>        qsec           vs           am         gear         carb  
-#>     0.96997      0.58619      1.97247      1.10145      0.63792  
+#>    2.194814    -1.765715     4.282072     0.930844    -0.241416  
 #> 
 #> 
 extract_wflw_fit(frt_tbl, 1:2)
@@ -90,9 +90,9 @@ extract_wflw_fit(frt_tbl, 1:2)
 #> 
 #> Coefficients:
 #> (Intercept)          cyl         disp           hp         drat           wt  
-#>    18.15559     -0.55442      0.03200     -0.03765     -0.67125     -5.90849  
+#>  -11.707745    -0.297490     0.016804    -0.001976     0.358231    -4.368291  
 #>        qsec           vs           am         gear         carb  
-#>     0.96997      0.58619      1.97247      1.10145      0.63792  
+#>    2.194814    -1.765715     4.282072     0.930844    -0.241416  
 #> 
 #> 
 #> [[2]]
@@ -109,12 +109,12 @@ extract_wflw_fit(frt_tbl, 1:2)
 #> 
 #> Coefficients:
 #> (Intercept)          cyl         disp           hp         drat           wt  
-#>    18.15559     -0.55442      0.03200     -0.03765     -0.67125     -5.90849  
+#>  -11.707745    -0.297490     0.016804    -0.001976     0.358231    -4.368291  
 #>        qsec           vs           am         gear         carb  
-#>     0.96997      0.58619      1.97247      1.10145      0.63792  
+#>    2.194814    -1.765715     4.282072     0.930844    -0.241416  
 #> 
 #> Degrees of Freedom: 23 Total (i.e. Null);  13 Residual
-#> Null Deviance:       713 
-#> Residual Deviance: 79.02     AIC: 120.7
+#> Null Deviance:       947.7 
+#> Residual Deviance: 107.5     AIC: 128.1
 #> 
 ```

@@ -55,12 +55,14 @@ making it perfect for both rapid prototyping and production workflows.
 Install the stable version from CRAN:
 
 ``` r
+
 install.packages("tidyAML")
 ```
 
 Or get the development version from GitHub:
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("spsanderson/tidyAML")
 ```
@@ -68,6 +70,7 @@ devtools::install_github("spsanderson/tidyAML")
 After installation, it’s recommended to set tidymodels preferences:
 
 ``` r
+
 library(tidyAML)
 tidymodels::tidymodels_prefer()
 ```
@@ -77,6 +80,7 @@ tidymodels::tidymodels_prefer()
 Here’s a minimal example to get you started:
 
 ``` r
+
 library(tidyAML)
 library(recipes)
 
@@ -100,6 +104,7 @@ Let’s build multiple regression models to predict car mileage (mpg)
 using the mtcars dataset:
 
 ``` r
+
 library(tidyAML)
 library(recipes)
 library(dplyr)
@@ -110,6 +115,7 @@ library(dplyr)
 You can generate model specifications in several ways:
 
 ``` r
+
 # Generate all linear regression models
 fast_regression_parsnip_spec_tbl(.parsnip_fns = "linear_reg")
 #> # A tibble: 11 × 5
@@ -154,6 +160,7 @@ For more control, use
 [`create_model_spec()`](https://www.spsanderson.com/tidyaml/reference/create_model_spec.md):
 
 ``` r
+
 create_model_spec(
   .parsnip_eng = list("lm", "glm", "glmnet"),
   .parsnip_fns = list("linear_reg", "linear_reg", "linear_reg")
@@ -171,10 +178,12 @@ create_model_spec(
 The real power comes from training multiple models at once:
 
 ``` r
+
 # Create a recipe
 rec_obj <- recipe(mpg ~ ., data = mtcars)
 
 # Train multiple models
+set.seed(42)
 models_tbl <- fast_regression(
   .data = mtcars, 
   .rec_obj = rec_obj, 
@@ -189,7 +198,7 @@ glimpse(models_tbl)
 #> $ .parsnip_engine <chr> "lm", "glm"
 #> $ .parsnip_mode   <chr> "regression", "regression"
 #> $ .parsnip_fns    <chr> "linear_reg", "linear_reg"
-#> $ model_spec      <list> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE]…
+#> $ model_spec      <list> [~NULL, ~NULL, NULL, regression, TRUE, NULL, lm, TRUE,…
 #> $ wflw            <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
 #> $ fitted_wflw     <list> [cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb, mp…
 #> $ pred_wflw       <list> [<tbl_df[64 x 3]>], [<tbl_df[64 x 3]>]
@@ -206,22 +215,23 @@ process.
 Extract predictions from trained models:
 
 ``` r
+
 # Get predictions from all models
 predictions <- extract_wflw_pred(models_tbl, 1:2)
 predictions
 #> # A tibble: 128 × 4
 #>    .model_type     .data_category .data_type .value
 #>    <chr>           <chr>          <chr>       <dbl>
-#>  1 lm - linear_reg actual         actual       18.1
-#>  2 lm - linear_reg actual         actual       15.8
-#>  3 lm - linear_reg actual         actual       22.8
-#>  4 lm - linear_reg actual         actual       33.9
-#>  5 lm - linear_reg actual         actual       30.4
-#>  6 lm - linear_reg actual         actual       21  
-#>  7 lm - linear_reg actual         actual       17.8
-#>  8 lm - linear_reg actual         actual       17.3
-#>  9 lm - linear_reg actual         actual       18.7
-#> 10 lm - linear_reg actual         actual       21  
+#>  1 lm - linear_reg actual         actual       14.7
+#>  2 lm - linear_reg actual         actual       18.7
+#>  3 lm - linear_reg actual         actual       21  
+#>  4 lm - linear_reg actual         actual       19.2
+#>  5 lm - linear_reg actual         actual       19.2
+#>  6 lm - linear_reg actual         actual       21.4
+#>  7 lm - linear_reg actual         actual       32.4
+#>  8 lm - linear_reg actual         actual       21.4
+#>  9 lm - linear_reg actual         actual       10.4
+#> 10 lm - linear_reg actual         actual       14.3
 #> # ℹ 118 more rows
 ```
 
@@ -230,22 +240,23 @@ predictions
 Get model residuals for diagnostic purposes:
 
 ``` r
+
 # Extract residuals
 residuals <- extract_regression_residuals(models_tbl)
 residuals[[1]]  # View first model's residuals
 #> # A tibble: 32 × 4
-#>    .model_type     .actual .predicted .resid
-#>    <chr>             <dbl>      <dbl>  <dbl>
-#>  1 lm - linear_reg    18.1       21.1 -3.04 
-#>  2 lm - linear_reg    15.8       18.5 -2.74 
-#>  3 lm - linear_reg    22.8       25.1 -2.32 
-#>  4 lm - linear_reg    33.9       31.5  2.43 
-#>  5 lm - linear_reg    30.4       28.1  2.27 
-#>  6 lm - linear_reg    21         22.4 -1.38 
-#>  7 lm - linear_reg    17.8       19.3 -1.45 
-#>  8 lm - linear_reg    17.3       15.8  1.49 
-#>  9 lm - linear_reg    18.7       18.3  0.432
-#> 10 lm - linear_reg    21         22.6 -1.58 
+#>    .model_type     .actual .predicted  .resid
+#>    <chr>             <dbl>      <dbl>   <dbl>
+#>  1 lm - linear_reg    14.7       11.8  2.88  
+#>  2 lm - linear_reg    18.7       19.3 -0.620 
+#>  3 lm - linear_reg    21         20.9  0.0888
+#>  4 lm - linear_reg    19.2       18.1  1.06  
+#>  5 lm - linear_reg    19.2       18.2  1.01  
+#>  6 lm - linear_reg    21.4       20.1  1.27  
+#>  7 lm - linear_reg    32.4       28.1  4.33  
+#>  8 lm - linear_reg    21.4       23.7 -2.34  
+#>  9 lm - linear_reg    10.4       11.6 -1.19  
+#> 10 lm - linear_reg    14.3       13.8  0.488 
 #> # ℹ 22 more rows
 ```
 
@@ -255,6 +266,7 @@ tidyAML also excels at classification tasks. Here’s an example using the
 Titanic dataset:
 
 ``` r
+
 library(tidyr)
 
 # Prepare data
@@ -290,6 +302,7 @@ glimpse(class_models)
 ### Extract Classification Predictions
 
 ``` r
+
 # Get predictions
 class_predictions <- extract_wflw_pred(class_models, 1:2)
 class_predictions
@@ -297,11 +310,11 @@ class_predictions
 #>    .model_type        .data_category .data_type .value
 #>    <chr>              <chr>          <chr>      <fct> 
 #>  1 glm - logistic_reg actual         actual     No    
-#>  2 glm - logistic_reg actual         actual     Yes   
+#>  2 glm - logistic_reg actual         actual     No    
 #>  3 glm - logistic_reg actual         actual     No    
-#>  4 glm - logistic_reg actual         actual     Yes   
+#>  4 glm - logistic_reg actual         actual     No    
 #>  5 glm - logistic_reg actual         actual     No    
-#>  6 glm - logistic_reg actual         actual     No    
+#>  6 glm - logistic_reg actual         actual     Yes   
 #>  7 glm - logistic_reg actual         actual     No    
 #>  8 glm - logistic_reg actual         actual     No    
 #>  9 glm - logistic_reg actual         actual     No    
@@ -362,6 +375,7 @@ class_predictions
 Visualize model performance easily:
 
 ``` r
+
 # Plot predictions
 plot_regression_predictions(models_tbl)
 
@@ -381,24 +395,19 @@ plot_regression_residuals(models_tbl)
 
 ## Contributing
 
-Contributions are welcome! Please see
-[CONTRIBUTING.md](https://www.spsanderson.com/tidyaml/CONTRIBUTING.md)
-for guidelines.
+Contributions are welcome!
 
 Key ways to contribute: - Report bugs or request features via [GitHub
 Issues](https://github.com/spsanderson/tidyAML/issues) - Submit Pull
 Requests for bug fixes or new features - Improve documentation or add
 examples - Share your use cases and feedback
 
-Please note that this project is released with a [Contributor Code of
-Conduct](https://www.spsanderson.com/tidyaml/CODE_OF_CONDUCT.md). By
-participating in this project you agree to abide by its terms.
-
 ## Citation
 
 If you use tidyAML in your research or work, please cite it:
 
 ``` r
+
 citation("tidyAML")
 ```
 
@@ -538,7 +547,7 @@ Internal/Helper functions
   [`sparsediscrim_classification_discrim_linear()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
   [`mass_classification_discrim_quad()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
   [`sparsediscrim_classification_discrim_quad()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
-  [`klaR_classification_discrim_regularized()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
+  [`klar_classification_discrim_regularized()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
   [`mgcv_classification_gen_additive_mod()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
   [`brulee_classification_logistic_reg()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)
   [`gee_classification_logistic_reg()`](https://www.spsanderson.com/tidyaml/reference/internal_model_builders_classification.md)

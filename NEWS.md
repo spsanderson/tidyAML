@@ -9,7 +9,7 @@ None
 None
 
 ## Minor Fixes and Improvements
-ocumentation and roxygen output refresh.
+Documentation and roxygen output refresh.
 
 # tidyAML 0.0.7
 
