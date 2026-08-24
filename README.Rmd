@@ -274,15 +274,13 @@ plot_regression_residuals(models_tbl)
 
 ## Contributing
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. 
+Contributions are welcome! 
 
 Key ways to contribute:
 - Report bugs or request features via [GitHub Issues](https://github.com/spsanderson/tidyAML/issues)
 - Submit Pull Requests for bug fixes or new features
 - Improve documentation or add examples
 - Share your use cases and feedback
-
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 ## Citation
 
