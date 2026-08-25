@@ -89,7 +89,3 @@ R](https://adv-r.hadley.nz) may also be useful for a deeper dive.
   handles those cases gracefully. If your code assumes a simple column
   name, use `as_name()` instead. This is safer because it throws an
   error if the input is not a name as expected.
-
-## Value
-
-No return value, called for side effects
