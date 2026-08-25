@@ -25,6 +25,7 @@ export(earth_regression_bag_mars)
 export(earth_regression_mars)
 export(enquo)
 export(enquos)
+export(expr)
 export(extract_model_spec)
 export(extract_regression_residuals)
 export(extract_tunable_params)
@@ -104,6 +105,8 @@ export(stan_glmer_regression_linear_reg)
 export(stan_glmer_regression_poisson_reg)
 export(stan_regression_linear_reg)
 export(stan_regression_poisson_reg)
+export(sym)
+export(syms)
 export(xgboost_regression_boost_tree)
 export(xrf_classification_rule_fit)
 export(xrf_regression_rule_fit)
@@ -121,5 +124,8 @@ importFrom(rlang,
   as_label,
   as_name,
   enquo,
-  enquos
+  enquos,
+  expr,
+  sym,
+  syms
 )
