@@ -50,6 +50,8 @@ internal_make_spec_tbl <- function(.model_tbl){
   models_list <- model_factor_tbl |>
     dplyr::group_split(.model_id)
 
+  builder_env <- environment(internal_make_spec_tbl)
+
   # Make the Workflow Object using purrr imap
   model_spec <- models_list |>
     purrr::imap(
@@ -68,9 +70,11 @@ internal_make_spec_tbl <- function(.model_tbl){
           base::tolower(pf)
         )
 
-        # Call the pre-built model function with error handling
-        ret <- tryCatch(
-          match.fun(fn_name)(),
+        # Resolve the built-in builder without depending on attached packages.
+        ret <- tryCatch({
+          builder <- get(fn_name, envir = builder_env, mode = "function", inherits = FALSE)
+          builder()
+        },
           error = function(e) {
             stop(
               sprintf(

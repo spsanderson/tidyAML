@@ -48,36 +48,50 @@ fast_regression <- function(.data, .rec_obj, .parsnip_fns = "all",
                             .parsnip_eng = "all", .split_type = "initial_split",
                             .split_args = NULL, .drop_na = TRUE){
 
-  # Tidy Eval ----
-  call <- list(.parsnip_fns) |>
-    purrr::flatten_chr()
-  engine <- list(.parsnip_eng) |>
-    purrr::flatten_chr()
-
-  rec_obj <- .rec_obj
-  split_type <- .split_type
-  split_args <- .split_args
-
-  # Checks ----
-
+<<<<<<< Updated upstream
+  splits_obj <- create_splits(
+    .data = dplyr::as_tibble(.data),
+    .split_type = .split_type,
+    .split_args = .split_args
+  )
+  fit_fast_regression(.rec_obj, .parsnip_fns, .parsnip_eng, splits_obj,
+                      .split_args, .drop_na, .split_type)
+}
+=======
   # Get data splits
   df <- dplyr::as_tibble(.data)
   splits_obj <- create_splits(
     .data = df,
-    .split_type = split_type,
-    .split_args = split_args
+    .split_type = .split_type,
+    .split_args = .split_args
   )
+  fast_regression_from_split(
+    .rec_obj, .parsnip_fns, .parsnip_eng, splits_obj, .split_args, .drop_na
+  )
+}
 
+# Use an existing split so nested selection and final evaluation cannot overlap.
+fast_regression_from_split <- function(.rec_obj, .parsnip_fns, .parsnip_eng,
+                                       splits_obj, .split_args, .drop_na) {
+  call <- list(.parsnip_fns) |>
+    purrr::flatten_chr()
+  engine <- list(.parsnip_eng) |>
+    purrr::flatten_chr()
+>>>>>>> Stashed changes
+
+fit_fast_regression <- function(.rec_obj, .parsnip_fns, .parsnip_eng,
+                                splits_obj, .split_args, .drop_na,
+                                .split_type = "initial_split") {
   # Generate Model Spec Tbl
   mod_spec_tbl <- fast_regression_parsnip_spec_tbl(
-    .parsnip_fns = call,
-    .parsnip_eng = engine
+    .parsnip_fns = .parsnip_fns,
+    .parsnip_eng = .parsnip_eng
   )
 
   # Generate Workflow object
   mod_tbl <- mod_spec_tbl |>
     dplyr::mutate(
-      wflw = full_internal_make_wflw(mod_spec_tbl, .rec_obj = rec_obj)
+      wflw = full_internal_make_wflw(mod_spec_tbl, .rec_obj = .rec_obj)
     )
 
   mod_fitted_tbl <- mod_tbl |>
@@ -90,16 +104,22 @@ fast_regression <- function(.data, .rec_obj, .parsnip_fns = "all",
       pred_wflw = internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)
     )
 
+<<<<<<< Updated upstream
   if (.drop_na){
-    mod_pred_tbl <- mod_pred_tbl[!sapply(mod_pred_tbl$fitted_wflw, function(x) length(x) == 0), ]
-    mod_pred_tbl <- mod_pred_tbl[!sapply(mod_pred_tbl$pred_wflw, function(x) length(x) == 0), ]
+    mod_pred_tbl <- mod_pred_tbl[!vapply(mod_pred_tbl$fitted_wflw, function(x) length(x) == 0, logical(1)), ]
+    mod_pred_tbl <- mod_pred_tbl[!vapply(mod_pred_tbl$pred_wflw, function(x) length(x) == 0, logical(1)), ]
+=======
+  if (.drop_na) {
+    keep <- lengths(mod_pred_tbl$fitted_wflw) > 0L & lengths(mod_pred_tbl$pred_wflw) > 0L
+    mod_pred_tbl <- mod_pred_tbl[keep, ]
+>>>>>>> Stashed changes
   }
 
   # Return ----
   class(mod_pred_tbl) <- c("fst_reg_tbl", class(mod_pred_tbl))
   attr(mod_pred_tbl, ".parsnip_engines") <- .parsnip_eng
   attr(mod_pred_tbl, ".parsnip_functions") <- .parsnip_fns
-  attr(mod_pred_tbl, ".split_type") <- .split_type
+  attr(mod_pred_tbl, ".split_type") <- splits_obj$split_type
   attr(mod_pred_tbl, ".split_args") <- .split_args
   attr(mod_pred_tbl, ".drop_na") <- .drop_na
 

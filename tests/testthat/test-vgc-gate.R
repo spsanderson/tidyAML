@@ -1,0 +1,23 @@
+test_that("gate applies the stability threshold and adaptive tolerance", {
+  expect_true(vgc_gate(0.8, 0.798, 1))
+  expect_false(vgc_gate(0.8, 0.797, 1))
+  expect_true(vgc_gate(0.8, 0.791, 0.6))
+  expect_false(vgc_gate(0.8, 0.790, 0.6))
+  expect_false(vgc_gate(0.8, 0.95, 0.59))
+  expect_false(vgc_gate(0.8, 0.95, -0.3))
+})
+
+test_that("gate can compare losses and abstains on unavailable inputs", {
+  expect_true(vgc_gate(1, 1.05, 1, 0.05, 0.05, .maximize = FALSE))
+  expect_false(vgc_gate(1, 1.06, 1, 0.05, 0.05, .maximize = FALSE))
+  expect_true(vgc_gate(1, 0.8, 1, .maximize = FALSE))
+  expect_false(vgc_gate(1, 2, NA_real_))
+  expect_false(vgc_gate(NA, 2, 1))
+  expect_false(vgc_gate(1, Inf, 1))
+  expect_error(vgc_gate(1, 2, 1, 0.05, 0.01), "tau_max")
+  expect_error(vgc_gate(1, 2, 1.1), "rho_hat")
+  expect_error(vgc_gate(1, c(2, 3), 1), "candidate_score")
+  expect_error(vgc_gate(1, matrix(2), 1), "candidate_score")
+  expect_error(vgc_gate(1, 2 + 1i, 1), "candidate_score")
+  expect_error(vgc_gate(1, 2, 1, .maximize = NA), "maximize")
+})
