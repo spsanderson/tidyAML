@@ -2,11 +2,16 @@
 % Please edit documentation in R/lodo-engine-audit.R
 \name{lodo_engine_audit}
 \alias{lodo_engine_audit}
+<<<<<<< Updated upstream
 \title{Audit Engine Selection Across Datasets}
+=======
+\title{Audit model selection across held-out datasets}
+>>>>>>> Stashed changes
 \usage{
 lodo_engine_audit(
   .datasets_list,
   .outcome_var,
+<<<<<<< Updated upstream
   .parsnip_eng = c("glm", "glmnet", "ranger"),
   .parsnip_fns = "all",
   .split_args = NULL
@@ -58,3 +63,77 @@ Other Model_Validation:
 Steven P. Sanderson II, MPH
 }
 \concept{Model_Validation}
+=======
+  .parsnip_eng = NULL,
+  .parsnip_fns = "all",
+  .metric = "rmse",
+  .event_level = "first",
+  .split_args = NULL,
+  .seed = NULL
+)
+}
+\arguments{
+\item{.datasets_list}{Named list of at least two data frames. Each must
+contain \code{.outcome_var}; other column names may differ across datasets.}
+
+\item{.outcome_var}{Name of one outcome column common to all datasets.}
+
+\item{.parsnip_eng}{Character vector of engines to compare. With \code{NULL},
+use \code{c("lm", "ranger")} for regression or \code{"glm"} for classification.
+Pass more than one working specification to audit a selection decision.}
+
+\item{.parsnip_fns}{Character vector of model families to include, or
+\code{"all"} for all supported families for the requested engines.}
+
+\item{.metric}{\code{"rmse"} for a numeric outcome; \code{"roc_auc"} (as \code{1 - AUC})
+or \code{"mn_log_loss"} for a factor outcome. Loss is always smaller-is-better.}
+
+\item{.event_level}{\code{"first"} or \code{"second"}, used for binary probability
+metrics. Multiclass metrics use all class probabilities in factor order.}
+
+\item{.split_args}{Optional arguments for \code{\link[rsample:initial_split]{rsample::initial_split()}},
+applied to the shared split within each dataset.}
+
+\item{.seed}{Optional integer seed for splitting and fitting. A supplied
+seed leaves the caller's R RNG state unchanged.}
+}
+\value{
+A tibble with one row per held-out dataset and columns
+\code{held_out_dataset}, \code{selected_model}, \code{selection_loss}, \code{held_out_loss},
+and \code{generalization_gap} (\code{held_out_loss - selection_loss}). The
+\code{.lodo_scores} attribute is a tibble with \code{dataset}, \code{model}, \code{loss},
+and \code{error} columns; \code{.lodo_metric} records the requested metric.
+}
+\description{
+Score each \code{tidyAML} regression or classification specification on a
+shared testing split within each dataset. Hold out one dataset at a time,
+select the model with the lowest mean loss on the other datasets, and
+compare its mean selection loss to its loss on the held-out dataset.
+Models are fitted within each dataset; this audits the choice of model
+specification, not transfer of fitted weights across datasets.
+}
+\details{
+Only models scored on every selection dataset are eligible. Exact
+ties are broken by model label in bytewise order. A failed score on the
+held-out dataset does not change selection: the held-out loss and gap are
+\code{NA}. Folds with no eligible model have \code{NA} for all result fields except
+the dataset name. Failures are reported with a warning and error details
+are retained in the per-dataset score table. Use representative datasets;
+the gap is descriptive, and raw RMSE may be dominated by datasets with
+larger outcome scales.
+}
+\examples{
+datasets <- list(airquality = na.omit(airquality), mtcars = mtcars)
+datasets$airquality$outcome <- datasets$airquality$Temp
+datasets$airquality$Temp <- NULL
+datasets$mtcars$outcome <- datasets$mtcars$mpg
+datasets$mtcars$mpg <- NULL
+lodo_engine_audit(datasets, "outcome", c("lm", "glm"),
+  .parsnip_fns = "linear_reg", .seed = 280L
+)
+}
+\references{
+Hog et al., Towards Reliable Scaling Laws for Tabular
+Foundation Models, \url{https://arxiv.org/abs/2611.24214}.
+}
+>>>>>>> Stashed changes

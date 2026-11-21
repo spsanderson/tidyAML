@@ -34,7 +34,8 @@ of the split type will be executed for the rsample split type.}
 \item{.drop_na}{The default is TRUE, which will drop all NA's from the data.}
 }
 \value{
-A list or a tibble.
+A tibble of fitted classification workflows and predictions. The testing
+rows are retained as an attribute for \code{\link[=check_validation_stability]{check_validation_stability()}}.
 }
 \description{
 Creates a list/tibble of parsnip model specifications.
