@@ -29,5 +29,26 @@ vgc_gate(
 A logical value. Missing or non-finite evidence returns \code{FALSE}.
 }
 \description{
-Gate a Candidate by Validation Stability
+Decide whether to accept a candidate using its validation score and the
+stability of the model rankings.
 }
+\details{
+The gate rejects candidates when rank stability is below the minimum.
+Otherwise, the tolerance grows as stability falls, within the specified
+bounds. Set both tolerance bounds to the same value to use a fixed
+tolerance.
+}
+\examples{
+vgc_gate(0.80, 0.797, .rho_hat = 0.85)
+vgc_gate(3.0, 2.9, .rho_hat = 0.85, .direction = "minimize")
+
+}
+\seealso{
+Other Model_Validation:
+\code{\link[=check_validation_stability]{check_validation_stability()}},
+\code{\link[=lodo_engine_audit]{lodo_engine_audit()}}
+}
+\author{
+Steven P. Sanderson II, MPH
+}
+\concept{Model_Validation}

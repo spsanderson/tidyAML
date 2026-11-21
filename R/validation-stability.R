@@ -19,6 +19,25 @@
 #'   use `yardstick::roc_auc_vec` and supply independent validation data because
 #'   the standard classification result stores labels. Set the metric's event
 #'   level to match the event level used for predictions.
+#'
+#' @description
+#' Measure how consistently fitted models rank across paired bootstrap draws
+#' of their held-out predictions.
+#'
+#' @author Steven P. Sanderson II, MPH
+#' @family Model_Validation
+#'
+#' @examples
+#' set.seed(280)
+#' rec <- recipes::recipe(mpg ~ wt + hp, data = mtcars)
+#' models <- fast_regression(
+#'   mtcars, rec, .parsnip_eng = c("lm", "glm"),
+#'   .parsnip_fns = "linear_reg"
+#' )
+#' check_validation_stability(models, .n_boot = 10L)
+#'
+#' @name check_validation_stability
+#' @rdname check_validation_stability
 #' @export
 check_validation_stability <- function(.model_tbl, .metric_fn = NULL,
                                        .n_boot = 25L, .validation_data = NULL,
@@ -119,6 +138,26 @@ check_validation_stability <- function(.model_tbl, .metric_fn = NULL,
 #' @param .direction Whether to maximize a score or minimize a loss.
 #'
 #' @return A logical value. Missing or non-finite evidence returns `FALSE`.
+#'
+#' @description
+#' Decide whether to accept a candidate using its validation score and the
+#' stability of the model rankings.
+#'
+#' @details
+#' The gate rejects candidates when rank stability is below the minimum.
+#' Otherwise, the tolerance grows as stability falls, within the specified
+#' bounds. Set both tolerance bounds to the same value to use a fixed
+#' tolerance.
+#'
+#' @author Steven P. Sanderson II, MPH
+#' @family Model_Validation
+#'
+#' @examples
+#' vgc_gate(0.80, 0.797, .rho_hat = 0.85)
+#' vgc_gate(3.0, 2.9, .rho_hat = 0.85, .direction = "minimize")
+#'
+#' @name vgc_gate
+#' @rdname vgc_gate
 #' @export
 vgc_gate <- function(.incumbent_score, .candidate_score, .rho_hat,
                      .tau_min = 0.002, .tau_max = 0.02, .min_rho = 0.6,

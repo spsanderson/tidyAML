@@ -21,7 +21,8 @@ make_lighttar_recipe(.data, .outcome_var, .emb_cols, .u_pca = 30L, .s_pls = 5L)
 An untrained recipe. Other predictors pass through unchanged.
 }
 \description{
-Make a LightTAR-Style Regression Recipe
+Create a recipe that combines principal components (PCA) with optional
+target-aware partial least squares (PLS) components.
 }
 \details{
 Standardized embeddings feed both projections. PLS retains the
@@ -29,3 +30,19 @@ embeddings for the PCA step, which replaces them with PCA components.
 The PLS step penalizes high-variance directions with strength 60/n,
 where n is the number of rows used to train the recipe.
 }
+\examples{
+rec <- make_lighttar_recipe(
+  mtcars, "mpg", c("wt", "hp", "disp"), .u_pca = 1L, .s_pls = 1L
+)
+trained <- recipes::prep(rec, training = mtcars[1:24, ])
+recipes::bake(trained, new_data = mtcars[25:32, ])
+
+}
+\seealso{
+Other LightTAR:
+\code{\link[=gated_fast_regression]{gated_fast_regression()}}
+}
+\author{
+Steven P. Sanderson II, MPH
+}
+\concept{LightTAR}

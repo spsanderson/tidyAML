@@ -37,7 +37,8 @@ Mean Spearman rank correlation for usable draws. Returns \code{NA_real_}
 when ranking is undefined, or 1 for a single model with a valid score.
 }
 \description{
-Check Validation Rank Stability
+Measure how consistently fitted models rank across paired bootstrap draws
+of their held-out predictions.
 }
 \details{
 The same validation rows are sampled for every model. Rows with
@@ -47,3 +48,22 @@ use \code{yardstick::roc_auc_vec} and supply independent validation data because
 the standard classification result stores labels. Set the metric's event
 level to match the event level used for predictions.
 }
+\examples{
+set.seed(280)
+rec <- recipes::recipe(mpg ~ wt + hp, data = mtcars)
+models <- fast_regression(
+  mtcars, rec, .parsnip_eng = c("lm", "glm"),
+  .parsnip_fns = "linear_reg"
+)
+check_validation_stability(models, .n_boot = 10L)
+
+}
+\seealso{
+Other Model_Validation:
+\code{\link[=lodo_engine_audit]{lodo_engine_audit()}},
+\code{\link[=vgc_gate]{vgc_gate()}}
+}
+\author{
+Steven P. Sanderson II, MPH
+}
+\concept{Model_Validation}

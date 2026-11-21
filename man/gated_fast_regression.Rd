@@ -46,10 +46,29 @@ The attribute contains the selected recipe name, paired fold RMSEs and
 any fold errors.
 }
 \description{
-Gate PCA and PLS Preprocessing Before Fast Regression
+Use inner cross-validation to select PCA alone or PCA with PLS, then fit
+tidyAML regression models with the selected recipe.
 }
 \details{
 The gate compares mean inner-fold RMSE. Ties and failed PLS fits
 select PCA. PCA must score successfully on every inner fold. Final testing
 uses the outer assessment rows, which are held back from the recipe choice.
 }
+\examples{
+set.seed(280)
+result <- gated_fast_regression(
+  mtcars[, c("mpg", "wt", "hp", "disp")],
+  "mpg", c("wt", "hp", "disp"), .gate_eng = "lm",
+  .u_pca = 1L, .s_pls = 1L, .v = 3L, .parsnip_eng = "lm"
+)
+attr(result, "lighttar_gate")
+
+}
+\seealso{
+Other LightTAR:
+\code{\link[=make_lighttar_recipe]{make_lighttar_recipe()}}
+}
+\author{
+Steven P. Sanderson II, MPH
+}
+\concept{LightTAR}

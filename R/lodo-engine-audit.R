@@ -13,6 +13,27 @@
 #'   those datasets. Ties break by model identifier. A missing held-out score or
 #'   the absence of an eligible model produces missing values for that fold.
 #'   RMSE comparisons across datasets assume comparable outcome units and scales.
+#'
+#' @description
+#' Evaluate how well a model selected on several regression datasets
+#' performs on a dataset left out of model selection.
+#'
+#' @author Steven P. Sanderson II, MPH
+#' @family Model_Validation
+#'
+#' @examples
+#' set.seed(280)
+#' datasets <- list(
+#'   automatic = subset(mtcars, am == 0, select = c(mpg, wt, hp)),
+#'   manual = subset(mtcars, am == 1, select = c(mpg, wt, hp))
+#' )
+#' lodo_engine_audit(
+#'   datasets, "mpg", .parsnip_eng = c("lm", "glm"),
+#'   .parsnip_fns = "linear_reg"
+#' )
+#'
+#' @name lodo_engine_audit
+#' @rdname lodo_engine_audit
 #' @export
 lodo_engine_audit <- function(.datasets_list, .outcome_var,
                               .parsnip_eng = c("glm", "glmnet", "ranger"),

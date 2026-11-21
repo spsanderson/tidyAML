@@ -11,6 +11,23 @@
 #'   embeddings for the PCA step, which replaces them with PCA components.
 #'   The PLS step penalizes high-variance directions with strength 60/n, 
 #'   where n is the number of rows used to train the recipe.
+#'
+#' @description
+#' Create a recipe that combines principal components (PCA) with optional
+#' target-aware partial least squares (PLS) components.
+#'
+#' @author Steven P. Sanderson II, MPH
+#' @family LightTAR
+#'
+#' @examples
+#' rec <- make_lighttar_recipe(
+#'   mtcars, "mpg", c("wt", "hp", "disp"), .u_pca = 1L, .s_pls = 1L
+#' )
+#' trained <- recipes::prep(rec, training = mtcars[1:24, ])
+#' recipes::bake(trained, new_data = mtcars[25:32, ])
+#'
+#' @name make_lighttar_recipe
+#' @rdname make_lighttar_recipe
 #' @export
 make_lighttar_recipe <- function(.data, .outcome_var, .emb_cols,
                                  .u_pca = 30L, .s_pls = 5L) {
@@ -48,6 +65,25 @@ make_lighttar_recipe <- function(.data, .outcome_var, .emb_cols,
 #' @details The gate compares mean inner-fold RMSE. Ties and failed PLS fits
 #'   select PCA. PCA must score successfully on every inner fold. Final testing
 #'   uses the outer assessment rows, which are held back from the recipe choice.
+#'
+#' @description
+#' Use inner cross-validation to select PCA alone or PCA with PLS, then fit
+#' tidyAML regression models with the selected recipe.
+#'
+#' @author Steven P. Sanderson II, MPH
+#' @family LightTAR
+#'
+#' @examples
+#' set.seed(280)
+#' result <- gated_fast_regression(
+#'   mtcars[, c("mpg", "wt", "hp", "disp")],
+#'   "mpg", c("wt", "hp", "disp"), .gate_eng = "lm",
+#'   .u_pca = 1L, .s_pls = 1L, .v = 3L, .parsnip_eng = "lm"
+#' )
+#' attr(result, "lighttar_gate")
+#'
+#' @name gated_fast_regression
+#' @rdname gated_fast_regression
 #' @export
 gated_fast_regression <- function(.data, .outcome_var, .emb_cols,
                                   .gate_eng = "xgboost", .u_pca = 30L,
