@@ -2,68 +2,11 @@
 % Please edit documentation in R/lodo-engine-audit.R
 \name{lodo_engine_audit}
 \alias{lodo_engine_audit}
-<<<<<<< Updated upstream
-\title{Audit Engine Selection Across Datasets}
-=======
 \title{Audit model selection across held-out datasets}
->>>>>>> Stashed changes
 \usage{
 lodo_engine_audit(
   .datasets_list,
   .outcome_var,
-<<<<<<< Updated upstream
-  .parsnip_eng = c("glm", "glmnet", "ranger"),
-  .parsnip_fns = "all",
-  .split_args = NULL
-)
-}
-\arguments{
-\item{.datasets_list}{A named list of at least two regression data frames.}
-
-\item{.outcome_var}{The numeric outcome column name shared by all datasets.}
-
-\item{.parsnip_eng, .parsnip_fns}{Engine and model filters for fast regression.}
-
-\item{.split_args}{Arguments passed to each dataset's initial split.}
-}
-\value{
-A tibble with one row per held-out dataset, the selected model,
-selection RMSE, held-out RMSE, and their difference. The
-\code{dataset_scores} attribute contains individual model scores.
-}
-\description{
-Evaluate how well a model selected on several regression datasets
-performs on a dataset left out of model selection.
-}
-\details{
-Within each dataset, all models share the same test split. Selection
-uses mean test RMSE over the other datasets and requires complete scores on
-those datasets. Ties break by model identifier. A missing held-out score or
-the absence of an eligible model produces missing values for that fold.
-RMSE comparisons across datasets assume comparable outcome units and scales.
-}
-\examples{
-set.seed(280)
-datasets <- list(
-  automatic = subset(mtcars, am == 0, select = c(mpg, wt, hp)),
-  manual = subset(mtcars, am == 1, select = c(mpg, wt, hp))
-)
-lodo_engine_audit(
-  datasets, "mpg", .parsnip_eng = c("lm", "glm"),
-  .parsnip_fns = "linear_reg"
-)
-
-}
-\seealso{
-Other Model_Validation:
-\code{\link[=check_validation_stability]{check_validation_stability()}},
-\code{\link[=vgc_gate]{vgc_gate()}}
-}
-\author{
-Steven P. Sanderson II, MPH
-}
-\concept{Model_Validation}
-=======
   .parsnip_eng = NULL,
   .parsnip_fns = "all",
   .metric = "rmse",
@@ -136,4 +79,3 @@ lodo_engine_audit(datasets, "outcome", c("lm", "glm"),
 Hog et al., Towards Reliable Scaling Laws for Tabular
 Foundation Models, \url{https://arxiv.org/abs/2611.24214}.
 }
->>>>>>> Stashed changes

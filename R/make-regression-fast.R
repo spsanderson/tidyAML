@@ -48,16 +48,13 @@ fast_regression <- function(.data, .rec_obj, .parsnip_fns = "all",
                             .parsnip_eng = "all", .split_type = "initial_split",
                             .split_args = NULL, .drop_na = TRUE){
 
-<<<<<<< Updated upstream
-  splits_obj <- create_splits(
-    .data = dplyr::as_tibble(.data),
-    .split_type = .split_type,
-    .split_args = .split_args
-  )
-  fit_fast_regression(.rec_obj, .parsnip_fns, .parsnip_eng, splits_obj,
-                      .split_args, .drop_na, .split_type)
-}
-=======
+  # Preserve the evaluation order before drawing a split; expressions can use RNG.
+  force(.parsnip_fns)
+  force(.parsnip_eng)
+  force(.rec_obj)
+  force(.split_type)
+  force(.split_args)
+
   # Get data splits
   df <- dplyr::as_tibble(.data)
   splits_obj <- create_splits(
@@ -72,16 +69,7 @@ fast_regression <- function(.data, .rec_obj, .parsnip_fns = "all",
 
 # Use an existing split so nested selection and final evaluation cannot overlap.
 fast_regression_from_split <- function(.rec_obj, .parsnip_fns, .parsnip_eng,
-                                       splits_obj, .split_args, .drop_na) {
-  call <- list(.parsnip_fns) |>
-    purrr::flatten_chr()
-  engine <- list(.parsnip_eng) |>
-    purrr::flatten_chr()
->>>>>>> Stashed changes
-
-fit_fast_regression <- function(.rec_obj, .parsnip_fns, .parsnip_eng,
-                                splits_obj, .split_args, .drop_na,
-                                .split_type = "initial_split") {
+                                      splits_obj, .split_args, .drop_na) {
   # Generate Model Spec Tbl
   mod_spec_tbl <- fast_regression_parsnip_spec_tbl(
     .parsnip_fns = .parsnip_fns,
@@ -104,15 +92,9 @@ fit_fast_regression <- function(.rec_obj, .parsnip_fns, .parsnip_eng,
       pred_wflw = internal_make_wflw_predictions(mod_fitted_tbl, splits_obj)
     )
 
-<<<<<<< Updated upstream
-  if (.drop_na){
-    mod_pred_tbl <- mod_pred_tbl[!vapply(mod_pred_tbl$fitted_wflw, function(x) length(x) == 0, logical(1)), ]
-    mod_pred_tbl <- mod_pred_tbl[!vapply(mod_pred_tbl$pred_wflw, function(x) length(x) == 0, logical(1)), ]
-=======
   if (.drop_na) {
     keep <- lengths(mod_pred_tbl$fitted_wflw) > 0L & lengths(mod_pred_tbl$pred_wflw) > 0L
     mod_pred_tbl <- mod_pred_tbl[keep, ]
->>>>>>> Stashed changes
   }
 
   # Return ----
