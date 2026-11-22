@@ -19,6 +19,22 @@ Functions that will generate models
 
   Generate Model Specification calls to `parsnip`
 
+## Validation and Model Selection
+
+Audit model decisions and select embedding preprocessing on held-out
+data
+
+- [`check_validation_stability()`](https://www.spsanderson.com/tidyaml/reference/check_validation_stability.md)
+  : Check classification validation rank stability
+- [`vgc_gate()`](https://www.spsanderson.com/tidyaml/reference/vgc_gate.md)
+  : Gate a candidate on validation score and rank stability
+- [`make_lighttar_recipe()`](https://www.spsanderson.com/tidyaml/reference/make_lighttar_recipe.md)
+  : Build a LightTAR-style recipe for numeric embeddings
+- [`gated_fast_regression()`](https://www.spsanderson.com/tidyaml/reference/gated_fast_regression.md)
+  : Select a LightTAR recipe before running fast regression
+- [`lodo_engine_audit()`](https://www.spsanderson.com/tidyaml/reference/lodo_engine_audit.md)
+  : Audit model selection across held-out datasets
+
 ## Extractors
 
 Functions that extract parts of a model spec tibble

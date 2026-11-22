@@ -2,6 +2,36 @@
 
 ## tidyAML (development version)
 
+### Breaking Changes
+
+None
+
+### New Features
+
+1.  Fixes [\#280](https://github.com/spsanderson/tidyAML/issues/280),
+    [\#281](https://github.com/spsanderson/tidyAML/issues/281), and
+    [\#282](https://github.com/spsanderson/tidyAML/issues/282)
+
+- Add
+  [`check_validation_stability()`](https://www.spsanderson.com/tidyaml/reference/check_validation_stability.md)
+  and
+  [`vgc_gate()`](https://www.spsanderson.com/tidyaml/reference/vgc_gate.md)
+  for validation-based model decisions.
+- Add
+  [`make_lighttar_recipe()`](https://www.spsanderson.com/tidyaml/reference/make_lighttar_recipe.md)
+  and
+  [`gated_fast_regression()`](https://www.spsanderson.com/tidyaml/reference/gated_fast_regression.md)
+  for target-aware embedding preprocessing with nested validation.
+- Add
+  [`lodo_engine_audit()`](https://www.spsanderson.com/tidyaml/reference/lodo_engine_audit.md)
+  to measure how regression or classification model choices generalize
+  to held-out datasets
+  ([\#280](https://github.com/spsanderson/tidyAML/issues/280)).
+
+### Minor Fixes and Improvements
+
+None
+
 ## tidyAML 0.0.8
 
 CRAN release: 2026-08-24

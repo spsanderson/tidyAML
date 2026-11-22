@@ -54,7 +54,6 @@ Steven P. Sanderson II, MPH
 library(dplyr)
 library(recipes)
 library(multilevelmod)
-#> Warning: package 'multilevelmod' was built under R version 4.6.1
 
 mod_tbl <- make_regression_base_tbl()
 mod_tbl <- mod_tbl |>
