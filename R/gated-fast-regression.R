@@ -47,6 +47,12 @@ gated_fast_regression <- function(.data, .outcome_var, .emb_cols, .gate_eng = "x
   if (!unique_audit_names(.gate_eng) || length(.gate_eng) != 1L || .gate_eng == "all") {
     rlang::abort("`.gate_eng` must name one regression engine.")
   }
+  if (.gate_eng == "xgboost" && !requireNamespace("xgboost", quietly = TRUE)) {
+    rlang::abort(c(
+      "The `xgboost` gate engine requires the xgboost package.",
+      i = "Install it with `install.packages('xgboost')` or set `.gate_eng = 'lm'`."
+    ))
+  }
   if (!is.null(.gate_fn) && (!unique_audit_names(.gate_fn) || length(.gate_fn) != 1L)) {
     rlang::abort("`.gate_fn` must name one regression model function.")
   }
