@@ -1,5 +1,20 @@
 # tidyAML (development version)
 
+## Breaking Changes
+None
+
+## New Features
+1. Fixes #280, #281, and #282
+* Add `check_validation_stability()` and `vgc_gate()` for validation-based model 
+decisions.
+* Add `make_lighttar_recipe()` and `gated_fast_regression()` for target-aware 
+embedding preprocessing with nested validation.
+* Add `lodo_engine_audit()` to measure how regression or classification model 
+choices generalize to held-out datasets (#280).
+
+## Minor Fixes and Improvements
+None
+
 # tidyAML 0.0.8
 
 ## Breaking Changes

@@ -44,7 +44,8 @@
 #' fct_tbl
 #'
 #' @return
-#' A list or a tibble.
+#' A tibble of fitted classification workflows and predictions. The testing
+#' rows are retained as an attribute for [check_validation_stability()].
 #'
 #' @name fast_classification
 NULL
@@ -111,6 +112,7 @@ fast_classification <- function(.data, .rec_obj, .parsnip_fns = "all",
   attr(mod_pred_tbl, ".split_type") <- .split_type
   attr(mod_pred_tbl, ".split_args") <- .split_args
   attr(mod_pred_tbl, ".drop_na") <- .drop_na
+  attr(mod_pred_tbl, ".validation_data") <- rsample::testing(splits_obj$splits)
 
   return(mod_pred_tbl)
 }
