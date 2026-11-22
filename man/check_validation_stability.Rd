@@ -44,7 +44,7 @@ rows for all models. Models are not refitted.
 \examples{
 data <- transform(mtcars, am = factor(am))
 rec <- recipes::recipe(am ~ mpg + hp, data = data)
-models <- withr::with_seed(1L, fast_classification(data, rec, .parsnip_eng = "glm"))
+models <- withr::with_seed(1L, fast_classification(data, rec, .parsnip_eng = c("lm","glm")))
 check_validation_stability(models) # One model cannot establish a ranking.
 }
 \seealso{
