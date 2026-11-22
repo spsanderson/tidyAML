@@ -84,7 +84,7 @@ prep.step_lighttar <- function(x, training, info = NULL, ...) {
   if (x$s_pls > 0) {
     target <- lighttar_target(training[[x$outcome]])
     pls <- lighttar_pls(z, target, min(rank, x$s_pls), x$m / nrow(z))
-    colnames(pls) <- paste0("pls_", seq_len(ncol(pls)), recycle0 = TRUE)
+    colnames(pls) <- paste0("pls_", seq_len(ncol(pls)))
     rotation <- cbind(anchor, pls)
   }
   check_lighttar_names(colnames(rotation), names(training))
