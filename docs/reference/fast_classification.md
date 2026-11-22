@@ -52,7 +52,9 @@ fast_classification(
 
 ## Value
 
-A list or a tibble.
+A tibble of fitted classification workflows and predictions. The testing
+rows are retained as an attribute for
+[`check_validation_stability()`](https://www.spsanderson.com/tidyaml/reference/check_validation_stability.md).
 
 ## Details
 
@@ -106,16 +108,20 @@ fct_tbl <- fast_classification(
 #> ℹ Please install (if needed) and load to continue.
 #> Error in UseMethod("fit"): no applicable method for 'fit' applied to an object of class "NULL"
 #> Error in UseMethod("fit"): no applicable method for 'fit' applied to an object of class "NULL"
-#> Error in `fit_xy()`:
-#> ! Please install the earth package to use this engine.
-#> Error in UseMethod("predict"): no applicable method for 'predict' applied to an object of class "NULL"
+#> Warning: There were 3 warnings in `dplyr::mutate()`.
+#> The first warning was:
+#> ℹ In argument: `fitted_wflw = internal_make_fitted_wflw(mod_tbl, splits_obj)`.
+#> Caused by warning:
+#> ! package 'earth' was built under R version 4.5.3
+#> ℹ Run dplyr::last_dplyr_warnings() to see the 2 remaining warnings.
 #> Error in UseMethod("predict"): no applicable method for 'predict' applied to an object of class "NULL"
 #> Error in UseMethod("predict"): no applicable method for 'predict' applied to an object of class "NULL"
 
 fct_tbl
-#> # A tibble: 1 × 8
+#> # A tibble: 2 × 8
 #>   .model_id .parsnip_engine .parsnip_mode  .parsnip_fns model_spec wflw      
 #>       <int> <chr>           <chr>          <chr>        <list>     <list>    
 #> 1         3 glm             classification logistic_reg <spec[+]>  <workflow>
+#> 2         4 earth           classification mars         <spec[+]>  <workflow>
 #> # ℹ 2 more variables: fitted_wflw <list>, pred_wflw <list>
 ```
