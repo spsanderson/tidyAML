@@ -78,9 +78,8 @@ check_validation_stability <- function(.model_tbl, .metric_fn = yardstick::roc_a
     purrr::map_dbl(probabilities, function(prob) {
       result <- .metric_fn(
         dplyr::tibble(truth = truth[rows], prob = prob[rows]),
-        truth = truth, prob, event_level = .event_level
+        truth = .data$truth, .data$prob, event_level = .event_level
       )
-      value <- if (is.list(result)) result$.estimate else NULL
       if (!is.numeric(value) || length(value) != 1L) {
         rlang::abort("`.metric_fn` must return one numeric `.estimate`.")
       }
